@@ -54,8 +54,8 @@ var Browser = function(userAgent){
 	};
 	_this.device = 'PC';
 	_this.language = (function(){
-		var g = (navigator.browserLanguage || navigator.language).toLowerCase();
-		return g=="c"?"zh-cn":g;
+		var g = (navigator.browserLanguage || navigator.language);
+		return g=="c"?"zh-CN":g;
 	})();
 	for(var s in hash){
 		for(var i=0;i< hash[s].length;i++){
