@@ -25,6 +25,8 @@ var Browser = function(userAgent){
 		Taobao:u.indexOf('AliApp(TB')>0,
 		Alipay:u.indexOf('AliApp(AP')>0,
 		Weibo:u.indexOf('Weibo')>0,
+		Suning:u.indexOf('SNEBUY-APP')>0,
+		iQiYi:u.indexOf('IqiyiApp')>0,
 		//系统或平台
 		Windows:u.indexOf('Windows')>0,
 		Linux:u.indexOf('Linux')>0,
@@ -54,7 +56,7 @@ var Browser = function(userAgent){
 	//基本信息
 	var hash = {
 		engine:['WebKit','Trident','Gecko','Presto'],
-		browser:['Chrome','IE','Firefox','Opera','Safari','UC','QQBrowser','QQ','Baidu','Maxthon','Sogou','LBBROWSER','Wechat','Taobao','Alipay','Weibo'],
+		browser:['Chrome','IE','Firefox','Opera','Safari','UC','QQBrowser','QQ','Baidu','Maxthon','Sogou','LBBROWSER','Wechat','Taobao','Alipay','Weibo','Suning','iQiYi'],
 		os:['Windows','Linux','Mac','Android','iOS','iPhone','iPad','WP','BlackBerry','MeeGo','Symbian'],
 		device:['Mobile','Tablet']
 	};
@@ -115,6 +117,12 @@ var Browser = function(userAgent){
 		},
 		'Weibo':function(){
 			return u.replace(/^.*weibo__([\d.]+).*$/,'$1');
+		},
+		'Suning':function(){
+			return u.replace(/^.*SNEBUY-APP([\d.]+).*$/,'$1');
+		},
+		'iQiYi':function(){
+			return u.replace(/^.*IqiyiVersion\/([\d.]+).*$/,'$1');
 		}
 	};
 	_this.version = '';
