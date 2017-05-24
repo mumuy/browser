@@ -74,7 +74,7 @@ Symbian
 
 ## 设备类型
 
-PC - 电脑
+Desktop - 电脑
 
 Tablet - 平板或PDA
 

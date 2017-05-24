@@ -15,6 +15,7 @@ var Browser = function(userAgent){
 		'Edge': u.indexOf('Edge')>0,
 		'Firefox': u.indexOf('Firefox')>0,
 		'Opera': u.indexOf('Opera')>0||u.indexOf('OPR')>0,
+		'Vivaldi': u.indexOf('Vivaldi')>0,
 		'UC': u.indexOf('UC')>0||u.indexOf(' UBrowser')>0,
 		'QQBrowser': u.indexOf('QQBrowser')>0,
 		'QQ': u.indexOf('QQ/')>0,
@@ -50,11 +51,11 @@ var Browser = function(userAgent){
 	//基本信息
 	var hash = {
 		engine:['WebKit','Trident','Gecko','Presto'],
-		browser:['Safari','Chrome','IE','Edge','Firefox','Opera','UC','QQBrowser','QQ','Baidu','Maxthon','Sogou','LBBROWSER','2345Explorer','Wechat','Taobao','Alipay','Weibo','Suning','iQiYi'],
+		browser:['Safari','Chrome','IE','Edge','Firefox','Opera','Vivaldi','UC','QQBrowser','QQ','Baidu','Maxthon','Sogou','LBBROWSER','2345Explorer','Wechat','Taobao','Alipay','Weibo','Suning','iQiYi'],
 		os:['Windows','Linux','Mac','Android','iOS','WP','BlackBerry','MeeGo','Symbian'],
 		device:['Mobile','Tablet']
 	};
-	_this.device = 'PC';
+	_this.device = 'Desktop';
 	_this.language = (function(){
 		var g = (navigator.browserLanguage || navigator.language);
 		var arr = g.split('-');
@@ -121,6 +122,12 @@ var Browser = function(userAgent){
 		},
 		'Safari':function(){
 			return u.replace(/^.*Version\/([\d.]+).*$/,'$1');
+		},
+		'Opera':function(){
+			return u.replace(/^.*Opera\/([\d.]+).*$/,'$1');
+		},
+		'Vivaldi':function(){
+			return u.replace(/^.*Vivaldi\/([\d.]+).*$/,'$1');
 		},
 		'Maxthon':function(){
 			return u.replace(/^.*Maxthon\/([\d.]+).*$/,'$1');
