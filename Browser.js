@@ -90,6 +90,9 @@ var Browser = function(userAgent){
 		},
 		'iOS':function(){
 			return u.replace(/^.*OS ([\d_]+) like.*$/,'$1').replace(/_/g,'.');
+		},
+		'Mac':function(){
+			return u.replace(/^.*Mac OS X ([\d_]+).*$/,'$1').replace(/_/g,'.');
 		}
 	}
 	_this.osVersion = '';
