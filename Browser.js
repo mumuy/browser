@@ -44,19 +44,13 @@ var Browser = function(userAgent){
 		Tablet:u.indexOf('Tablet')>0||u.indexOf('iPad')>0||u.indexOf('Nexus 7')>0
 	};
 	//修正
-	if(match.Chrome){
-		match.Chrome = !(match.Opera + match.Baidu + match.Maxthon + match.Sogou + match.UC + match.QQ + match.LBBROWSER);
-	}
-	if(match.Safari){
-		match.Safari = !(match.Chrome + match.Opera + match.Baidu + match.Maxthon + match.Sogou + match.UC + match.QQ + match.LBBROWSER);
-	}
 	if(match.Mobile){
 		match.Mobile = !match.iPad;
 	}
 	//基本信息
 	var hash = {
 		engine:['WebKit','Trident','Gecko','Presto'],
-		browser:['Chrome','IE','Firefox','Opera','Safari','UC','QQBrowser','QQ','Baidu','Maxthon','Sogou','LBBROWSER','Wechat','Taobao','Alipay','Weibo','Suning','iQiYi'],
+		browser:['Safari','Chrome','IE','Firefox','Opera','UC','QQBrowser','QQ','Baidu','Maxthon','Sogou','LBBROWSER','Wechat','Taobao','Alipay','Weibo','Suning','iQiYi'],
 		os:['Windows','Linux','Mac','Android','iOS','iPhone','iPad','WP','BlackBerry','MeeGo','Symbian'],
 		device:['Mobile','Tablet']
 	};
