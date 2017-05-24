@@ -4,42 +4,44 @@ var Browser = function(userAgent){
 	var _this = this;
 	var match = {
 		//内核
-		Trident: u.indexOf('Trident')>0||u.indexOf('NET CLR')>0,
-		Presto: u.indexOf('Presto')>0,
-        WebKit: u.indexOf('AppleWebKit')>0,
-        Gecko: u.indexOf('Gecko/')>0,
+		'Trident': u.indexOf('Trident')>0||u.indexOf('NET CLR')>0,
+		'Presto': u.indexOf('Presto')>0,
+        'WebKit': u.indexOf('AppleWebKit')>0,
+        'Gecko': u.indexOf('Gecko/')>0,
 		//浏览器
-		UC: u.indexOf('UC')>0||u.indexOf(' UBrowser')>0,
-		QQBrowser: u.indexOf('QQBrowser')>0,
-		QQ: u.indexOf('QQ/')>0,
-		Baidu: u.indexOf('Baidu')>0||u.indexOf('BIDUBrowser')>0,
-		Maxthon: u.indexOf('Maxthon')>0,
-		LBBROWSER: u.indexOf('LBBROWSER')>0,
-		Sogou: u.indexOf('MetaSr')>0||u.indexOf('Sogou')>0,
-		IE: u.indexOf('MSIE')>0||u.indexOf('Trident')>0,
-		Firefox: u.indexOf('Firefox')>0,
-		Opera: u.indexOf('Opera')>0||u.indexOf('OPR')>0,
-		Safari: u.indexOf('Safari')>0,
-		Chrome:u.indexOf('Chrome')>0||u.indexOf('CriOS')>0,
-		Wechat:u.indexOf('MicroMessenger')>0,
-		Taobao:u.indexOf('AliApp(TB')>0,
-		Alipay:u.indexOf('AliApp(AP')>0,
-		Weibo:u.indexOf('Weibo')>0,
-		Suning:u.indexOf('SNEBUY-APP')>0,
-		iQiYi:u.indexOf('IqiyiApp')>0,
+		'Safari': u.indexOf('Safari')>0,
+		'Chrome':u.indexOf('Chrome')>0||u.indexOf('CriOS')>0,
+		'IE': u.indexOf('MSIE')>0||u.indexOf('Trident')>0,
+		'Edge': u.indexOf('Edge')>0,
+		'Firefox': u.indexOf('Firefox')>0,
+		'Opera': u.indexOf('Opera')>0||u.indexOf('OPR')>0,
+		'UC': u.indexOf('UC')>0||u.indexOf(' UBrowser')>0,
+		'QQBrowser': u.indexOf('QQBrowser')>0,
+		'QQ': u.indexOf('QQ/')>0,
+		'Baidu': u.indexOf('Baidu')>0||u.indexOf('BIDUBrowser')>0,
+		'Maxthon': u.indexOf('Maxthon')>0,
+		'LBBROWSER': u.indexOf('LBBROWSER')>0,
+		'2345Explorer': u.indexOf('2345Explorer')>0,
+		'Sogou': u.indexOf('MetaSr')>0||u.indexOf('Sogou')>0,
+		'Wechat':u.indexOf('MicroMessenger')>0,
+		'Taobao':u.indexOf('AliApp(TB')>0,
+		'Alipay':u.indexOf('AliApp(AP')>0,
+		'Weibo':u.indexOf('Weibo')>0,
+		'Suning':u.indexOf('SNEBUY-APP')>0,
+		'iQiYi':u.indexOf('IqiyiApp')>0,
 		//系统或平台
-		Windows:u.indexOf('Windows')>0,
-		Linux:u.indexOf('Linux')>0,
-		Mac:u.indexOf('Macintosh')>0,
-		Android:u.indexOf('Android')>0||u.indexOf('Adr')>0,
-		WP:u.indexOf('IEMobile')>0,
-		BlackBerry:u.indexOf('BlackBerry')>0||u.indexOf('RIM')>0||u.indexOf('BB')>0,
-		MeeGo:u.indexOf('MeeGo')>0,
-		Symbian:u.indexOf('Symbian')>0,
-		iOS:u.indexOf('like Mac OS X')>0,
+		'Windows':u.indexOf('Windows')>0,
+		'Linux':u.indexOf('Linux')>0,
+		'Mac':u.indexOf('Macintosh')>0,
+		'Android':u.indexOf('Android')>0||u.indexOf('Adr')>0,
+		'WP':u.indexOf('IEMobile')>0,
+		'BlackBerry':u.indexOf('BlackBerry')>0||u.indexOf('RIM')>0||u.indexOf('BB')>0,
+		'MeeGo':u.indexOf('MeeGo')>0,
+		'Symbian':u.indexOf('Symbian')>0,
+		'iOS':u.indexOf('like Mac OS X')>0,
 		//设备
-		Mobile:u.indexOf('Mobi')>0||u.indexOf('iPh')>0||u.indexOf('480')>0,
-		Tablet:u.indexOf('Tablet')>0||u.indexOf('iPad')>0||u.indexOf('Nexus 7')>0
+		'Mobile':u.indexOf('Mobi')>0||u.indexOf('iPh')>0||u.indexOf('480')>0,
+		'Tablet':u.indexOf('Tablet')>0||u.indexOf('iPad')>0||u.indexOf('Nexus 7')>0
 	};
 	//修正
 	if(match.Mobile){
@@ -48,7 +50,7 @@ var Browser = function(userAgent){
 	//基本信息
 	var hash = {
 		engine:['WebKit','Trident','Gecko','Presto'],
-		browser:['Safari','Chrome','IE','Firefox','Opera','UC','QQBrowser','QQ','Baidu','Maxthon','Sogou','LBBROWSER','Wechat','Taobao','Alipay','Weibo','Suning','iQiYi'],
+		browser:['Safari','Chrome','IE','Edge','Firefox','Opera','UC','QQBrowser','QQ','Baidu','Maxthon','Sogou','LBBROWSER','2345Explorer','Wechat','Taobao','Alipay','Weibo','Suning','iQiYi'],
 		os:['Windows','Linux','Mac','Android','iOS','WP','BlackBerry','MeeGo','Symbian'],
 		device:['Mobile','Tablet']
 	};
@@ -110,7 +112,10 @@ var Browser = function(userAgent){
 				v = u.replace(/^.*rv:([\d.]+).*$/,'$1');
 			}
 			return v!=u?v:'';
-		},			
+		},
+		'Edge':function(){
+			return u.replace(/^.*Edge\/([\d.]+).*$/,'$1');
+		},
 		'Firefox':function(){
 			return u.replace(/^.*Firefox\/([\d.]+).*$/,'$1');
 		},
@@ -131,6 +136,9 @@ var Browser = function(userAgent){
 		},
 		'UC':function(){
 			return u.replace(/^.*UC?Browser\/([\d.]+).*$/,'$1');
+		},
+		'2345Explorer':function(){
+			return u.replace(/^.*2345Explorer\/([\d.]+).*$/,'$1');
 		},
 		'Wechat':function(){
 			return u.replace(/^.*MicroMessenger\/([\d.]+).*$/,'$1');
