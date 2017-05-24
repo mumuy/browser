@@ -55,7 +55,7 @@ var Browser = function(userAgent){
 		os:['Windows','Linux','Mac','Android','iOS','WP','BlackBerry','MeeGo','Symbian'],
 		device:['Mobile','Tablet']
 	};
-	_this.device = 'Desktop';
+	_this.device = 'PC';
 	_this.language = (function(){
 		var g = (navigator.browserLanguage || navigator.language);
 		var arr = g.split('-');

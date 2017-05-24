@@ -12,6 +12,8 @@ Firefox
 
 Opera
 
+Vivaldi
+
 Safari
 
 UC - UC浏览器
@@ -74,7 +76,7 @@ Symbian
 
 ## 设备类型
 
-Desktop - 电脑
+PC - 电脑
 
 Tablet - 平板或PDA
 
