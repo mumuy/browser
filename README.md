@@ -60,10 +60,6 @@ Android
 
 iOS
 
-iPhone
-
-iPad
-
 WP
 
 BlackBerry

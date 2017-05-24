@@ -37,21 +37,19 @@ var Browser = function(userAgent){
 		MeeGo:u.indexOf('MeeGo')>0,
 		Symbian:u.indexOf('Symbian')>0,
 		iOS:u.indexOf('like Mac OS X')>0,
-		iPhone: u.indexOf('iPh')>0,
-		iPad:u.indexOf('iPad')>0,
 		//设备
 		Mobile:u.indexOf('Mobi')>0||u.indexOf('iPh')>0||u.indexOf('480')>0,
 		Tablet:u.indexOf('Tablet')>0||u.indexOf('iPad')>0||u.indexOf('Nexus 7')>0
 	};
 	//修正
 	if(match.Mobile){
-		match.Mobile = !match.iPad;
+		match.Mobile = !(u.indexOf('iPad')>0);
 	}
 	//基本信息
 	var hash = {
 		engine:['WebKit','Trident','Gecko','Presto'],
 		browser:['Safari','Chrome','IE','Firefox','Opera','UC','QQBrowser','QQ','Baidu','Maxthon','Sogou','LBBROWSER','Wechat','Taobao','Alipay','Weibo','Suning','iQiYi'],
-		os:['Windows','Linux','Mac','Android','iOS','iPhone','iPad','WP','BlackBerry','MeeGo','Symbian'],
+		os:['Windows','Linux','Mac','Android','iOS','WP','BlackBerry','MeeGo','Symbian'],
 		device:['Mobile','Tablet']
 	};
 	_this.device = 'PC';
@@ -67,7 +65,34 @@ var Browser = function(userAgent){
 			}
 		}
 	}
-	//版本信息
+	//系统版本信息
+	var osVersion = {
+		'Windows':function(){
+			var v = u.replace(/^.*Windows NT ([\d.]+);.*$/,'$1');
+			var hash = {
+				'6.4':'10',
+				'6.3':'8.1',
+				'6.2':'8',
+				'6.1':'7',
+				'6.0':'Vista',
+				'5.2':'XP',
+				'5.1':'XP',
+				'5.0':'2000'
+			};
+			return hash[v]||v;
+		},
+		'Android':function(){
+			return u.replace(/^.*Android ([\d.]+);.*$/,'$1');
+		},
+		'iOS':function(){
+			return u.replace(/^.*OS ([\d_]+) like.*$/,'$1').replace(/_/g,'.');
+		}
+	}
+	_this.osVersion = '';
+	if(osVersion[_this.os]){
+		_this.osVersion = osVersion[_this.os]();
+	}
+	//浏览器版本信息
 	var version = {
 		'Chrome':function(){
 			return u.replace(/^.*Chrome\/([\d.]+).*$/,'$1');

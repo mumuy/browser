@@ -4,18 +4,58 @@
 		<meta charset="UTF-8">
 		<title>浏览器测试</title>
 		<script src="Browser.js"></script>
+		<style>
+			.wrapper{
+				width: 960px;
+				margin: 0 auto;
+			}
+			.module table{
+				width: 100%;
+				table-layout: fixed;
+				border-collapse: collapse;
+    			border-spacing: 0;
+				text-align: center;
+			}
+			.module thead{
+				background: #eee;
+			}
+			.module th,.module td{
+				padding: 8px 5px;
+				line-height: 24px;
+				border: 1px solid #eee;
+			}
+		</style>
 	</head>
 	<body>
-		<script>
-				document.writeln("appVersion："+navigator.appVersion+"<br/>");
-				document.writeln("userAgent："+navigator.userAgent+"<br/><br/>");
-				var info = new Browser();
-				document.writeln("浏览器："+info.browser+"<br/>");
-				document.writeln("版本："+info.version+"<br/>");
-				document.writeln("内核："+info.engine+"<br/>");
-				document.writeln("操作系统："+info.os+"<br/>");
-				document.writeln("设备："+info.device+"<br/>");
-				document.writeln("语言："+info.language+"<br/>");
-		</script>
+		<div class="wrapper">
+			<div class="module">
+				<script>
+					var info = new Browser();
+					document.writeln('<table>\
+						<caption><p>'+navigator.userAgent+'</p></caption>\
+						<thead>\
+							<tr>\
+								<th>浏览器</th>\
+								<th>版本</th>\
+								<th>内核</th>\
+								<th>操作系统</th>\
+								<th>设备</th>\
+								<th>语言</th>\
+							</tr>\
+						</thead>\
+						<tbody>\
+							<tr>\
+								<td>'+info.browser+'</td>\
+								<td>'+info.version+'</td>\
+								<td>'+info.engine+'</td>\
+								<td>'+info.os+' '+info.osVersion+'</td>\
+								<td>'+info.device+'</td>\
+								<td>'+info.language+'</td>\
+							</tr>\
+						</tbody>\
+					</table>');
+				</script>
+			</div>
+		</div>
 	</body>
 </html>
