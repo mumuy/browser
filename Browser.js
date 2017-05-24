@@ -109,10 +109,7 @@ var Browser = function(userAgent){
 			return u.replace(/^.*Chrome\/([\d.]+).*$/,'$1');
 		},
 		'IE':function(){
-			var v = u.replace(/^.*MSIE ([\d.]+).*$/,'$1');
-			if(v==u){
-				v = u.replace(/^.*rv:([\d.]+).*$/,'$1');
-			}
+			var v = u.replace(/^.*MSIE ([\d.]+).*$/,'$1').replace(/^.*rv:([\d.]+).*$/,'$1');
 			return v!=u?v:'';
 		},
 		'Edge':function(){
