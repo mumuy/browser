@@ -22,6 +22,9 @@ var Browser = function(userAgent){
 		Safari: u.indexOf('Safari')>0,
 		Chrome:u.indexOf('Chrome')>0||u.indexOf('CriOS')>0,
 		Wechat:u.indexOf('MicroMessenger')>0,
+		Taobao:u.indexOf('AliApp(TB')>0,
+		Alipay:u.indexOf('AliApp(AP')>0,
+		Weibo:u.indexOf('Weibo')>0,
 		//系统或平台
 		Windows:u.indexOf('Windows')>0,
 		Linux:u.indexOf('Linux')>0,
@@ -51,7 +54,7 @@ var Browser = function(userAgent){
 	//基本信息
 	var hash = {
 		engine:['WebKit','Trident','Gecko','Presto'],
-		browser:['Chrome','IE','Firefox','Opera','Safari','UC','QQBrowser','QQ','BaiDu','Maxthon','SouGou','LBBROWSER','Wechat'],
+		browser:['Chrome','IE','Firefox','Opera','Safari','UC','QQBrowser','QQ','BaiDu','Maxthon','SouGou','LBBROWSER','Wechat','Taobao','Alipay','Weibo'],
 		os:['Windows','Linux','Mac','Android','iOS','iPhone','iPad','WP','BlackBerry','MeeGo','Symbian'],
 		device:['Mobile','Tablet']
 	};
@@ -99,10 +102,19 @@ var Browser = function(userAgent){
 			return u.replace(/^.*BIDUBrowser[\s\/]([\d.]+).*$/,'$1');
 		},
 		'UC':function(){
-			return u.replace(/^.*UBrowser\/([\d.]+).*$/,'$1');
+			return u.replace(/^.*UC?Browser\/([\d.]+).*$/,'$1');
 		},
 		'Wechat':function(){
 			return u.replace(/^.*MicroMessenger\/([\d.]+).*$/,'$1');
+		},
+		'Taobao':function(){
+			return u.replace(/^.*AliApp\(TB\/([\d.]+).*$/,'$1');
+		},
+		'Alipay':function(){
+			return u.replace(/^.*AliApp\(AP\/([\d.]+).*$/,'$1');
+		},
+		'Weibo':function(){
+			return u.replace(/^.*weibo__([\d.]+).*$/,'$1');
 		}
 	};
 	_this.version = '';
