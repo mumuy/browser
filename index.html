@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<title>浏览器测试</title>
+		<script src="Browser.js"></script>
+	</head>
+	<body>
+		<script>
+				document.writeln("appVersion："+navigator.appVersion+"<br/>");
+				document.writeln("userAgent："+navigator.userAgent+"<br/><br/>");
+				var info = new Browser();
+				document.writeln("浏览器："+info.browser+"<br/>");
+				document.writeln("版本："+info.version+"<br/>");
+				document.writeln("内核："+info.engine+"<br/>");
+				document.writeln("操作系统："+info.os+"<br/>");
+				document.writeln("设备："+info.device+"<br/>");
+				document.writeln("语言："+info.language+"<br/>");
+		</script>
+	</body>
+</html>
