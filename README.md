@@ -6,6 +6,8 @@ Chrome
 
 IE
 
+Edge
+
 Firefox
 
 Opera
@@ -25,6 +27,8 @@ Maxthon - 傲游浏览器
 Sogou - 搜狗浏览器
 
 LBBROWSER - 猎豹浏览器
+
+2345Explorer = 2345浏览器
 
 Wechat - 微信手机客户端
 
