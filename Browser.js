@@ -55,7 +55,11 @@ var Browser = function(userAgent){
 	_this.device = 'PC';
 	_this.language = (function(){
 		var g = (navigator.browserLanguage || navigator.language);
-		return g=="c"?"zh-CN":g;
+		var arr = g.split('-');
+		if(arr[1]){
+			arr[1] = arr[1].toUpperCase();
+		}
+		return arr.join('-');
 	})();
 	for(var s in hash){
 		for(var i=0;i< hash[s].length;i++){
