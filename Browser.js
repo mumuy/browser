@@ -12,10 +12,10 @@ var Browser = function(userAgent){
 		UC: u.indexOf('UC')>0||u.indexOf(' UBrowser')>0,
 		QQBrowser: u.indexOf('QQBrowser')>0,
 		QQ: u.indexOf('QQ/')>0,
-		BaiDu: u.indexOf('Baidu')>0||u.indexOf('BIDUBrowser')>0,
+		Baidu: u.indexOf('Baidu')>0||u.indexOf('BIDUBrowser')>0,
 		Maxthon: u.indexOf('Maxthon')>0,
 		LBBROWSER: u.indexOf('LBBROWSER')>0,
-		SouGou: u.indexOf('MetaSr')>0||u.indexOf('Sogou')>0,
+		Sogou: u.indexOf('MetaSr')>0||u.indexOf('Sogou')>0,
 		IE: u.indexOf('MSIE')>0||u.indexOf('Trident')>0,
 		Firefox: u.indexOf('Firefox')>0,
 		Opera: u.indexOf('Opera')>0||u.indexOf('OPR')>0,
@@ -43,10 +43,10 @@ var Browser = function(userAgent){
 	};
 	//修正
 	if(match.Chrome){
-		match.Chrome = !(match.Opera + match.BaiDu + match.Maxthon + match.SouGou + match.UC + match.QQ + match.LBBROWSER);
+		match.Chrome = !(match.Opera + match.Baidu + match.Maxthon + match.Sogou + match.UC + match.QQ + match.LBBROWSER);
 	}
 	if(match.Safari){
-		match.Safari = !(match.Chrome + match.Opera + match.BaiDu + match.Maxthon + match.SouGou + match.UC + match.QQ + match.LBBROWSER);
+		match.Safari = !(match.Chrome + match.Opera + match.Baidu + match.Maxthon + match.Sogou + match.UC + match.QQ + match.LBBROWSER);
 	}
 	if(match.Mobile){
 		match.Mobile = !match.iPad;
@@ -54,7 +54,7 @@ var Browser = function(userAgent){
 	//基本信息
 	var hash = {
 		engine:['WebKit','Trident','Gecko','Presto'],
-		browser:['Chrome','IE','Firefox','Opera','Safari','UC','QQBrowser','QQ','BaiDu','Maxthon','SouGou','LBBROWSER','Wechat','Taobao','Alipay','Weibo'],
+		browser:['Chrome','IE','Firefox','Opera','Safari','UC','QQBrowser','QQ','Baidu','Maxthon','Sogou','LBBROWSER','Wechat','Taobao','Alipay','Weibo'],
 		os:['Windows','Linux','Mac','Android','iOS','iPhone','iPad','WP','BlackBerry','MeeGo','Symbian'],
 		device:['Mobile','Tablet']
 	};
@@ -98,7 +98,7 @@ var Browser = function(userAgent){
 		'QQ':function(){
 			return u.replace(/^.*QQ\/([\d.]+).*$/,'$1');
 		},
-		'BaiDu':function(){
+		'Baidu':function(){
 			return u.replace(/^.*BIDUBrowser[\s\/]([\d.]+).*$/,'$1');
 		},
 		'UC':function(){
