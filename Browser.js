@@ -34,13 +34,14 @@ var Browser = function(userAgent){
 		//系统或平台
 		'Windows':u.indexOf('Windows')>0,
 		'Linux':u.indexOf('Linux')>0,
-		'Mac':u.indexOf('Macintosh')>0,
+		'Mac OS':u.indexOf('Macintosh')>0,
 		'Android':u.indexOf('Android')>0||u.indexOf('Adr')>0,
 		'WP':u.indexOf('IEMobile')>0,
 		'BlackBerry':u.indexOf('BlackBerry')>0||u.indexOf('RIM')>0||u.indexOf('BB')>0,
 		'MeeGo':u.indexOf('MeeGo')>0,
 		'Symbian':u.indexOf('Symbian')>0,
 		'iOS':u.indexOf('like Mac OS X')>0,
+		'Chrome OS':u.indexOf('CrOS')>0,
 		//设备
 		'Mobile':u.indexOf('Mobi')>0||u.indexOf('iPh')>0||u.indexOf('480')>0,
 		'Tablet':u.indexOf('Tablet')>0||u.indexOf('iPad')>0||u.indexOf('Nexus 7')>0
@@ -53,7 +54,7 @@ var Browser = function(userAgent){
 	var hash = {
 		engine:['WebKit','Trident','Gecko','Presto'],
 		browser:['Safari','Chrome','IE','Edge','Firefox','Opera','Vivaldi','UC','QQBrowser','QQ','Baidu','Maxthon','Sogou','LBBROWSER','2345Explorer','Qiyu','Wechat','Taobao','Alipay','Weibo','Suning','iQiYi'],
-		os:['Windows','Linux','Mac','Android','iOS','WP','BlackBerry','MeeGo','Symbian'],
+		os:['Windows','Linux','Mac OS','Android','iOS','WP','BlackBerry','MeeGo','Symbian','Chrome OS'],
 		device:['Mobile','Tablet']
 	};
 	_this.device = 'PC';
@@ -95,7 +96,7 @@ var Browser = function(userAgent){
 		'iOS':function(){
 			return u.replace(/^.*OS ([\d_]+) like.*$/,'$1').replace(/_/g,'.');
 		},
-		'Mac':function(){
+		'Mac OS':function(){
 			return u.replace(/^.*Mac OS X ([\d_]+).*$/,'$1').replace(/_/g,'.');
 		}
 	}
