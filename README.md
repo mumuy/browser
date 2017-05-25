@@ -10,11 +10,13 @@ Edge
 
 Firefox
 
+Safari
+
 Opera
 
 Vivaldi
 
-Safari
+Yandex
 
 UC - UC浏览器
 
@@ -31,6 +33,8 @@ Sogou - 搜狗浏览器
 LBBROWSER - 猎豹浏览器
 
 2345Explorer - 2345浏览器
+
+TheWorld - 世界之窗浏览器
 
 Qiyu - 旗鱼浏览器
 
@@ -62,7 +66,7 @@ Windows
 
 Linux
 
-Mac
+Mac	OS
 
 Android
 
@@ -75,6 +79,8 @@ BlackBerry
 MeeGo
 
 Symbian
+
+Chrome OS
 
 ## 设备类型
 

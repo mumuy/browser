@@ -25,6 +25,7 @@ var Browser = function(userAgent){
 		'Sogou': u.indexOf('MetaSr')>0||u.indexOf('Sogou')>0,
 		'LBBROWSER': u.indexOf('LBBROWSER')>0,
 		'2345Explorer': u.indexOf('2345Explorer')>0,
+		'TheWorld': u.indexOf('TheWorld')>0,
 		'Qiyu': u.indexOf('Qiyu')>0,
 		'Wechat':u.indexOf('MicroMessenger')>0,
 		'Taobao':u.indexOf('AliApp(TB')>0,
@@ -54,7 +55,7 @@ var Browser = function(userAgent){
 	//基本信息
 	var hash = {
 		engine:['WebKit','Trident','Gecko','Presto'],
-		browser:['Safari','Chrome','Edge','IE','Firefox','Opera','Vivaldi','Yandex','UC','QQBrowser','QQ','Baidu','Maxthon','Sogou','LBBROWSER','2345Explorer','Qiyu','Wechat','Taobao','Alipay','Weibo','Suning','iQiYi'],
+		browser:['Safari','Chrome','Edge','IE','Firefox','Opera','Vivaldi','Yandex','UC','QQBrowser','QQ','Baidu','Maxthon','Sogou','LBBROWSER','2345Explorer','TheWorld','Qiyu','Wechat','Taobao','Alipay','Weibo','Suning','iQiYi'],
 		os:['Windows','Linux','Mac OS','Android','iOS','WP','BlackBerry','MeeGo','Symbian','Chrome OS'],
 		device:['Mobile','Tablet']
 	};
@@ -153,6 +154,9 @@ var Browser = function(userAgent){
 		},
 		'2345Explorer':function(){
 			return u.replace(/^.*2345Explorer\/([\d.]+).*$/,'$1');
+		},
+		'TheWorld':function(){
+			return u.replace(/^.*TheWorld ([\d.]+).*$/,'$1');
 		},
 		'Qiyu':function(){
 			return u.replace(/^.*Qiyu\/([\d.]+).*$/,'$1');
