@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
 		<title>浏览器测试</title>
 		<script src="Browser.js"></script>
 		<style>
@@ -13,7 +14,8 @@
 				text-decoration: underline;
 			}
 			.wrapper{
-				width: 960px;
+				width: 100%;
+				max-width: 960px;
 				margin: 0 auto;
 			}
 			.container{
@@ -49,29 +51,65 @@
 				<div class="module">
 					<script>
 						var info = new Browser();
-						document.writeln('<table>\
-							<caption><p>'+navigator.userAgent+'</p></caption>\
-							<thead>\
-								<tr>\
-									<th>浏览器</th>\
-									<th>版本</th>\
-									<th>内核</th>\
-									<th>操作系统</th>\
-									<th>设备</th>\
-									<th>语言</th>\
-								</tr>\
-							</thead>\
-							<tbody>\
-								<tr>\
-									<td>'+info.browser+'</td>\
-									<td>'+info.version+'</td>\
-									<td>'+info.engine+'</td>\
-									<td>'+info.os+' '+info.osVersion+'</td>\
-									<td>'+info.device+'</td>\
-									<td>'+info.language+'</td>\
-								</tr>\
-							</tbody>\
-						</table>');
+						if(info.device!='Mobile'){
+							document.writeln('<table>\
+								<caption><p>'+navigator.userAgent+'</p></caption>\
+								<thead>\
+									<tr>\
+										<th>浏览器</th>\
+										<th>版本</th>\
+										<th>内核</th>\
+										<th>操作系统</th>\
+										<th>设备</th>\
+										<th>语言</th>\
+									</tr>\
+								</thead>\
+								<tbody>\
+									<tr>\
+										<td>'+info.browser+'</td>\
+										<td>'+info.version+'</td>\
+										<td>'+info.engine+'</td>\
+										<td>'+info.os+' '+info.osVersion+'</td>\
+										<td>'+info.device+'</td>\
+										<td>'+info.language+'</td>\
+									</tr>\
+								</tbody>\
+							</table>');
+						}else{
+							document.writeln('<table>\
+								<caption><p>'+navigator.userAgent+'</p></caption>\
+								<thead>\
+									<tr>\
+										<th>浏览器</th>\
+										<th>版本</th>\
+										<th>内核</th>\
+									</tr>\
+								</thead>\
+								<tbody>\
+									<tr>\
+										<td>'+info.browser+'</td>\
+										<td>'+info.version+'</td>\
+										<td>'+info.engine+'</td>\
+									</tr>\
+								</tbody>\
+							</table>');
+							document.writeln('<table>\
+								<thead>\
+									<tr>\
+										<th>操作系统</th>\
+										<th>设备</th>\
+										<th>语言</th>\
+									</tr>\
+								</thead>\
+								<tbody>\
+									<tr>\
+										<td>'+info.os+' '+info.osVersion+'</td>\
+										<td>'+info.device+'</td>\
+										<td>'+info.language+'</td>\
+									</tr>\
+								</tbody>\
+							</table>');
+						}
 					</script>
 				</div>
 			</div>
