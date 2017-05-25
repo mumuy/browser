@@ -5,9 +5,26 @@
 		<title>浏览器测试</title>
 		<script src="Browser.js"></script>
 		<style>
+			a{
+				text-decoration: none;
+    			color: #757575;
+			}
+			a:hover{
+				text-decoration: underline;
+			}
 			.wrapper{
 				width: 960px;
 				margin: 0 auto;
+			}
+			.container{
+				margin-bottom: 20px;
+			}
+			.footer{
+				line-height: 40px;
+				text-align: right;
+			}
+			.footer a{
+				margin: 0 5px;
 			}
 			.module table{
 				width: 100%;
@@ -28,34 +45,43 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<div class="module">
-				<script>
-					var info = new Browser();
-					document.writeln('<table>\
-						<caption><p>'+navigator.userAgent+'</p></caption>\
-						<thead>\
-							<tr>\
-								<th>浏览器</th>\
-								<th>版本</th>\
-								<th>内核</th>\
-								<th>操作系统</th>\
-								<th>设备</th>\
-								<th>语言</th>\
-							</tr>\
-						</thead>\
-						<tbody>\
-							<tr>\
-								<td>'+info.browser+'</td>\
-								<td>'+info.version+'</td>\
-								<td>'+info.engine+'</td>\
-								<td>'+info.os+' '+info.osVersion+'</td>\
-								<td>'+info.device+'</td>\
-								<td>'+info.language+'</td>\
-							</tr>\
-						</tbody>\
-					</table>');
-				</script>
+			<div class="container">
+				<div class="module">
+					<script>
+						var info = new Browser();
+						document.writeln('<table>\
+							<caption><p>'+navigator.userAgent+'</p></caption>\
+							<thead>\
+								<tr>\
+									<th>浏览器</th>\
+									<th>版本</th>\
+									<th>内核</th>\
+									<th>操作系统</th>\
+									<th>设备</th>\
+									<th>语言</th>\
+								</tr>\
+							</thead>\
+							<tbody>\
+								<tr>\
+									<td>'+info.browser+'</td>\
+									<td>'+info.version+'</td>\
+									<td>'+info.engine+'</td>\
+									<td>'+info.os+' '+info.osVersion+'</td>\
+									<td>'+info.device+'</td>\
+									<td>'+info.language+'</td>\
+								</tr>\
+							</tbody>\
+						</table>');
+					</script>
+				</div>
 			</div>
+			<div class="footer">
+				<a href="https://github.com/mumuy/browser" target="_blank">项目地址</a>
+				<a href="/">返回首页</a>
+			</div>
+		</div>
+		<div style="display: none;">
+			<script src="http://s95.cnzz.com/z_stat.php?id=1258310068&web_id=1258310068"></script>
 		</div>
 	</body>
 </html>
