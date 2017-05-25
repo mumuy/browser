@@ -53,7 +53,7 @@ var Browser = function(userAgent){
 	//基本信息
 	var hash = {
 		engine:['WebKit','Trident','Gecko','Presto'],
-		browser:['Safari','Chrome','IE','Edge','Firefox','Opera','Vivaldi','UC','QQBrowser','QQ','Baidu','Maxthon','Sogou','LBBROWSER','2345Explorer','Qiyu','Wechat','Taobao','Alipay','Weibo','Suning','iQiYi'],
+		browser:['Safari','Chrome','Edge','IE','Firefox','Opera','Vivaldi','UC','QQBrowser','QQ','Baidu','Maxthon','Sogou','LBBROWSER','2345Explorer','Qiyu','Wechat','Taobao','Alipay','Weibo','Suning','iQiYi'],
 		os:['Windows','Linux','Mac OS','Android','iOS','WP','BlackBerry','MeeGo','Symbian','Chrome OS'],
 		device:['Mobile','Tablet']
 	};
@@ -73,6 +73,10 @@ var Browser = function(userAgent){
 				_this[s] = value;
 			}
 		}
+	}
+	//修正
+	if(_this.browser=='Edge'){
+		_this.engine = 'EdgeHTML';
 	}
 	//系统版本信息
 	var osVersion = {
