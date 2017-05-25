@@ -54,11 +54,13 @@ iQiYi - 爱奇艺手机客户端
 
 ## 内核：
 
+EdgeHTML
+
 Trident
 
 Presto
 
-WebKit
+WebKit/Blink
 
 Gecko
 

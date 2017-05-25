@@ -113,8 +113,7 @@ var Browser = function(userAgent){
 			return u.replace(/^.*Chrome\/([\d.]+).*$/,'$1');
 		},
 		'IE':function(){
-			var v = u.replace(/^.*MSIE ([\d.]+).*$/,'$1').replace(/^.*rv:([\d.]+).*$/,'$1');
-			return v!=u?v:'';
+			return u.replace(/^.*MSIE ([\d.]+).*$/,'$1').replace(/^.*rv:([\d.]+).*$/,'$1');
 		},
 		'Edge':function(){
 			return u.replace(/^.*Edge\/([\d.]+).*$/,'$1');
@@ -126,7 +125,7 @@ var Browser = function(userAgent){
 			return u.replace(/^.*Version\/([\d.]+).*$/,'$1');
 		},
 		'Opera':function(){
-			return u.replace(/^.*Opera\/([\d.]+).*$/,'$1');
+			return u.replace(/^.*Opera\/([\d.]+).*$/,'$1').replace(/^.*OPR\/([\d.]+).*$/,'$1');
 		},
 		'Vivaldi':function(){
 			return u.replace(/^.*Vivaldi\/([\d.]+).*$/,'$1');
@@ -182,7 +181,8 @@ var Browser = function(userAgent){
 	};
 	_this.version = '';
 	if(version[_this.browser]){
-		_this.version = version[_this.browser]();
+		var v = version[_this.browser]();
+		_this.version = v!=u?v:'';
 	}
 	//修正
 	if(_this.browser=='Edge'){
