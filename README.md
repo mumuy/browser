@@ -38,6 +38,8 @@ TheWorld - 世界之窗浏览器
 
 Qiyu - 旗鱼浏览器
 
+XiaoMi - 小米浏览器
+
 Wechat - 微信手机客户端
 
 Taobao - 淘宝手机客户端
