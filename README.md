@@ -22,6 +22,8 @@ Yandex
 
 Kindle
 
+360 - 360浏览器
+
 UC - UC浏览器
 
 QQBrowser - QQ浏览器

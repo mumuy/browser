@@ -19,6 +19,7 @@ var Browser = function(userAgent){
 		'Vivaldi': u.indexOf('Vivaldi')>-1,
 		'Yandex': u.indexOf('YaBrowser')>-1,
 		'Kindle': u.indexOf('Kindle')>-1||u.indexOf('Silk/')>-1,
+		'360': u.indexOf('360EE')>-1||u.indexOf('360SE')>-1,
 		'UC': u.indexOf('UC')>-1||u.indexOf(' UBrowser')>-1,
 		'QQBrowser': u.indexOf('QQBrowser')>-1,
 		'QQ': u.indexOf('QQ/')>-1,
@@ -57,13 +58,23 @@ var Browser = function(userAgent){
 		'Tablet':u.indexOf('Tablet')>-1||u.indexOf('Pad')>-1||u.indexOf('Nexus 7')>-1
 	};
 	//修正
-	if(match.Mobile){
-		match.Mobile = !(u.indexOf('iPad')>-1);
+	if(match['Mobile']){
+		match['Mobile'] = !(u.indexOf('iPad')>-1);
+	}else if(match['Chrome']&&!match['360']){
+		match['360'] = (function(option, value){
+			var mimeTypes = navigator.mimeTypes;
+            for (var mt in mimeTypes) {
+                if (mimeTypes[mt][option] == value) {
+                    return true;
+                }
+            }
+            return false;
+		})("type", "application/vnd.chromium.remoting-viewer");
 	}
 	//基本信息
 	var hash = {
 		engine:['WebKit','Trident','Gecko','Presto'],
-		browser:['Safari','Chrome','Edge','IE','Firefox','Chromium','Opera','Vivaldi','Yandex','Kindle','UC','QQBrowser','QQ','Baidu','Maxthon','Sogou','LBBROWSER','2345Explorer','TheWorld','XiaoMi','Quark','Qiyu','Wechat','Taobao','Alipay','Weibo','Suning','iQiYi'],
+		browser:['Safari','Chrome','Edge','IE','Firefox','Chromium','Opera','Vivaldi','Yandex','Kindle','360','UC','QQBrowser','QQ','Baidu','Maxthon','Sogou','LBBROWSER','2345Explorer','TheWorld','XiaoMi','Quark','Qiyu','Wechat','Taobao','Alipay','Weibo','Suning','iQiYi'],
 		os:['Windows','Linux','Mac OS','Android','Ubuntu','FreeBSD','Debian','iOS','Windows Phone','BlackBerry','MeeGo','Symbian','Chrome OS','WebOS'],
 		device:['Mobile','Tablet']
 	};
