@@ -18,6 +18,8 @@ Vivaldi
 
 Yandex
 
+Kindle
+
 UC - UC浏览器
 
 QQBrowser - QQ浏览器
