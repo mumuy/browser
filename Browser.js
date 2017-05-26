@@ -62,16 +62,6 @@ var Browser = function(userAgent){
 		match['Mobile'] = !(u.indexOf('iPad')>-1);
 	}else if(window.showModalDialog&&window.chrome){
 		match['360'] = true;
-	}else if(match['Chrome']&&!match['360']){
-		match['360'] = (function(option, value){
-			var mimeTypes = navigator.mimeTypes;
-            for (var mt in mimeTypes) {
-                if (mimeTypes[mt][option] == value) {
-                    return true;
-                }
-            }
-            return false;
-		})("type", "application/vnd.chromium.remoting-viewer");
 	}
 	//基本信息
 	var hash = {
