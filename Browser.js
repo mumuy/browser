@@ -71,7 +71,7 @@ var Browser = function(userAgent){
 		if(arr[1]){
 			arr[1] = arr[1].toUpperCase();
 		}
-		return arr.join('-');
+		return arr.join('_');
 	})();
 	for(var s in hash){
 		for(var i=0;i< hash[s].length;i++){
