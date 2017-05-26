@@ -60,6 +60,8 @@ var Browser = function(userAgent){
 	//修正
 	if(match['Mobile']){
 		match['Mobile'] = !(u.indexOf('iPad')>-1);
+	}else if(window.showModalDialog&&window.chrome){
+		match['360'] = true;
 	}else if(match['Chrome']&&!match['360']){
 		match['360'] = (function(option, value){
 			var mimeTypes = navigator.mimeTypes;
@@ -183,6 +185,9 @@ var Browser = function(userAgent){
 		},
 		'UC':function(){
 			return u.replace(/^.*UC?Browser\/([\d.]+).*$/,'$1');
+		},
+		'Sogou':function(){
+			return u.replace(/^.*SE ([\d.X]+).*$/,'$1');
 		},
 		'2345Explorer':function(){
 			return u.replace(/^.*2345Explorer\/([\d.]+).*$/,'$1');
