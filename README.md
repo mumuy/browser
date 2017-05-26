@@ -92,6 +92,8 @@ Symbian
 
 Chrome OS
 
+WebOS
+
 ## 设备类型
 
 PC - 电脑

@@ -48,9 +48,10 @@ var Browser = function(userAgent){
 		'Symbian':u.indexOf('Symbian')>-1,
 		'iOS':u.indexOf('like Mac OS X')>-1,
 		'Chrome OS':u.indexOf('CrOS')>-1,
+		'WebOS':u.indexOf('hpwOS')>-1,
 		//设备
 		'Mobile':u.indexOf('Mobi')>-1||u.indexOf('iPh')>-1||u.indexOf('480')>-1,
-		'Tablet':u.indexOf('Tablet')>-1||u.indexOf('iPad')>-1||u.indexOf('Nexus 7')>-1
+		'Tablet':u.indexOf('Tablet')>-1||u.indexOf('Pad')>-1||u.indexOf('Nexus 7')>-1
 	};
 	//修正
 	if(match.Mobile){
@@ -60,7 +61,7 @@ var Browser = function(userAgent){
 	var hash = {
 		engine:['WebKit','Trident','Gecko','Presto'],
 		browser:['Safari','Chrome','Edge','IE','Firefox','Chromium','Opera','Vivaldi','Yandex','Kindle','UC','QQBrowser','QQ','Baidu','Maxthon','Sogou','LBBROWSER','2345Explorer','TheWorld','XiaoMi','Qiyu','Wechat','Taobao','Alipay','Weibo','Suning','iQiYi'],
-		os:['Windows','Linux','Mac OS','Android','Ubuntu','iOS','Windows Phone','BlackBerry','MeeGo','Symbian','Chrome OS'],
+		os:['Windows','Linux','Mac OS','Android','Ubuntu','iOS','Windows Phone','BlackBerry','MeeGo','Symbian','Chrome OS','WebOS'],
 		device:['Mobile','Tablet']
 	};
 	_this.device = 'PC';
@@ -107,6 +108,9 @@ var Browser = function(userAgent){
 		},
 		'Mac OS':function(){
 			return u.replace(/^.*Mac OS X ([\d_]+).*$/,'$1').replace(/_/g,'.');
+		},
+		'WebOS':function(){
+			return u.replace(/^.*hpwOS\/([\d.]+);.*$/,'$1');
 		}
 	}
 	_this.osVersion = '';
