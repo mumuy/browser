@@ -107,6 +107,9 @@ var Browser = function(userAgent){
 	_this.osVersion = '';
 	if(osVersion[_this.os]){
 		_this.osVersion = osVersion[_this.os]();
+		if(_this.osVersion==u){
+			_this.osVersion = '';
+		}
 	}
 	//浏览器版本信息
 	var version = {
@@ -185,8 +188,10 @@ var Browser = function(userAgent){
 	};
 	_this.version = '';
 	if(version[_this.browser]){
-		var v = version[_this.browser]();
-		_this.version = v!=u?v:'';
+		_this.version = version[_this.browser]();
+		if(_this.version==u){
+			_this.version = '';
+		}
 	}
 	//修正
 	if(_this.browser=='Edge'){
