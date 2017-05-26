@@ -47,7 +47,7 @@ var Browser = function(userAgent){
 		'FreeBSD': u.indexOf('FreeBSD')>-1,
 		'Debian': u.indexOf('Debian')>-1,
 		'Windows Phone':u.indexOf('IEMobile')>-1,
-		'BlackBerry':u.indexOf('BlackBerry')>-1||u.indexOf('RIM')>-1||u.indexOf('BB')>-1,
+		'BlackBerry':u.indexOf('BlackBerry')>-1||u.indexOf('RIM')>-1,
 		'MeeGo':u.indexOf('MeeGo')>-1,
 		'Symbian':u.indexOf('Symbian')>-1,
 		'iOS':u.indexOf('like Mac OS X')>-1,
