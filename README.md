@@ -4,6 +4,8 @@
 
 Chrome
 
+Chromium
+
 IE
 
 Edge
@@ -72,13 +74,15 @@ Windows
 
 Linux
 
+Ubuntu
+
 Mac	OS
 
 Android
 
 iOS
 
-WP
+Windows Phone
 
 BlackBerry
 

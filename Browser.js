@@ -4,61 +4,63 @@ var Browser = function(userAgent){
 	var _this = this;
 	var match = {
 		//内核
-		'Trident': u.indexOf('Trident')>0||u.indexOf('NET CLR')>0,
-		'Presto': u.indexOf('Presto')>0,
-        'WebKit': u.indexOf('AppleWebKit')>0,
-        'Gecko': u.indexOf('Gecko/')>0,
+		'Trident': u.indexOf('Trident')>-1||u.indexOf('NET CLR')>-1,
+		'Presto': u.indexOf('Presto')>-1,
+        'WebKit': u.indexOf('AppleWebKit')>-1,
+        'Gecko': u.indexOf('Gecko/')>-1,
 		//浏览器
-		'Safari': u.indexOf('Safari')>0,
-		'Chrome':u.indexOf('Chrome')>0||u.indexOf('CriOS')>0,
-		'IE': u.indexOf('MSIE')>0||u.indexOf('Trident')>0,
-		'Edge': u.indexOf('Edge')>0,
-		'Firefox': u.indexOf('Firefox')>0,
-		'Opera': u.indexOf('Opera')>0||u.indexOf('OPR')>0,
-		'Vivaldi': u.indexOf('Vivaldi')>0,
-		'Yandex': u.indexOf('YaBrowser')>0,
-		'Kindle': u.indexOf('Kindle')>0||u.indexOf('Silk/')>0,
-		'UC': u.indexOf('UC')>0||u.indexOf(' UBrowser')>0,
-		'QQBrowser': u.indexOf('QQBrowser')>0,
-		'QQ': u.indexOf('QQ/')>0,
-		'Baidu': u.indexOf('Baidu')>0||u.indexOf('BIDUBrowser')>0,
-		'Maxthon': u.indexOf('Maxthon')>0,
-		'Sogou': u.indexOf('MetaSr')>0||u.indexOf('Sogou')>0,
-		'LBBROWSER': u.indexOf('LBBROWSER')>0,
-		'2345Explorer': u.indexOf('2345Explorer')>0,
-		'TheWorld': u.indexOf('TheWorld')>0,
-		'XiaoMi':u.indexOf('MiuiBrowser')>0,
-		'Qiyu': u.indexOf('Qiyu')>0,
-		'Wechat':u.indexOf('MicroMessenger')>0,
-		'Taobao':u.indexOf('AliApp(TB')>0,
-		'Alipay':u.indexOf('AliApp(AP')>0,
-		'Weibo':u.indexOf('Weibo')>0,
-		'Suning':u.indexOf('SNEBUY-APP')>0,
-		'iQiYi':u.indexOf('IqiyiApp')>0,
+		'Safari': u.indexOf('Safari')>-1,
+		'Chrome':u.indexOf('Chrome')>-1||u.indexOf('CriOS')>-1,
+		'IE': u.indexOf('MSIE')>-1||u.indexOf('Trident')>-1,
+		'Edge': u.indexOf('Edge')>-1,
+		'Firefox': u.indexOf('Firefox')>-1,
+		'Chromium': u.indexOf('Chromium')>-1,
+		'Opera': u.indexOf('Opera')>-1||u.indexOf('OPR')>-1,
+		'Vivaldi': u.indexOf('Vivaldi')>-1,
+		'Yandex': u.indexOf('YaBrowser')>-1,
+		'Kindle': u.indexOf('Kindle')>-1||u.indexOf('Silk/')>-1,
+		'UC': u.indexOf('UC')>-1||u.indexOf(' UBrowser')>-1,
+		'QQBrowser': u.indexOf('QQBrowser')>-1,
+		'QQ': u.indexOf('QQ/')>-1,
+		'Baidu': u.indexOf('Baidu')>-1||u.indexOf('BIDUBrowser')>-1,
+		'Maxthon': u.indexOf('Maxthon')>-1,
+		'Sogou': u.indexOf('MetaSr')>-1||u.indexOf('Sogou')>-1,
+		'LBBROWSER': u.indexOf('LBBROWSER')>-1,
+		'2345Explorer': u.indexOf('2345Explorer')>-1,
+		'TheWorld': u.indexOf('TheWorld')>-1,
+		'XiaoMi':u.indexOf('MiuiBrowser')>-1,
+		'Qiyu': u.indexOf('Qiyu')>-1,
+		'Wechat':u.indexOf('MicroMessenger')>-1,
+		'Taobao':u.indexOf('AliApp(TB')>-1,
+		'Alipay':u.indexOf('AliApp(AP')>-1,
+		'Weibo':u.indexOf('Weibo')>-1,
+		'Suning':u.indexOf('SNEBUY-APP')>-1,
+		'iQiYi':u.indexOf('IqiyiApp')>-1,
 		//系统或平台
-		'Windows':u.indexOf('Windows')>0,
-		'Linux':u.indexOf('Linux')>0,
-		'Mac OS':u.indexOf('Macintosh')>0,
-		'Android':u.indexOf('Android')>0||u.indexOf('Adr')>0,
-		'WP':u.indexOf('IEMobile')>0,
-		'BlackBerry':u.indexOf('BlackBerry')>0||u.indexOf('RIM')>0||u.indexOf('BB')>0,
-		'MeeGo':u.indexOf('MeeGo')>0,
-		'Symbian':u.indexOf('Symbian')>0,
-		'iOS':u.indexOf('like Mac OS X')>0,
-		'Chrome OS':u.indexOf('CrOS')>0,
+		'Windows':u.indexOf('Windows')>-1,
+		'Linux':u.indexOf('Linux')>-1||u.indexOf('X11')>-1,
+		'Mac OS':u.indexOf('Macintosh')>-1,
+		'Android':u.indexOf('Android')>-1||u.indexOf('Adr')>-1,
+		'Ubuntu': u.indexOf('Ubuntu')>-1,
+		'Windows Phone':u.indexOf('IEMobile')>-1,
+		'BlackBerry':u.indexOf('BlackBerry')>-1||u.indexOf('RIM')>-1||u.indexOf('BB')>-1,
+		'MeeGo':u.indexOf('MeeGo')>-1,
+		'Symbian':u.indexOf('Symbian')>-1,
+		'iOS':u.indexOf('like Mac OS X')>-1,
+		'Chrome OS':u.indexOf('CrOS')>-1,
 		//设备
-		'Mobile':u.indexOf('Mobi')>0||u.indexOf('iPh')>0||u.indexOf('480')>0,
-		'Tablet':u.indexOf('Tablet')>0||u.indexOf('iPad')>0||u.indexOf('Nexus 7')>0
+		'Mobile':u.indexOf('Mobi')>-1||u.indexOf('iPh')>-1||u.indexOf('480')>-1,
+		'Tablet':u.indexOf('Tablet')>-1||u.indexOf('iPad')>-1||u.indexOf('Nexus 7')>-1
 	};
 	//修正
 	if(match.Mobile){
-		match.Mobile = !(u.indexOf('iPad')>0);
+		match.Mobile = !(u.indexOf('iPad')>-1);
 	}
 	//基本信息
 	var hash = {
 		engine:['WebKit','Trident','Gecko','Presto'],
-		browser:['Safari','Chrome','Edge','IE','Firefox','Opera','Vivaldi','Yandex','Kindle','UC','QQBrowser','QQ','Baidu','Maxthon','Sogou','LBBROWSER','2345Explorer','TheWorld','XiaoMi','Qiyu','Wechat','Taobao','Alipay','Weibo','Suning','iQiYi'],
-		os:['Windows','Linux','Mac OS','Android','iOS','WP','BlackBerry','MeeGo','Symbian','Chrome OS'],
+		browser:['Safari','Chrome','Edge','IE','Firefox','Chromium','Opera','Vivaldi','Yandex','Kindle','UC','QQBrowser','QQ','Baidu','Maxthon','Sogou','LBBROWSER','2345Explorer','TheWorld','XiaoMi','Qiyu','Wechat','Taobao','Alipay','Weibo','Suning','iQiYi'],
+		os:['Windows','Linux','Mac OS','Android','Ubuntu','iOS','Windows Phone','BlackBerry','MeeGo','Symbian','Chrome OS'],
 		device:['Mobile','Tablet']
 	};
 	_this.device = 'PC';
@@ -100,6 +102,9 @@ var Browser = function(userAgent){
 		'iOS':function(){
 			return u.replace(/^.*OS ([\d_]+) like.*$/,'$1').replace(/_/g,'.');
 		},
+		'Windows Phone':function(){
+			return u.replace(/^.*Windows Phone( OS)? ([\d.]+);.*$/,'$2');
+		},
 		'Mac OS':function(){
 			return u.replace(/^.*Mac OS X ([\d_]+).*$/,'$1').replace(/_/g,'.');
 		}
@@ -113,8 +118,11 @@ var Browser = function(userAgent){
 	}
 	//浏览器版本信息
 	var version = {
+		'Safari':function(){
+			return u.replace(/^.*Version\/([\d.]+).*$/,'$1');
+		},
 		'Chrome':function(){
-			return u.replace(/^.*Chrome\/([\d.]+).*$/,'$1');
+			return u.replace(/^.*Chrome\/([\d.]+).*$/,'$1').replace(/^.*CriOS\/([\d.]+).*$/,'$1');
 		},
 		'IE':function(){
 			return u.replace(/^.*MSIE ([\d.]+).*$/,'$1').replace(/^.*rv:([\d.]+).*$/,'$1');
@@ -125,8 +133,8 @@ var Browser = function(userAgent){
 		'Firefox':function(){
 			return u.replace(/^.*Firefox\/([\d.]+).*$/,'$1');
 		},
-		'Safari':function(){
-			return u.replace(/^.*Version\/([\d.]+).*$/,'$1');
+		'Chromium':function(){
+			return u.replace(/^.*Chromium\/([\d.]+).*$/,'$1');
 		},
 		'Opera':function(){
 			return u.replace(/^.*Opera\/([\d.]+).*$/,'$1').replace(/^.*OPR\/([\d.]+).*$/,'$1');
