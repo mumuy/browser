@@ -43,6 +43,8 @@ var Browser = function(userAgent){
 		'Mac OS':u.indexOf('Macintosh')>-1,
 		'Android':u.indexOf('Android')>-1||u.indexOf('Adr')>-1,
 		'Ubuntu': u.indexOf('Ubuntu')>-1,
+		'FreeBSD': u.indexOf('FreeBSD')>-1,
+		'Debian': u.indexOf('Debian')>-1,
 		'Windows Phone':u.indexOf('IEMobile')>-1,
 		'BlackBerry':u.indexOf('BlackBerry')>-1||u.indexOf('RIM')>-1||u.indexOf('BB')>-1,
 		'MeeGo':u.indexOf('MeeGo')>-1,
@@ -62,7 +64,7 @@ var Browser = function(userAgent){
 	var hash = {
 		engine:['WebKit','Trident','Gecko','Presto'],
 		browser:['Safari','Chrome','Edge','IE','Firefox','Chromium','Opera','Vivaldi','Yandex','Kindle','UC','QQBrowser','QQ','Baidu','Maxthon','Sogou','LBBROWSER','2345Explorer','TheWorld','XiaoMi','Quark','Qiyu','Wechat','Taobao','Alipay','Weibo','Suning','iQiYi'],
-		os:['Windows','Linux','Mac OS','Android','Ubuntu','iOS','Windows Phone','BlackBerry','MeeGo','Symbian','Chrome OS','WebOS'],
+		os:['Windows','Linux','Mac OS','Android','Ubuntu','FreeBSD','Debian','iOS','Windows Phone','BlackBerry','MeeGo','Symbian','Chrome OS','WebOS'],
 		device:['Mobile','Tablet']
 	};
 	_this.device = 'PC';
@@ -103,6 +105,9 @@ var Browser = function(userAgent){
 		},
 		'iOS':function(){
 			return u.replace(/^.*OS ([\d_]+) like.*$/,'$1').replace(/_/g,'.');
+		},
+		'Debian':function(){
+			return u.replace(/^.*Debian\/([\d.]+).*$/,'$1');
 		},
 		'Windows Phone':function(){
 			return u.replace(/^.*Windows Phone( OS)? ([\d.]+);.*$/,'$2');

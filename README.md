@@ -78,6 +78,10 @@ Linux
 
 Ubuntu
 
+FreeBSD
+
+Debian
+
 Mac	OS
 
 Android
