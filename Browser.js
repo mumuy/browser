@@ -13,7 +13,7 @@ var Browser = function(userAgent){
 		'Chrome':u.indexOf('Chrome')>-1||u.indexOf('CriOS')>-1,
 		'IE': u.indexOf('MSIE')>-1||u.indexOf('Trident')>-1,
 		'Edge': u.indexOf('Edge')>-1,
-		'Firefox': u.indexOf('Firefox')>-1,
+		'Firefox': u.indexOf('Firefox')>-1||u.indexOf('FxiOS')>-1,
 		'Chromium': u.indexOf('Chromium')>-1,
 		'Opera': u.indexOf('Opera')>-1||u.indexOf('OPR')>-1,
 		'Vivaldi': u.indexOf('Vivaldi')>-1,
@@ -144,7 +144,7 @@ var Browser = function(userAgent){
 			return u.replace(/^.*Edge\/([\d.]+).*$/,'$1');
 		},
 		'Firefox':function(){
-			return u.replace(/^.*Firefox\/([\d.]+).*$/,'$1');
+			return u.replace(/^.*Firefox\/([\d.]+).*$/,'$1').replace(/^.*FxiOS\/([\d.]+).*$/,'$1');
 		},
 		'Chromium':function(){
 			return u.replace(/^.*Chromium\/([\d.]+).*$/,'$1');
