@@ -177,7 +177,7 @@ var Browser = function(userAgent){
 			return u.replace(/^.*UC?Browser\/([\d.]+).*$/,'$1');
 		},
 		'Sogou':function(){
-			return u.replace(/^.*SE ([\d.X]+).*$/,'$1');
+			return u.replace(/^.*SE ([\d.X]+).*$/,'$1').replace(/^.*SogouMobileBrowser\/([\d.]+).*$/,'$1');
 		},
 		'2345Explorer':function(){
 			return u.replace(/^.*2345Explorer\/([\d.]+).*$/,'$1');
