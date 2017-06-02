@@ -18,7 +18,7 @@
     var _window = window||{};
     var _navigator = navigator||{};
 
-    return function (userAgent, acceptLanguage) {
+    return function (userAgent) {
         var u = userAgent || _navigator.userAgent;
         var _this = this;
 
