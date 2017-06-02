@@ -3,7 +3,6 @@
  * https://github.com/mumuy/browser
  */
 
-
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD
@@ -16,29 +15,10 @@
         root.Browser = factory()
     }
 }(this, function () {
-
-    // window ?
-    var _window
-    try {
-        _window = window
-    } catch (e) {
-        _window = {}
-    }
+    var _window = window||{};
+    var _navigator = navigator||{};
 
     return function (userAgent, acceptLanguage) {
-
-        // navigator ?
-        // var g = (navigator.browserLanguage || navigator.language);
-        var _navigator
-        try {
-            _navigator = navigator
-        } catch (e) {
-            _navigator = {
-                userAgent: userAgent,
-                browserLanguage: acceptLanguage
-            }
-        }
-
         var u = userAgent || _navigator.userAgent;
         var _this = this;
 
@@ -176,9 +156,6 @@
                 return u.replace(/^.*Version\/([\d.]+).*$/, '$1');
             },
             'Chrome': function () {
-                return u.replace(/^.*Chrome\/([\d.]+).*$/, '$1').replace(/^.*CriOS\/([\d.]+).*$/, '$1');
-            },
-            '360': function () {
                 return u.replace(/^.*Chrome\/([\d.]+).*$/, '$1').replace(/^.*CriOS\/([\d.]+).*$/, '$1');
             },
             'IE': function () {
