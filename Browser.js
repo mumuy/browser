@@ -57,6 +57,7 @@
             'Taobao': u.indexOf('AliApp(TB') > -1,
             'Alipay': u.indexOf('AliApp(AP') > -1,
             'Weibo': u.indexOf('Weibo') > -1,
+            'Douban': u.indexOf('com.douban.frodo') > -1,
             'Suning': u.indexOf('SNEBUY-APP') > -1,
             'iQiYi': u.indexOf('IqiyiApp') > -1,
             //系统或平台
@@ -87,7 +88,7 @@
         //基本信息
         var hash = {
             engine: ['WebKit', 'Trident', 'Gecko', 'Presto'],
-            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Kindle', '360', 'UC', 'QQBrowser', 'QQ', 'Baidu', 'Maxthon', 'Sogou', 'LBBROWSER', '2345Explorer', 'TheWorld', 'XiaoMi', 'Quark', 'Qiyu', 'Wechat', 'Taobao', 'Alipay', 'Weibo', 'Suning', 'iQiYi'],
+            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Kindle', '360', 'UC', 'QQBrowser', 'QQ', 'Baidu', 'Maxthon', 'Sogou', 'LBBROWSER', '2345Explorer', 'TheWorld', 'XiaoMi', 'Quark', 'Qiyu', 'Wechat', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi'],
             os: ['Windows', 'Linux', 'Mac OS', 'Android', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS'],
             device: ['Mobile', 'Tablet']
         };
@@ -229,6 +230,9 @@
             },
             'Weibo': function () {
                 return u.replace(/^.*weibo__([\d.]+).*$/, '$1');
+            },
+            'Douban': function () {
+                return u.replace(/^.*com.douban.frodo\/([\d.]+).*$/, '$1');
             },
             'Suning': function () {
                 return u.replace(/^.*SNEBUY-APP([\d.]+).*$/, '$1');
