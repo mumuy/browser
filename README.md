@@ -56,6 +56,8 @@ Alipay - 支付宝手机客户端
 
 Weibo - 微博手机客户端
 
+Douban - 豆瓣手机客户端
+
 Suning - 苏宁易购手机客户端
 
 iQiYi - 爱奇艺手机客户端
