@@ -40,7 +40,8 @@
             'Vivaldi': u.indexOf('Vivaldi') > -1,
             'Yandex': u.indexOf('YaBrowser') > -1,
             'Kindle': u.indexOf('Kindle') > -1 || u.indexOf('Silk/') > -1,
-            '360': u.indexOf('360EE') > -1 || u.indexOf('360SE') > -1,
+            '360EE': u.indexOf('360EE') > -1,
+            '360SE': u.indexOf('360SE') > -1,
             'UC': u.indexOf('UC') > -1 || u.indexOf(' UBrowser') > -1,
             'QQBrowser': u.indexOf('QQBrowser') > -1,
             'QQ': u.indexOf('QQ/') > -1,
@@ -83,12 +84,23 @@
         if (match['Mobile']) {
             match['Mobile'] = !(u.indexOf('iPad') > -1);
         } else if (_window.showModalDialog && _window.chrome) {
-            match['360'] = true;
+            var isSE = false;
+            for(var item of navigator.mimeTypes){
+                if(item['type']=='application/gameplugin'){
+                    isSE=true;
+                    break;
+                }
+            }
+            if(isSE){
+                match['360SE'] = true;
+            }else{
+                match['360EE'] = true;
+            }
         }
         //基本信息
         var hash = {
             engine: ['WebKit', 'Trident', 'Gecko', 'Presto'],
-            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Kindle', '360', 'UC', 'QQBrowser', 'QQ', 'Baidu', 'Maxthon', 'Sogou', 'LBBROWSER', '2345Explorer', 'TheWorld', 'XiaoMi', 'Quark', 'Qiyu', 'Wechat', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi'],
+            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Kindle', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Baidu', 'Maxthon', 'Sogou', 'LBBROWSER', '2345Explorer', 'TheWorld', 'XiaoMi', 'Quark', 'Qiyu', 'Wechat', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi'],
             os: ['Windows', 'Linux', 'Mac OS', 'Android', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS'],
             device: ['Mobile', 'Tablet']
         };
