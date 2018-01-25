@@ -40,6 +40,7 @@
             'Vivaldi': u.indexOf('Vivaldi') > -1,
             'Yandex': u.indexOf('YaBrowser') > -1,
             'Kindle': u.indexOf('Kindle') > -1 || u.indexOf('Silk/') > -1,
+            '360': u.indexOf('QihooBrowser') > -1,
             '360EE': u.indexOf('360EE') > -1,
             '360SE': u.indexOf('360SE') > -1,
             'UC': u.indexOf('UC') > -1 || u.indexOf(' UBrowser') > -1,
@@ -100,7 +101,7 @@
         //基本信息
         var hash = {
             engine: ['WebKit', 'Trident', 'Gecko', 'Presto'],
-            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Kindle', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Baidu', 'Maxthon', 'Sogou', 'LBBROWSER', '2345Explorer', 'TheWorld', 'XiaoMi', 'Quark', 'Qiyu', 'Wechat', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi'],
+            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Kindle', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Baidu', 'Maxthon', 'Sogou', 'LBBROWSER', '2345Explorer', 'TheWorld', 'XiaoMi', 'Quark', 'Qiyu', 'Wechat', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi'],
             os: ['Windows', 'Linux', 'Mac OS', 'Android', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS'],
             device: ['Mobile', 'Tablet']
         };
@@ -197,6 +198,9 @@
             },
             'Kindle': function () {
                 return u.replace(/^.*Version\/([\d.]+).*$/, '$1');
+            },
+            '360': function(){
+                return u.replace(/^.*QihooBrowser\/([\d.]+).*$/, '$1');
             },
             '360SE': function(){
                 var hash = {'55':'9.1','45':'8.1','42':'8.0','31':'7.0','21':'6.3'};
