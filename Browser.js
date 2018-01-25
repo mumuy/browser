@@ -204,7 +204,7 @@
                 return hash[chrome_vision]||'';
             },
             '360EE': function(){
-                var hash = {'55':'9.0','50':'8.7','30':'7.5'};
+                var hash = {'63':'9.5','55':'9.0','50':'8.7','30':'7.5'};
                 var chrome_vision = navigator.userAgent.replace(/^.*Chrome\/([\d]+).*$/, '$1');
                 return hash[chrome_vision]||'';
             },
