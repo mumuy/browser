@@ -86,7 +86,8 @@
             match['Mobile'] = !(u.indexOf('iPad') > -1);
         } else if (_window.showModalDialog && _window.chrome) {
             var isSE = false;
-            for(var item of navigator.mimeTypes){
+            for(var i=0;i<navigator.mimeTypes.length;i++){
+                var item = navigator.mimeTypes[i];
                 if(item['type']=='application/gameplugin'){
                     isSE=true;
                     break;
