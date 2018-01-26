@@ -232,7 +232,7 @@
                 return u.replace(/^.*SE ([\d.X]+).*$/, '$1').replace(/^.*SogouMobileBrowser\/([\d.]+).*$/, '$1');
             },
             'LBBROWSER': function(){
-                var hash = {'57':'6.5','49':'6.0','46':'5.9','42':'5.3','32':'3.0','21':'2.0'};
+                var hash = {'57':'6.5','49':'6.0','46':'5.9','42':'5.3','39':'5.2','34':'5.0','29':'4.5','21':'4.0'};
                 var chrome_vision = navigator.userAgent.replace(/^.*Chrome\/([\d]+).*$/, '$1');
                 return hash[chrome_vision]||'';
             },
