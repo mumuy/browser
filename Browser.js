@@ -230,6 +230,11 @@
             'Sogou': function () {
                 return u.replace(/^.*SE ([\d.X]+).*$/, '$1').replace(/^.*SogouMobileBrowser\/([\d.]+).*$/, '$1');
             },
+            'LBBROWSER': function(){
+                var hash = {'57':'6.5','49':'6.0','46':'5.9','42':'5.3','32':'3.0','21':'2.0'};
+                var chrome_vision = navigator.userAgent.replace(/^.*Chrome\/([\d]+).*$/, '$1');
+                return hash[chrome_vision]||'';
+            },
             '2345Explorer': function () {
                 return u.replace(/^.*2345Explorer\/([\d.]+).*$/, '$1');
             },
