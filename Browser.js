@@ -88,17 +88,14 @@
         if (match['Mobile']) {
             match['Mobile'] = !(u.indexOf('iPad') > -1);
         } else if (_window.showModalDialog && _window.chrome) {
-            var isSE = false;
             for(var i=0;i<navigator.mimeTypes.length;i++){
                 var item = navigator.mimeTypes[i];
                 if(item['type']=='application/gameplugin'){
-                    isSE=true;
+                    match['360SE'] = true;
                     break;
                 }
             }
-            if(isSE){
-                match['360SE'] = true;
-            }else{
+            if(!match['360SE']){
                 match['360EE'] = true;
             }
         }
