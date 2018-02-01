@@ -16,11 +16,15 @@ Safari
 
 Opera
 
-Vivaldi
+Vivaldi - Opera联合创始人发布
 
-Yandex
+Yandex - 俄罗斯最大搜索引擎Yandex出品
 
-Arora
+Arora - 基于webkit和Qt的轻量级浏览器
+
+Lunascape - 来自日本的三引擎浏览器
+
+Coc Coc - 越南搜索引擎浏览器
 
 Kindle
 
