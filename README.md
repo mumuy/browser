@@ -20,6 +20,8 @@ Vivaldi
 
 Yandex
 
+Arora
+
 Kindle
 
 360 - 360浏览器(手机版)
