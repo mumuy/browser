@@ -24,6 +24,8 @@ Arora - 基于webkit和Qt的轻量级浏览器
 
 Lunascape - 来自日本的三引擎浏览器
 
+QupZilla - 轻量级跨平台浏览器
+
 Coc Coc - 越南搜索引擎浏览器
 
 Kindle
