@@ -44,6 +44,11 @@
             'QupZilla': u.indexOf('QupZilla') > -1,
             'Coc Coc': u.indexOf('coc_coc_browser') > -1,
             'Kindle': u.indexOf('Kindle') > -1 || u.indexOf('Silk/') > -1,
+            'Iceweasel': u.indexOf('Iceweasel') > -1,
+            'Konqueror': u.indexOf('Konqueror') > -1,
+            'Iceape': u.indexOf('Iceape') > -1,
+            'SeaMonkey': u.indexOf('SeaMonkey') > -1,
+            'Epiphany': u.indexOf('Epiphany') > -1,
             '360': u.indexOf('QihooBrowser') > -1,
             '360EE': u.indexOf('360EE') > -1,
             '360SE': u.indexOf('360SE') > -1,
@@ -121,7 +126,7 @@
         //基本信息
         var hash = {
             engine: ['WebKit', 'Trident', 'Gecko', 'Presto'],
-            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Baidu', 'Maxthon', 'Sogou', 'LBBROWSER', '2345Explorer', 'TheWorld', 'XiaoMi', 'Quark', 'Qiyu', 'Wechat', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi'],
+            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Baidu', 'Maxthon', 'Sogou', 'LBBROWSER', '2345Explorer', 'TheWorld', 'XiaoMi', 'Quark', 'Qiyu', 'Wechat', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi'],
             os: ['Windows', 'Linux', 'Mac OS', 'Android', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS'],
             device: ['Mobile', 'Tablet']
         };
@@ -230,6 +235,21 @@
             },
             'Kindle': function () {
                 return u.replace(/^.*Version\/([\d.]+).*$/, '$1');
+            },
+            'Iceweasel': function () {
+                return u.replace(/^.*Iceweasel\/([\d.]+).*$/, '$1');
+            },
+            'Konqueror': function () {
+                return u.replace(/^.*Konqueror\/([\d.]+).*$/, '$1');
+            },
+            'Iceape': function () {
+                return u.replace(/^.*Iceape\/([\d.]+).*$/, '$1');
+            },
+            'SeaMonkey': function () {
+                return u.replace(/^.*SeaMonkey\/([\d.]+).*$/, '$1');
+            },
+            'Epiphany': function () {
+                return u.replace(/^.*Epiphany\/([\d.]+).*$/, '$1');
             },
             '360': function(){
                 return u.replace(/^.*QihooBrowser\/([\d.]+).*$/, '$1');

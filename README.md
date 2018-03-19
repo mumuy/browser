@@ -30,6 +30,16 @@ Coc Coc - 越南搜索引擎浏览器
 
 Kindle
 
+Iceweasel
+
+Konqueror
+
+Iceape
+
+SeaMonkey
+
+Epiphany
+
 360 - 360浏览器(手机版)
 
 360SE - 360安全浏览器
