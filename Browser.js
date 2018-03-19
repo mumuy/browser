@@ -96,7 +96,8 @@
                     break;
                 }
             }
-            if(!match['360SE']){
+            var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
+            if(!match['360SE']&&chrome_vision>36){
                 match['360EE'] = true;
             }
         }
@@ -235,12 +236,12 @@
             },
             '360SE': function(){
                 var hash = {'55':'9.1','45':'8.1','42':'8.0','31':'7.0','21':'6.3'};
-                var chrome_vision = navigator.userAgent.replace(/^.*Chrome\/([\d]+).*$/, '$1');
+                var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
                 return hash[chrome_vision]||'';
             },
             '360EE': function(){
                 var hash = {'63':'9.5','55':'9.0','50':'8.7','30':'7.5'};
-                var chrome_vision = navigator.userAgent.replace(/^.*Chrome\/([\d]+).*$/, '$1');
+                var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
                 return hash[chrome_vision]||'';
             },
             'Maxthon': function () {
