@@ -100,17 +100,19 @@
             'Tablet': u.indexOf('Tablet') > -1 || u.indexOf('Pad') > -1 || u.indexOf('Nexus 7') > -1
         };
         var is360 = _mime("type", "application/vnd.chromium.remoting-viewer");
-        if(!is360){
-            is360 = _window.showModalDialog && _window.chrome
+        if(_window.showModalDialog && _window.chrome ){
+            var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
+            if(chrome_vision>36){
+                is360 = true;
+            }
         }
         //修正
         if (match['Mobile']) {
             match['Mobile'] = !(u.indexOf('iPad') > -1);
         } else if (is360) {
-            var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
             if(_mime("type", "application/gameplugin")){
                 match['360SE'] = true;
-            }else if(chrome_vision>36){
+            }else{
                 match['360EE'] = true;
             }
         }
