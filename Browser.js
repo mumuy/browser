@@ -107,15 +107,10 @@
         if (match['Mobile']) {
             match['Mobile'] = !(u.indexOf('iPad') > -1);
         } else if (is360) {
-            for(var i=0;i<navigator.mimeTypes.length;i++){
-                var item = navigator.mimeTypes[i];
-                if(item['type']=='application/gameplugin'){
-                    match['360SE'] = true;
-                    break;
-                }
-            }
             var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
-            if(!match['360SE']&&chrome_vision>36){
+            if(_mime("type", "application/gameplugin")){
+                match['360SE'] = true;
+            }else if(chrome_vision>36){
                 match['360EE'] = true;
             }
         }
