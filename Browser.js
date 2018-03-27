@@ -5,14 +5,14 @@
 
 (function (root, factory) {
     if (typeof define === 'function' && (define.amd||define.cmd)) {
-        // AMD
-        define(factory)
+        // AMD&CMD
+        define(factory);
     } else if (typeof exports === 'object') {
         // Node, CommonJS-like
-        module.exports = factory()
+        module.exports = factory();
     } else {
         // Browser globals (root is window)
-        root.Browser = factory()
+        root.Browser = factory();
     }
 }(this, function () {
     var _window = window||{};
@@ -25,7 +25,7 @@
             }
         }
         return false;
-    }
+    };
 
     return function (userAgent) {
         var u = userAgent || _navigator.userAgent;
@@ -191,7 +191,7 @@
             'WebOS': function () {
                 return u.replace(/^.*hpwOS\/([\d.]+);.*$/, '$1');
             }
-        }
+        };
         _this.osVersion = '';
         if (osVersion[_this.os]) {
             _this.osVersion = osVersion[_this.os]();
