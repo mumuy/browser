@@ -15,8 +15,8 @@
         root.Browser = factory();
     }
 }(this, function () {
-    var _window = window||{};
-    var _navigator = navigator||{};
+    var _window = this||{};
+    var _navigator = typeof navigator!='undefined'?navigator:{};
     var _mime = function (option, value) {
         var mimeTypes = navigator.mimeTypes;
         for (var mt in mimeTypes) {
@@ -28,7 +28,7 @@
     };
 
     return function (userAgent) {
-        var u = userAgent || _navigator.userAgent;
+        var u = userAgent || _navigator.userAgent||{};
         var _this = this;
 
         var match = {
