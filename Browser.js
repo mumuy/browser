@@ -18,7 +18,7 @@
     var _window = this||{};
     var _navigator = typeof navigator!='undefined'?navigator:{};
     var _mime = function (option, value) {
-        var mimeTypes = navigator.mimeTypes;
+        var mimeTypes = navigator.mimeTypes;      
         for (var mt in mimeTypes) {
             if (mimeTypes[mt][option] == value) {
                 return true;
@@ -99,11 +99,14 @@
             'Mobile': u.indexOf('Mobi') > -1 || u.indexOf('iPh') > -1 || u.indexOf('480') > -1,
             'Tablet': u.indexOf('Tablet') > -1 || u.indexOf('Pad') > -1 || u.indexOf('Nexus 7') > -1
         };
-        var is360 = _mime("type", "application/vnd.chromium.remoting-viewer");
-        if(_window.showModalDialog && _window.chrome ){
-            var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
-            if(chrome_vision>36){
-                is360 = true;
+        var is360 = false;
+        if(_window.chrome){
+            is360 = _mime("type", "application/vnd.chromium.remoting-viewer");
+            if(_window.showModalDialog){
+                var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
+                if(chrome_vision>36){
+                    is360 = true;
+                }
             }
         }
         //修正
