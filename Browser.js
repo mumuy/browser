@@ -101,12 +101,11 @@
         };
         var is360 = false;
         if(_window.chrome){
-            is360 = _mime("type", "application/vnd.chromium.remoting-viewer");
-            if(_window.showModalDialog){
-                var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
-                if(chrome_vision>36){
-                    is360 = true;
-                }
+            var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
+            if(chrome_vision>36&&_window.showModalDialog){
+                is360 = true;
+            }else if(chrome_vision>45){
+                is360 = _mime("type", "application/vnd.chromium.remoting-viewer");
             }
         }
         //修正
