@@ -267,7 +267,7 @@
                 return u.replace(/^.*QihooBrowser\/([\d.]+).*$/, '$1');
             },
             '360SE': function(){
-                var hash = {'55':'9.1','45':'8.1','42':'8.0','31':'7.0','21':'6.3'};
+                var hash = {'63':'10.0','55':'9.1','45':'8.1','42':'8.0','31':'7.0','21':'6.3'};
                 var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
                 return hash[chrome_vision]||'';
             },
