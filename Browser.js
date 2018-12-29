@@ -135,6 +135,9 @@
                     break;
             }
         }
+        if(match['Baidu']&&match['Opera']){
+            match['Baidu'] = false;
+        }
         //基本信息
         var hash = {
             engine: ['WebKit', 'Trident', 'Gecko', 'Presto'],
