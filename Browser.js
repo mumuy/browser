@@ -6,19 +6,21 @@
 (function (root, factory) {
     if (typeof define === 'function' && (define.amd||define.cmd)) {
         // AMD&CMD
-        define(factory);
+        define(function(){
+            return factory(root);
+        });
     } else if (typeof exports === 'object') {
         // Node, CommonJS-like
-        module.exports = factory();
+        module.exports = factory(root);
     } else {
         // Browser globals (root is window)
-        root.Browser = factory();
+        root.Browser = factory(root);
     }
-}(this, function () {
-    var _window = this||{};
-    var _navigator = typeof navigator!='undefined'?navigator:{};
+}(typeof self !== 'undefined' ? self : this, function (root) {
+    var _window = root||{};
+    var _navigator = typeof root.navigator!='undefined'?root.navigator:{};
     var _mime = function (option, value) {
-        var mimeTypes = navigator.mimeTypes;      
+        var mimeTypes = _navigator.mimeTypes;      
         for (var mt in mimeTypes) {
             if (mimeTypes[mt][option] == value) {
                 return true;
@@ -113,6 +115,8 @@
             match['Mobile'] = !(u.indexOf('iPad') > -1);
         } else if (is360) {
             if(_mime("type", "application/gameplugin")){
+                match['360SE'] = true;
+            }else if(_navigator && typeof _navigator['connection']['saveData'] == 'undefined'){
                 match['360SE'] = true;
             }else{
                 match['360EE'] = true;
@@ -275,7 +279,7 @@
                 return hash[chrome_vision]||'';
             },
             '360EE': function(){
-                var hash = {'63':'9.5','55':'9.0','50':'8.7','30':'7.5'};
+                var hash = {'69':'11.0','63':'9.5','55':'9.0','50':'8.7','30':'7.5'};
                 var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
                 return hash[chrome_vision]||'';
             },
