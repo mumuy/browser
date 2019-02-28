@@ -4,22 +4,33 @@
  */
 
 ;(function (root, factory) {
-    if (typeof define === 'function' && define.amd) {
-        // AMD
-        define(factory)
+    if (typeof define === 'function' && (define.amd||define.cmd)) {
+        // AMD&CMD
+        define(function(){
+            return factory(root);
+        });
     } else if (typeof exports === 'object') {
         // Node, CommonJS-like
-        module.exports = factory()
+        module.exports = factory(root);
     } else {
         // Browser globals (root is window)
-        root.Browser = factory()
+        root.Browser = factory(root);
     }
-}(this, function () {
-    var _window = window||{};
-    var _navigator = navigator||{};
+}(typeof self !== 'undefined' ? self : this, function (root) {
+    var _window = root||{};
+    var _navigator = typeof root.navigator!='undefined'?root.navigator:{};
+    var _mime = function (option, value) {
+        var mimeTypes = _navigator.mimeTypes;      
+        for (var mt in mimeTypes) {
+            if (mimeTypes[mt][option] == value) {
+                return true;
+            }
+        }
+        return false;
+    };
 
     return function (userAgent) {
-        var u = userAgent || _navigator.userAgent;
+        var u = userAgent || _navigator.userAgent||{};
         var _this = this;
 
         var match = {
@@ -39,8 +50,19 @@
             'Opera': u.indexOf('Opera') > -1 || u.indexOf('OPR') > -1,
             'Vivaldi': u.indexOf('Vivaldi') > -1,
             'Yandex': u.indexOf('YaBrowser') > -1,
+            'Arora': u.indexOf('Arora') > -1,
+            'Lunascape': u.indexOf('Lunascape') > -1,
+            'QupZilla': u.indexOf('QupZilla') > -1,
+            'Coc Coc': u.indexOf('coc_coc_browser') > -1,
             'Kindle': u.indexOf('Kindle') > -1 || u.indexOf('Silk/') > -1,
-            '360': u.indexOf('360EE') > -1 || u.indexOf('360SE') > -1,
+            'Iceweasel': u.indexOf('Iceweasel') > -1,
+            'Konqueror': u.indexOf('Konqueror') > -1,
+            'Iceape': u.indexOf('Iceape') > -1,
+            'SeaMonkey': u.indexOf('SeaMonkey') > -1,
+            'Epiphany': u.indexOf('Epiphany') > -1,
+            '360': u.indexOf('QihooBrowser') > -1||u.indexOf('QHBrowser') > -1,
+            '360EE': u.indexOf('360EE') > -1,
+            '360SE': u.indexOf('360SE') > -1,
             'UC': u.indexOf('UC') > -1 || u.indexOf(' UBrowser') > -1,
             'QQBrowser': u.indexOf('QQBrowser') > -1,
             'QQ': u.indexOf('QQ/') > -1,
@@ -79,16 +101,51 @@
             'Mobile': u.indexOf('Mobi') > -1 || u.indexOf('iPh') > -1 || u.indexOf('480') > -1,
             'Tablet': u.indexOf('Tablet') > -1 || u.indexOf('Pad') > -1 || u.indexOf('Nexus 7') > -1
         };
+        var is360 = false;
+        if(_window.chrome){
+            var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
+            if(chrome_vision>36&&_window.showModalDialog){
+                is360 = true;
+            }else if(chrome_vision>45){
+                is360 = _mime("type", "application/vnd.chromium.remoting-viewer");
+            }
+        }
         //修正
         if (match['Mobile']) {
             match['Mobile'] = !(u.indexOf('iPad') > -1);
-        } else if (_window.showModalDialog && _window.chrome) {
-            match['360'] = true;
+        } else if (is360) {
+            if(_mime("type", "application/gameplugin")){
+                match['360SE'] = true;
+            }else if(_navigator && typeof _navigator['connection']['saveData'] == 'undefined'){
+                match['360SE'] = true;
+            }else{
+                match['360EE'] = true;
+            }
+        }
+        if(match['IE']||match['Edge']){
+            var navigator_top = window.screenTop-window.screenY;
+            switch(navigator_top){
+                case 71: //无收藏栏,贴边
+                case 74: //无收藏栏,非贴边
+                case 99: //有收藏栏,贴边
+                case 102: //有收藏栏,非贴边
+                    match['360EE'] = true;
+                    break;
+                case 75: //无收藏栏,贴边
+                case 74: //无收藏栏,非贴边
+                case 105: //有收藏栏,贴边
+                case 104: //有收藏栏,非贴边
+                    match['360SE'] = true;
+                    break;
+            }
+        }
+        if(match['Baidu']&&match['Opera']){
+            match['Baidu'] = false;
         }
         //基本信息
         var hash = {
             engine: ['WebKit', 'Trident', 'Gecko', 'Presto'],
-            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Kindle', '360', 'UC', 'QQBrowser', 'QQ', 'Baidu', 'Maxthon', 'Sogou', 'LBBROWSER', '2345Explorer', 'TheWorld', 'XiaoMi', 'Quark', 'Qiyu', 'Wechat', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi'],
+            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Baidu', 'Maxthon', 'Sogou', 'LBBROWSER', '2345Explorer', 'TheWorld', 'XiaoMi', 'Quark', 'Qiyu', 'Wechat', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi'],
             os: ['Windows', 'Linux', 'Mac OS', 'Android', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS'],
             device: ['Mobile', 'Tablet']
         };
@@ -143,7 +200,7 @@
             'WebOS': function () {
                 return u.replace(/^.*hpwOS\/([\d.]+);.*$/, '$1');
             }
-        }
+        };
         _this.osVersion = '';
         if (osVersion[_this.os]) {
             _this.osVersion = osVersion[_this.os]();
@@ -183,8 +240,48 @@
             'Yandex': function () {
                 return u.replace(/^.*YaBrowser\/([\d.]+).*$/, '$1');
             },
+            'Arora': function () {
+                return u.replace(/^.*Arora\/([\d.]+).*$/, '$1');
+            },
+            'Lunascape': function(){
+                return u.replace(/^.*Lunascape[\/\s]([\d.]+).*$/, '$1');
+            },
+            'QupZilla': function(){
+                return u.replace(/^.*QupZilla[\/\s]([\d.]+).*$/, '$1');
+            },
+            'Coc Coc': function(){
+                return u.replace(/^.*coc_coc_browser\/([\d.]+).*$/, '$1');
+            },
             'Kindle': function () {
                 return u.replace(/^.*Version\/([\d.]+).*$/, '$1');
+            },
+            'Iceweasel': function () {
+                return u.replace(/^.*Iceweasel\/([\d.]+).*$/, '$1');
+            },
+            'Konqueror': function () {
+                return u.replace(/^.*Konqueror\/([\d.]+).*$/, '$1');
+            },
+            'Iceape': function () {
+                return u.replace(/^.*Iceape\/([\d.]+).*$/, '$1');
+            },
+            'SeaMonkey': function () {
+                return u.replace(/^.*SeaMonkey\/([\d.]+).*$/, '$1');
+            },
+            'Epiphany': function () {
+                return u.replace(/^.*Epiphany\/([\d.]+).*$/, '$1');
+            },
+            '360': function(){
+                return u.replace(/^.*QihooBrowser\/([\d.]+).*$/, '$1');
+            },
+            '360SE': function(){
+                var hash = {'63':'10.0','55':'9.1','45':'8.1','42':'8.0','31':'7.0','21':'6.3'};
+                var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
+                return hash[chrome_vision]||'';
+            },
+            '360EE': function(){
+                var hash = {'69':'11.0','63':'9.5','55':'9.0','50':'8.7','30':'7.5'};
+                var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
+                return hash[chrome_vision]||'';
             },
             'Maxthon': function () {
                 return u.replace(/^.*Maxthon\/([\d.]+).*$/, '$1');
@@ -203,6 +300,11 @@
             },
             'Sogou': function () {
                 return u.replace(/^.*SE ([\d.X]+).*$/, '$1').replace(/^.*SogouMobileBrowser\/([\d.]+).*$/, '$1');
+            },
+            'LBBROWSER': function(){
+                var hash = {'57':'6.5','49':'6.0','46':'5.9','42':'5.3','39':'5.2','34':'5.0','29':'4.5','21':'4.0'};
+                var chrome_vision = navigator.userAgent.replace(/^.*Chrome\/([\d]+).*$/, '$1');
+                return hash[chrome_vision]||'';
             },
             '2345Explorer': function () {
                 return u.replace(/^.*2345Explorer\/([\d.]+).*$/, '$1');

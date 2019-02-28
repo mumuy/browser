@@ -16,13 +16,35 @@ Safari
 
 Opera
 
-Vivaldi
+Vivaldi - Opera联合创始人发布
 
-Yandex
+Yandex - 俄罗斯最大搜索引擎Yandex出品
+
+Arora - 基于webkit和Qt的轻量级浏览器
+
+Lunascape - 来自日本的三引擎浏览器
+
+QupZilla - 轻量级跨平台浏览器
+
+Coc Coc - 越南搜索引擎浏览器
 
 Kindle
 
-360 - 360浏览器
+Iceweasel
+
+Konqueror
+
+Iceape
+
+SeaMonkey
+
+Epiphany
+
+360 - 360浏览器(手机版)
+
+360SE - 360安全浏览器
+
+360EE - 360极速浏览器
 
 UC - UC浏览器
 
