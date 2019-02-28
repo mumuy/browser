@@ -60,7 +60,7 @@
             'Iceape': u.indexOf('Iceape') > -1,
             'SeaMonkey': u.indexOf('SeaMonkey') > -1,
             'Epiphany': u.indexOf('Epiphany') > -1,
-            '360': u.indexOf('QihooBrowser') > -1,
+            '360': u.indexOf('QihooBrowser') > -1||u.indexOf('QHBrowser') > -1,
             '360EE': u.indexOf('360EE') > -1,
             '360SE': u.indexOf('360SE') > -1,
             'UC': u.indexOf('UC') > -1 || u.indexOf(' UBrowser') > -1,
