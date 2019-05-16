@@ -20,7 +20,7 @@
     var _window = root||{};
     var _navigator = typeof root.navigator!='undefined'?root.navigator:{};
     var _mime = function (option, value) {
-        var mimeTypes = _navigator.mimeTypes;      
+        var mimeTypes = _navigator.mimeTypes;
         for (var mt in mimeTypes) {
             if (mimeTypes[mt][option] == value) {
                 return true;
@@ -116,12 +116,13 @@
         } else if (is360) {
             if(_mime("type", "application/gameplugin")){
                 match['360SE'] = true;
-            }else if(_navigator && typeof _navigator['connection']['saveData'] == 'undefined'){
+            }else if(_navigator && typeof _navigator['connection'] !== 'undefined' && typeof _navigator['connection']['saveData'] == 'undefined'){
                 match['360SE'] = true;
             }else{
                 match['360EE'] = true;
             }
         }
+
         if(match['IE']||match['Edge']){
             var navigator_top = window.screenTop-window.screenY;
             switch(navigator_top){
@@ -139,6 +140,11 @@
                     break;
             }
         }
+
+        if(_window.chrome && _window.chrome.common2345) {
+            match['2345Explorer'] = true;
+        }
+
         if(match['Baidu']&&match['Opera']){
             match['Baidu'] = false;
         }
@@ -307,7 +313,14 @@
                 return hash[chrome_vision]||'';
             },
             '2345Explorer': function () {
-                return u.replace(/^.*2345Explorer\/([\d.]+).*$/, '$1');
+                var hash = {'55': '9.8'};
+                var chrome_vision = navigator.userAgent.replace(/^.*Chrome\/([\d]+).*$/, '$1');
+                if (u.indexOf('2345Explorer') > -1) {
+                    return u.replace(/^.*2345Explorer\/([\d.]+).*$/, '$1')
+                } else {
+                    return hash[chrome_vision] || '';
+                }
+
             },
             'TheWorld': function () {
                 return u.replace(/^.*TheWorld ([\d.]+).*$/, '$1');
