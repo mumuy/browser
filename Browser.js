@@ -307,7 +307,7 @@
                 return hash[chrome_vision]||'';
             },
             '2345Explorer': function () {
-                return u.replace(/^.*2345Explorer\/([\d.]+).*$/, '$1');
+                return u.replace(/^.*2345Explorer\/([\d.]+).*$/, '$1').replace(/^.*Mb2345Browser\/([\d.]+).*$/, '$1');
             },
             'TheWorld': function () {
                 return u.replace(/^.*TheWorld ([\d.]+).*$/, '$1');
