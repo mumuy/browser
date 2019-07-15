@@ -70,7 +70,7 @@
             'Maxthon': u.indexOf('Maxthon') > -1,
             'Sogou': u.indexOf('MetaSr') > -1 || u.indexOf('Sogou') > -1,
             'LBBROWSER': u.indexOf('LBBROWSER') > -1,
-            '2345Explorer': u.indexOf('2345Explorer') > -1,
+            '2345Explorer': u.indexOf('2345Explorer') > -1||u.indexOf('Mb2345Browser') > -1,
             'TheWorld': u.indexOf('TheWorld') > -1,
             'XiaoMi': u.indexOf('MiuiBrowser') > -1,
             'Quark': u.indexOf('Quark') > -1,
