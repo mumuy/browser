@@ -116,7 +116,7 @@
         } else if (is360) {
             if(_mime("type", "application/gameplugin")){
                 match['360SE'] = true;
-            }else if(_navigator && typeof _navigator['connection']['saveData'] == 'undefined'){
+            }else if(_navigator && _navigator['connection']  && typeof _navigator['connection']['saveData'] == 'undefined'){
                 match['360SE'] = true;
             }else{
                 match['360EE'] = true;
