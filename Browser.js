@@ -141,6 +141,8 @@
         }
         if(match['Baidu']&&match['Opera']){
             match['Baidu'] = false;
+        }else if(match['iOS']){
+            match['Safari'] = true;
         }
         //基本信息
         var hash = {
