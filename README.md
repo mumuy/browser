@@ -2,19 +2,19 @@
 
 ## 浏览器：
 
-Chrome
+Chrome - 谷歌浏览器
 
-Chromium
+Chromium - 谷歌浏览器开源版
 
-IE
+IE - 微软IE浏览器
 
-Edge
+Edge - 微软新一代浏览器
 
-Firefox
+Firefox - 火狐浏览器
 
-Safari
+Safari - 苹果系统默认浏览器
 
-Opera
+Opera - Opera浏览器
 
 Vivaldi - Opera联合创始人发布
 
@@ -28,9 +28,9 @@ QupZilla - 轻量级跨平台浏览器
 
 Coc Coc - 越南搜索引擎浏览器
 
-Kindle
+Kindle - 亚马逊电子书
 
-Iceweasel
+Iceweasel - Firefox浏览器的Debian再发布版
 
 Konqueror
 
@@ -83,6 +83,8 @@ Douban - 豆瓣手机客户端
 Suning - 苏宁易购手机客户端
 
 iQiYi - 爱奇艺手机客户端
+
+DingTakl - 钉钉手机客户端
 
 ## 内核：
 
