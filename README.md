@@ -68,6 +68,8 @@ Qiyu - 旗鱼浏览器
 
 XiaoMi - 小米浏览器
 
+Huawei - 华为浏览器
+
 Quark - 夸克浏览器
 
 Wechat - 微信手机客户端
