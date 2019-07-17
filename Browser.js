@@ -110,8 +110,12 @@
                 is360 = true;
             }else if(chrome_vision>45){
                 is360 = _mime("type", "application/vnd.chromium.remoting-viewer");
-            }else{
-                is360 = _mime("type", "application/360softmgrplugin");
+            }else if(_mime("type", "application/360softmgrplugin")||_mime("type", "application/mozilla-npqihooquicklogin")){
+                if(chrome.adblock2345){
+                    match['2345Explorer'] = true;
+                }else{
+                    is360 = true;
+                }
             }
         }
         //修正
