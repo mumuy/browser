@@ -106,7 +106,7 @@
         var is360 = false;
         if(_window.chrome){
             var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
-            if(chrome.adblock2345){
+            if(_window.chrome.adblock2345){
                 match['2345Explorer'] = true;
             }else if(_mime("type", "application/360softmgrplugin")||_mime("type", "application/mozilla-npqihooquicklogin")){
                 is360 = true;
