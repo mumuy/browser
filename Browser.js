@@ -110,6 +110,8 @@
                 is360 = true;
             }else if(chrome_vision>45){
                 is360 = _mime("type", "application/vnd.chromium.remoting-viewer");
+            }else{
+                is360 = _mime("type", "application/360softmgrplugin");
             }
         }
         //修正
