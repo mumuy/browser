@@ -106,16 +106,14 @@
         var is360 = false;
         if(_window.chrome){
             var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
-            if(chrome_vision>36&&_window.showModalDialog){
+            if(chrome.adblock2345){
+                match['2345Explorer'] = true;
+            }else if(_mime("type", "application/360softmgrplugin")||_mime("type", "application/mozilla-npqihooquicklogin")){
+                is360 = true;
+            }else if(chrome_vision>36&&_window.showModalDialog){
                 is360 = true;
             }else if(chrome_vision>45){
                 is360 = _mime("type", "application/vnd.chromium.remoting-viewer");
-            }else if(_mime("type", "application/360softmgrplugin")||_mime("type", "application/mozilla-npqihooquicklogin")){
-                if(chrome.adblock2345){
-                    match['2345Explorer'] = true;
-                }else{
-                    is360 = true;
-                }
             }
         }
         //修正
@@ -317,7 +315,9 @@
                 return hash[chrome_vision]||'';
             },
             '2345Explorer': function () {
-                return u.replace(/^.*2345Explorer\/([\d.]+).*$/, '$1').replace(/^.*Mb2345Browser\/([\d.]+).*$/, '$1');
+                var hash = {'69':'10.0','55':'9.9'};
+                var chrome_vision = navigator.userAgent.replace(/^.*Chrome\/([\d]+).*$/, '$1');
+                return hash[chrome_vision]||u.replace(/^.*2345Explorer\/([\d.]+).*$/, '$1').replace(/^.*Mb2345Browser\/([\d.]+).*$/, '$1');
             },
             'TheWorld': function () {
                 return u.replace(/^.*TheWorld ([\d.]+).*$/, '$1');
