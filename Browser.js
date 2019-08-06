@@ -179,6 +179,7 @@
             'Windows': function () {
                 var v = u.replace(/^.*Windows NT ([\d.]+);.*$/, '$1');
                 var hash = {
+                    '10':'10',
                     '6.4': '10',
                     '6.3': '8.1',
                     '6.2': '8',
