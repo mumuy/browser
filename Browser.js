@@ -66,7 +66,7 @@
             'UC': u.indexOf('UC') > -1 || u.indexOf(' UBrowser') > -1,
             'QQBrowser': u.indexOf('QQBrowser') > -1,
             'QQ': u.indexOf('QQ/') > -1,
-            'Baidu': u.indexOf('Baidu') > -1 || u.indexOf('BIDUBrowser') > -1,
+            'Baidu': u.indexOf('Baidu') > -1 || u.indexOf('BIDUBrowser') > -1|| u.indexOf('baiduboxapp') > -1,
             'Maxthon': u.indexOf('Maxthon') > -1,
             'Sogou': u.indexOf('MetaSr') > -1 || u.indexOf('Sogou') > -1,
             'LBBROWSER': u.indexOf('LBBROWSER') > -1,
@@ -153,7 +153,7 @@
         //基本信息
         var hash = {
             engine: ['WebKit', 'Trident', 'Gecko', 'Presto'],
-            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Baidu', 'Maxthon', 'Sogou', 'LBBROWSER', '2345Explorer', 'TheWorld', 'XiaoMi', 'Quark', 'Qiyu', 'Wechat', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk', 'Huawei'],
+            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi', 'Huawei', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Baidu', 'Maxthon', 'Sogou', 'LBBROWSER', '2345Explorer', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk'],
             os: ['Windows', 'Linux', 'Mac OS', 'Android', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS'],
             device: ['Mobile', 'Tablet']
         };
@@ -302,7 +302,7 @@
                 return u.replace(/^.*QQ\/([\d.]+).*$/, '$1');
             },
             'Baidu': function () {
-                return u.replace(/^.*BIDUBrowser[\s\/]([\d.]+).*$/, '$1');
+                return u.replace(/^.*BIDUBrowser[\s\/]([\d.]+).*$/, '$1').replace(/^.*baiduboxapp\/([\d.]+).*$/, '$1');
             },
             'UC': function () {
                 return u.replace(/^.*UC?Browser\/([\d.]+).*$/, '$1');
