@@ -20,7 +20,7 @@
     var _window = root||{};
     var _navigator = typeof root.navigator!='undefined'?root.navigator:{};
     var _mime = function (option, value) {
-        var mimeTypes = _navigator.mimeTypes;      
+        var mimeTypes = _navigator.mimeTypes;
         for (var mt in mimeTypes) {
             if (mimeTypes[mt][option] == value) {
                 return true;
@@ -106,7 +106,7 @@
         var is360 = false;
         if(_window.chrome){
             var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
-            if(_window.chrome.adblock2345){
+            if(_window.chrome.adblock2345||_window.chrome.common2345){
                 match['2345Explorer'] = true;
             }else if(_mime("type", "application/360softmgrplugin")||_mime("type", "application/mozilla-npqihooquicklogin")){
                 is360 = true;
@@ -122,7 +122,7 @@
         } else if (is360) {
             if(_mime("type", "application/gameplugin")){
                 match['360SE'] = true;
-            }else if(_navigator && _navigator['connection']  && typeof _navigator['connection']['saveData'] == 'undefined'){
+            }else if(_navigator && typeof _navigator['connection'] !== 'undefined' && typeof _navigator['connection']['saveData'] == 'undefined'){
                 match['360SE'] = true;
             }else{
                 match['360EE'] = true;
