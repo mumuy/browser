@@ -374,7 +374,7 @@
             }else{
                 _this.engine = 'EdgeHTML';
             }
-        } else if (_this.browser == 'Chrome' && parseInt(_this.version) > 27) {
+        } else if (match['Chrome']&& _this.engine=='WebKit' && parseInt(version['Chrome']()) > 27) {
             _this.engine = 'Blink';
         } else if (_this.browser == 'Opera' && parseInt(_this.version) > 12) {
             _this.engine = 'Blink';
