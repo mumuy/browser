@@ -357,7 +357,7 @@
                 return u.replace(/^.*DingTalk\/([\d.]+).*$/, '$1');
             },
             'Huawei': function () {
-                return u.replace(/^.*Version\/([\d.]+).*$/, '$1');
+                return u.replace(/^.*Version\/([\d.]+).*$/, '$1').replace(/^.*HuaweiBrowser\/([\d.]+).*$/, '$1');
             }
         };
         _this.version = '';
