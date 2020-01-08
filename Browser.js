@@ -133,13 +133,11 @@
             var navigator_top = window.screenTop-window.screenY;
             switch(navigator_top){
                 case 71: //无收藏栏,贴边
-                case 74: //无收藏栏,非贴边
                 case 99: //有收藏栏,贴边
                 case 102: //有收藏栏,非贴边
                     match['360EE'] = true;
                     break;
                 case 75: //无收藏栏,贴边
-                case 74: //无收藏栏,非贴边
                 case 105: //有收藏栏,贴边
                 case 104: //有收藏栏,非贴边
                     match['360SE'] = true;
