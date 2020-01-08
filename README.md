@@ -62,6 +62,8 @@ LBBROWSER - 猎豹浏览器
 
 2345Explorer - 2345浏览器
 
+115Browser - 115浏览器
+
 TheWorld - 世界之窗浏览器
 
 Qiyu - 旗鱼浏览器
