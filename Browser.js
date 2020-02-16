@@ -115,6 +115,8 @@
                 is360 = true;
             }else if(chrome_vision>45){
                 is360 = _mime("type", "application/vnd.chromium.remoting-viewer");
+            }else if(chrome_vision>69){
+                is360 = _mime("type", "application/hwepass2001.installepass2001")||_mime("type", "application/asx");
             }
         }
         //修正
@@ -287,7 +289,7 @@
                 return hash[chrome_vision]||'';
             },
             '360EE': function(){
-                var hash = {'69':'11.0','63':'9.5','55':'9.0','50':'8.7','30':'7.5'};
+                var hash = {'78':'12.0','69':'11.0','63':'9.5','55':'9.0','50':'8.7','30':'7.5'};
                 var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
                 return hash[chrome_vision]||'';
             },
