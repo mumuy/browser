@@ -115,9 +115,10 @@
                 is360 = true;
             }else if(chrome_vision>45){
                 is360 = _mime("type", "application/vnd.chromium.remoting-viewer");
-            }else if(chrome_vision>78){
-                is360 = _mime("type", "application/hwepass2001.installepass2001")||_mime("type", "application/asx");
-            }
+                if(!is360&&chrome_vision>78){
+                    is360 = _mime("type", "application/hwepass2001.installepass2001")||_mime("type", "application/asx");
+                }
+            }    
         }
         //修正
         if (match['Mobile']) {
