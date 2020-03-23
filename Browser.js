@@ -46,6 +46,7 @@
             'Edge': u.indexOf('Edge') > -1||u.indexOf('Edg/') > -1,
             'Firefox': u.indexOf('Firefox') > -1 || u.indexOf('FxiOS') > -1,
             'Firefox Focus': u.indexOf('Focus') > -1,
+            'IceCat': u.indexOf('IceCat') > -1,
             'Chromium': u.indexOf('Chromium') > -1,
             'Opera': u.indexOf('Opera') > -1 || u.indexOf('OPR') > -1,
             'Vivaldi': u.indexOf('Vivaldi') > -1,
@@ -155,7 +156,7 @@
         //基本信息
         var hash = {
             engine: ['WebKit', 'Trident', 'Gecko', 'Presto'],
-            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi', 'Huawei', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Baidu', 'Maxthon', 'Sogou', 'LBBROWSER', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk'],
+            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'IceCat', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi', 'Huawei', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Baidu', 'Maxthon', 'Sogou', 'LBBROWSER', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk'],
             os: ['Windows', 'Linux', 'Mac OS', 'Android', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS'],
             device: ['Mobile', 'Tablet']
         };
@@ -238,6 +239,9 @@
             },
             'Firefox Focus': function () {
                 return u.replace(/^.*Focus\/([\d.]+).*$/, '$1');
+            },
+            'IceCat': function () {
+                return u.replace(/^.*IceCat\/([\d.]+).*$/, '$1');
             },
             'Chromium': function () {
                 return u.replace(/^.*Chromium\/([\d.]+).*$/, '$1');
