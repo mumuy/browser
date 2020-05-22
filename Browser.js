@@ -85,6 +85,7 @@
             'iQiYi': u.indexOf('IqiyiApp') > -1,
             'DingTalk': u.indexOf('DingTalk') > -1,
             'Huawei': u.indexOf('HuaweiBrowser') > -1||u.indexOf('HUAWEI') > -1,
+            'Vivo': u.indexOf('VivoBrowser') > -1,
             //系统或平台
             'Windows': u.indexOf('Windows') > -1,
             'Linux': u.indexOf('Linux') > -1 || u.indexOf('X11') > -1,
@@ -155,7 +156,7 @@
         //基本信息
         var hash = {
             engine: ['WebKit', 'Trident', 'Gecko', 'Presto'],
-            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi', 'Huawei', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Baidu', 'Maxthon', 'Sogou', 'LBBROWSER', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk'],
+            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi', 'Huawei','Vivo', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Baidu', 'Maxthon', 'Sogou', 'LBBROWSER', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk'],
             os: ['Windows', 'Linux', 'Mac OS', 'Android', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS'],
             device: ['Mobile', 'Tablet']
         };
@@ -331,6 +332,9 @@
             'XiaoMi': function () {
                 return u.replace(/^.*MiuiBrowser\/([\d.]+).*$/, '$1');
             },
+            'Vivo': function(){
+                return u.replace(/^.*VivoBrowser\/([\d.]+).*$/, '$1');
+            },
             'Quark': function () {
                 return u.replace(/^.*Quark\/([\d.]+).*$/, '$1');
             },
@@ -373,6 +377,10 @@
             }
         }
         //修正
+        if(_this.browser == 'Chrome'&&u.match(/\S+Browser/)){
+            _this.browser = u.match(/\S+Browser/)[0];
+            _this.version = u.replace(/^.*Browser\/([\d.]+).*$/, '$1');
+        }
         if (_this.browser == 'Edge') {
             if(_this.version>"75"){
                 _this.engine = 'Blink';
