@@ -104,6 +104,8 @@ WebKit/Blink
 
 Gecko
 
+KHTML
+
 ## 系统或平台
 
 Windows

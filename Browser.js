@@ -39,6 +39,7 @@
             'Presto': u.indexOf('Presto') > -1,
             'WebKit': u.indexOf('AppleWebKit') > -1,
             'Gecko': u.indexOf('Gecko/') > -1,
+            'KHTML': u.indexOf('KHTML/') > -1,
             //浏览器
             'Safari': u.indexOf('Safari') > -1,
             'Chrome': u.indexOf('Chrome') > -1 || u.indexOf('CriOS') > -1,
@@ -155,7 +156,7 @@
         }
         //基本信息
         var hash = {
-            engine: ['WebKit', 'Trident', 'Gecko', 'Presto'],
+            engine: ['WebKit', 'Trident', 'Gecko', 'Presto', 'KHTML'],
             browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi','Vivo', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Huawei', 'Baidu', 'Maxthon', 'Sogou', 'LBBROWSER', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk'],
             os: ['Windows', 'Linux', 'Mac OS', 'Android', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS'],
             device: ['Mobile', 'Tablet']
