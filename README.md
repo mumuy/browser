@@ -78,6 +78,8 @@ Quark - 夸克浏览器
 
 Wechat - 微信手机客户端
 
+WechatWork - 企业微信客户端
+
 Taobao - 淘宝手机客户端
 
 Alipay - 支付宝手机客户端
