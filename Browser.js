@@ -70,7 +70,7 @@
             'Baidu': u.indexOf('Baidu') > -1 || u.indexOf('BIDUBrowser') > -1|| u.indexOf('baiduboxapp') > -1,
             'Maxthon': u.indexOf('Maxthon') > -1,
             'Sogou': u.indexOf('MetaSr') > -1 || u.indexOf('Sogou') > -1,
-            'LBBROWSER': u.indexOf('LBBROWSER') > -1,
+            'Liebao': u.indexOf('LBBROWSER') > -1|| u.indexOf('LieBaoFast') > -1,
             '2345Explorer': u.indexOf('2345Explorer') > -1||u.indexOf('Mb2345Browser') > -1,
             '115Browser': u.indexOf('115Browser') > -1,
             'TheWorld': u.indexOf('TheWorld') > -1,
@@ -109,16 +109,16 @@
         };
         var is360 = false;
         if(_window.chrome){
-            var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
+            var chrome_version = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
             if(_window.chrome.adblock2345||_window.chrome.common2345){
                 match['2345Explorer'] = true;
             }else if(_mime("type", "application/360softmgrplugin")||_mime("type", "application/mozilla-npqihooquicklogin")){
                 is360 = true;
-            }else if(chrome_vision>36&&_window.showModalDialog){
+            }else if(chrome_version>36&&_window.showModalDialog){
                 is360 = true;
-            }else if(chrome_vision>45){
+            }else if(chrome_version>45){
                 is360 = _mime("type", "application/vnd.chromium.remoting-viewer");
-                if(!is360&&chrome_vision>=69){
+                if(!is360&&chrome_version>=69){
                     is360 = _mime("type", "application/hwepass2001.installepass2001")||_mime("type", "application/asx");
                 }
             }
@@ -158,7 +158,7 @@
         //基本信息
         var hash = {
             engine: ['WebKit', 'Trident', 'Gecko', 'Presto', 'KHTML'],
-            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi','Vivo', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Huawei', 'Baidu', 'Maxthon', 'Sogou', 'LBBROWSER', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'WechatWork', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk'],
+            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi','Vivo', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Huawei', 'Baidu', 'Maxthon', 'Sogou', 'Liebao', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'WechatWork', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk'],
             os: ['Windows', 'Linux', 'Mac OS', 'Android', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS'],
             device: ['Mobile', 'Tablet']
         };
@@ -289,13 +289,13 @@
             },
             '360SE': function(){
                 var hash = {'78':'12.1','69':'11.1','63':'10.0','55':'9.1','45':'8.1','42':'8.0','31':'7.0','21':'6.3'};
-                var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
-                return hash[chrome_vision]||'';
+                var chrome_version = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
+                return hash[chrome_version]||'';
             },
             '360EE': function(){
                 var hash = {'78':'12.0','69':'11.0','63':'9.5','55':'9.0','50':'8.7','30':'7.5'};
-                var chrome_vision = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
-                return hash[chrome_vision]||'';
+                var chrome_version = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
+                return hash[chrome_version]||'';
             },
             'Maxthon': function () {
                 return u.replace(/^.*Maxthon\/([\d.]+).*$/, '$1');
@@ -315,15 +315,19 @@
             'Sogou': function () {
                 return u.replace(/^.*SE ([\d.X]+).*$/, '$1').replace(/^.*SogouMobileBrowser\/([\d.]+).*$/, '$1');
             },
-            'LBBROWSER': function(){
+            'Liebao': function(){
+                var version = ''
+                if(u.indexOf('LieBaoFast')>-1){
+                    version = u.replace(/^.*LieBaoFast\/([\d.]+).*$/, '$1');
+                }
                 var hash = {'57':'6.5','49':'6.0','46':'5.9','42':'5.3','39':'5.2','34':'5.0','29':'4.5','21':'4.0'};
-                var chrome_vision = navigator.userAgent.replace(/^.*Chrome\/([\d]+).*$/, '$1');
-                return hash[chrome_vision]||'';
+                var chrome_version = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
+                return version||hash[chrome_version]||'';
             },
             '2345Explorer': function () {
                 var hash = {'69':'10.0','55':'9.9'};
-                var chrome_vision = navigator.userAgent.replace(/^.*Chrome\/([\d]+).*$/, '$1');
-                return hash[chrome_vision]||u.replace(/^.*2345Explorer\/([\d.]+).*$/, '$1').replace(/^.*Mb2345Browser\/([\d.]+).*$/, '$1');
+                var chrome_version = navigator.userAgent.replace(/^.*Chrome\/([\d]+).*$/, '$1');
+                return hash[chrome_version]||u.replace(/^.*2345Explorer\/([\d.]+).*$/, '$1').replace(/^.*Mb2345Browser\/([\d.]+).*$/, '$1');
             },
             '115Browser': function(){
                 return u.replace(/^.*115Browser\/([\d.]+).*$/, '$1');
