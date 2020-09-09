@@ -64,7 +64,7 @@
             '360': u.indexOf('QihooBrowser') > -1||u.indexOf('QHBrowser') > -1,
             '360EE': u.indexOf('360EE') > -1,
             '360SE': u.indexOf('360SE') > -1,
-            'UC': u.indexOf('UC') > -1 || u.indexOf(' UBrowser') > -1,
+            'UC': u.indexOf('UCBrowser') > -1 || u.indexOf(' UBrowser') > -1,
             'QQBrowser': u.indexOf('QQBrowser') > -1,
             'QQ': u.indexOf('QQ/') > -1,
             'Baidu': u.indexOf('Baidu') > -1 || u.indexOf('BIDUBrowser') > -1|| u.indexOf('baiduboxapp') > -1,
@@ -86,7 +86,7 @@
             'Suning': u.indexOf('SNEBUY-APP') > -1,
             'iQiYi': u.indexOf('IqiyiApp') > -1,
             'DingTalk': u.indexOf('DingTalk') > -1,
-            'Huawei': u.indexOf('HuaweiBrowser') > -1||u.indexOf('HUAWEI') > -1,
+            'Huawei': u.indexOf('HuaweiBrowser') > -1||u.indexOf('HUAWEI/') > -1,
             'Vivo': u.indexOf('VivoBrowser') > -1,
             //系统或平台
             'Windows': u.indexOf('Windows') > -1,
