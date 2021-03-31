@@ -182,7 +182,7 @@
         //系统版本信息
         var osVersion = {
             'Windows': function () {
-                var v = u.replace(/^Mozilla\/\d.0 \(Windows NT ([\d.]+);.*$/, '$1');
+                var v = u.replace(/^Mozilla\/\d.0 \(Windows NT ([\d.]+)[;)].*$/, '$1');
                 var hash = {
                     '10':'10',
                     '6.4': '10',
