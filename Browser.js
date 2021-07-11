@@ -86,7 +86,7 @@
             'Suning': u.indexOf('SNEBUY-APP') > -1,
             'iQiYi': u.indexOf('IqiyiApp') > -1,
             'DingTalk': u.indexOf('DingTalk') > -1,
-            'Huawei': u.indexOf('HuaweiBrowser') > -1||u.indexOf('HUAWEI/') > -1,
+            'Huawei': u.indexOf('HuaweiBrowser') > -1||u.indexOf('HUAWEI/') > -1||u.indexOf('HONOR') > -1,
             'Vivo': u.indexOf('VivoBrowser') > -1,
             //系统或平台
             'Windows': u.indexOf('Windows') > -1,
