@@ -93,6 +93,7 @@
             'Linux': u.indexOf('Linux') > -1 || u.indexOf('X11') > -1,
             'Mac OS': u.indexOf('Macintosh') > -1,
             'Android': u.indexOf('Android') > -1 || u.indexOf('Adr') > -1,
+            'HarmonyOS': u.indexOf('HarmonyOS') > -1,
             'Ubuntu': u.indexOf('Ubuntu') > -1,
             'FreeBSD': u.indexOf('FreeBSD') > -1,
             'Debian': u.indexOf('Debian') > -1,
@@ -144,7 +145,7 @@
         var hash = {
             engine: ['WebKit', 'Trident', 'Gecko', 'Presto', 'KHTML'],
             browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi','Vivo', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Huawei', 'Baidu', 'Maxthon', 'Sogou', 'Liebao', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'WechatWork', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk'],
-            os: ['Windows', 'Linux', 'Mac OS', 'Android', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS'],
+            os: ['Windows', 'Linux', 'Mac OS', 'Android', 'HarmonyOS', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS'],
             device: ['Mobile', 'Tablet']
         };
         _this.device = 'PC';
@@ -183,6 +184,13 @@
             },
             'Android': function () {
                 return u.replace(/^.*Android ([\d.]+);.*$/, '$1');
+            },
+            'HarmonyOS': function () {
+                var v = u.replace(/^Mozilla.*Android ([\d.]+)[;)].*$/, '$1');
+                var hash = {
+                    '10':'2',
+                };
+                return hash[v] || '';
             },
             'iOS': function () {
                 return u.replace(/^.*OS ([\d_]+) like.*$/, '$1').replace(/_/g, '.');
