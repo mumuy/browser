@@ -138,6 +138,8 @@ Chrome OS
 
 WebOS
 
+HarmonyOS
+
 ## 设备类型
 
 PC - 电脑
