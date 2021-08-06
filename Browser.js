@@ -71,7 +71,7 @@
             'Maxthon': u.indexOf('Maxthon') > -1,
             'Sogou': u.indexOf('MetaSr') > -1 || u.indexOf('Sogou') > -1,
             'Liebao': u.indexOf('LBBROWSER') > -1|| u.indexOf('LieBaoFast') > -1,
-            '2345Explorer': u.indexOf('2345Explorer') > -1||u.indexOf('Mb2345Browser') > -1||u.indexOf('2345chrome') > -1||u.indexOf('2345Explorer') > -1,
+            '2345Explorer': u.indexOf('2345Explorer') > -1||u.indexOf('Mb2345Browser') > -1||u.indexOf('2345chrome') > -1,
             '115Browser': u.indexOf('115Browser') > -1,
             'TheWorld': u.indexOf('TheWorld') > -1,
             'XiaoMi': u.indexOf('MiuiBrowser') > -1,
@@ -383,12 +383,11 @@
             _this.browser = u.match(/\S+Browser/)[0];
             _this.version = u.replace(/^.*Browser\/([\d.]+).*$/, '$1');
         }
+        if(_this.browser == 'Firefox'&&(window.clientInformation||!window.u2f)){
+            _this.browser += ' Nightly';
+        }
         if (_this.browser == 'Edge') {
-            if(_this.version>"75"){
-                _this.engine = 'Blink';
-            }else{
-                _this.engine = 'EdgeHTML';
-            }
+            _this.engine = _this.version>'75'?'Blink':'EdgeHTML';
         } else if (match['Chrome']&& _this.engine=='WebKit' && parseInt(version['Chrome']()) > 27) {
             _this.engine = 'Blink';
         } else if (_this.browser == 'Opera' && parseInt(_this.version) > 12) {
