@@ -35,12 +35,14 @@
 
         var match = {
             //内核
+            // Kernel
             'Trident': u.indexOf('Trident') > -1 || u.indexOf('NET CLR') > -1,
             'Presto': u.indexOf('Presto') > -1,
             'WebKit': u.indexOf('AppleWebKit') > -1,
             'Gecko': u.indexOf('Gecko/') > -1,
             'KHTML': u.indexOf('KHTML/') > -1,
             //浏览器
+            // Browser
             'Safari': u.indexOf('Safari') > -1,
             'Chrome': u.indexOf('Chrome') > -1 || u.indexOf('CriOS') > -1,
             'IE': u.indexOf('MSIE') > -1 || u.indexOf('Trident') > -1,
@@ -89,6 +91,7 @@
             'Huawei': u.indexOf('HuaweiBrowser') > -1||u.indexOf('HUAWEI/') > -1||u.indexOf('HONOR') > -1,
             'Vivo': u.indexOf('VivoBrowser') > -1,
             //系统或平台
+            // Operating System
             'Windows': u.indexOf('Windows') > -1,
             'Linux': u.indexOf('Linux') > -1 || u.indexOf('X11') > -1,
             'Mac OS': u.indexOf('Macintosh') > -1,
@@ -105,9 +108,11 @@
             'Chrome OS': u.indexOf('CrOS') > -1,
             'WebOS': u.indexOf('hpwOS') > -1,
             //设备
+            // Device
             'Mobile': u.indexOf('Mobi') > -1 || u.indexOf('iPh') > -1 || u.indexOf('480') > -1,
             'Tablet': u.indexOf('Tablet') > -1 || u.indexOf('Pad') > -1 || u.indexOf('Nexus 7') > -1,
             //环境
+            // Environment
             'isWebview': u.indexOf('; wv)')>-1
         };
         var is360 = false;
@@ -144,6 +149,7 @@
             match['Safari'] = true;
         }
         //基本信息
+        // Basic information
         var hash = {
             engine: ['WebKit', 'Trident', 'Gecko', 'Presto', 'KHTML'],
             browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi','Vivo', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Huawei', 'Baidu', 'Maxthon', 'Sogou', 'Liebao', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'WechatWork', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk'],
@@ -168,6 +174,7 @@
             }
         }
         //系统版本信息
+        // Operating system version
         var osVersion = {
             'Windows': function () {
                 var v = u.replace(/^Mozilla\/\d.0 \(Windows NT ([\d.]+)[;)].*$/, '$1');
@@ -219,6 +226,7 @@
         }
         _this.isWebview = match['isWebview'];
         //浏览器版本信息
+        // Browser version information
         var version = {
             'Safari': function () {
                 return u.replace(/^.*Version\/([\d.]+).*$/, '$1');
