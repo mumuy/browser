@@ -27,8 +27,13 @@
 				line-height: 40px;
 				text-align: right;
 			}
-			.footer a{
-				margin: 0 5px;
+			.module .code{
+				padding: 10px;
+				margin-bottom: 5px;
+				background: #f8f8f8;
+				line-height: 24px;
+				font-size: 14px;
+				border-radius: 6px;
 			}
 			.module table{
 				width: 100%;
@@ -45,6 +50,55 @@
 				line-height: 24px;
 				border: 1px solid #eee;
 			}
+
+			.mod-foot .btn{
+			    position: relative;
+			    display: inline-block;
+			    min-width: 56px;
+			    height: 34px;
+			    background: #fff;
+			    padding: 0 12px;
+			    border: 1px solid #ececec;
+			    border-radius: 6px;
+			    line-height: 34px;
+			    text-decoration: none;
+			    text-align: center;
+			    font-size: 14px;
+			    color: #333;
+			    overflow: hidden;
+			    transition: color .2s,opacity .2s;
+			    font-family: Tahoma,Arial, Helvetica,"Microsoft YaHei";
+			    outline: none;
+			    -webkit-appearance: none;
+			}
+			.mod-foot .btn:after {
+			    content: " ";
+			    position: absolute;
+			    width: 100%;
+			    height: 100%;
+			    background: #000;
+			    left: 0;
+			    top: 0;
+			    opacity: 0;
+			    transition: opacity .2s;
+			    border-radius: 6px;
+			    overflow: hidden;
+			    pointer-events: none;
+			}
+			.mod-foot .btn span,.mod-foot .btn svg{
+			    vertical-align: middle;
+			}
+			.mod-foot .btn svg,.mod-foot .btn svg+span{
+			    position: relative;
+			    top: -1px;
+			}
+			.mod-foot .btn:hover {
+			    color: #000;
+			    opacity: 1;
+			}
+			.mod-foot .btn:hover:after {
+			    opacity: .02;
+			}
 		</style>
 	</head>
 	<body>
@@ -55,7 +109,7 @@
 						var info = new Browser();
 						if(info.device!='Mobile'){
 							document.writeln('<table>\
-								<caption><p>'+navigator.userAgent+'</p></caption>\
+								<caption><div class="code">'+navigator.userAgent+'</div></caption>\
 								<thead>\
 									<tr>\
 										<th>浏览器</th>\
@@ -116,9 +170,14 @@
 				</div>
 			</div>
 			<div class="footer">
-				<a href="https://github.com/mumuy/browser" target="_blank">项目地址</a>
-				<a href="https://www.ip138.com/useragent/" target="_blank">Useragent分析</a>
-				<a href="/">返回首页</a>
+				<div class="mod-foot">
+					<a class="btn" href="https://github.com/mumuy/browser/" rel="nofollow" target="_blank" title="Github">
+						<svg aria-hidden="true" class="octicon" height="20" title="GitHub " version="1.1" viewBox="0 0 16 16" width="24"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59 0.4 0.07 0.55-0.17 0.55-0.38 0-0.19-0.01-0.82-0.01-1.49-2.01 0.37-2.53-0.49-2.69-0.94-0.09-0.23-0.48-0.94-0.82-1.13-0.28-0.15-0.68-0.52-0.01-0.53 0.63-0.01 1.08 0.58 1.23 0.82 0.72 1.21 1.87 0.87 2.33 0.66 0.07-0.52 0.28-0.87 0.51-1.07-1.78-0.2-3.64-0.89-3.64-3.95 0-0.87 0.31-1.59 0.82-2.15-0.08-0.2-0.36-1.02 0.08-2.12 0 0 0.67-0.21 2.2 0.82 0.64-0.18 1.32-0.27 2-0.27 0.68 0 1.36 0.09 2 0.27 1.53-1.04 2.2-0.82 2.2-0.82 0.44 1.1 0.16 1.92 0.08 2.12 0.51 0.56 0.82 1.27 0.82 2.15 0 3.07-1.87 3.75-3.65 3.95 0.29 0.25 0.54 0.73 0.54 1.48 0 1.07-0.01 1.93-0.01 2.2 0 0.21 0.15 0.46 0.55 0.38C13.71 14.53 16 11.53 16 8 16 3.58 12.42 0 8 0z"></path></svg>
+						<span>Github</span>
+					</a>
+					<a class="btn" href="https://www.ip138.com/useragent/" target="_blank">Useragent分析</a>
+					<a class="btn" href="/">返回首页</a>
+				</div>
 			</div>
 		</div>
 		<div style="display: none;">
@@ -131,7 +190,7 @@
 		    (function() {
 		      var hm = document.createElement("script");
 		      hm.src = "https://hm.baidu.com/hm.js?b86879c9cc57dd112fe1f7dd75206b82";
-		      var s = document.getElementsByTagName("script")[0]; 
+		      var s = document.getElementsByTagName("script")[0];
 		      s.parentNode.insertBefore(hm, s);
 		    })();
 	    </script>
