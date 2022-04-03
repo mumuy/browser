@@ -107,6 +107,8 @@
             //设备
             'Mobile': u.indexOf('Mobi') > -1 || u.indexOf('iPh') > -1 || u.indexOf('480') > -1,
             'Tablet': u.indexOf('Tablet') > -1 || u.indexOf('Pad') > -1 || u.indexOf('Nexus 7') > -1 || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+            //环境
+            'isWebview': u.indexOf('; wv)')>-1
         };
         var is360 = false;
         if(_window.chrome){
@@ -215,6 +217,7 @@
                 _this.osVersion = '';
             }
         }
+        _this.isWebview = match['isWebview'];
         //浏览器版本信息
         var version = {
             'Safari': function () {
@@ -286,7 +289,7 @@
                 return hash[chrome_version]||'';
             },
             '360EE': function(){
-                var hash = {'86':'13.0','78':'12.0','69':'11.0','63':'9.5','55':'9.0','50':'8.7','30':'7.5'};
+                var hash = {'95':'21','86':'13.0','78':'12.0','69':'11.0','63':'9.5','55':'9.0','50':'8.7','30':'7.5'};
                 var chrome_version = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
                 return hash[chrome_version]||'';
             },
@@ -387,7 +390,7 @@
             _this.browser += ' Nightly';
         }
         if (_this.browser == 'Edge') {
-            _this.engine = _this.version>'75'?'Blink':'EdgeHTML';
+            _this.engine = parseInt(_this.version)>75?'Blink':'EdgeHTML';
         } else if (match['Chrome']&& _this.engine=='WebKit' && parseInt(version['Chrome']()) > 27) {
             _this.engine = 'Blink';
         } else if (_this.browser == 'Opera' && parseInt(_this.version) > 12) {

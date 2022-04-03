@@ -147,3 +147,7 @@ PC - 电脑
 Tablet - 平板或PDA
 
 Mobile - 手机
+
+### 其他
+
+isWebview - 是否为Webview(仅Android)
