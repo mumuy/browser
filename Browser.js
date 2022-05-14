@@ -386,9 +386,6 @@
             _this.browser = u.match(/\S+Browser/)[0];
             _this.version = u.replace(/^.*Browser\/([\d.]+).*$/, '$1');
         }
-        if(_this.browser == 'Firefox'&&(window.clientInformation||!window.u2f)){
-            _this.browser += ' Nightly';
-        }
         if (_this.browser == 'Edge') {
             _this.engine = parseInt(_this.version)>75?'Blink':'EdgeHTML';
         } else if (match['Chrome']&& _this.engine=='WebKit' && parseInt(version['Chrome']()) > 27) {
