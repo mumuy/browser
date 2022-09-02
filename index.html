@@ -23,10 +23,6 @@
 			.container{
 				margin-bottom: 20px;
 			}
-			.footer{
-				line-height: 40px;
-				text-align: right;
-			}
 			.module .code{
 				padding: 10px;
 				margin-bottom: 5px;
@@ -35,8 +31,13 @@
 				font-size: 14px;
 				border-radius: 6px;
 			}
+			.module .code p{
+				margin:  0;
+				line-height: 20px;
+			}
 			.module table{
 				width: 100%;
+				margin-bottom: 20px;
 				table-layout: fixed;
 				border-collapse: collapse;
     			border-spacing: 0;
@@ -51,6 +52,10 @@
 				border: 1px solid #eee;
 			}
 
+			.mod-foot{
+				line-height: 40px;
+				text-align: right;
+			}
 			.mod-foot .btn{
 			    position: relative;
 			    display: inline-block;
@@ -177,6 +182,22 @@
 					</a>
 					<a class="btn" href="https://www.ip138.com/useragent/" target="_blank">Useragent分析</a>
 					<a class="btn" href="/">返回首页</a>
+				</div>
+				<div class="module">
+					<script>
+						document.writeln(`
+							<div class="code">
+								<p>屏幕分辨率的宽：${window.screen.width}</p>
+								<p>屏幕分辨率的高：${window.screen.height}</p>
+								<p>屏幕工作区的宽：${window.screen.availWidth}</p>
+								<p>屏幕工作区的高：${window.screen.availHeight}</p>
+								<p>网页可见区域宽：${document.documentElement.clientWidth}</p>
+								<p>网页可见区域高：${document.documentElement.clientHeight}</p>
+								<p>网页横向滚动宽：${document.documentElement.scrollLeft}</p>
+								<p>网页纵向滚动高：${document.documentElement.scrollTop}</p>
+							</div>
+						`);
+					</script>
 				</div>
 			</div>
 		</div>
