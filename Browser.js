@@ -170,7 +170,7 @@
         }
         //系统版本信息
         var osVersion = {
-            'Windows': function () {
+            'Windows': function(){
                 var v = u.replace(/^Mozilla\/\d.0 \(Windows NT ([\d.]+)[;)].*$/, '$1');
                 var hash = {
                     '10':'10',
@@ -185,29 +185,30 @@
                 };
                 return hash[v] || v;
             },
-            'Android': function () {
+            'Android': function(){
                 return u.replace(/^.*Android ([\d.]+);.*$/, '$1');
             },
-            'HarmonyOS': function () {
+            'HarmonyOS': function(){
                 var v = u.replace(/^Mozilla.*Android ([\d.]+)[;)].*$/, '$1');
                 var hash = {
                     '10':'2',
+                    '12':'3',
                 };
                 return hash[v] || '';
             },
-            'iOS': function () {
+            'iOS': function(){
                 return u.replace(/^.*OS ([\d_]+) like.*$/, '$1').replace(/_/g, '.');
             },
-            'Debian': function () {
+            'Debian': function(){
                 return u.replace(/^.*Debian\/([\d.]+).*$/, '$1');
             },
-            'Windows Phone': function () {
+            'Windows Phone': function(){
                 return u.replace(/^.*Windows Phone( OS)? ([\d.]+);.*$/, '$2');
             },
-            'Mac OS': function () {
+            'Mac OS': function(){
                 return u.replace(/^.*Mac OS X ([\d_]+).*$/, '$1').replace(/_/g, '.');
             },
-            'WebOS': function () {
+            'WebOS': function(){
                 return u.replace(/^.*hpwOS\/([\d.]+);.*$/, '$1');
             }
         };
@@ -221,37 +222,37 @@
         _this.isWebview = match['isWebview'];
         //浏览器版本信息
         var version = {
-            'Safari': function () {
+            'Safari': function(){
                 return u.replace(/^.*Version\/([\d.]+).*$/, '$1');
             },
-            'Chrome': function () {
+            'Chrome': function(){
                 return u.replace(/^.*Chrome\/([\d.]+).*$/, '$1').replace(/^.*CriOS\/([\d.]+).*$/, '$1');
             },
-            'IE': function () {
+            'IE': function(){
                 return u.replace(/^.*MSIE ([\d.]+).*$/, '$1').replace(/^.*rv:([\d.]+).*$/, '$1');
             },
-            'Edge': function () {
+            'Edge': function(){
                 return u.replace(/^.*Edge\/([\d.]+).*$/, '$1').replace(/^.*Edg\/([\d.]+).*$/, '$1').replace(/^.*EdgA\/([\d.]+).*$/, '$1').replace(/^.*EdgiOS\/([\d.]+).*$/, '$1');
             },
-            'Firefox': function () {
+            'Firefox': function(){
                 return u.replace(/^.*Firefox\/([\d.]+).*$/, '$1').replace(/^.*FxiOS\/([\d.]+).*$/, '$1');
             },
-            'Firefox Focus': function () {
+            'Firefox Focus': function(){
                 return u.replace(/^.*Focus\/([\d.]+).*$/, '$1');
             },
-            'Chromium': function () {
+            'Chromium': function(){
                 return u.replace(/^.*Chromium\/([\d.]+).*$/, '$1');
             },
-            'Opera': function () {
+            'Opera': function(){
                 return u.replace(/^.*Opera\/([\d.]+).*$/, '$1').replace(/^.*OPR\/([\d.]+).*$/, '$1');
             },
-            'Vivaldi': function () {
+            'Vivaldi': function(){
                 return u.replace(/^.*Vivaldi\/([\d.]+).*$/, '$1');
             },
-            'Yandex': function () {
+            'Yandex': function(){
                 return u.replace(/^.*YaBrowser\/([\d.]+).*$/, '$1');
             },
-            'Arora': function () {
+            'Arora': function(){
                 return u.replace(/^.*Arora\/([\d.]+).*$/, '$1');
             },
             'Lunascape': function(){
@@ -263,22 +264,22 @@
             'Coc Coc': function(){
                 return u.replace(/^.*coc_coc_browser\/([\d.]+).*$/, '$1');
             },
-            'Kindle': function () {
+            'Kindle': function(){
                 return u.replace(/^.*Version\/([\d.]+).*$/, '$1');
             },
-            'Iceweasel': function () {
+            'Iceweasel': function(){
                 return u.replace(/^.*Iceweasel\/([\d.]+).*$/, '$1');
             },
-            'Konqueror': function () {
+            'Konqueror': function(){
                 return u.replace(/^.*Konqueror\/([\d.]+).*$/, '$1');
             },
-            'Iceape': function () {
+            'Iceape': function(){
                 return u.replace(/^.*Iceape\/([\d.]+).*$/, '$1');
             },
-            'SeaMonkey': function () {
+            'SeaMonkey': function(){
                 return u.replace(/^.*SeaMonkey\/([\d.]+).*$/, '$1');
             },
-            'Epiphany': function () {
+            'Epiphany': function(){
                 return u.replace(/^.*Epiphany\/([\d.]+).*$/, '$1');
             },
             '360': function(){
@@ -294,22 +295,22 @@
                 var chrome_version = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
                 return hash[chrome_version]||'';
             },
-            'Maxthon': function () {
+            'Maxthon': function(){
                 return u.replace(/^.*Maxthon\/([\d.]+).*$/, '$1');
             },
-            'QQBrowser': function () {
+            'QQBrowser': function(){
                 return u.replace(/^.*QQBrowser\/([\d.]+).*$/, '$1');
             },
-            'QQ': function () {
+            'QQ': function(){
                 return u.replace(/^.*QQ\/([\d.]+).*$/, '$1');
             },
-            'Baidu': function () {
+            'Baidu': function(){
                 return u.replace(/^.*BIDUBrowser[\s\/]([\d.]+).*$/, '$1').replace(/^.*baiduboxapp\/([\d.]+).*$/, '$1');
             },
-            'UC': function () {
+            'UC': function(){
                 return u.replace(/^.*UC?Browser\/([\d.]+).*$/, '$1');
             },
-            'Sogou': function () {
+            'Sogou': function(){
                 return u.replace(/^.*SE ([\d.X]+).*$/, '$1').replace(/^.*SogouMobileBrowser\/([\d.]+).*$/, '$1');
             },
             'Liebao': function(){
@@ -321,7 +322,7 @@
                 var chrome_version = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
                 return version||hash[chrome_version]||'';
             },
-            '2345Explorer': function () {
+            '2345Explorer': function(){
                 var hash = {'69':'10.0','55':'9.9'};
                 var chrome_version = navigator.userAgent.replace(/^.*Chrome\/([\d]+).*$/, '$1');
                 return hash[chrome_version]||u.replace(/^.*2345Explorer\/([\d.]+).*$/, '$1').replace(/^.*Mb2345Browser\/([\d.]+).*$/, '$1');
@@ -329,52 +330,52 @@
             '115Browser': function(){
                 return u.replace(/^.*115Browser\/([\d.]+).*$/, '$1');
             },
-            'TheWorld': function () {
+            'TheWorld': function(){
                 return u.replace(/^.*TheWorld ([\d.]+).*$/, '$1');
             },
-            'XiaoMi': function () {
+            'XiaoMi': function(){
                 return u.replace(/^.*MiuiBrowser\/([\d.]+).*$/, '$1');
             },
             'Vivo': function(){
                 return u.replace(/^.*VivoBrowser\/([\d.]+).*$/, '$1');
             },
-            'Quark': function () {
+            'Quark': function(){
                 return u.replace(/^.*Quark\/([\d.]+).*$/, '$1');
             },
-            'Qiyu': function () {
+            'Qiyu': function(){
                 return u.replace(/^.*Qiyu\/([\d.]+).*$/, '$1');
             },
-            'Wechat': function () {
+            'Wechat': function(){
                 return u.replace(/^.*MicroMessenger\/([\d.]+).*$/, '$1');
             },
-            'WechatWork': function () {
+            'WechatWork': function(){
                 return u.replace(/^.*wxwork\/([\d.]+).*$/, '$1');
             },
-            'Taobao': function () {
+            'Taobao': function(){
                 return u.replace(/^.*AliApp\(TB\/([\d.]+).*$/, '$1');
             },
-            'Alipay': function () {
+            'Alipay': function(){
                 return u.replace(/^.*AliApp\(AP\/([\d.]+).*$/, '$1');
             },
-            'Weibo': function () {
+            'Weibo': function(){
                 return u.replace(/^.*weibo__([\d.]+).*$/, '$1');
             },
-            'Douban': function () {
+            'Douban': function(){
                 return u.replace(/^.*com.douban.frodo\/([\d.]+).*$/, '$1');
             },
-            'Suning': function () {
+            'Suning': function(){
                 return u.replace(/^.*SNEBUY-APP([\d.]+).*$/, '$1');
             },
-            'iQiYi': function () {
+            'iQiYi': function(){
                 return u.replace(/^.*IqiyiVersion\/([\d.]+).*$/, '$1');
             },
-            'DingTalk': function () {
+            'DingTalk': function(){
                 return u.replace(/^.*DingTalk\/([\d.]+).*$/, '$1');
             },
             'Douyin': function(){
                 return u.replace(/^.*app_version\/([\d.]+).*$/, '$1');
             },
-            'Huawei': function () {
+            'Huawei': function(){
                 return u.replace(/^.*Version\/([\d.]+).*$/, '$1').replace(/^.*HuaweiBrowser\/([\d.]+).*$/, '$1').replace(/^.*HBPC\/([\d.]+).*$/, '$1');
             }
         };
