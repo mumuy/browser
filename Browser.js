@@ -86,6 +86,7 @@
             'Suning': u.indexOf('SNEBUY-APP') > -1,
             'iQiYi': u.indexOf('IqiyiApp') > -1,
             'DingTalk': u.indexOf('DingTalk') > -1,
+            'Douyin': u.indexOf('aweme') > -1,
             'Huawei': u.indexOf('HuaweiBrowser') > -1||u.indexOf('HUAWEI/') > -1||u.indexOf('HONOR') > -1||u.indexOf('HBPC/') > -1,
             'Vivo': u.indexOf('VivoBrowser') > -1,
             //系统或平台
@@ -146,7 +147,7 @@
         //基本信息
         var hash = {
             engine: ['WebKit', 'Trident', 'Gecko', 'Presto', 'KHTML'],
-            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi','Vivo', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Huawei', 'Baidu', 'Maxthon', 'Sogou', 'Liebao', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'WechatWork', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk'],
+            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi','Vivo', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Huawei', 'Baidu', 'Maxthon', 'Sogou', 'Liebao', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'WechatWork', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk', 'Douyin'],
             os: ['Windows', 'Linux', 'Mac OS', 'Android', 'HarmonyOS', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS'],
             device: ['Mobile', 'Tablet']
         };
@@ -369,6 +370,9 @@
             },
             'DingTalk': function () {
                 return u.replace(/^.*DingTalk\/([\d.]+).*$/, '$1');
+            },
+            'Douyin': function(){
+                return u.replace(/^.*app_version\/([\d.]+).*$/, '$1');
             },
             'Huawei': function () {
                 return u.replace(/^.*Version\/([\d.]+).*$/, '$1').replace(/^.*HuaweiBrowser\/([\d.]+).*$/, '$1').replace(/^.*HBPC\/([\d.]+).*$/, '$1');

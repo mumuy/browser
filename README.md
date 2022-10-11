@@ -94,6 +94,8 @@ iQiYi - 爱奇艺手机客户端
 
 DingTalk - 钉钉手机客户端
 
+Douyin - 抖音客户端
+
 ## 内核：
 
 EdgeHTML
