@@ -28,6 +28,19 @@
         }
         return false;
     };
+    var _windowsVersion = null;
+    if(navigator.userAgentData){
+        navigator.userAgentData.getHighEntropyValues(["platformVersion"]).then(ua => {
+            if (navigator.userAgentData.platform === "Windows") {
+                const majorPlatformVersion = parseInt(ua.platformVersion.split('.')[0]);
+                if(majorPlatformVersion>=13){
+                    _windowsVersion = 11;
+                }else{
+                    _windowsVersion = 10;
+                }
+            }
+        });
+    }
 
     return function (userAgent) {
         var u = userAgent || _navigator.userAgent||{};
@@ -220,6 +233,10 @@
             }
         }
         _this.isWebview = match['isWebview'];
+        if(_this.os=='Windows'&&_windowsVersion){
+            _this.osVersion = _windowsVersion;
+        }
+
         //浏览器版本信息
         var version = {
             'Safari': function(){
