@@ -300,7 +300,7 @@
                 return u.replace(/^.*Epiphany\/([\d.]+).*$/, '$1');
             },
             '360': function(){
-                return u.replace(/^.*QihooBrowser\/([\d.]+).*$/, '$1');
+                return u.replace(/^.*QihooBrowser(HD)?\/([\d.]+).*$/, '$2');
             },
             '360SE': function(){
                 var hash = {'86':'13.0','78':'12.0','69':'11.0','63':'10.0','55':'9.1','45':'8.1','42':'8.0','31':'7.0','21':'6.3'};
