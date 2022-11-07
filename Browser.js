@@ -43,7 +43,7 @@
     }
 
     return function (userAgent) {
-        var u = userAgent || _navigator.userAgent||{};
+        var u = userAgent || _navigator.userAgent||'';
         var _this = this;
 
         var match = {
