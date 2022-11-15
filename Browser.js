@@ -29,7 +29,7 @@
         return false;
     };
     var _windowsVersion = null;
-    if(_navigator.userAgentData){
+    if(typeof _navigator.userAgentData!='undefined'){
         _navigator.userAgentData.getHighEntropyValues(["platformVersion"]).then(ua => {
             if (_navigator.userAgentData.platform === "Windows") {
                 const majorPlatformVersion = parseInt(ua.platformVersion.split('.')[0]);
