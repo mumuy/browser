@@ -96,6 +96,22 @@ DingTalk - 钉钉手机客户端
 
 Douyin - 抖音客户端
 
+### 爬虫：
+
+Googlebot - 谷歌爬虫
+
+Baiduspider - 百度爬虫
+
+Sogouspider - 搜狗爬虫
+
+Bingbot - 必应爬虫
+
+360Spider - 360爬虫
+
+Bytespider - 今日头条爬虫
+
+YandexBot - Yandex搜索引擎爬虫
+
 ## 内核：
 
 EdgeHTML

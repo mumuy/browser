@@ -47,13 +47,13 @@
         var _this = this;
 
         var match = {
-            //内核
+            // 内核
             'Trident': u.indexOf('Trident') > -1 || u.indexOf('NET CLR') > -1,
             'Presto': u.indexOf('Presto') > -1,
             'WebKit': u.indexOf('AppleWebKit') > -1,
             'Gecko': u.indexOf('Gecko/') > -1,
             'KHTML': u.indexOf('KHTML/') > -1,
-            //浏览器
+            // 浏览器
             'Safari': u.indexOf('Safari') > -1,
             'Chrome': u.indexOf('Chrome') > -1 || u.indexOf('CriOS') > -1,
             'IE': u.indexOf('MSIE') > -1 || u.indexOf('Trident') > -1,
@@ -102,7 +102,15 @@
             'Douyin': u.indexOf('aweme') > -1,
             'Huawei': u.indexOf('HuaweiBrowser') > -1||u.indexOf('HUAWEI/') > -1||u.indexOf('HONOR') > -1||u.indexOf('HBPC/') > -1,
             'Vivo': u.indexOf('VivoBrowser') > -1,
-            //系统或平台
+            // 爬虫
+            'Googlebot': u.indexOf('Googlebot') > -1,
+            'Baiduspider': u.indexOf('Baiduspider') > -1,
+            'Sogouspider': u.match(/Sogou (\S+) Spider/i),
+            'Bingbot': u.indexOf('bingbot') > -1,
+            '360Spider': u.indexOf('360Spider') > -1,
+            'Bytespider': u.indexOf('Bytespider') > -1,
+            'YandexBot': u.indexOf('YandexBot') > -1,
+            // 系统或平台
             'Windows': u.indexOf('Windows') > -1,
             'Linux': u.indexOf('Linux') > -1 || u.indexOf('X11') > -1,
             'Mac OS': u.indexOf('Macintosh') > -1,
@@ -118,10 +126,10 @@
             'iOS': u.indexOf('like Mac OS X') > -1,
             'Chrome OS': u.indexOf('CrOS') > -1,
             'WebOS': u.indexOf('hpwOS') > -1,
-            //设备
+            // 设备
             'Mobile': u.indexOf('Mobi') > -1 || u.indexOf('iPh') > -1 || u.indexOf('480') > -1,
             'Tablet': u.indexOf('Tablet') > -1 || u.indexOf('Pad') > -1 || u.indexOf('Nexus 7') > -1 || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1),
-            //环境
+            // 环境
             'isWebview': u.indexOf('; wv)')>-1
         };
         var is360 = false;
@@ -160,7 +168,7 @@
         //基本信息
         var hash = {
             engine: ['WebKit', 'Trident', 'Gecko', 'Presto', 'KHTML'],
-            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi','Vivo', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Huawei', 'Baidu', 'Maxthon', 'Sogou', 'Liebao', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'WechatWork', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk', 'Douyin'],
+            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi','Vivo', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Huawei', 'Baidu', 'Maxthon', 'Sogou', 'Liebao', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'WechatWork', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk', 'Douyin', 'Googlebot', 'Baiduspider', 'Sogouspider', 'Bingbot', '360Spider', 'Bytespider', 'YandexBot'],
             os: ['Windows', 'Linux', 'Mac OS', 'Android', 'HarmonyOS', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS'],
             device: ['Mobile', 'Tablet']
         };
@@ -394,6 +402,27 @@
             },
             'Huawei': function(){
                 return u.replace(/^.*Version\/([\d.]+).*$/, '$1').replace(/^.*HuaweiBrowser\/([\d.]+).*$/, '$1').replace(/^.*HBPC\/([\d.]+).*$/, '$1');
+            },
+            'Googlebot': function(){
+                return u.replace(/^.*Googlebot\/([\d.]+).*$/, '$1');
+            },
+            'Baiduspider': function(){
+                return u.replace(/^.*Baiduspider(-render)?\/([\d.]+).*$/, '$1');
+            },
+            'Sogouspider': function(){
+                return u.replace(/^.*Sogou (\S+) Spider\/([\d.]+).*$/i, '$2');
+            },
+            'Bingbot': function(){
+                return u.replace(/^.*bingbot\/([\d.]+).*$/, '$1');
+            },
+            '360Spider': function(){
+                return '';
+            },
+            'Bytespider': function(){
+                return '';
+            },
+            'YandexBot': function(){
+                return u.replace(/^.*YandexBot\/([\d.]+).*$/, '$1');
             }
         };
         _this.version = '';
