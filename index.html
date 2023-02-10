@@ -24,12 +24,16 @@
 				margin-bottom: 20px;
 			}
 			.module .code{
-				padding: 10px;
-				margin-bottom: 5px;
-				background: #f8f8f8;
-				line-height: 24px;
-				font-size: 14px;
-				border-radius: 6px;
+				padding: 10px 15px;
+			    margin-bottom: 10px;
+			    background: #f8f8f8;
+			    line-height: 20px;
+			    font-size: 14px;
+			    border-radius: 6px;
+			    text-align: left;
+			    word-break: break-word;
+			    word-wrap: break-word;
+			    hyphens: auto;
 			}
 			.module .code p{
 				margin:  0;
@@ -37,7 +41,7 @@
 			}
 			.module table{
 				width: 100%;
-				margin-bottom: 20px;
+				margin-bottom: 10px;
 				table-layout: fixed;
 				border-collapse: collapse;
     			border-spacing: 0;
@@ -113,8 +117,8 @@
 					<script>
 						var info = browser();
 						if(info.device!='Mobile'){
-							document.writeln('<table>\
-								<caption><div class="code">'+navigator.userAgent+'</div></caption>\
+							document.writeln('<div class="code">'+navigator.userAgent+'</div>\
+							<table>\
 								<thead>\
 									<tr>\
 										<th>浏览器</th>\
@@ -135,10 +139,11 @@
 										<td>'+info.language+'</td>\
 									</tr>\
 								</tbody>\
-							</table>');
+							</table>\
+							<div class="code">'+JSON.stringify(info)+'</div>');
 						}else{
-							document.writeln('<table>\
-								<caption><p>'+navigator.userAgent+'</p></caption>\
+							document.writeln('<div class="code">'+navigator.userAgent+'</div>\
+							<table>\
 								<thead>\
 									<tr>\
 										<th>浏览器</th>\
@@ -153,8 +158,8 @@
 										<td>'+info.engine+'</td>\
 									</tr>\
 								</tbody>\
-							</table>');
-							document.writeln('<table>\
+							</table>\
+							<table>\
 								<thead>\
 									<tr>\
 										<th>操作系统</th>\
@@ -169,7 +174,8 @@
 										<td>'+info.language+'</td>\
 									</tr>\
 								</tbody>\
-							</table>');
+							</table>\
+							<div class="code">'+JSON.stringify(info)+'</div>');
 						}
 					</script>
 				</div>
