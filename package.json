@@ -1,0 +1,32 @@
+{
+    "name": "browser-tool",
+    "version": "1.0.0",
+    "description": "Useragent analysis tool",
+    "author": "HaoLe Zheng",
+    "license": "MIT",
+    "keywords": [
+        "browser",
+        "useragent",
+        "浏览器判断",
+        "浏览器分析",
+        "浏览器识别"
+    ],
+    "main": "dist/calendar.min.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mumuy/browser.git"
+    },
+    "bugs": {
+        "url": "https://github.com/mumuy/browser/issues"
+    },
+    "devDependencies": {
+        "webpack": "^5.74.0",
+        "webpack-cli": "^4.10.0"
+    },
+    "scripts": {
+        "build": "webpack"
+    },
+    "homepage": "https://passer-by.com/browser/",
+    "directories": {
+    }
+}
