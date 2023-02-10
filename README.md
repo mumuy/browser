@@ -211,7 +211,6 @@ Tablet - 平板或PDA
 
 Mobile - 手机
 
-如系统为iOS，设备为Tablet，则为iPad；如系统为iOS，设备为Mobile，则为iPhone
 
 ### 其他
 
