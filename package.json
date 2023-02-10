@@ -11,7 +11,7 @@
         "浏览器分析",
         "浏览器识别"
     ],
-    "main": "dist/calendar.min.js",
+    "main": "Browser.js",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/mumuy/browser.git"
