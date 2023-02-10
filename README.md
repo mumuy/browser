@@ -200,4 +200,8 @@ Mobile - 手机
 
 ### 其他
 
+platform - 硬件平台(Win32、Win64、WinCE、iPhone、iPod、iPad、Android、BlackBerry、Opera)
+
 isWebview - 是否为Webview(仅Android)
+
+isBot - 是否为搜索引擎蜘蛛程序

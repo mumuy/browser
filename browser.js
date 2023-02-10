@@ -150,7 +150,7 @@
                 }
             }
         }
-        //修正
+        // 修正
         if (match['Mobile']) {
             match['Mobile'] = !(u.indexOf('iPad') > -1);
         } else if (is360) {
@@ -167,7 +167,7 @@
         }else if(match['iOS']){
             match['Safari'] = true;
         }
-        //基本信息
+        // 基本信息
         var hash = {
             engine: ['WebKit', 'Trident', 'Gecko', 'Presto', 'KHTML'],
             browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Brave', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi','Vivo', 'OPPO', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Huawei', 'Baidu', 'Maxthon', 'Sogou', 'Liebao', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'WechatWork', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk', 'Douyin', 'Googlebot', 'Baiduspider', 'Sogouspider', 'Bingbot', '360Spider', 'Bytespider', 'YandexBot'],
@@ -192,7 +192,7 @@
                 }
             }
         }
-        //系统版本信息
+        // 系统版本信息
         var osVersion = {
             'Windows': function(){
                 var v = u.replace(/^Mozilla\/\d.0 \(Windows NT ([\d.]+)[;)].*$/, '$1');
@@ -243,12 +243,17 @@
                 _this.osVersion = '';
             }
         }
-        _this.isWebview = match['isWebview'];
         if(_this.os=='Windows'&&_windowsVersion){
             _this.osVersion = _windowsVersion;
         }
+        _this.platform = _navigator.platform;
+        // 类型判断
+        _this.isWebview = match['isWebview'];
+        _this.isBot = ['Googlebot', 'Baiduspider', 'Sogouspider', 'Bingbot', '360Spider', 'Bytespider', 'YandexBot'].some(function(value){
+            return match[value];
+        });
 
-        //浏览器版本信息
+        // 浏览器版本信息
         var version = {
             'Safari': function(){
                 return u.replace(/^.*Version\/([\d.]+).*$/, '$1');
