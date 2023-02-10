@@ -1,7 +1,7 @@
 {
     "name": "browser-tool",
-    "version": "1.0.1",
-    "description": "Useragent analysis tool",
+    "version": "1.0.2",
+    "description": "Useragent analysis tool.浏览器分析/浏览器检测/浏览器识别/浏览器判断/UA解析 - 用户代理、操作系统信息",
     "author": "HaoLe Zheng",
     "license": "MIT",
     "keywords": [
@@ -9,7 +9,8 @@
         "useragent",
         "浏览器判断",
         "浏览器分析",
-        "浏览器识别"
+        "浏览器识别",
+        "浏览器检测"
     ],
     "main": "browser.js",
     "repository": {
