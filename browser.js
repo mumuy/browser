@@ -64,6 +64,7 @@
             'Opera': u.indexOf('Opera') > -1 || u.indexOf('OPR') > -1,
             'Vivaldi': u.indexOf('Vivaldi') > -1,
             'Yandex': u.indexOf('YaBrowser') > -1,
+            'Brave': _navigator.brave?true:false,
             'Arora': u.indexOf('Arora') > -1,
             'Lunascape': u.indexOf('Lunascape') > -1,
             'QupZilla': u.indexOf('QupZilla') > -1,
@@ -102,6 +103,7 @@
             'Douyin': u.indexOf('aweme') > -1,
             'Huawei': u.indexOf('HuaweiBrowser') > -1||u.indexOf('HUAWEI/') > -1||u.indexOf('HONOR') > -1||u.indexOf('HBPC/') > -1,
             'Vivo': u.indexOf('VivoBrowser') > -1,
+            'OPPO': u.indexOf('HeyTapBrowser') > -1,
             // 爬虫
             'Googlebot': u.indexOf('Googlebot') > -1,
             'Baiduspider': u.indexOf('Baiduspider') > -1,
@@ -168,7 +170,7 @@
         //基本信息
         var hash = {
             engine: ['WebKit', 'Trident', 'Gecko', 'Presto', 'KHTML'],
-            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi','Vivo', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Huawei', 'Baidu', 'Maxthon', 'Sogou', 'Liebao', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'WechatWork', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk', 'Douyin', 'Googlebot', 'Baiduspider', 'Sogouspider', 'Bingbot', '360Spider', 'Bytespider', 'YandexBot'],
+            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Brave', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi','Vivo', 'OPPO', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Huawei', 'Baidu', 'Maxthon', 'Sogou', 'Liebao', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'WechatWork', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk', 'Douyin', 'Googlebot', 'Baiduspider', 'Sogouspider', 'Bingbot', '360Spider', 'Bytespider', 'YandexBot'],
             os: ['Windows', 'Linux', 'Mac OS', 'Android', 'HarmonyOS', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS'],
             device: ['Mobile', 'Tablet']
         };
@@ -278,6 +280,9 @@
             'Yandex': function(){
                 return u.replace(/^.*YaBrowser\/([\d.]+).*$/, '$1');
             },
+            'Brave': function(){
+                return u.replace(/^.*Chrome\/([\d.]+).*$/, '$1');
+            },
             'Arora': function(){
                 return u.replace(/^.*Arora\/([\d.]+).*$/, '$1');
             },
@@ -364,6 +369,9 @@
             },
             'Vivo': function(){
                 return u.replace(/^.*VivoBrowser\/([\d.]+).*$/, '$1');
+            },
+            'OPPO': function(){
+                return u.replace(/^.*HeyTapBrowser\/([\d.]+).*$/, '$1');
             },
             'Quark': function(){
                 return u.replace(/^.*Quark\/([\d.]+).*$/, '$1');

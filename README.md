@@ -20,6 +20,8 @@ console.log(browser());
 
 ## 浏览器：
 
+### 国外浏览器：
+
 Chrome - 谷歌浏览器
 
 Chromium - 谷歌浏览器开源版
@@ -38,6 +40,8 @@ Vivaldi - Opera联合创始人发布
 
 Yandex - 俄罗斯最大搜索引擎Yandex出品
 
+Brave - 自带网络广告拦截的浏览器
+
 Arora - 基于webkit和Qt的轻量级浏览器
 
 Lunascape - 来自日本的三引擎浏览器
@@ -50,13 +54,15 @@ Kindle - 亚马逊电子书
 
 Iceweasel - Firefox浏览器的Debian再发布版
 
-Konqueror
+Konqueror - 开源Web浏览器和文件管理器
 
 Iceape
 
 SeaMonkey
 
 Epiphany
+
+### 国内浏览器：
 
 360 - 360浏览器(手机版)
 
@@ -86,13 +92,19 @@ TheWorld - 世界之窗浏览器
 
 Qiyu - 旗鱼浏览器
 
+Quark - 夸克浏览器
+
+### 手机厂商：
+
 XiaoMi - 小米浏览器
 
 Huawei - 华为浏览器
 
 Vivo - Vivo浏览器
 
-Quark - 夸克浏览器
+OPPO - OPPO浏览器
+
+### 客户端：
 
 Wechat - 微信手机客户端
 
