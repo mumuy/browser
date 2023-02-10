@@ -1,6 +1,6 @@
 {
     "name": "browser-tool",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Useragent analysis tool",
     "author": "HaoLe Zheng",
     "license": "MIT",
@@ -11,7 +11,7 @@
         "浏览器分析",
         "浏览器识别"
     ],
-    "main": "Browser.js",
+    "main": "browser.js",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/mumuy/browser.git"
