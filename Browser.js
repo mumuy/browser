@@ -1,5 +1,5 @@
 /**
- * 浏览器解析，浏览器、Node.js皆可
+ * 浏览器解析，浏览器、Node.js、服务端渲染皆可
  * https://github.com/mumuy/browser
  */
 
@@ -128,7 +128,7 @@
             'WebOS': u.indexOf('hpwOS') > -1,
             // 设备
             'Mobile': u.indexOf('Mobi') > -1 || u.indexOf('iPh') > -1 || u.indexOf('480') > -1,
-            'Tablet': u.indexOf('Tablet') > -1 || u.indexOf('Pad') > -1 || u.indexOf('Nexus 7') > -1 || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1),
+            'Tablet': u.indexOf('Tablet') > -1 || u.indexOf('Pad') > -1 || u.indexOf('Nexus 7') > -1 || (_navigator.platform === 'MacIntel' && _navigator.maxTouchPoints > 1),
             // 环境
             'isWebview': u.indexOf('; wv)')>-1
         };
@@ -175,6 +175,7 @@
         _this.device = 'PC';
         _this.language = (function () {
             var g = (_navigator.browserLanguage || _navigator.language);
+            if (typeof g !== 'string') return 'Unknown language'
             var arr = g.split('-');
             if (arr[1]) {
                 arr[1] = arr[1].toUpperCase();
