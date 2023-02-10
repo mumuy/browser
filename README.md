@@ -2,7 +2,7 @@
 
 该 Javascript 库 / 模块可以用于前端也可以用于后端 Nodejs 中。
 
-1. 直接下载Browser.js，然后使用 `<script>`标签引入，可以得到全局函数 `Browser`.
+1. 直接下载browser.js，然后使用 `<script>`标签引入，可以得到全局函数 `browser`.
 2. 使用 npm 进行包管理，具体为：
 
 	> **npm install browser-tool**
@@ -10,9 +10,9 @@
 然后使用 `require` 引入模块
 
 ```js
-var Browser = require("browser-tool");
+var browser = require("browser-tool");
 
-console.log(new Browser());
+console.log(browser());
 ```
 
 

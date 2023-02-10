@@ -14,7 +14,7 @@
         module.exports = factory(root);
     } else {
         // Browser globals (root is window)
-        root.Browser = factory(root);
+        root.browser = factory(root);
     }
 }(typeof self !== 'undefined' ? self : this, function (root) {
     var _window = root||{};
@@ -44,7 +44,7 @@
 
     return function (userAgent) {
         var u = userAgent || _navigator.userAgent||'';
-        var _this = this;
+        var _this = {};
 
         var match = {
             // 内核
@@ -447,5 +447,6 @@
         } else if (_this.browser == 'Yandex') {
             _this.engine = 'Blink';
         }
+        return _this;
     };
 }));

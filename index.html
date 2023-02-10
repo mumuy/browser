@@ -6,7 +6,7 @@
 		<title>浏览器检测</title>
 		<meta name="description" content="通过Useragent和浏览器环境变量等方式判断浏览器、系统及设备类型，是页面判断检测的常用工具。">
 		<meta name="keywords" content="Useragent,用户代理,浏览器判断,浏览器类型,浏览器信息">
-		<script src="Browser.js"></script>
+		<script src="browser.js"></script>
 		<style>
 			a{
 				text-decoration: none;
@@ -111,7 +111,7 @@
 			<div class="container">
 				<div class="module">
 					<script>
-						var info = new Browser();
+						var info = browser();
 						if(info.device!='Mobile'){
 							document.writeln('<table>\
 								<caption><div class="code">'+navigator.userAgent+'</div></caption>\
