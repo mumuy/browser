@@ -14,6 +14,21 @@ var browser = require("browser-tool");
 
 console.log(browser());
 ```
+#### 返回
+```js
+{
+"device":"PC",
+"language":"zh_CN",
+"engine":"Blink",
+"browser":"Chrome",
+"os":"Windows",
+"osVersion":10,
+"platform":"Win32",
+"isWebview":false,
+"isBot":false,
+"version":"109.0.0.0"
+}
+```
 
 
 # 浏览器信息
