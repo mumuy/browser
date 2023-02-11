@@ -17,12 +17,12 @@ console.log(browser());
 #### 返回
 ```js
 {
-"device":"PC",
+"device":"Desktop",
 "language":"zh_CN",
 "engine":"Blink",
 "browser":"Chrome",
-"os":"Windows",
-"osVersion":10,
+"system":"Windows",
+"systemVersion":10,
 "platform":"Win32",
 "isWebview":false,
 "isBot":false,
@@ -111,7 +111,7 @@ console.log(browser());
 </table>
 
 <table>
-	<caption><h3>os - 操作系统</h3></caption>
+	<caption><h3>system - 操作系统</h3></caption>
 	<thead>
 		<tr><th>值</th><th>描述</th></tr>
 	</thead>

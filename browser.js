@@ -171,10 +171,10 @@
         var hash = {
             engine: ['WebKit', 'Trident', 'Gecko', 'Presto', 'KHTML'],
             browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Brave', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi','Vivo', 'OPPO', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Huawei', 'Baidu', 'Maxthon', 'Sogou', 'Liebao', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'WechatWork', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk', 'Douyin', 'Googlebot', 'Baiduspider', 'Sogouspider', 'Bingbot', '360Spider', 'Bytespider', 'YandexBot'],
-            os: ['Windows', 'Linux', 'Mac OS', 'Android', 'HarmonyOS', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS'],
+            system: ['Windows', 'Linux', 'Mac OS', 'Android', 'HarmonyOS', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS'],
             device: ['Mobile', 'Tablet']
         };
-        _this.device = 'Desktop';
+        _this.device = 'PC';
         _this.language = (function () {
             var g = (_navigator.browserLanguage || _navigator.language);
             if (typeof g !== 'string') return 'Unknown language'
@@ -193,7 +193,7 @@
             }
         }
         // 系统版本信息
-        var osVersion = {
+        var systemVersion = {
             'Windows': function(){
                 var v = u.replace(/^Mozilla\/\d.0 \(Windows NT ([\d.]+)[;)].*$/, '$1');
                 var hash = {
@@ -236,15 +236,15 @@
                 return u.replace(/^.*hpwOS\/([\d.]+);.*$/, '$1');
             }
         };
-        _this.osVersion = '';
-        if (osVersion[_this.os]) {
-            _this.osVersion = osVersion[_this.os]();
-            if (_this.osVersion == u) {
-                _this.osVersion = '';
+        _this.systemVersion = '';
+        if (systemVersion[_this.system]) {
+            _this.systemVersion = systemVersion[_this.system]();
+            if (_this.systemVersion == u) {
+                _this.systemVersion = '';
             }
         }
-        if(_this.os=='Windows'&&_windowsVersion){
-            _this.osVersion = _windowsVersion;
+        if(_this.system=='Windows'&&_windowsVersion){
+            _this.systemVersion = _windowsVersion;
         }
         _this.platform = _navigator.platform;
         // 类型判断
