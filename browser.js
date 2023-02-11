@@ -174,7 +174,7 @@
             os: ['Windows', 'Linux', 'Mac OS', 'Android', 'HarmonyOS', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS'],
             device: ['Mobile', 'Tablet']
         };
-        _this.device = 'PC';
+        _this.device = 'Desktop';
         _this.language = (function () {
             var g = (_navigator.browserLanguage || _navigator.language);
             if (typeof g !== 'string') return 'Unknown language'

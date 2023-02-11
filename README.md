@@ -140,7 +140,7 @@ console.log(browser());
 		<tr><th>值</th><th>描述</th></tr>
 	</thead>
 	<tbody>
-		<tr><td>PC</td><td>电脑</td></tr>
+		<tr><td>Desktop</td><td>电脑</td></tr>
 		<tr><td>Tablet</td><td>平板或PDA</td></tr>
 		<tr><td>Mobile</td><td>手机</td></tr>
 	</tbody>
