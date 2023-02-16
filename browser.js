@@ -53,7 +53,7 @@
             'WebKit': u.indexOf('AppleWebKit') > -1,
             'Gecko': u.indexOf('Gecko/') > -1,
             'KHTML': u.indexOf('KHTML/') > -1,
-            // 浏览器
+            // 浏览器 - 国外浏览器
             'Safari': u.indexOf('Safari') > -1,
             'Chrome': u.indexOf('Chrome') > -1 || u.indexOf('CriOS') > -1,
             'IE': u.indexOf('MSIE') > -1 || u.indexOf('Trident') > -1,
@@ -75,6 +75,7 @@
             'Iceape': u.indexOf('Iceape') > -1,
             'SeaMonkey': u.indexOf('SeaMonkey') > -1,
             'Epiphany': u.indexOf('Epiphany') > -1,
+            // 浏览器 - 国内浏览器
             '360': u.indexOf('QihooBrowser') > -1||u.indexOf('QHBrowser') > -1,
             '360EE': u.indexOf('360EE') > -1,
             '360SE': u.indexOf('360SE') > -1,
@@ -88,9 +89,14 @@
             '2345Explorer': u.indexOf('2345Explorer') > -1||u.indexOf('Mb2345Browser') > -1||u.indexOf('2345chrome') > -1,
             '115Browser': u.indexOf('115Browser') > -1,
             'TheWorld': u.indexOf('TheWorld') > -1,
-            'XiaoMi': u.indexOf('MiuiBrowser') > -1,
             'Quark': u.indexOf('Quark') > -1,
             'Qiyu': u.indexOf('Qiyu') > -1,
+            // 浏览器 - 手机厂商
+            'XiaoMi': u.indexOf('MiuiBrowser') > -1,
+            'Huawei': u.indexOf('HuaweiBrowser') > -1||u.indexOf('HUAWEI/') > -1||u.indexOf('HONOR') > -1||u.indexOf('HBPC/') > -1,
+            'Vivo': u.indexOf('VivoBrowser') > -1,
+            'OPPO': u.indexOf('HeyTapBrowser') > -1,
+            // 浏览器 - 客户端
             'Wechat': u.indexOf('MicroMessenger') > -1,
             'WechatWork': u.indexOf('wxwork/') > -1,
             'Taobao': u.indexOf('AliApp(TB') > -1,
@@ -101,16 +107,15 @@
             'iQiYi': u.indexOf('IqiyiApp') > -1,
             'DingTalk': u.indexOf('DingTalk') > -1,
             'Douyin': u.indexOf('aweme') > -1,
-            'Huawei': u.indexOf('HuaweiBrowser') > -1||u.indexOf('HUAWEI/') > -1||u.indexOf('HONOR') > -1||u.indexOf('HBPC/') > -1,
-            'Vivo': u.indexOf('VivoBrowser') > -1,
-            'OPPO': u.indexOf('HeyTapBrowser') > -1,
-            // 爬虫
+            // 浏览器 - 爬虫
             'Googlebot': u.indexOf('Googlebot') > -1,
             'Baiduspider': u.indexOf('Baiduspider') > -1,
             'Sogouspider': u.match(/Sogou (\S+) Spider/i),
             'Bingbot': u.indexOf('bingbot') > -1,
-            '360Spider': u.indexOf('360Spider') > -1,
+            '360Spider': u.indexOf('360Spider') > -1||u.indexOf('HaosouSpider')>-1,
             'Bytespider': u.indexOf('Bytespider') > -1,
+            'YisouSpider': u.indexOf('YisouSpider') >-1,
+            'YodaoBot': u.indexOf('YodaoBot') >-1,
             'YandexBot': u.indexOf('YandexBot') > -1,
             // 系统或平台
             'Windows': u.indexOf('Windows') > -1,
@@ -170,7 +175,7 @@
         // 基本信息
         var hash = {
             engine: ['WebKit', 'Trident', 'Gecko', 'Presto', 'KHTML'],
-            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Brave', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi','Vivo', 'OPPO', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Huawei', 'Baidu', 'Maxthon', 'Sogou', 'Liebao', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'WechatWork', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk', 'Douyin', 'Googlebot', 'Baiduspider', 'Sogouspider', 'Bingbot', '360Spider', 'Bytespider', 'YandexBot'],
+            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Brave', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi','Vivo', 'OPPO', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Huawei', 'Baidu', 'Maxthon', 'Sogou', 'Liebao', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'WechatWork', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk', 'Douyin', 'Googlebot', 'Baiduspider', 'Sogouspider', 'Bingbot', '360Spider', 'Bytespider', 'YisouSpider', 'YodaoBot','YandexBot'],
             system: ['Windows', 'Linux', 'Mac OS', 'Android', 'HarmonyOS', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS'],
             device: ['Mobile', 'Tablet']
         };
@@ -435,6 +440,12 @@
             'Bytespider': function(){
                 return '';
             },
+            'YisouSpider': function(){
+                return u.replace(/^.*YisouSpider\/([\d.]+).*$/, '$1');
+            }
+            'YodaoBot': function(){
+                return u.replace(/^.*YodaoBot\/([\d.]+).*$/, '$1');
+            }
             'YandexBot': function(){
                 return u.replace(/^.*YandexBot\/([\d.]+).*$/, '$1');
             }

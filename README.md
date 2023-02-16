@@ -84,12 +84,14 @@ console.log(browser());
 		<tr><td>iQiYi</td><td>爱奇艺手机客户端</td></tr>
 		<tr><td>DingTalk</td><td>钉钉手机客户端</td></tr>
 		<tr><td>Douyin</td><td>抖音客户端</td></tr>
-		<tr><td rowspan="7">爬虫</td><td>Googlebot</td><td>谷歌爬虫</td></tr>
+		<tr><td rowspan="9">爬虫</td><td>Googlebot</td><td>谷歌爬虫</td></tr>
 		<tr><td>Baiduspider</td><td>百度爬虫</td></tr>
 		<tr><td>Sogouspider</td><td>搜狗爬虫</td></tr>
 		<tr><td>Bingbot</td><td>必应爬虫</td></tr>
 		<tr><td>360Spider</td><td>360爬虫</td></tr>
 		<tr><td>Bytespider</td><td>今日头条爬虫</td></tr>
+		<tr><td>YisouSpider</td><td>神马搜索爬虫</td></tr>
+		<tr><td>YodaoBot</td><td>有道搜索爬虫</td></tr>
 		<tr><td>YandexBot</td><td>Yandex搜索引擎爬虫</td></tr>
 	</tbody>
 </table>
