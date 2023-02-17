@@ -442,10 +442,10 @@
             },
             'YisouSpider': function(){
                 return u.replace(/^.*YisouSpider\/([\d.]+).*$/, '$1');
-            }
+            },
             'YodaoBot': function(){
                 return u.replace(/^.*YodaoBot\/([\d.]+).*$/, '$1');
-            }
+            },
             'YandexBot': function(){
                 return u.replace(/^.*YandexBot\/([\d.]+).*$/, '$1');
             }
