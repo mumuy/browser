@@ -235,7 +235,7 @@
                 return u.replace(/^.*Windows Phone( OS)? ([\d.]+);.*$/, '$2');
             },
             'Mac OS': function(){
-                return u.replace(/^.*Mac OS X ([\d_]+).*$/, '$1').replace(/_/g, '.');
+                return u.replace(/^.*Mac OS X -?([\d_]+).*$/, '$1').replace(/_/g, '.');
             },
             'WebOS': function(){
                 return u.replace(/^.*hpwOS\/([\d.]+);.*$/, '$1');
