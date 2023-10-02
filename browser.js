@@ -75,6 +75,7 @@
             'Iceape': u.indexOf('Iceape') > -1,
             'SeaMonkey': u.indexOf('SeaMonkey') > -1,
             'Epiphany': u.indexOf('Epiphany') > -1,
+            'Oculus' :u.indexOf('OculusBrowser') > -1,
             // 浏览器 - 国内浏览器
             '360': u.indexOf('QihooBrowser') > -1||u.indexOf('QHBrowser') > -1,
             '360EE': u.indexOf('360EE') > -1,
@@ -133,9 +134,11 @@
             'iOS': u.indexOf('like Mac OS X') > -1,
             'Chrome OS': u.indexOf('CrOS') > -1,
             'WebOS': u.indexOf('hpwOS') > -1,
+            'Quest': u.indexOf('Quest') > -1,
             // 设备
             'Mobile': u.indexOf('Mobi') > -1 || u.indexOf('iPh') > -1 || u.indexOf('480') > -1,
             'Tablet': u.indexOf('Tablet') > -1 || u.indexOf('Pad') > -1 || u.indexOf('Nexus 7') > -1 || (_navigator.platform === 'MacIntel' && _navigator.maxTouchPoints > 1),
+            'VR': u.indexOf(' VR ') > -1,
             // 环境
             'isWebview': u.indexOf('; wv)')>-1
         };
@@ -175,9 +178,9 @@
         // 基本信息
         var hash = {
             engine: ['WebKit', 'Trident', 'Gecko', 'Presto', 'KHTML'],
-            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Brave', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi','Vivo', 'OPPO', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Huawei', 'Baidu', 'Maxthon', 'Sogou', 'Liebao', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'WechatWork', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk', 'Douyin', 'Googlebot', 'Baiduspider', 'Sogouspider', 'Bingbot', '360Spider', 'Bytespider', 'YisouSpider', 'YodaoBot','YandexBot'],
-            system: ['Windows', 'Linux', 'Mac OS', 'Android', 'HarmonyOS', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS'],
-            device: ['Mobile', 'Tablet']
+            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Brave', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi','Vivo', 'OPPO', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Huawei', 'Baidu', 'Maxthon', 'Sogou', 'Liebao', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'WechatWork', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk', 'Douyin', 'Googlebot', 'Baiduspider', 'Sogouspider', 'Bingbot', '360Spider', 'Bytespider', 'YisouSpider', 'YodaoBot','YandexBot', 'Oculus'],
+            system: ['Windows', 'Linux', 'Mac OS', 'Android', 'HarmonyOS', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS', 'Quest'],
+            device: ['Mobile', 'Tablet', 'VR']
         };
         _this.device = 'PC';
         _this.language = (function () {
@@ -239,6 +242,9 @@
             },
             'WebOS': function(){
                 return u.replace(/^.*hpwOS\/([\d.]+);.*$/, '$1');
+            },
+            'Quest': function(){
+                return u.replace(/^.*Quest ([\d.]+).*$/, '$1');
             }
         };
         _this.systemVersion = '';
@@ -448,6 +454,9 @@
             },
             'YandexBot': function(){
                 return u.replace(/^.*YandexBot\/([\d.]+).*$/, '$1');
+            },
+            'Oculus': function(){
+                return u.replace(/^.*OculusBrowser\/([\d.]+).*$/, '$1');
             }
         };
         _this.version = '';
