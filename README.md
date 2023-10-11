@@ -69,7 +69,7 @@ console.log(browser());
 		<tr><td>TheWorld</td><td>世界之窗浏览器</td></tr>
 		<tr><td>Qiyu</td><td>旗鱼浏览器</td></tr>
 		<tr><td>Quark</td><td>夸克浏览器</td></tr>
-		<tr><td rowspan="4">手机厂商</td><td>XiaoMi</td><td>小米浏览器</td></tr>
+		<tr><td rowspan="4">手机厂商</td><td>Xiaomi</td><td>小米浏览器</td></tr>
 		<tr><td>Huawei</td><td>华为浏览器</td></tr>
 		<tr><td>Vivo</td><td>Vivo浏览器</td></tr>
 		<tr><td>OPPO</td><td>OPPO浏览器</td></tr>
@@ -81,7 +81,7 @@ console.log(browser());
 		<tr><td>Weibo</td><td>微博手机客户端</td></tr>
 		<tr><td>Douban</td><td>豆瓣手机客户端</td></tr>
 		<tr><td>Suning</td><td>苏宁易购手机客户端</td></tr>
-		<tr><td>iQiYi</td><td>爱奇艺手机客户端</td></tr>
+		<tr><td>iQIYI</td><td>爱奇艺手机客户端</td></tr>
 		<tr><td>DingTalk</td><td>钉钉手机客户端</td></tr>
 		<tr><td>Douyin</td><td>抖音客户端</td></tr>
 		<tr><td rowspan="9">爬虫</td><td>Googlebot</td><td>谷歌爬虫</td></tr>

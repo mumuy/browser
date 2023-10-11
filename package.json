@@ -1,7 +1,7 @@
 {
     "name": "browser-tool",
-    "version": "1.0.5",
-    "description": "Useragent analysis tool.浏览器分析/浏览器检测/浏览器识别/浏览器判断/UA解析 - 用户代理、操作系统信息",
+    "version": "1.1.0",
+    "description": "Useragent analysis tool.",
     "author": "HaoLe Zheng",
     "license": "MIT",
     "keywords": [
@@ -13,7 +13,7 @@
         "浏览器识别",
         "浏览器检测"
     ],
-    "main": "browser.js",
+    "main": "dist/browser.min.js",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/mumuy/browser.git"
@@ -22,11 +22,14 @@
         "url": "https://github.com/mumuy/browser/issues"
     },
     "devDependencies": {
-        "webpack": "^5.74.0",
-        "webpack-cli": "^4.10.0"
+        "@rollup/plugin-terser": "^0.4.1",
+        "gulp": "^4.0.2",
+        "rollup": "^3.20.2",
+        "tape": "^5.6.3"
     },
     "scripts": {
-        "build": "webpack"
+        "test": "node test/index.js",
+        "build": "gulp"
     },
     "homepage": "https://passer-by.com/browser/",
     "directories": {
