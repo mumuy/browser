@@ -14,13 +14,14 @@ import _Symbian from './system/Symbian';
 import _Chrome_OS from './system/Chrome OS';
 import _WebOS from './system/WebOS';
 
-export default function(_,$){
+export default function(_,ua){
     _.system = '';
     _.systemVersion = '';
     [_Windows, _Linux, _Mac_OS, _Android, _HarmonyOS, _Ubuntu, _FreeBSD, _Debian, _iOS, _Windows_Phone, _BlackBerry, _MeeGo, _Symbian, _Chrome_OS, _WebOS].forEach(function(item){
-        if(item.match($.userAgent)){
+        if(item.match(ua)){
             _.system = item.name;
-            _.systemVersion = item.version($.userAgent);
+            _.systemVersion = item.version(ua);
         }
     });
+    _.platform = self.navigator.platform;
 };

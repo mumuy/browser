@@ -1,22 +1,24 @@
+import _Chrome from './module/browser/Chrome';
 import browserLoader from './module/browser-loader';
 import deviceLoader from './module/device-loader';
 import engineLoader from './module/engine-loader';
 import systemLoader from './module/system-loader';
 import languageLoader from './module/language-loader';
+import otherLoader from './module/other-loader';
 
 function browser(userAgent){
     let _ = {};
-    let $ = {};
-    $.navigator = self.navigator;
-    $.userAgent = userAgent || $.navigator.userAgent||'';
+    let ua = userAgent || self.navigator.userAgent||'';
 
     [
         browserLoader,
         deviceLoader,
         engineLoader,
         systemLoader,
-        languageLoader
-    ].forEach(loader=>loader(_,$));
+        languageLoader,
+        otherLoader
+    ].forEach(loader=>loader(_,ua));
+
     return _;
 }
 

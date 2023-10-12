@@ -1,7 +1,7 @@
 
-export default function(_,$){
+export default function(_,ua){
     _.language = (function () {
-        var g = ($.navigator.browserLanguage || $.navigator.language);
+        var g = (self.navigator.browserLanguage || self.navigator.language);
         if (typeof g !== 'string') return 'Unknown language'
         var arr = g.split('-');
         if (arr[1]) {
