@@ -5,7 +5,7 @@ import systemLoader from './module/system-loader';
 import languageLoader from './module/language-loader';
 
 function browser(userAgent){
-    let _ = this;
+    let _ = {};
     let $ = {};
     $.navigator = self.navigator;
     $.userAgent = userAgent || $.navigator.userAgent||'';
@@ -17,6 +17,7 @@ function browser(userAgent){
         systemLoader,
         languageLoader
     ].forEach(loader=>loader(_,$));
+    return _;
 }
 
 export default browser;
