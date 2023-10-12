@@ -1,3 +1,5 @@
+import _Chrome from './browser/Chrome';
+
 export default function(_,ua){
     // 类型判断
     _.isWebview = ua.indexOf('; wv)')>-1;

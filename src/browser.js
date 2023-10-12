@@ -1,4 +1,3 @@
-import _Chrome from './module/browser/Chrome';
 import browserLoader from './module/browser-loader';
 import deviceLoader from './module/device-loader';
 import engineLoader from './module/engine-loader';
