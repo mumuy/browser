@@ -1,4 +1,3 @@
-import mime from '../method/mime';
 import _360 from './360';
 import _360SE from './360SE';
 
@@ -16,6 +15,7 @@ export default {
     version(ua){
         var hash = {
             '108':'14.0',
+            '95':'(X)21.0',
             '86':'13.0',
             '78':'12.0',
             '69':'11.0',
