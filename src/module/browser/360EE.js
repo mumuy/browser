@@ -1,3 +1,5 @@
+import mime from '../method/mime';
+import _Chrome from './Chrome';
 import _360 from './360';
 import _360SE from './360SE';
 
@@ -13,7 +15,7 @@ export default {
         return ua.indexOf('360EE') > -1||_360.match(ua)&&!_360SE.match(ua);
     },
     version(ua){
-        var hash = {
+        let hash = {
             '108':'14.0',
             '95':'(X)21.0',
             '86':'13.0',
@@ -24,7 +26,7 @@ export default {
             '50':'8.7',
             '30':'7.5'
         };
-        var chrome_version = ua.match(/^.*Chrome\/([\d]+).*$/)?.[1]||'';
+        let chrome_version = parseInt(_Chrome.version(ua));
         return hash[chrome_version]||'';
     }
 };

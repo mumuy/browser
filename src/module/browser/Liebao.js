@@ -1,3 +1,5 @@
+import _Chrome from './Chrome';
+
 export default {
     name:'Liebao',
     match(ua){
@@ -19,7 +21,7 @@ export default {
             '29':'4.5',
             '21':'4.0'
         };
-        let chrome_version = ua.match(/^.*Chrome\/([\d]+).*$/)?.[1]||'';
+        let chrome_version = parseInt(_Chrome.version(ua));
         return version||hash[chrome_version]||'';
     }
 };

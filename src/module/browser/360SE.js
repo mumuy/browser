@@ -1,4 +1,5 @@
 import mime from '../method/mime';
+import _Chrome from './Chrome';
 import _360 from './360';
 
 export default {
@@ -28,7 +29,7 @@ export default {
             '31':'7.0',
             '21':'6.3'
         };
-        let chrome_version = ua.match(/^.*Chrome\/([\d]+).*$/)?.[1]||'';
+        let chrome_version = parseInt(_Chrome.version(ua));
         return hash[chrome_version]||'';
     }
 };
