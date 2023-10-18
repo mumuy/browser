@@ -5,7 +5,7 @@ import _360 from './360';
 export default {
     name:'360SE',
     match(ua){
-        let navigator = self.navigator;
+        let navigator = self?.navigator;
         let isMatch = false;
         if(_360.match(ua)){
             if(mime("type", "application/gameplugin")){

@@ -23,5 +23,5 @@ export default function(_,ua){
             _.systemVersion = item.version(ua);
         }
     });
-    _.platform = self.navigator.platform;
+    _.platform = self?.navigator?.platform || '';
 };

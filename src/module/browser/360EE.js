@@ -6,8 +6,8 @@ import _360SE from './360SE';
 export default {
     name:'360EE',
     match(ua){
-        if(self.document&&self.screen){
-            let diff = self.screen.availWidth -  window.innerWidth;
+        if(self?.document&&self?.screen){
+            let diff = self?.screen?.availWidth -  self?.innerWidth;
             if(diff==6||diff==48){
                 return true;
             }

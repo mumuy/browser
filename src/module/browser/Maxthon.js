@@ -1,14 +1,16 @@
+import _Chrome from './Chrome';
+
 export default {
     name:'Maxthon',
     match(ua){
-        return ua.indexOf('Maxthon') > -1||self.maxthon;
+        return ua.indexOf('Maxthon') > -1||self?.maxthon;
     },
     version(ua){
-        var hash = {
+        let hash = {
             '109':'7.0',
             '78':'6.0'
         };
-        var chrome_version = ua.match(/^.*Chrome\/([\d]+).*$/)?.[1]||'';
+        let chrome_version = parseInt(_Chrome.version(ua));
         return hash[chrome_version]||ua.match(/^.*Maxthon\/([\d.]+).*$/)?.[1]||'';
     }
 };

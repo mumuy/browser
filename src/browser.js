@@ -7,7 +7,7 @@ import otherLoader from './module/other-loader';
 
 function browser(userAgent){
     let _ = {};
-    let ua = userAgent || self.navigator.userAgent||'';
+    let ua = userAgent || self?.navigator?.userAgent||'';
 
     [
         browserLoader,
