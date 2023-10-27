@@ -27,12 +27,12 @@
         "url": "https://github.com/mumuy/browser/issues"
     },
     "devDependencies": {
-        "@babel/core": "^7.22.9",
+        "@babel/core": "^7.23.2",
         "@babel/plugin-syntax-import-attributes": "^7.22.5",
         "@babel/plugin-transform-class-properties": "^7.22.5",
-        "@babel/plugin-transform-runtime": "^7.22.9",
-        "@babel/preset-env": "^7.22.9",
-        "@babel/runtime": "^7.22.6",
+        "@babel/plugin-transform-runtime": "^7.23.2",
+        "@babel/preset-env": "^7.23.2",
+        "@babel/runtime": "^7.23.2",
         "@rollup/plugin-babel": "^6.0.3",
         "@rollup/plugin-node-resolve": "^15.1.0",
         "@rollup/plugin-terser": "^0.4.1",
