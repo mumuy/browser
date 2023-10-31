@@ -165,6 +165,10 @@ console.log(browser());
 	</tbody>
 </table>
 
+### gpu - 系统GPU厂家
+
+### gpuModel - 系统GPU型号
+
 ### isWebview - 是否为Webview(仅Android)
 
 ### isBot - 是否为搜索引擎蜘蛛程序

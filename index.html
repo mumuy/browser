@@ -140,7 +140,7 @@
 									</tr>\
 								</tbody>\
 							</table>\
-							<div class="code">'+JSON.stringify(info)+'</div>');
+							<div class="code">'+JSON.stringify(info).replace(/:/g,': ').replace(/{/g,'{<br>&nbsp;&nbsp;&nbsp;&nbsp;').replace(/}/g,'<br>}').replace(/,/g,',<br>&nbsp;&nbsp;&nbsp;&nbsp;')+'</div>');
 						}else{
 							document.writeln('<div class="code">'+navigator.userAgent+'</div>\
 							<table>\
