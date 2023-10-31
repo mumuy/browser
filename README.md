@@ -17,16 +17,18 @@ console.log(browser());
 #### 返回
 ```js
 {
-"device":"Desktop",
-"language":"zh_CN",
-"engine":"Blink",
-"browser":"Chrome",
-"system":"Windows",
-"systemVersion":10,
-"platform":"Win32",
-"isWebview":false,
-"isBot":false,
-"version":"109.0.0.0"
+    "browser": "Chrome",
+    "browserVersion": "118.0.0.0",
+    "device": "PC",
+    "engine": "Blink",
+    "system": "Windows",
+    "systemVersion": 10,
+    "platform": "Win32",
+    "gpu": "Google",
+    "gpuModel": "Vulkan 1.3.0",
+    "language": "zh_CN",
+    "isWebview": false,
+    "isBot": false
 }
 ```
 <table>
