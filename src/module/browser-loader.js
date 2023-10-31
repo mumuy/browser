@@ -61,11 +61,11 @@ import _YandexBot from './browser/YandexBot';
 
 export default function(_,ua){
     _.browser = '';
-    _.versionVersion = '';
+    _.browserVersion = '';
     [_Safari, _Chrome, _Edge, _IE, _Firefox, _Firefox_Focus, _Chromium, _Opera, _Vivaldi, _Yandex, _Brave, _Arora, _Lunascape, _QupZilla, _Coc_Coc, _Kindle, _Iceweasel, _Konqueror, _Iceape, _SeaMonkey, _Epiphany, _Xiaomi, _Vivo, _OPPO, _360, _360SE, _360EE, _UC, _QQBrowser, _QQ, _Huawei, _Baidu, _Maxthon, _Sogou, _Liebao, _2345Explorer, _115Browser, _TheWorld, _Quark, _Qiyu, _Wechat, _WechatWork, _Taobao, _Alipay, _Weibo, _Douban, _Suning, _iQIYI, _DingTalk, _Douyin, _Googlebot, _Baiduspider, _Sogouspider, _Bingbot, _360Spider, _Bytespider, _YisouSpider, _YodaoBot, _YandexBot].forEach(function(item){
         if(item.match(ua)){
             _.browser = item.name;
-            _.version = item.version(ua);
+            _.browserVersion = item.version(ua);
         }
     });
 };
