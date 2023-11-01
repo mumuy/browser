@@ -6,16 +6,21 @@ import _360SE from './360SE';
 export default {
     name:'360EE',
     match(ua){
-        if(self?.document&&self?.screen){
-            let diff = self?.screen?.availWidth -  self?.innerWidth;
-            if(diff==6||diff==48){
-                return true;
+        let isMatch = false;
+        if(mime('type','application/cenroll.cenroll.version.1')||mime('type','application/hwepass2001.installepass2001')){
+            isMatch = true;
+        }else if(_360.match(ua)){
+            if(!_360SE.match(ua)){
+                isMatch = true;
+            }else if(self?.navigator?.userAgentData.brands.filter(item=>item.brand=='Not A(Brand').length){
+                isMatch = true;
             }
         }
-        return ua.indexOf('360EE') > -1||_360.match(ua)&&!_360SE.match(ua);
+        return ua.indexOf('360EE') > -1||isMatch;
     },
     version(ua){
         let hash = {
+            '119':'(X)22.0',
             '108':'14.0',
             '95':'(X)21.0',
             '86':'13.0',

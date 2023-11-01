@@ -1,6 +1,6 @@
 let windowsVersion = null;
-if(typeof navigator.userAgentData!='undefined'){
-    navigator.userAgentData.getHighEntropyValues(["platformVersion"]).then(function(ua){
+if(self?.navigator?.userAgentData){
+    self.navigator.userAgentData.getHighEntropyValues(["platformVersion"]).then(function(ua){
         if (navigator.userAgentData.platform === "Windows") {
             const majorPlatformVersion = parseInt(ua.platformVersion.split('.')[0]);
             if(majorPlatformVersion>=13){
