@@ -23,5 +23,14 @@ export default function(_,ua){
             _.systemVersion = item.version(ua);
         }
     });
-    _.platform = self?.navigator?.platform || '';
+
+    _.platform = '';
+    if(ua.match(/(Win64|x64|WOW64)/i)){
+        _.platform = 'Win64';
+    }else if(ua.match(/(Win32|x86|WOW32)/i)){
+        _.platform = 'Win32';
+    }else if(self?.navigator?.platform){
+        _.platform = self.navigator.platform;
+    }
+
 };
