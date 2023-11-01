@@ -13,8 +13,8 @@ export default {
         };
         let chrome_version = parseInt(_Chrome.version(ua));
         return hash[chrome_version]
-        ||u.match(/^.*2345Explorer\/([\d.]+).*$/)?.[1]
-        ||ua.match(/^.*Mb2345Browser\/([\d.]+).*$/)?.[1]
+        ||u.match(/2345Explorer\/([\d.]+)/)?.[1]
+        ||ua.match(/Mb2345Browser\/([\d.]+)/)?.[1]
         ||'';
     }
 };

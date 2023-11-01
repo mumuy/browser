@@ -8,7 +8,7 @@ import pkg from './package.json' assert { type:'json' };     // 获取package信
 // 版权信息
 const repository = pkg.repository.url.replace(/(.+)(:\/\/.+)\.git$/,'https$2');
 const now = new Date();
-const date = (new Date(now.getTime()-now.getTimezoneOffset()*60000)).toISOString().substr(0,10);
+const date = (new Date(now.getTime()-now.getTimezoneOffset()*60000)).toISOString().substring(0,10);
 const banner = `/*!
  * ${pkg.name} v${pkg.version}
  * ${pkg.description}

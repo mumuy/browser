@@ -4,6 +4,6 @@ export default {
         return ua.indexOf('TheWorld') > -1;
     },
     version(ua){
-        return ua.match(/^.*TheWorld ([\d.]+).*$/)?.[1]||'';
+        return ua.match(/TheWorld ([\d.]+)/)?.[1]||'';
     }
 };

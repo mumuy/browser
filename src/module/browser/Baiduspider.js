@@ -4,6 +4,6 @@ export default {
         return ua.indexOf('Baiduspider') > -1;
     },
     version(ua){
-        return ua.match(/^.*Baiduspider(-render)?\/([\d.]+).*$/)?.[1]||'';
+        return ua.match(/Baiduspider(-render)?\/([\d.]+)/)?.[1]||'';
     }
 };

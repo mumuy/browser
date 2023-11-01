@@ -4,6 +4,6 @@ export default {
         return ua.indexOf('YandexBot') > -1;
     },
     version(ua){
-        return ua.match(/^.*YandexBot\/([\d.]+).*$/)?.[1]||'';
+        return ua.match(/YandexBot\/([\d.]+)/)?.[1]||'';
     }
 };

@@ -4,6 +4,6 @@ export default {
         return ua.indexOf('IqiyiApp') > -1;
     },
     version(ua){
-        return ua.match(/^.*IqiyiVersion\/([\d.]+).*$/)?.[1]||'';
+        return ua.match(/IqiyiVersion\/([\d.]+)/)?.[1]||'';
     }
 };

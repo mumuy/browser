@@ -4,7 +4,7 @@ export default {
         return ua.indexOf('HarmonyOS') > -1;
     },
     version(ua){
-        let v = +ua.match(/HMSCore (\d+.\d+).*$/)?.[1]||0;
+        let v = +ua.match(/HMSCore (\d+.\d+)/)?.[1]||0;
         if(v>=6.1){
             return '4.0';
         }else if(v>=6.0){

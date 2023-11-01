@@ -20,6 +20,6 @@ export default {
         return ua.indexOf('QihooBrowser') > -1||ua.indexOf('QHBrowser') > -1 || isMatch;
     },
     version(ua){
-        return ua.match(/^.*QihooBrowser(HD)?\/([\d.]+).*$/)?.[1]||'';
+        return ua.match(/QihooBrowser(HD)?\/([\d.]+)/)?.[1]||'';
     }
 };

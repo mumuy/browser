@@ -4,6 +4,6 @@ export default {
         return ua.indexOf('QupZilla') > -1;
     },
     version(ua){
-        return ua.match(/^.*QupZilla[\/\s]([\d.]+).*$/)?.[1]||'';
+        return ua.match(/QupZilla[\/\s]([\d.]+)/)?.[1]||'';
     }
 };

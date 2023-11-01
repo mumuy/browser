@@ -4,6 +4,6 @@ export default {
         return ua.indexOf('Quark') > -1;
     },
     version(ua){
-        return ua.match(/^.*Quark\/([\d.]+).*$/)?.[1]||'';
+        return ua.match(/Quark\/([\d.]+)/)?.[1]||'';
     }
 };

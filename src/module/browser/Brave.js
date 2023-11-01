@@ -4,6 +4,6 @@ export default {
         return self?.navigator?.brave?true:false;
     },
     version(ua){
-        return ua.match(/^.*Chrome\/([\d.]+).*$/)?.[1]||'';
+        return ua.match(/Chrome\/([\d.]+)/)?.[1]||'';
     }
 };

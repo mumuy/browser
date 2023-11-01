@@ -4,6 +4,6 @@ export default {
         return ua.indexOf('bingbot') > -1;
     },
     version(ua){
-        return ua.match(/^.*bingbot\/([\d.]+).*$/)?.[1]||'';
+        return ua.match(/bingbot\/([\d.]+)/)?.[1]||'';
     }
 };

@@ -8,7 +8,7 @@ export default {
     version(ua){
         let version = ''
         if(ua.indexOf('LieBaoFast')>-1){
-            version = ua.replace(/^.*LieBaoFast\/([\d.]+).*$/, '$1');
+            version = ua.replace(/LieBaoFast\/([\d.]+)/, '$1');
         }
         let hash = {
             '79':'8.0',

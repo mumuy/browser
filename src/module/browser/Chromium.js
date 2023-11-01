@@ -4,6 +4,6 @@ export default {
         return ua.indexOf('Chromium') > -1;
     },
     version(ua){
-        return ua.match(/^.*Chromium\/([\d.]+).*$/)?.[1]||'';
+        return ua.match(/Chromium\/([\d.]+)/)?.[1]||'';
     }
 };

@@ -4,6 +4,6 @@ export default {
         return ua.indexOf('Android') > -1 || ua.indexOf('Adr') > -1;
     },
     version(ua){
-        return ua.match(/^.*Android ([\d.]+);.*$/)?.[1]||'';
+        return ua.match(/Android ([\d.]+);/)?.[1]||'';
     }
 };

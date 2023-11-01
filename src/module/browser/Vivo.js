@@ -4,6 +4,6 @@ export default {
         return ua.indexOf('VivoBrowser') > -1;
     },
     version(ua){
-        return ua.match(/^.*VivoBrowser\/([\d.]+).*$/)?.[1]||'';
+        return ua.match(/VivoBrowser\/([\d.]+)/)?.[1]||'';
     }
 };

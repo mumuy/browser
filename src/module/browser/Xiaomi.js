@@ -4,6 +4,6 @@ export default {
         return ua.indexOf('MiuiBrowser') > -1;
     },
     version(ua){
-        return ua.match(/^.*MiuiBrowser\/([\d.]+).*$/)?.[1]||'';
+        return ua.match(/MiuiBrowser\/([\d.]+)/)?.[1]||'';
     }
 };

@@ -4,6 +4,6 @@ export default {
         return ua.indexOf('Kindle') > -1 || ua.indexOf('Silk/') > -1;
     },
     version(ua){
-        return ua.match(/^.*Version\/([\d.]+).*$/)?.[1]||'';
+        return ua.match(/Version\/([\d.]+)/)?.[1]||'';
     }
 };

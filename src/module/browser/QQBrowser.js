@@ -4,6 +4,6 @@ export default {
         return ua.indexOf('QQBrowser') > -1;
     },
     version(ua){
-        return ua.match(/^.*QQBrowser\/([\d.]+).*$/)?.[1]||'';
+        return ua.match(/QQBrowser\/([\d.]+)/)?.[1]||'';
     }
 };

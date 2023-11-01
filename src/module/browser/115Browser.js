@@ -4,6 +4,6 @@ export default {
         return ua.indexOf('115Browser') > -1;
     },
     version(ua){
-        return ua.match(/^.*115Browser\/([\d.]+).*$/)?.[1]||'';
+        return ua.match(/115Browser\/([\d.]+)/)?.[1]||'';
     }
 };

@@ -4,6 +4,6 @@ export default {
         return ua.indexOf('Weibo') > -1;
     },
     version(ua){
-        return ua.match(/^.*weibo__([\d.]+).*$/)?.[1]||'';
+        return ua.match(/weibo__([\d.]+)/)?.[1]||'';
     }
 };

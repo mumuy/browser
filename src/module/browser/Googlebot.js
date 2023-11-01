@@ -4,6 +4,6 @@ export default {
         return ua.indexOf('Googlebot') > -1;
     },
     version(ua){
-        return ua.match(/^.*Googlebot\/([\d.]+).*$/)?.[1]||'';
+        return ua.match(/Googlebot\/([\d.]+)/)?.[1]||'';
     }
 };

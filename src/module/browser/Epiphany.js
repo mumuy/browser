@@ -4,6 +4,6 @@ export default {
         return ua.indexOf('Epiphany') > -1;
     },
     version(ua){
-        return ua.match(/^.*Epiphany\/([\d.]+).*$/)?.[1]||'';
+        return ua.match(/Epiphany\/([\d.]+)/)?.[1]||'';
     }
 };

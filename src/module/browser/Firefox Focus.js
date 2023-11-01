@@ -4,6 +4,6 @@ export default {
         return ua.indexOf('Focus') > -1;
     },
     version(ua){
-        return ua.match(/^.*Focus\/([\d.]+).*$/)?.[1]||'';
+        return ua.match(/Focus\/([\d.]+)/)?.[1]||'';
     }
 };

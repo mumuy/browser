@@ -4,6 +4,6 @@ export default {
         return ua.indexOf('YaBrowser') > -1;
     },
     version(ua){
-        return ua.match(/^.*YaBrowser\/([\d.]+).*$/)?.[1]||'';
+        return ua.match(/YaBrowser\/([\d.]+)/)?.[1]||'';
     }
 };

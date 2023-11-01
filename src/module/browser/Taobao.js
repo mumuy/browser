@@ -4,6 +4,6 @@ export default {
         return ua.indexOf('AliApp(TB') > -1;
     },
     version(ua){
-        return ua.match(/^.*AliApp\(TB\/([\d.]+).*$/)?.[1]||'';
+        return ua.match(/AliApp\(TB\/([\d.]+)/)?.[1]||'';
     }
 };
