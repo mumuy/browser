@@ -68,4 +68,10 @@ export default function(_,ua){
             _.browserVersion = item.version(ua);
         }
     });
+
+    // 修正
+    if(_.browser == 'Chrome'&&ua.match(/\S+Browser/)){
+        _.browser = ua.match(/\S+Browser/)[0];
+        _.browserVersion = ua.replace(/^.*Browser\/([\d.]+).*$/)?.[1]||'';
+    }
 };
