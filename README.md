@@ -71,11 +71,12 @@ console.log(browser());
 		<tr><td>TheWorld</td><td>世界之窗浏览器</td></tr>
 		<tr><td>Qiyu</td><td>旗鱼浏览器</td></tr>
 		<tr><td>Quark</td><td>夸克浏览器</td></tr>
-		<tr><td rowspan="5">手机厂商</td><td>Huawei</td><td>华为浏览器</td></tr>
+		<tr><td rowspan="6">手机厂商</td><td>Huawei</td><td>华为浏览器</td></tr>
 		<tr><td>OPPO</td><td>OPPO浏览器</td></tr>
 		<tr><td>Vivo</td><td>Vivo浏览器</td></tr>
 		<tr><td>Xiaomi</td><td>小米浏览器</td></tr>
 		<tr><td>Meizu</td><td>魅族浏览器</td></tr>
+		<tr><td>Samsung</td><td>三星浏览器</td></tr>
 		<tr><td rowspan="11">客户端</td><td>QQ</td><td>QQ客户端</td></tr>
 		<tr><td>Wechat</td><td>微信手机客户端</td></tr>
 		<tr><td>WechatWork</td><td>企业微信客户端</td></tr>
