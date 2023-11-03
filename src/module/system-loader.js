@@ -25,12 +25,24 @@ export default function(_,ua){
     });
 
     _.platform = '';
-    if(ua.match(/(Win64|x64|WOW64)/i)){
+    if(ua.match(/(Win64|x64|WOW64|x86_64)/i)){
         _.platform = 'Win64';
     }else if(ua.match(/(Win32|x86|WOW32)/i)){
         _.platform = 'Win32';
+    }else if(ua.match(/aarch64/)){
+        _.platform = 'ARM64';
     }else if(self?.navigator?.platform){
         _.platform = self.navigator.platform;
     }
 
+    _.arch = '';
+    if(ua.match(/armv\d+/i)){
+        _.arch = ua.match(/(armv\d+)/i,'$1')?.[0]||'';
+    }else if(ua.match(/aarch64/)){
+        _.arch = 'armv8';
+    }else{
+        _.arch = 'x86';
+    }
+
+    _.archSize = ua.match(/x64|x86_64|Win64|WOW64|aarch64/i)?64:32;
 };

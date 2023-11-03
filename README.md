@@ -172,6 +172,10 @@ console.log(browser());
 
 ### gpuModel - 系统GPU型号
 
+### arch - CPU架构
+
+### archSize - CPU架构位数
+
 ### isWebview - 是否为Webview(仅Android)
 
 ### isBot - 是否为搜索引擎蜘蛛程序
