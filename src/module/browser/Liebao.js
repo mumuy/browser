@@ -3,7 +3,7 @@ import _Chrome from './Chrome';
 export default {
     name:'Liebao',
     match(ua){
-        return ua.indexOf('LBBROWSER') > -1|| ua.indexOf('LieBaoFast') > -1;
+        return ua.indexOf('LBBROWSER') > -1|| ua.indexOf('LieBaoFast') > -1||self.liebao;
     },
     version(ua){
         let version = ''
