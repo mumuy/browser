@@ -29,7 +29,7 @@ export default function(_,ua){
         _.platform = 'Win64';
     }else if(ua.match(/(Win32|x86|WOW32)/i)){
         _.platform = 'Win32';
-    }else if(ua.match(/aarch64/)){
+    }else if(ua.match(/aarch64|arm64/)){
         _.platform = 'ARM64';
     }else if(self?.navigator?.platform){
         _.platform = self.navigator.platform;
