@@ -1,7 +1,6 @@
 import mime from '../method/mime';
 import _Chrome from './Chrome';
 import _360 from './360';
-import _360SE from './360SE';
 
 export default {
     name:'360EE',
@@ -10,9 +9,7 @@ export default {
         if(mime('type','application/cenroll.cenroll.version.1')||mime('type','application/hwepass2001.installepass2001')){
             isMatch = true;
         }else if(_360.match(ua)){
-            if(!_360SE.match(ua)){
-                isMatch = true;
-            }else if(self?.navigator?.userAgentData?.brands.filter(item=>item.brand=='Not A(Brand').length){
+            if(self?.navigator?.userAgentData?.brands.filter(item=>item.brand=='Not A(Brand').length){
                 isMatch = true;
             }
         }
