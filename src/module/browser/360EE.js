@@ -12,7 +12,7 @@ export default {
         }else if(_360.match(ua)){
             if(!_360SE.match(ua)){
                 isMatch = true;
-            }else if(self?.navigator?.userAgentData.brands.filter(item=>item.brand=='Not A(Brand').length){
+            }else if(self?.navigator?.userAgentData?.brands.filter(item=>item.brand=='Not A(Brand').length){
                 isMatch = true;
             }
         }

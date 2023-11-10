@@ -9,7 +9,7 @@ export default {
         if(_360.match(ua)){
             if(mime("type", "application/gameplugin")){
                 isMatch = true;
-            }else if(self?.navigator?.userAgentData.brands.filter(item=>item.brand=='Not.A/Brand').length){
+            }else if(self?.navigator?.userAgentData?.brands.filter(item=>item.brand=='Not.A/Brand').length){
                 isMatch = true;
             }
         }
