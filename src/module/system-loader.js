@@ -40,9 +40,11 @@ export default function(_,ua){
         _.arch = ua.match(/(armv\d+)/i,'$1')?.[0]||'';
     }else if(ua.match(/aarch64/)){
         _.arch = 'armv8';
+    }else if(ua.match(/loongarch/)){
+        _.arch = 'loong';
     }else{
         _.arch = 'x86';
     }
 
-    _.archSize = ua.match(/x64|x86_64|Win64|WOW64|aarch64/i)?64:32;
+    _.archSize = ua.match(/x64|x86_64|Win64|WOW64|aarch64|loongarch64/i)?64:32;
 };
