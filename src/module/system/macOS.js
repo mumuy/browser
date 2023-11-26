@@ -1,5 +1,5 @@
 export default {
-    name:'Mac OS',
+    name:'macOS',
     match(ua){
         return ua.indexOf('Macintosh') > -1;
     },
