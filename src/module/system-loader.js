@@ -14,13 +14,15 @@ import _Symbian from './system/Symbian';
 import _Chrome_OS from './system/Chrome OS';
 import _WebOS from './system/WebOS';
 
-export default function(_,ua){
+export default function(_,isAsync){
+    let ua = _.userAgent;
+
     _.system = '';
     _.systemVersion = '';
     [_Windows, _Linux, _macOS, _Android, _HarmonyOS, _Ubuntu, _FreeBSD, _Debian, _iOS, _Windows_Phone, _BlackBerry, _MeeGo, _Symbian, _Chrome_OS, _WebOS].forEach(function(item){
         if(item.match(ua)){
             _.system = item.name;
-            _.systemVersion = item.version(ua);
+            _.systemVersion = item.version(ua,isAsync);
         }
     });
 
@@ -35,16 +37,23 @@ export default function(_,ua){
         _.platform = self.navigator.platform;
     }
 
-    _.arch = '';
+    _.architecture = '';
+    _.bitness = '';
     if(ua.match(/armv\d+/i)){
-        _.arch = ua.match(/(armv\d+)/i,'$1')?.[0]||'';
+        _.architecture = ua.match(/(armv\d+)/i,'$1')?.[0]||'';
     }else if(ua.match(/aarch64/)){
-        _.arch = 'armv8';
+        _.architecture = 'armv8';
     }else if(ua.match(/loongarch/)){
-        _.arch = 'loong';
+        _.architecture = 'loong';
     }else{
-        _.arch = 'x86';
+        _.architecture = 'x86';
     }
+    _.bitness = ua.match(/x64|x86_64|Win64|WOW64|aarch64|loongarch64/i)?'64':'32';
 
-    _.archSize = ua.match(/x64|x86_64|Win64|WOW64|aarch64|loongarch64/i)?64:32;
+    if(isAsync){
+        if(self?.navigator?.userAgentData){
+            _.architecture = navigator.userAgentData.getHighEntropyValues(['architecture']).then(item => item.architecture);
+            _.bitness = navigator.userAgentData.getHighEntropyValues(['bitness']).then(item => item.bitness);
+        }
+    }
 };

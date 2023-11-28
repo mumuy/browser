@@ -1,5 +1,5 @@
 
-export default function(_,ua){
+export default function(_){
     _.language = (function () {
         let g = self?.navigator?.browserLanguage || self?.navigator?.language;
         if (typeof g !== 'string') return 'Unknown language'

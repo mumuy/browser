@@ -1,4 +1,4 @@
-export default function(_,ua){
+export default function(_){
     _.gpu = '';
     _.gpuModel = '';
     if(self.document){

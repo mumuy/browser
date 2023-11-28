@@ -113,72 +113,7 @@
 	<body>
 		<div class="wrapper">
 			<div class="container">
-				<div class="module">
-					<script>
-						var info = browser();
-						if(info.device!='Mobile'){
-							document.writeln('<div class="code">'+navigator.userAgent+'</div>\
-							<table>\
-								<thead>\
-									<tr>\
-										<th>浏览器</th>\
-										<th>版本</th>\
-										<th>内核</th>\
-										<th>操作系统</th>\
-										<th>设备</th>\
-										<th>语言</th>\
-									</tr>\
-								</thead>\
-								<tbody>\
-									<tr>\
-										<td>'+info.browser+'</td>\
-										<td>'+info.browserVersion+'</td>\
-										<td>'+info.engine+'</td>\
-										<td>'+info.system+' '+info.systemVersion+'</td>\
-										<td>'+info.device+'</td>\
-										<td>'+info.language+'</td>\
-									</tr>\
-								</tbody>\
-							</table>\
-							<div class="code">'+JSON.stringify(info).replace(/:/g,': ').replace(/{/g,'{<br>&nbsp;&nbsp;&nbsp;&nbsp;').replace(/}/g,'<br>}').replace(/,/g,',<br>&nbsp;&nbsp;&nbsp;&nbsp;')+'</div>');
-						}else{
-							document.writeln('<div class="code">'+navigator.userAgent+'</div>\
-							<table>\
-								<thead>\
-									<tr>\
-										<th>浏览器</th>\
-										<th>版本</th>\
-										<th>内核</th>\
-									</tr>\
-								</thead>\
-								<tbody>\
-									<tr>\
-										<td>'+info.browser+'</td>\
-										<td>'+info.browserVersion+'</td>\
-										<td>'+info.engine+'</td>\
-									</tr>\
-								</tbody>\
-							</table>\
-							<table>\
-								<thead>\
-									<tr>\
-										<th>操作系统</th>\
-										<th>设备</th>\
-										<th>语言</th>\
-									</tr>\
-								</thead>\
-								<tbody>\
-									<tr>\
-										<td>'+info.system+' '+info.systemVersion+'</td>\
-										<td>'+info.device+'</td>\
-										<td>'+info.language+'</td>\
-									</tr>\
-								</tbody>\
-							</table>\
-							<div class="code">'+JSON.stringify(info)+'</div>');
-						}
-					</script>
-				</div>
+				<div class="module"></div>
 			</div>
 			<div class="footer">
 				<div class="mod-foot">
@@ -207,11 +142,79 @@
 				</script>
 			</div>
 		</div>
-		<div style="display: none;">
-			<script>
-				document.writeln('<iframe src="https://passer-by.com/browser/stat.html?browser='+info.browser+'&ua='+navigator.userAgent+'" width="" height=""></iframe>');
-			</script>
-		</div>
+		<script>
+			browser.getInfo().then(function(info){
+				var $module = document.querySelector('.module');
+
+				if(info.device!='Mobile'){
+					$module.innerHTML = `
+						<div class="code">${navigator.userAgent}</div>
+						<table>
+							<thead>
+								<tr>
+									<th>浏览器</th>
+									<th>版本</th>
+									<th>内核</th>
+									<th>操作系统</th>
+									<th>设备</th>
+									<th>语言</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>${info.browser}</td>
+									<td>${info.browserVersion}</td>
+									<td>${info.engine}</td>
+									<td>${info.system} ${info.systemVersion}</td>
+									<td>${info.device}</td>
+									<td>${info.language}</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="code">${JSON.stringify(info).replace(/:/g,': ').replace(/{/g,'{<br>&nbsp;&nbsp;&nbsp;&nbsp;').replace(/}/g,'<br>}').replace(/,/g,',<br>&nbsp;&nbsp;&nbsp;&nbsp;')}</div>
+						<iframe style="display:none;" src="https://passer-by.com/browser/stat.html?browser=${info.browser}&ua=${info.userAgent}" width="" height=""></iframe>
+					`;
+				}else{
+					$module.innerHTML = `
+						<div class="code">${navigator.userAgent}</div>
+						<table>
+							<thead>
+								<tr>
+									<th>浏览器</th>
+									<th>版本</th>
+									<th>内核</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>${info.browser}</td>
+									<td>${info.browserVersion}</td>
+									<td>${info.engine}</td>
+								</tr>
+							</tbody>
+						</table>
+						<table>
+							<thead>
+								<tr>
+									<th>操作系统</th>
+									<th>设备</th>
+									<th>语言</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>${info.system} ${info.systemVersion}</td>
+									<td>${info.device}</td>
+									<td>${info.language}</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="code">${JSON.stringify(info)}</div>
+						<iframe style="display:none;" src="https://passer-by.com/browser/stat.html?browser=${info.browser}&ua=${info.userAgent}" width="" height=""></iframe>
+					`;
+				}
+			});
+		</script>
 		<script type="text/javascript" src="https://passer-by.com/public/script/projects.js"></script>
 		<script type="text/javascript" src="https://passer-by.com/public/script/stat.js"></script>
 	</body>
