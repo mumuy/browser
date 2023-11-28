@@ -1,6 +1,6 @@
 import _Windows from './system/Windows';
 import _Linux from './system/Linux';
-import _Mac_OS from './system/Mac OS';
+import _Mac_OS from './system/macOS';
 import _Android from './system/Android';
 import _HarmonyOS from './system/HarmonyOS';
 import _Ubuntu from './system/Ubuntu';
