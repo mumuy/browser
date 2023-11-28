@@ -15,19 +15,19 @@ var browser = require("browser-tool");
 // 同步获取信息
 console.log(browser());
 
-// 异步获取信息(异步获取的结果更为全面)
+// 异步获取信息(结果更为全面)
 browser.getInfo().then(console.log);
 ```
 #### 返回
 ```js
 {
-	"architecture": "x86",
-	"bitness": "64",
+    "architecture": "x86",
+    "bitness": "64",
     "browser": "Chrome",
     "browserVersion": "118.0.0.0",
     "device": "PC",
     "engine": "Blink",
-	"userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/119.0.0.0 Safari/537.36",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/119.0.0.0 Safari/537.36",
     "system": "Windows",
     "systemVersion": 10,
     "platform": "Win32",
