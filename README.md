@@ -15,7 +15,7 @@ var browser = require("browser-tool");
 // 同步获取信息
 console.log(browser());
 
-// 异步获取信息(异步获取的结果更为全面)
+// 异步获取信息(结果更为全面)
 browser.getInfo().then(console.log);
 ```
 #### 返回
