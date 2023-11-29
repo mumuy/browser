@@ -22,7 +22,7 @@ browser.getInfo().then(console.log);
 ```js
 {
     "architecture": "x86",
-    "bitness": "64",
+    "bitness": 64,
     "browser": "Chrome",
     "browserVersion": "118.0.0.0",
     "device": "PC",
@@ -35,7 +35,7 @@ browser.getInfo().then(console.log);
     "network": "wifi",
     "platform": "Win32",
     "system": "Windows",
-    "systemVersion": 10,
+    "systemVersion": '10',
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/119.0.0.0 Safari/537.36"
 }
 ```
