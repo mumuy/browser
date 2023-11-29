@@ -22,7 +22,7 @@ browser.getInfo().then(console.log);
 ```js
 {
     "architecture": "x86",
-    "bitness": "64",
+    "bitness": 64,
     "browser": "Chrome",
     "browserVersion": "118.0.0.0",
     "device": "PC",
