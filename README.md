@@ -189,4 +189,4 @@ browser.getInfo().then(console.log);
 
 ### isWebview - 是否为Webview(仅Android)
 
-### isBot - 是否为搜索引擎蜘蛛程序
+### isRobot - 是否为搜索引擎蜘蛛程序
