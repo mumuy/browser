@@ -4,6 +4,7 @@ import engineLoader from './module/engine-loader';
 import systemLoader from './module/system-loader';
 import gpuLoader from './module/gpu-loader';
 import languageLoader from './module/language-loader';
+import networkLoader from './module/network-loader';
 import otherLoader from './module/other-loader';
 
 let getInfo = function(userAgent,isAsync = false){
@@ -16,6 +17,7 @@ let getInfo = function(userAgent,isAsync = false){
         systemLoader,
         gpuLoader,
         languageLoader,
+        networkLoader,
         otherLoader
     ].forEach(loader=>loader(info,isAsync));
     return info;

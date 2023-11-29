@@ -38,7 +38,6 @@ export default function(_,isAsync){
     }
 
     _.architecture = '';
-    _.bitness = '';
     if(ua.match(/armv\d+/i)){
         _.architecture = ua.match(/(armv\d+)/i,'$1')?.[0]||'';
     }else if(ua.match(/aarch64/)){
@@ -48,12 +47,12 @@ export default function(_,isAsync){
     }else{
         _.architecture = 'x86';
     }
-    _.bitness = ua.match(/x64|x86_64|Win64|WOW64|aarch64|loongarch64/i)?'64':'32';
+    _.bitness = ua.match(/x64|x86_64|Win64|WOW64|aarch64|arm64|loongarch64/i)?64:32;
 
     if(isAsync){
         if(self?.navigator?.userAgentData){
             _.architecture = navigator.userAgentData.getHighEntropyValues(['architecture']).then(item => item.architecture);
-            _.bitness = navigator.userAgentData.getHighEntropyValues(['bitness']).then(item => item.bitness);
+            _.bitness = navigator.userAgentData.getHighEntropyValues(['bitness']).then(item => +item.bitness);
         }
     }
 };
