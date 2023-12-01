@@ -1,5 +1,5 @@
-import _Mobile from './device/Mobile';
-import _Tablet from './device/Tablet';
+import _Mobile from './device/Mobile.js';
+import _Tablet from './device/Tablet.js';
 
 export default function(_){
     _.device = 'Desktop';

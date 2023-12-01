@@ -1,18 +1,18 @@
-import _Windows from './system/Windows';
-import _Linux from './system/Linux';
-import _macOS from './system/macOS';
-import _Android from './system/Android';
-import _HarmonyOS from './system/HarmonyOS';
-import _Ubuntu from './system/Ubuntu';
-import _FreeBSD from './system/FreeBSD';
-import _Debian from './system/Debian';
-import _iOS from './system/iOS';
-import _Windows_Phone from './system/Windows Phone';
-import _BlackBerry from './system/BlackBerry';
-import _MeeGo from './system/MeeGo';
-import _Symbian from './system/Symbian';
-import _Chrome_OS from './system/Chrome OS';
-import _WebOS from './system/WebOS';
+import _Windows from './system/Windows.js';
+import _Linux from './system/Linux.js';
+import _macOS from './system/macOS.js';
+import _Android from './system/Android.js';
+import _HarmonyOS from './system/HarmonyOS.js';
+import _Ubuntu from './system/Ubuntu.js';
+import _FreeBSD from './system/FreeBSD.js';
+import _Debian from './system/Debian.js';
+import _iOS from './system/iOS.js';
+import _Windows_Phone from './system/Windows Phone.js';
+import _BlackBerry from './system/BlackBerry.js';
+import _MeeGo from './system/MeeGo.js';
+import _Symbian from './system/Symbian.js';
+import _Chrome_OS from './system/Chrome OS.js';
+import _WebOS from './system/WebOS.js';
 
 export default function(_,isAsync){
     let ua = _.userAgent;

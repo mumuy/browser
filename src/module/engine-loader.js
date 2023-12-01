@@ -1,10 +1,10 @@
-import _Gecko from './engine/Gecko';
-import _KHTML from './engine/KHTML';
-import _Presto from './engine/Presto';
-import _Trident from './engine/Trident';
-import _WebKit from './engine/WebKit';
+import _Gecko from './engine/Gecko.js';
+import _KHTML from './engine/KHTML.js';
+import _Presto from './engine/Presto.js';
+import _Trident from './engine/Trident.js';
+import _WebKit from './engine/WebKit.js';
 
-import _Chrome from './browser/Chrome';
+import _Chrome from './browser/Chrome.js';
 
 export default function(_){
     _.engine = '';

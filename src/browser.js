@@ -1,11 +1,11 @@
-import browserLoader from './module/browser-loader';
-import deviceLoader from './module/device-loader';
-import engineLoader from './module/engine-loader';
-import systemLoader from './module/system-loader';
-import gpuLoader from './module/gpu-loader';
-import languageLoader from './module/language-loader';
-import networkLoader from './module/network-loader';
-import otherLoader from './module/other-loader';
+import browserLoader from './module/browser-loader.js';
+import deviceLoader from './module/device-loader.js';
+import engineLoader from './module/engine-loader.js';
+import systemLoader from './module/system-loader.js';
+import gpuLoader from './module/gpu-loader.js';
+import languageLoader from './module/language-loader.js';
+import networkLoader from './module/network-loader.js';
+import otherLoader from './module/other-loader.js';
 
 let getInfo = function(userAgent,isAsync = false){
     let info = {};

@@ -1,6 +1,6 @@
-import mime from '../method/mime';
-import _Chrome from './Chrome';
-import _360 from './360';
+import mime from '../method/mime.js';
+import _Chrome from './Chrome.js';
+import _360 from './360.js';
 
 export default {
     name:'360SE',

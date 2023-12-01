@@ -1,4 +1,4 @@
-import mime from '../method/mime';
+import mime from '../method/mime.js';
 
 export default {
     name:'360',

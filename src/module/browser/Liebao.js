@@ -1,4 +1,4 @@
-import _Chrome from './Chrome';
+import _Chrome from './Chrome.js';
 
 export default {
     name:'Liebao',

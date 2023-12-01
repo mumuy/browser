@@ -6,7 +6,6 @@
 		<title>浏览器检测</title>
 		<meta name="description" content="通过Useragent和浏览器环境变量等方式判断浏览器、系统及设备类型，是页面判断检测的常用工具。">
 		<meta name="keywords" content="Useragent,用户代理,浏览器判断,浏览器类型,浏览器信息">
-		<script src="dist/browser.min.js"></script>
 		<style>
 			a{
 				text-decoration: none;
@@ -142,7 +141,8 @@
 				</script>
 			</div>
 		</div>
-		<script>
+		<script type="text/javascript" src="./dist/browser.min.js"></script>
+		<script type="text/javascript">
 			browser.getInfo().then(function(info){
 				var $module = document.querySelector('.module');
 
