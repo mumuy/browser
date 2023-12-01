@@ -9,7 +9,7 @@ import otherLoader from './module/other-loader.js';
 
 let getInfo = function(userAgent,isAsync = false){
     let info = {};
-    info.userAgent = userAgent || self?.navigator?.userAgent||'';
+    info.userAgent = userAgent || globalThis?.navigator?.userAgent||'';
     [
         browserLoader,
         deviceLoader,

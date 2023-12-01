@@ -1,8 +1,8 @@
 export default function(_){
     _.gpu = '';
     _.gpuModel = '';
-    if(self.document){
-        let $canvas = self.document.createElement('canvas'),
+    if(globalThis?.document){
+        let $canvas = globalThis.document.createElement('canvas'),
         webgl = $canvas.getContext('experimental-webgl'),
         debugInfo = webgl.getExtension('WEBGL_debug_renderer_info');
         let gpu_str = webgl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);

@@ -3,7 +3,7 @@ import _Chrome from './Chrome.js';
 export default {
     name:'2345Explorer',
     match(ua){
-        let isMatch = self?.chrome&&(self?.chrome?.adblock2345||self?.chrome?.common2345);
+        let isMatch = globalThis?.chrome&&(globalThis?.chrome?.adblock2345||globalThis?.chrome?.common2345);
         return ua.indexOf('2345Explorer') > -1||ua.indexOf('Mb2345Browser') > -1||ua.indexOf('2345chrome') > -1||isMatch;
     },
     version(ua){

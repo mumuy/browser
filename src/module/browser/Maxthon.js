@@ -3,7 +3,7 @@ import _Chrome from './Chrome.js';
 export default {
     name:'Maxthon',
     match(ua){
-        return ua.indexOf('Maxthon') > -1||self?.maxthon;
+        return ua.indexOf('Maxthon') > -1||globalThis?.maxthon;
     },
     version(ua){
         let hash = {

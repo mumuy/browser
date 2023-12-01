@@ -21,8 +21,8 @@ export default {
         };
         if(isAsync){
             return new Promise(function(resolve){
-                if(self?.navigator?.userAgentData){
-                    self.navigator.userAgentData.getHighEntropyValues(["platformVersion"]).then(function(ua){
+                if(globalThis?.navigator?.userAgentData){
+                    globalThis.navigator.userAgentData.getHighEntropyValues(["platformVersion"]).then(function(ua){
                         let windowsVersion = '';
                         if (navigator.userAgentData.platform === "Windows") {
                             const majorPlatformVersion = parseInt(ua.platformVersion.split('.')[0]);

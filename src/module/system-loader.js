@@ -33,8 +33,8 @@ export default function(_,isAsync){
         _.platform = 'Win32';
     }else if(ua.match(/aarch64|arm64/)){
         _.platform = 'ARM64';
-    }else if(self?.navigator?.platform){
-        _.platform = self.navigator.platform;
+    }else if(globalThis?.navigator?.platform){
+        _.platform = globalThis.navigator.platform;
     }
 
     _.architecture = '';
@@ -50,7 +50,7 @@ export default function(_,isAsync){
     _.bitness = ua.match(/x64|x86_64|Win64|WOW64|aarch64|arm64|loongarch64/i)?64:32;
 
     if(isAsync){
-        if(self?.navigator?.userAgentData){
+        if(globalThis?.navigator?.userAgentData){
             _.architecture = navigator.userAgentData.getHighEntropyValues(['architecture']).then(item => item.architecture);
             _.bitness = navigator.userAgentData.getHighEntropyValues(['bitness']).then(item => +item.bitness);
         }
