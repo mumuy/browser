@@ -33,21 +33,24 @@ export default function(_,isAsync){
         _.platform = 'Win32';
     }else if(ua.match(/aarch64|arm64/)){
         _.platform = 'ARM64';
+    }else if(ua.match(/arm32/)){
+        _.platform = 'ARM32';
     }else if(globalThis?.navigator?.platform){
         _.platform = globalThis.navigator.platform;
     }
 
     _.architecture = '';
-    if(ua.match(/armv\d+/i)){
-        _.architecture = ua.match(/(armv\d+)/i,'$1')?.[0]||'';
-    }else if(ua.match(/aarch64/)){
-        _.architecture = 'armv8';
-    }else if(ua.match(/loongarch/)){
-        _.architecture = 'loong';
+    let keyStr = ua+'|'+_.platform;
+    if(keyStr.match(/armv\d+/i)){
+        _.architecture = 'arm';
+    }else if(keyStr.match(/aarch64/)){
+        _.architecture = 'arm';
+    }else if(keyStr.match(/loongarch64/)){
+        _.architecture = 'loongarch';
     }else{
         _.architecture = 'x86';
     }
-    _.bitness = ua.match(/x64|x86_64|Win64|WOW64|aarch64|arm64|loongarch64/i)?64:32;
+    _.bitness = ua.match(/Win64|x64|WOW64|x86_64|aarch64|arm64|loongarch64/i)?64:32;
 
     if(isAsync){
         if(globalThis?.navigator?.userAgentData){

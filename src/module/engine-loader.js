@@ -1,8 +1,8 @@
-import _Gecko from './engine/Gecko.js';
-import _KHTML from './engine/KHTML.js';
-import _Presto from './engine/Presto.js';
-import _Trident from './engine/Trident.js';
 import _WebKit from './engine/WebKit.js';
+import _Trident from './engine/Trident.js';
+import _Gecko from './engine/Gecko.js';
+import _Presto from './engine/Presto.js';
+import _KHTML from './engine/KHTML.js';
 
 import _Chrome from './browser/Chrome.js';
 
