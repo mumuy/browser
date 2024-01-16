@@ -16,8 +16,8 @@
     "main": "./dist/browser.min.js",
     "module": "./dist/browser.min.mjs",
     "exports": {
-        "default": "./dist/browser.min.js",
-        "import": "./dist/browser.min.mjs"
+        "import": "./dist/browser.min.mjs",
+        "default": "./dist/browser.min.js"
     },
     "repository": {
         "type": "git",
