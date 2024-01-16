@@ -6,10 +6,11 @@ import gpuLoader from './module/gpu-loader.js';
 import languageLoader from './module/language-loader.js';
 import networkLoader from './module/network-loader.js';
 import otherLoader from './module/other-loader.js';
+import globalObject from './module/runtime/globalThis.js';
 
 let getInfo = function(userAgent,isAsync = false){
     let info = {};
-    info.userAgent = userAgent || globalThis?.navigator?.userAgent||'';
+    info.userAgent = userAgent || globalObject?.navigator?.userAgent||'';
     [
         browserLoader,
         deviceLoader,

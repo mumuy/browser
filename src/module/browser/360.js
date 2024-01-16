@@ -1,14 +1,15 @@
 import mime from '../method/mime.js';
+import _globalThis from '../runtime/globalThis.js';
 
 export default {
     name:'360',
     match(ua){
         let isMatch = false;
-        if(globalThis?.chrome){
+        if(_globalThis?.chrome){
             let chrome_version = ua.replace(/^.*Chrome\/([\d]+).*$/, '$1');
             if(mime("type", "application/360softmgrplugin")||mime("type", "application/mozilla-npqihooquicklogin")){
                 isMatch = true;
-            }else if(chrome_version>36&&globalThis?.showModalDialog){
+            }else if(chrome_version>36&&_globalThis?.showModalDialog){
                 isMatch = true;
             }else if(chrome_version>45){
                 isMatch = mime("type", "application/vnd.chromium.remoting-viewer");

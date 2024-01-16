@@ -1,9 +1,10 @@
 import _Chrome from './Chrome.js';
+import _globalThis from '../runtime/globalThis.js';
 
 export default {
     name:'Maxthon',
     match(ua){
-        return ua.indexOf('Maxthon') > -1||globalThis?.maxthon;
+        return ua.indexOf('Maxthon') > -1||_globalThis?.maxthon;
     },
     version(ua){
         let hash = {

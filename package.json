@@ -1,6 +1,6 @@
 {
     "name": "browser-tool",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "description": "Useragent analysis tool.",
     "author": "HaoLe Zheng",
     "license": "MIT",
@@ -45,6 +45,5 @@
         "watch": "rollup -wc"
     },
     "homepage": "https://passer-by.com/browser/",
-    "directories": {
-    }
+    "directories": {}
 }

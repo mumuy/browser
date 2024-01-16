@@ -1,6 +1,7 @@
 import mime from '../method/mime.js';
 import _Chrome from './Chrome.js';
 import _360 from './360.js';
+import _globalThis from '../runtime/globalThis.js';
 
 export default {
     name:'360SE',
@@ -9,7 +10,7 @@ export default {
         if(_360.match(ua)){
             if(mime("type", "application/gameplugin")){
                 isMatch = true;
-            }else if(globalThis?.navigator?.userAgentData?.brands.filter(item=>item.brand=='Not.A/Brand').length){
+            }else if(_globalThis?.navigator?.userAgentData?.brands.filter(item=>item.brand=='Not.A/Brand').length){
                 isMatch = true;
             }
         }

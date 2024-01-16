@@ -1,8 +1,10 @@
+import _globalThis from './runtime/globalThis.js';
+
 export default function(_){
     _.gpu = '';
     _.gpuModel = '';
-    if(globalThis?.document){
-        let $canvas = globalThis.document.createElement('canvas'),
+    if(_globalThis?.document){
+        let $canvas = _globalThis.document.createElement('canvas'),
         webgl = $canvas.getContext('experimental-webgl'),
         debugInfo = webgl.getExtension('WEBGL_debug_renderer_info');
         let gpu_str = webgl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);

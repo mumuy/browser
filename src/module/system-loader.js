@@ -13,6 +13,7 @@ import _MeeGo from './system/MeeGo.js';
 import _Symbian from './system/Symbian.js';
 import _Chrome_OS from './system/Chrome OS.js';
 import _WebOS from './system/WebOS.js';
+import _globalThis from './runtime/globalThis.js';
 
 export default function(_,isAsync){
     let ua = _.userAgent;
@@ -35,8 +36,8 @@ export default function(_,isAsync){
         _.platform = 'ARM64';
     }else if(ua.match(/arm32/)){
         _.platform = 'ARM32';
-    }else if(globalThis?.navigator?.platform){
-        _.platform = globalThis.navigator.platform;
+    }else if(_globalThis?.navigator?.platform){
+        _.platform = _globalThis.navigator.platform;
     }
 
     _.architecture = '';
@@ -53,7 +54,7 @@ export default function(_,isAsync){
     _.bitness = ua.match(/Win64|x64|WOW64|x86_64|aarch64|arm64|loongarch64/i)?64:32;
 
     if(isAsync){
-        if(globalThis?.navigator?.userAgentData){
+        if(_globalThis?.navigator?.userAgentData){
             _.architecture = navigator.userAgentData.getHighEntropyValues(['architecture']).then(item => item.architecture);
             _.bitness = navigator.userAgentData.getHighEntropyValues(['bitness']).then(item => +item.bitness);
         }

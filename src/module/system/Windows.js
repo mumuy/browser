@@ -1,3 +1,5 @@
+import _globalThis from '../runtime/globalThis.js';
+
 export default {
     name:'Windows',
     match(ua){
@@ -21,8 +23,8 @@ export default {
         };
         if(isAsync){
             return new Promise(function(resolve){
-                if(globalThis?.navigator?.userAgentData){
-                    globalThis.navigator.userAgentData.getHighEntropyValues(["platformVersion"]).then(function(ua){
+                if(_globalThis?.navigator?.userAgentData){
+                    _globalThis.navigator.userAgentData.getHighEntropyValues(["platformVersion"]).then(function(ua){
                         let windowsVersion = '';
                         if (navigator.userAgentData.platform === "Windows") {
                             const majorPlatformVersion = parseInt(ua.platformVersion.split('.')[0]);

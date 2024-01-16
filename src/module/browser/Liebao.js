@@ -1,9 +1,10 @@
 import _Chrome from './Chrome.js';
+import _globalThis from '../runtime/globalThis.js';
 
 export default {
     name:'Liebao',
     match(ua){
-        return ua.indexOf('LBBROWSER') > -1|| ua.indexOf('LieBaoFast') > -1||globalThis?.liebao;
+        return ua.indexOf('LBBROWSER') > -1|| ua.indexOf('LieBaoFast') > -1||_globalThis?.liebao;
     },
     version(ua){
         let version = ''
