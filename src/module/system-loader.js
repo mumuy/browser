@@ -55,8 +55,8 @@ export default function(_,isAsync){
 
     if(isAsync){
         if(_globalThis?.navigator?.userAgentData){
-            _.architecture = navigator.userAgentData.getHighEntropyValues(['architecture']).then(item => item.architecture);
-            _.bitness = navigator.userAgentData.getHighEntropyValues(['bitness']).then(item => +item.bitness);
+            _.architecture = _globalThis.navigator.userAgentData.getHighEntropyValues(['architecture']).then(item => item.architecture);
+            _.bitness =  _globalThis.navigator.userAgentData.getHighEntropyValues(['bitness']).then(item => +item.bitness);
         }
     }
 };
