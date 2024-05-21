@@ -121,6 +121,7 @@ browser.getInfo().then(console.log);
         <tr><td>WebKit</td><td>开源浏览器引擎</td></tr>
         <tr><td>Blink</td><td>Google基于WebKit开发引擎</td></tr>
         <tr><td>Gecko</td><td>Mozilla内置引擎</td></tr>
+        <tr><td>Servo</td><td>Mozilla使用Rust开发的实验性浏览器引擎</td></tr>
         <tr><td>KHTML</td><td>KDE网页排版引擎</td></tr>
     </tbody>
 </table>

@@ -1,6 +1,7 @@
 import _WebKit from './engine/WebKit.js';
 import _Trident from './engine/Trident.js';
 import _Gecko from './engine/Gecko.js';
+import _Servo from './engine/Servo.js';
 import _Presto from './engine/Presto.js';
 import _KHTML from './engine/KHTML.js';
 
@@ -8,7 +9,7 @@ import _Chrome from './browser/Chrome.js';
 
 export default function(_){
     _.engine = '';
-    [_WebKit, _Trident, _Gecko, _Presto, _KHTML].forEach(function(item){
+    [_WebKit, _Trident, _Gecko, _Servo, _Presto, _KHTML].forEach(function(item){
         if(item.match(_.userAgent)){
             _.engine = item.name;
         }
