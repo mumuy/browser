@@ -19,6 +19,7 @@ import _Konqueror from './browser/Konqueror.js';
 import _Iceape from './browser/Iceape.js';
 import _SeaMonkey from './browser/SeaMonkey.js';
 import _Epiphany from './browser/Epiphany.js';
+import _HONOR from './browser/HONOR.js';
 import _Huawei from './browser/Huawei.js';
 import _OPPO from './browser/OPPO.js';
 import _Vivo from './browser/Vivo.js';

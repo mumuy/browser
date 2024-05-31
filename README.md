@@ -79,7 +79,8 @@ browser.getInfo().then(console.log);
         <tr><td>TheWorld</td><td>世界之窗浏览器</td></tr>
         <tr><td>Qiyu</td><td>旗鱼浏览器</td></tr>
         <tr><td>Quark</td><td>夸克浏览器</td></tr>
-        <tr><td rowspan="7">手机厂商</td><td>Huawei</td><td>华为浏览器</td></tr>
+        <tr><td rowspan="8">手机厂商</td><td>Huawei</td><td>华为浏览器</td></tr>
+        <tr><td>HONOR</td><td>荣耀浏览器</td></tr>
         <tr><td>OPPO</td><td>OPPO浏览器</td></tr>
         <tr><td>Vivo</td><td>Vivo浏览器</td></tr>
         <tr><td>Xiaomi</td><td>小米浏览器</td></tr>

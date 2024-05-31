@@ -4,6 +4,6 @@ export default {
         return ua.indexOf('Symbian') > -1;
     },
     version(ua){
-        return '';
+        return ua.match(/Series60\/([\d.]+)/)?.[1]||'';
     }
 };
