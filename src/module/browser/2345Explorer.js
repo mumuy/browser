@@ -9,6 +9,7 @@ export default {
     },
     version(ua){
         let hash = {
+            '109':'13.0',
             '69':'10.0',
             '55':'9.9'
         };

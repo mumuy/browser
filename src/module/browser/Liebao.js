@@ -12,6 +12,7 @@ export default {
             version = ua.replace(/LieBaoFast\/([\d.]+)/, '$1');
         }
         let hash = {
+            '112':'9.0',
             '79':'8.0',
             '57':'6.5',
             '49':'6.0',
