@@ -10,7 +10,7 @@ export default {
         if(mime('type','application/cenroll.cenroll.version.1')||mime('type','application/hwepass2001.installepass2001')){
             isMatch = true;
         }else if(_360.match(ua)){
-            if(_globalThis?.navigator?.userAgentData?.brands.filter(item=>item.brand=='Not A(Brand').length){
+            if(_globalThis?.navigator?.userAgentData?.brands.filter(item=>item.brand=='Not A(Brand'||item.brand=='Not?A_Brand').length){
                 isMatch = true;
             }
         }

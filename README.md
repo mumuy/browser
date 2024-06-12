@@ -65,8 +65,9 @@ browser.getInfo().then(console.log);
         <tr><td>Iceape</td><td>&nbsp;</td></tr>
         <tr><td>SeaMonkey</td><td>&nbsp;</td></tr>
         <tr><td>Epiphany</td><td>&nbsp;</td></tr>
-        <tr><td rowspan="14">国内浏览器</td><td>360</td><td>360浏览器(手机版)</td></tr>
+        <tr><td rowspan="15">国内浏览器</td><td>360</td><td>360浏览器(手机版)</td></tr>
         <tr><td>360SE</td><td>360安全浏览器</td></tr>
+        <tr><td>360SEAI</td><td>360AI浏览器</td></tr>
         <tr><td>360EE</td><td>360极速浏览器</td></tr>
         <tr><td>UC</td><td>UC浏览器</td></tr>
         <tr><td>QQBrowser</td><td>QQ浏览器</td></tr>
