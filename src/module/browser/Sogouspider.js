@@ -1,7 +1,7 @@
 export default {
     name:'Sogouspider',
     match(ua){
-        return ua.indexOf('MSIE') > -1 || ua.indexOf('Trident') > -1;
+        return ua.match(/Sogou (\S+) Spider\/([\d.]+)/i);
     },
     version(ua){
         return ua.match(/Sogou (\S+) Spider\/([\d.]+)/i)?.[1]||'';
