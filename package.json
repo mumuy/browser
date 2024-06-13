@@ -1,6 +1,6 @@
 {
     "name": "browser-tool",
-    "version": "1.2.4",
+    "version": "1.2.5",
     "description": "Useragent analysis tool.",
     "author": "HaoLe Zheng",
     "license": "MIT",
@@ -27,13 +27,13 @@
         "url": "https://github.com/mumuy/browser/issues"
     },
     "devDependencies": {
-        "@babel/core": "^7.24.4",
-        "@babel/plugin-transform-runtime": "^7.24.3",
-        "@babel/preset-env": "^7.24.4",
-        "@babel/runtime": "^7.24.4",
+        "@babel/core": "^7.24.7",
+        "@babel/plugin-transform-runtime": "^7.24.7",
+        "@babel/preset-env": "^7.24.7",
+        "@babel/runtime": "^7.24.7",
         "@rollup/plugin-babel": "^6.0.4",
         "@rollup/plugin-node-resolve": "^15.2.3",
-        "@rollup/plugin-terser": "^0.4.4", 
+        "@rollup/plugin-terser": "^0.4.4",
         "rollup": "^3.29.4"
     },
     "scripts": {
