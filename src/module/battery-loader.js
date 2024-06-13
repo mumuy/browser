@@ -5,6 +5,6 @@ export default function(_){
         return battery.charging;
     });
     _.battery = navigator.getBattery().then((battery) => {
-        return +battery?.level||1;
+        return +battery?.level||-1;
     });
 };
