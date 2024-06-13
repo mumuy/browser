@@ -51,12 +51,14 @@ export default function(_,isAsync){
     }else{
         _.architecture = 'x86';
     }
-    _.bitness = ua.match(/Win64|x64|WOW64|x86_64|aarch64|arm64|loongarch64/i)?64:32;
+
+    let bitness = ua.match(/Win64|x64|WOW64|x86_64|aarch64|arm64|loongarch64/i)?64:32;
+    _.bitness = bitness;
 
     if(isAsync){
         if(_globalThis?.navigator?.userAgentData){
             _.architecture = _globalThis.navigator.userAgentData.getHighEntropyValues(['architecture']).then(item => item.architecture);
-            _.bitness =  _globalThis.navigator.userAgentData.getHighEntropyValues(['bitness']).then(item => +item.bitness);
+            _.bitness =  _globalThis.navigator.userAgentData.getHighEntropyValues(['bitness']).then(item => +item.bitness||bitness);
         }
     }
 };
