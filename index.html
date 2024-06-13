@@ -34,6 +34,9 @@
 			.mod-panel .ft{
 				text-align: center;
 			}
+			.mod-panel strong{
+				color: #000;
+			}
 			.mod-panel .btn {
 			    display: inline-block;
 			    height: 36px;
@@ -164,7 +167,7 @@
 					<table>
 						<tbody>
 							<tr><td class="th" width="20%">用户代理</td><td>${info.userAgent}</td></tr>
-							<tr><td class="th">浏览器</td><td>${info.browser}</td></tr>
+							<tr><td class="th">浏览器</td><td><strong>${info.browser}</strong></td></tr>
 							<tr><td class="th">版本</td><td>${info.browserVersion}</td></tr>
 							<tr><td class="th">渲染引擎</td><td>${info.engine}</td></tr>
 							<tr><td class="th">操作系统</td><td>${info.system} ${info.systemVersion} (${info.bitness}位)</td></tr>
