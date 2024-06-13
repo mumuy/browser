@@ -5,7 +5,10 @@ export default {
     name:'2345Explorer',
     match(ua){
         let isMatch = _globalThis?.chrome&&(_globalThis?.chrome?.adblock2345||_globalThis?.chrome?.common2345);
-        return ua.indexOf('2345Explorer') > -1||ua.indexOf('Mb2345Browser') > -1||ua.indexOf('2345chrome') > -1||isMatch;
+        return ua.includes('2345Explorer')
+        ||ua.includes('Mb2345Browser')
+        ||ua.includes('2345chrome')
+        ||isMatch;
     },
     version(ua){
         let hash = {

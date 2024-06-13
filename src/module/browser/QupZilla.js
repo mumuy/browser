@@ -1,7 +1,7 @@
 export default {
     name:'QupZilla',
     match(ua){
-        return ua.indexOf('QupZilla') > -1;
+        return ua.includes('QupZilla');
     },
     version(ua){
         return ua.match(/QupZilla[\/\s]([\d.]+)/)?.[1]||'';

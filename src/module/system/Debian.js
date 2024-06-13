@@ -1,7 +1,7 @@
 export default {
     name:'Debian',
     match(ua){
-        return ua.indexOf('Debian') > -1;
+        return ua.includes('Debian');
     },
     version(ua){
         return ua.match(/Debian\/([\d.]+)/)?.[1]||'';

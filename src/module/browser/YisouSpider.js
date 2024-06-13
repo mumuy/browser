@@ -1,7 +1,7 @@
 export default {
     name:'YisouSpider',
     match(ua){
-        return ua.indexOf('YisouSpider') >-1;
+        return ua.includes('YisouSpider');
     },
     version(ua){
         return ua.match(/YisouSpider\/([\d.]+)/)?.[1]||'';

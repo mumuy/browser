@@ -1,7 +1,7 @@
 export default {
     name:'Firefox Focus',
     match(ua){
-        return ua.indexOf('Focus') > -1;
+        return ua.includes('Focus');
     },
     version(ua){
         return ua.match(/Focus\/([\d.]+)/)?.[1]||'';

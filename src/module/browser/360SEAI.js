@@ -1,4 +1,4 @@
-import mime from '../method/mime.js';
+import getMime from '../method/getMime.js';
 import _Chrome from './Chrome.js';
 import _360 from './360.js';
 import _globalThis from '../runtime/globalThis.js';
@@ -8,11 +8,11 @@ export default {
     match(ua){
         let isMatch = false;
         if(_360.match(ua)){
-            if(_globalThis?.navigator?.userAgentData?.brands.filter(item=>item.brand=='Not.A/Brand').length&&!mime("type", "application/gameplugin")){
+            if(_globalThis?.navigator?.userAgentData?.brands.filter(item=>item.brand=='Not.A/Brand').length&&!getMime("type", "application/gameplugin")){
                 isMatch = true;
             }
         }
-        return ua.indexOf('360SEAI') > -1||isMatch;
+        return ua.includes('360SEAI')||isMatch;
     },
     version(ua){
         let hash = {

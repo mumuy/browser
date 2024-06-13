@@ -1,7 +1,7 @@
 export default {
     name:'MeeGo',
     match(ua){
-        return ua.indexOf('MeeGo') > -1;
+        return ua.includes('MeeGo');
     },
     version(ua){
         return '';

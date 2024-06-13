@@ -1,7 +1,7 @@
 export default {
     name:'HarmonyOS',
     match(ua){
-        return ua.indexOf('HarmonyOS') > -1;
+        return ua.includes('HarmonyOS');
     },
     version(ua){
         let v = +ua.match(/HMSCore (\d+.\d+)/)?.[1]||0;

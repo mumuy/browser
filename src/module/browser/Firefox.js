@@ -1,7 +1,8 @@
 export default {
     name:'Firefox',
     match(ua){
-        return ua.indexOf('Firefox') > -1 || ua.indexOf('FxiOS') > -1;
+        return ua.includes('Firefox')
+        ||ua.includes('FxiOS');
     },
     version(ua){
         return ua.match(/Firefox\/([\d.]+)/)?.[1]

@@ -31,11 +31,17 @@ browser.getInfo().then(console.log);
     "gpuModel": "Vulkan 1.3.0",
     "isWebview": false,
     "isBot": false,
+    "ip":'8.8.8.8',
     "language": "zh_CN",
     "network": "wifi",
     "platform": "Win32",
+    "screenWidth":1920,
+    "screenHeight":800,
+    "clientWidth":1920,
+    "clientHeight":640,
     "system": "Windows",
     "systemVersion": '10',
+    "timezone":'Asia/Shanghai',
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/119.0.0.0 Safari/537.36"
 }
 ```
@@ -190,6 +196,10 @@ browser.getInfo().then(console.log);
 ### bitness - CPU架构位数
 
 ### network - 网络类型
+
+### ip - IP地址
+
+### timezone - 时区代码
 
 ### isWebview - 是否为Webview(仅Android)
 

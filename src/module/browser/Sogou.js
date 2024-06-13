@@ -1,7 +1,7 @@
 export default {
     name:'Sogou',
     match(ua){
-        return ua.indexOf('MetaSr') > -1 || ua.indexOf('Sogou') > -1;
+        return ua.includes('MetaSr')|| ua.includes('Sogou');
     },
     version(ua){
         var hash = {

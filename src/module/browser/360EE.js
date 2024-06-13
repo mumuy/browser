@@ -1,4 +1,4 @@
-import mime from '../method/mime.js';
+import getMime from '../method/getMime.js';
 import _Chrome from './Chrome.js';
 import _360 from './360.js';
 import _globalThis from '../runtime/globalThis.js';
@@ -7,14 +7,14 @@ export default {
     name:'360EE',
     match(ua){
         let isMatch = false;
-        if(mime('type','application/cenroll.cenroll.version.1')||mime('type','application/hwepass2001.installepass2001')){
+        if(getMime('type','application/cenroll.cenroll.version.1')||getMime('type','application/hwepass2001.installepass2001')){
             isMatch = true;
         }else if(_360.match(ua)){
             if(_globalThis?.navigator?.userAgentData?.brands.filter(item=>item.brand=='Not A(Brand'||item.brand=='Not?A_Brand').length){
                 isMatch = true;
             }
         }
-        return ua.indexOf('360EE') > -1||isMatch;
+        return ua.includes('360EE')||isMatch;
     },
     version(ua){
         let hash = {

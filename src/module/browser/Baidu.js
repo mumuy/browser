@@ -1,7 +1,11 @@
 export default {
     name:'Baidu',
     match(ua){
-        return ua.indexOf('Baidu') > -1 || ua.indexOf('BIDUBrowser') > -1 || ua.indexOf('baidubrowser') > -1|| ua.indexOf('baiduboxapp') > -1 || ua.indexOf('BaiduD') > -1;
+        return ua.includes('Baidu')
+        ||ua.includes('BIDUBrowser')
+        ||ua.includes('baidubrowser')
+        ||ua.includes('baiduboxapp')
+        ||ua.includes('BaiduD');
     },
     version(ua){
         return ua.match(/BIDUBrowser[\s\/]([\d.]+)/)?.[1]

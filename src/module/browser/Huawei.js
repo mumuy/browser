@@ -1,7 +1,9 @@
 export default {
     name:'Huawei',
     match(ua){
-        return ua.indexOf('HuaweiBrowser') > -1||ua.indexOf('HUAWEI') > -1||ua.indexOf('HONOR') > -1||ua.indexOf('HBPC/') > -1;
+        return ua.includes('HuaweiBrowser')
+        ||ua.includes('HUAWEI')
+        ||ua.includes('HBPC/');
     },
     version(ua){
         return ua.match(/Version\/([\d.]+)/)?.[1]

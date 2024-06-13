@@ -1,7 +1,7 @@
 export default {
     name:'WechatWork',
     match(ua){
-        return ua.indexOf('wxwork/') > -1;
+        return ua.includes('wxwork/');
     },
     version(ua){
         return ua.match(/wxwork\/([\d.]+)/)?.[1]||'';

@@ -1,7 +1,7 @@
 export default {
     name:'Konqueror',
     match(ua){
-        return ua.indexOf('Konqueror') > -1;
+        return ua.includes('Konqueror');
     },
     version(ua){
         return ua.match(/Konqueror\/([\d.]+)/)?.[1]||'';

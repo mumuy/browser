@@ -1,6 +1,6 @@
 export default {
     name:'Presto',
     match(ua){
-        return ua.indexOf('Presto') > -1;
+        return ua.includes('Presto');
     }
 };

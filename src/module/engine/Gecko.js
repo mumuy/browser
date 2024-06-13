@@ -1,6 +1,6 @@
 export default {
     name:'Gecko',
     match(ua){
-        return ua.indexOf('Gecko/') > -1;
+        return ua.includes('Gecko/');
     }
 };

@@ -1,7 +1,7 @@
 export default {
     name:'iQIYI',
     match(ua){
-        return ua.indexOf('IqiyiApp') > -1;
+        return ua.includes('IqiyiApp');
     },
     version(ua){
         return ua.match(/IqiyiVersion\/([\d.]+)/)?.[1]||'';

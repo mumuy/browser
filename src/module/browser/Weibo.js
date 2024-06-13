@@ -1,7 +1,7 @@
 export default {
     name:'Weibo',
     match(ua){
-        return ua.indexOf('Weibo') > -1;
+        return ua.includes('Weibo');
     },
     version(ua){
         return ua.match(/weibo__([\d.]+)/)?.[1]||'';

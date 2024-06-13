@@ -4,6 +4,9 @@ export default {
     name:'Tablet',
     match(ua){
         let navigator = _globalThis?.navigator||{};
-        return  ua.indexOf('Tablet') > -1 || ua.indexOf('Pad') > -1 || ua.indexOf('Nexus 7') > -1 || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        return  ua.includes('Tablet')
+        ||ua.includes('Pad')
+        ||ua.includes('Nexus 7')
+        ||(navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
     }
 };

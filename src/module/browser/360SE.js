@@ -1,4 +1,4 @@
-import mime from '../method/mime.js';
+import getMime from '../method/getMime.js';
 import _Chrome from './Chrome.js';
 import _360 from './360.js';
 import _globalThis from '../runtime/globalThis.js';
@@ -8,13 +8,13 @@ export default {
     match(ua){
         let isMatch = false;
         if(_360.match(ua)){
-            if(mime("type", "application/gameplugin")){
+            if(getMime("type", "application/gameplugin")){
                 isMatch = true;
             }else if(_globalThis?.navigator?.userAgentData?.brands.filter(item=>item.brand=='Not.A/Brand').length){
                 isMatch = true;
             }
         }
-        return ua.indexOf('360SE') > -1||isMatch;
+        return ua.includes('360SE')||isMatch;
     },
     version(ua){
         let hash = {

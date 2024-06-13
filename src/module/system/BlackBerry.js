@@ -1,7 +1,7 @@
 export default {
     name:'BlackBerry',
     match(ua){
-        return  ua.indexOf('BlackBerry') > -1 || ua.indexOf('RIM') > -1;
+        return  ua.includes('BlackBerry')||ua.includes('RIM');
     },
     version(ua){
         return '';

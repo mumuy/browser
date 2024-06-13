@@ -1,7 +1,8 @@
 export default {
     name:'OPPO',
     match(ua){
-        return ua.indexOf('HeyTapBrowser') > -1 || ua.indexOf('OPPO') > -1;
+        return ua.includes('HeyTapBrowser')
+        ||ua.includes('OPPO');
     },
     version(ua){
         return ua.match(/HeyTapBrowser\/([\d.]+)/)?.[1]||'';

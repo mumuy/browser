@@ -1,7 +1,7 @@
 export default {
     name:'115Browser',
     match(ua){
-        return ua.indexOf('115Browser') > -1;
+        return ua.includes('115Browser');
     },
     version(ua){
         return ua.match(/115Browser\/([\d.]+)/)?.[1]||'';

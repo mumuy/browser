@@ -1,7 +1,7 @@
 export default {
     name:'Samsung',
     match(ua){
-        return ua.indexOf('SamsungBrowser') > -1;
+        return ua.includes('SamsungBrowser');
     },
     version(ua){
         return ua.match(/SamsungBrowser\/([\d.]+)/)?.[1]||'';

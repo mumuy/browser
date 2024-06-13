@@ -1,7 +1,7 @@
 export default {
     name:'Lunascape',
     match(ua){
-        return ua.indexOf('Lunascape') > -1;
+        return ua.includes('Lunascape');
     },
     version(ua){
         return ua.match(/Lunascape[\/\s]([\d.]+)/)?.[1]||'';

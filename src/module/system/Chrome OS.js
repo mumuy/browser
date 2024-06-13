@@ -1,7 +1,7 @@
 export default {
     name:'Chrome OS',
     match(ua){
-        return ua.indexOf('CrOS') > -1;
+        return ua.includes('CrOS');
     },
     version(ua){
         return ua.match(/MSIE ([\d.]+)/)?.[1]

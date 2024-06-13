@@ -1,7 +1,7 @@
 export default {
     name:'Xiaomi',
     match(ua){
-        return ua.indexOf('MiuiBrowser') > -1;
+        return ua.includes('MiuiBrowser');
     },
     version(ua){
         return ua.match(/MiuiBrowser\/([\d.]+)/)?.[1]||'';

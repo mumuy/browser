@@ -4,7 +4,7 @@ import _globalThis from '../runtime/globalThis.js';
 export default {
     name:'Maxthon',
     match(ua){
-        return ua.indexOf('Maxthon') > -1||_globalThis?.maxthon;
+        return ua.includes('Maxthon')||_globalThis?.maxthon;
     },
     version(ua){
         let hash = {

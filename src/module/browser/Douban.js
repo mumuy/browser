@@ -1,7 +1,7 @@
 export default {
     name:'Douban',
     match(ua){
-        return ua.indexOf('com.douban.frodo') > -1;
+        return ua.includes('com.douban.frodo');
     },
     version(ua){
         return ua.match(/com.douban.frodo\/([\d.]+)/)?.[1]||'';

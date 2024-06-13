@@ -1,7 +1,8 @@
 export default {
     name:'IE',
     match(ua){
-        return ua.indexOf('MSIE') > -1 || ua.indexOf('Trident') > -1;
+        return ua.includes('MSIE')
+        ||ua.includes('Trident');
     },
     version(ua){
         return ua.match(/MSIE ([\d.]+)/)?.[1]

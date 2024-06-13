@@ -1,7 +1,7 @@
 export default {
     name:'Iceape',
     match(ua){
-        return ua.indexOf('Iceape') > -1;
+        return ua.includes('Iceape');
     },
     version(ua){
         return ua.match(/Iceape\/([\d.]+)/)?.[1]||'';

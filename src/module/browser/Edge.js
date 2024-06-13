@@ -1,7 +1,10 @@
 export default {
     name:'Edge',
     match(ua){
-        return ua.indexOf('Edge') > -1||ua.indexOf('Edg/') > -1||ua.indexOf('EdgA') > -1||ua.indexOf('EdgiOS') > -1;
+        return ua.includes('Edge')
+        ||ua.includes('Edg/')
+        ||ua.includes('EdgA')
+        ||ua.includes('EdgiOS');
     },
     version(ua){
         return ua.match(/Edge\/([\d.]+)/)?.[1]

@@ -3,7 +3,7 @@ import _globalThis from '../runtime/globalThis.js';
 export default {
     name:'Windows',
     match(ua){
-        return ua.indexOf('Windows') > -1;
+        return ua.includes('Windows');
     },
     version(ua,isAsync = false){
         let v = ua.match(/^Mozilla\/\d.0 \(Windows NT ([\d.]+)[;)].*$/)?.[1]||'';

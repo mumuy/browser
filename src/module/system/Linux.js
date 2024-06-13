@@ -1,7 +1,7 @@
 export default {
     name:'Linux',
     match(ua){
-        return ua.indexOf('Linux') > -1 || ua.indexOf('X11') > -1;
+        return ua.includes('Linux')||ua.includes('X11');
     },
     version(ua){
         return '';

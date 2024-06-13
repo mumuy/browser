@@ -1,7 +1,7 @@
 export default {
     name:'Bytespider',
     match(ua){
-        return ua.indexOf('Bytespider') > -1;
+        return ua.includes('Bytespider');
     },
     version(ua){
         return '';

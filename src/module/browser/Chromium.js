@@ -1,7 +1,7 @@
 export default {
     name:'Chromium',
     match(ua){
-        return ua.indexOf('Chromium') > -1;
+        return ua.includes('Chromium');
     },
     version(ua){
         return ua.match(/Chromium\/([\d.]+)/)?.[1]||'';

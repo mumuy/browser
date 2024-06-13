@@ -1,7 +1,7 @@
 export default {
     name:'Ubuntu',
     match(ua){
-        return ua.indexOf('Ubuntu') > -1;
+        return ua.includes('Ubuntu');
     },
     version(ua){
         return '';

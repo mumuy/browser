@@ -1,7 +1,7 @@
 export default {
     name:'Yandex',
     match(ua){
-        return ua.indexOf('YaBrowser') > -1;
+        return ua.includes('YaBrowser');
     },
     version(ua){
         return ua.match(/YaBrowser\/([\d.]+)/)?.[1]||'';
