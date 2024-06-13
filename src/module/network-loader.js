@@ -12,4 +12,5 @@ export default function(_){
         }
         return network;
     })();
+    _.isOnline = _globalThis?.navigator?.onLine||false;
 };

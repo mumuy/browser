@@ -179,6 +179,9 @@
 							<tr><td class="th">IP地址</td><td>${info.ip}</td></tr>
 							<tr><td class="th">语言</td><td>${info.language}</td></tr>
 							<tr><td class="th">时区</td><td>${info.timezone}</td></tr>
+							<tr><td class="th">是否联网</td><td>${info.isOnline?'是':'否'}</td></tr>
+							<tr><td class="th">是否充电</td><td>${info.isCharging?'是':'否'}</td></tr>
+							<tr><td class="th">剩余电量</td><td>${info.battery*100}%</td></tr>
 							<tr><td class="th">是否蜘蛛</td><td>${info.isRobot?'是':'否'}</td></tr>
 							<tr><td class="th">是否Webview</td><td>${info.isWebview?'是':'否'}</td></tr>
 						</tbody>

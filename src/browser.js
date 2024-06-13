@@ -5,6 +5,7 @@ import systemLoader from './module/system-loader.js';
 import gpuLoader from './module/gpu-loader.js';
 import languageLoader from './module/language-loader.js';
 import networkLoader from './module/network-loader.js';
+import batterykLoader from './module/battery-loader.js';
 import otherLoader from './module/other-loader.js';
 import globalObject from './module/runtime/globalThis.js';
 
@@ -19,6 +20,7 @@ let getInfo = function(userAgent,isAsync = false){
         gpuLoader,
         languageLoader,
         networkLoader,
+        batterykLoader,
         otherLoader
     ].forEach(loader=>loader(info,isAsync));
     return info;
