@@ -1,7 +1,7 @@
 import _globalThis from './runtime/globalThis.js';
 
 export default function(_){
-    if(_globalThis.navigator?.getBattery){
+    if(_globalThis?.navigator?.getBattery){
         _.isCharging = _globalThis.navigator.getBattery().then((battery) => {
             return battery.charging;
         });
