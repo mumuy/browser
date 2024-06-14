@@ -43,11 +43,11 @@ export default function(_,isAsync){
     _.architecture = '';
     let keyStr = ua+'|'+_.platform;
     if(keyStr.match(/armv?\d+/i)){
-        _.architecture = 'ARM';
+        _.architecture = 'arm';
     }else if(keyStr.match(/aarch64/)){
-        _.architecture = 'ARM';
+        _.architecture = 'arm';
     }else if(keyStr.match(/loongarch64/)){
-        _.architecture = 'Loongarch';
+        _.architecture = 'loongarch';
     }else{
         _.architecture = 'x86';
     }
