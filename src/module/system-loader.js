@@ -42,22 +42,24 @@ export default function(_,isAsync){
 
     _.architecture = '';
     let keyStr = ua+'|'+_.platform;
+    let architecture = '';
     if(keyStr.match(/armv?\d+/i)){
-        _.architecture = 'arm';
+        architecture = 'arm';
     }else if(keyStr.match(/aarch64/)){
-        _.architecture = 'arm';
+        architecture = 'arm';
     }else if(keyStr.match(/loongarch64/)){
-        _.architecture = 'loongarch';
+        architecture = 'loongarch';
     }else{
-        _.architecture = 'x86';
+        architecture = 'x86';
     }
+    _.architecture = architecture;
 
     let bitness = ua.match(/Win64|x64|WOW64|x86_64|aarch64|arm64|loongarch64/i)?64:32;
     _.bitness = bitness;
 
     if(isAsync){
         if(_globalThis?.navigator?.userAgentData){
-            _.architecture = _globalThis.navigator.userAgentData.getHighEntropyValues(['architecture']).then(item => item.architecture);
+            _.architecture = _globalThis.navigator.userAgentData.getHighEntropyValues(['architecture']).then(item => item.architecture||architecture);
             _.bitness =  _globalThis.navigator.userAgentData.getHighEntropyValues(['bitness']).then(item => +item.bitness||bitness);
         }
     }
