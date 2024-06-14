@@ -42,7 +42,7 @@ export default function(_,isAsync){
 
     _.architecture = '';
     let keyStr = ua+'|'+_.platform;
-    if(keyStr.match(/armv\d+/i)){
+    if(keyStr.match(/armv?\d+/i)){
         _.architecture = 'arm';
     }else if(keyStr.match(/aarch64/)){
         _.architecture = 'arm';
