@@ -1,5 +1,5 @@
 /*!
- * browser-tool v1.2.5
+ * browser-tool v1.2.6
  * Useragent analysis tool.
  * https://passer-by.com/browser/
  *
