@@ -51,13 +51,14 @@ browser.getInfo().then(console.log);
         <tr><th>名称</th><th>值</th><th>描述</th></tr>
     </thead>
     <tbody>
-        <tr><td rowspan="20">国外浏览器</td><td>Chrome</td><td>谷歌浏览器</td></tr>
+        <tr><td rowspan="21">国外浏览器</td><td>Chrome</td><td>谷歌浏览器</td></tr>
         <tr><td>Chromium</td><td>谷歌浏览器开源版</td></tr>
         <tr><td>IE</td><td>微软IE浏览器</td></tr>
         <tr><td>Edge</td><td>微软新一代浏览器</td></tr>
         <tr><td>Firefox</td><td>火狐浏览器</td></tr>
         <tr><td>Safari</td><td>苹果系统默认浏览器</td></tr>
         <tr><td>Opera</td><td>Opera浏览器</td></tr>
+        <tr><td>Opera GX</td><td>Opera GX浏览器</td></tr>
         <tr><td>Vivaldi</td><td>Opera联合创始人发布</td></tr>
         <tr><td>Yandex</td><td>俄罗斯最大搜索引擎Yandex出品</td></tr>
         <tr><td>Brave</td><td>自带网络广告拦截的浏览器</td></tr>

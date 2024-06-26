@@ -6,6 +6,7 @@ import _Firefox from './browser/Firefox.js';
 import _Firefox_Focus from './browser/Firefox Focus.js';
 import _Chromium from './browser/Chromium.js';
 import _Opera from './browser/Opera.js';
+import _Opera_GX from './browser/Opera GX.js';
 import _Vivaldi from './browser/Vivaldi.js';
 import _Yandex from './browser/Yandex.js';
 import _Brave from './browser/Brave.js';
@@ -69,7 +70,7 @@ export default function(_,isAsync){
     _.browser = '';
     _.browserVersion = '';
 
-    [_Safari, _Chrome, _Edge, _IE, _Firefox, _Firefox_Focus, _Chromium, _Opera, _Vivaldi, _Yandex, _Brave, _Arora, _Lunascape, _QupZilla, _Coc_Coc, _Kindle, _Iceweasel, _Konqueror, _Iceape, _SeaMonkey, _Epiphany, _Huawei, _OPPO, _Vivo, _Xiaomi, _Meizu, _Samsung, _360, _360EE, _360SE, _360SEAI, _UC, _QQBrowser, _QQ, _Baidu, _Maxthon, _Sogou, _Liebao, _2345Explorer, _115Browser, _TheWorld, _Quark, _Qiyu, _Lenovo, _Wechat, _WechatWork, _Taobao, _Alipay, _Weibo, _Douban, _Suning, _iQIYI, _DingTalk, _Douyin, _Googlebot, _Baiduspider, _Sogouspider, _Bingbot, _360Spider, _Bytespider, _YisouSpider, _YodaoBot, _YandexBot].forEach(function(item){
+    [_Safari, _Chrome, _Edge, _IE, _Firefox, _Firefox_Focus, _Chromium, _Opera, _Opera_GX, _Vivaldi, _Yandex, _Brave, _Arora, _Lunascape, _QupZilla, _Coc_Coc, _Kindle, _Iceweasel, _Konqueror, _Iceape, _SeaMonkey, _Epiphany, _Huawei, _OPPO, _Vivo, _Xiaomi, _Meizu, _Samsung, _360, _360EE, _360SE, _360SEAI, _UC, _QQBrowser, _QQ, _Baidu, _Maxthon, _Sogou, _Liebao, _2345Explorer, _115Browser, _TheWorld, _Quark, _Qiyu, _Lenovo, _Wechat, _WechatWork, _Taobao, _Alipay, _Weibo, _Douban, _Suning, _iQIYI, _DingTalk, _Douyin, _Googlebot, _Baiduspider, _Sogouspider, _Bingbot, _360Spider, _Bytespider, _YisouSpider, _YodaoBot, _YandexBot].forEach(function(item){
         if(item.match(ua)){
             _.browser = item.name;
             _.browserVersion = item.version(ua,isAsync);
