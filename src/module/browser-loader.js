@@ -65,22 +65,57 @@ import _YisouSpider from './browser/YisouSpider.js';
 import _YodaoBot from './browser/YodaoBot.js';
 import _YandexBot from './browser/YandexBot.js';
 
+import wrapperPromise from './method/wrapperPromise.js';
 
-export default function(_,isAsync){
+export default function(_,isAsync = false){
     let ua = _.userAgent;
+    let browserList = [_Safari, _Chrome, _Edge, _IE, _Firefox, _Firefox_Focus, _Chromium, _Opera, _Opera_GX, _Vivaldi, _Yandex, _Brave, _Arora, _Lunascape, _QupZilla, _Coc_Coc, _Kindle, _Iceweasel, _Konqueror, _Iceape, _SeaMonkey, _Epiphany, _Huawei, _OPPO, _Vivo, _Xiaomi, _Meizu, _Samsung, _360, _360EE, _360SE, _360SEAI, _360CSE, _UC, _QQBrowser, _QQ, _Baidu, _Maxthon, _Sogou, _Liebao, _2345Explorer, _115Browser, _TheWorld, _Quark, _Qiyu, _Lenovo, _Wechat, _WechatWork, _Taobao, _Alipay, _Weibo, _Douban, _Suning, _iQIYI, _DingTalk, _Douyin, _Googlebot, _Baiduspider, _Sogouspider, _Bingbot, _360Spider, _Bytespider, _YisouSpider, _YodaoBot, _YandexBot];
+    
+
     _.browser = '';
     _.browserVersion = '';
 
-    [_Safari, _Chrome, _Edge, _IE, _Firefox, _Firefox_Focus, _Chromium, _Opera, _Opera_GX, _Vivaldi, _Yandex, _Brave, _Arora, _Lunascape, _QupZilla, _Coc_Coc, _Kindle, _Iceweasel, _Konqueror, _Iceape, _SeaMonkey, _Epiphany, _Huawei, _OPPO, _Vivo, _Xiaomi, _Meizu, _Samsung, _360, _360EE, _360SE, _360SEAI, _UC, _QQBrowser, _QQ, _Baidu, _Maxthon, _Sogou, _Liebao, _2345Explorer, _115Browser, _TheWorld, _Quark, _Qiyu, _Lenovo, _Wechat, _WechatWork, _Taobao, _Alipay, _Weibo, _Douban, _Suning, _iQIYI, _DingTalk, _Douyin, _Googlebot, _Baiduspider, _Sogouspider, _Bingbot, _360Spider, _Bytespider, _YisouSpider, _YodaoBot, _YandexBot].forEach(function(item){
+    browserList.forEach(function(item){
         if(item.match(ua)){
             _.browser = item.name;
             _.browserVersion = item.version(ua,isAsync);
         }
     });
-
     // 修正
     if(_.browser == 'Chrome'&&ua.match(/\S+Browser/)){
         _.browser = ua.match(/\S+Browser/)[0];
         _.browserVersion = ua.replace(/^.*Browser\/([\d.]+).*$/)?.[1]||'';
+    }
+
+    if(isAsync){
+        let all_promise = wrapperPromise(browserList.map(item=>item.match(ua)));
+        _.browser = Promise.all(all_promise).then(function(list){
+            let browser = '';
+            list.forEach(function(isMatch,index){
+                if(isMatch){
+                    browser = browserList[index].name;
+                }
+            });
+            // 修正
+            if(browser == 'Chrome'&&ua.match(/\S+Browser/)){
+                browser = ua.match(/\S+Browser/)[0];
+            }
+            return browser;
+        });
+        _.browserVersion = Promise.all(all_promise).then(function(list){
+            let browser = '';
+            let version = '';
+            list.forEach(function(isMatch,index){
+                if(isMatch){
+                    browser = browserList[index].name;
+                    version =  browserList[index].version(ua);
+                }
+            });
+            // 修正
+            if(browser == 'Chrome'&&ua.match(/\S+Browser/)){
+                version = ua.replace(/^.*Browser\/([\d.]+).*$/)?.[1]||'';
+            }
+            return version;
+        });     
     }
 };

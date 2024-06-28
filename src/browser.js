@@ -9,6 +9,8 @@ import batterykLoader from './module/battery-loader.js';
 import otherLoader from './module/other-loader.js';
 import globalObject from './module/runtime/globalThis.js';
 
+import wrapperPromise from './module/method/wrapperPromise.js';
+
 let getInfo = function(userAgent,isAsync = false){
     let info = {};
     info.userAgent = userAgent || globalObject?.navigator?.userAgent||'';
@@ -40,14 +42,8 @@ function browser(userAgent){
 browser.getInfo = function(userAgent){
     let info = getInfo(userAgent,true);
     let keys = Object.keys(info);
-    let values = Object.values(info).map(function(value){
-        if(typeof value == 'object'){
-            return value;
-        }else{
-            return Promise.resolve(value);
-        }
-    });
-    return Promise.all(values).then(list=>{
+    let all_promise = wrapperPromise(Object.values(info));
+    return Promise.all(all_promise).then(list=>{
         let result = {};
         list.forEach(function(value,index){
             result[keys[index]] = value;

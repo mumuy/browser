@@ -21,7 +21,7 @@ export default {
     name: '360CSE',
     match(ua) {
         return GetDeviceInfo().then(function(response){
-            return response?.pid=='360csexm';
+            return response?.pid=='360csexm'||false;
         });
     },
     version(ua) {
