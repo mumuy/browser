@@ -18,7 +18,7 @@ const GetDeviceInfo = () => {
 };
 
 export default {
-    name: '360CSE',
+    name: '360EE',  // 360CSE
     match(ua) {
         return GetDeviceInfo().then(function(response){
             return response?.pid=='360csexm'||false;

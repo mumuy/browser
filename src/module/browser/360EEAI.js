@@ -1,7 +1,7 @@
 import _Chrome from './Chrome.js';
 
 export default {
-    name:'360EEAI',
+    name:'360AI', // 360EEAI
     match(ua){
         return ua.includes('360EEAI');
     },
