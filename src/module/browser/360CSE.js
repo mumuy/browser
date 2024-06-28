@@ -9,7 +9,7 @@ const GetDeviceInfo = () => {
             _globalThis.webkit.messageHandlers['excuteCmd'].postMessage(Data)
             _globalThis[randomCv] = function (response) {
                 delete _globalThis[randomCv];
-                resolve(response||{});
+                resolve(JSON.parse(response||'{}'));
             }
         }else{
             return resolve({});
