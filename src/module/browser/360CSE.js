@@ -20,12 +20,12 @@ const GetDeviceInfo = () => {
 export default {
     name: '360CSE',
     match(ua) {
-        return GetDeviceInfo.then(function(response){
+        return GetDeviceInfo().then(function(response){
             return response?.pid=='360csexm';
         });
     },
     version(ua) {
-        return GetDeviceInfo.then(function(response){
+        return GetDeviceInfo().then(function(response){
             return response?.module_version||'';
         });
     }
