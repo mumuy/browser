@@ -5,10 +5,10 @@ const GetDeviceInfo = () => {
         const randomCv = `cv_${new Date().getTime() % 100000}${Math.floor(Math.random()) * 100}`
         const params = { key: 'GetDeviceInfo', data: {}, callback: randomCv }
         const Data = JSON.stringify(params)
-        if(window?.webkit?.messageHandlers){
-            window.webkit.messageHandlers['excuteCmd'].postMessage(Data)
-            window[randomCv] = function (response) {
-                delete window[randomCv];
+        if(_globalThis?.webkit?.messageHandlers){
+            _globalThis.webkit.messageHandlers['excuteCmd'].postMessage(Data)
+            _globalThis[randomCv] = function (response) {
+                delete _globalThis[randomCv];
                 resolve(response||{});
             }
         }else{

@@ -28,6 +28,7 @@ let getInfo = function(userAgent,isAsync = false){
     return info;
 }
 
+// 旧版同步获取
 function browser(userAgent){
     let info = getInfo(userAgent);
     for(let key in info){
@@ -35,7 +36,7 @@ function browser(userAgent){
             info[key] = '';
         }
     }
-    return info;   // 旧版同步获取
+    return info;
 }
 
 // 新版异步获取
