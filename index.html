@@ -6,142 +6,7 @@
         <title>浏览器检测</title>
         <meta name="description" content="通过Useragent和浏览器环境变量等方式判断浏览器、系统及设备类型，是页面判断检测的常用工具。">
         <meta name="keywords" content="Useragent,用户代理,浏览器判断,浏览器类型,浏览器信息">
-        <style>
-            *{
-                margin: 0;
-            }
-            body{
-                font-size: 14px;
-            }
-            a{
-                text-decoration: none;
-                color: #757575;
-            }
-            a:hover{
-                text-decoration: underline;
-            }
-            .wrapper{
-                width: 100%;
-                max-width: 960px;
-                margin: 0 auto;
-            }
-            .inner{
-                padding: 0 10px;
-            }
-            .container{
-                margin-bottom: 20px;
-            }
-
-            .mod-head{
-                padding: 10px 0;
-                text-align: right;
-            }
-            .mod-head .btn{
-                position: relative;
-                display: inline-block;
-                min-width: 56px;
-                height: 34px;
-                background: #fff;
-                padding: 0 12px;
-                border: 1px solid #ececec;
-                border-radius: 6px;
-                line-height: 34px;
-                vertical-align: middle;
-                text-decoration: none;
-                text-align: center;
-                font-size: 14px;
-                color: #333;
-                overflow: hidden;
-                transition: color .2s,opacity .2s;
-                font-family: Tahoma,Arial, Helvetica,"Microsoft YaHei";
-                outline: none;
-                -webkit-appearance: none;
-            }
-            .mod-head .btn:after {
-                content: " ";
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background: #000;
-                left: 0;
-                top: 0;
-                opacity: 0;
-                transition: opacity .2s;
-                border-radius: 6px;
-                overflow: hidden;
-                pointer-events: none;
-            }
-            .mod-head .btn span,.mod-head .btn svg{
-                vertical-align: middle;
-            }
-            .mod-head .btn svg,.mod-head .btn svg+span{
-                position: relative;
-                top: -1px;
-            }
-            .mod-head .btn:hover {
-                color: #000;
-                opacity: 1;
-            }
-            .mod-head .btn:hover:after {
-                opacity: .02;
-            }
-
-            .mod-panel .ft{
-                text-align: center;
-            }
-            .mod-panel strong{
-                color: #000;
-            }
-            .mod-panel .loading{
-                height: 64px;
-                padding: 120px 0;
-                text-align: center;
-            }
-            .mod-panel .btn {
-                display: inline-block;
-                height: 36px;
-                min-width: 90px;
-                padding: 0 12px;
-                margin: 0 8px;
-                background: #2095f2;
-                border: medium none;
-                line-height: 36px;
-                text-align: center;
-                vertical-align: middle;
-                font-size: 15px;
-                color: #fff;
-                cursor: pointer;
-                outline: none;
-                border-radius: 4px;
-                text-decoration: none;
-            }
-            .mod-panel .btn:hover{
-                background: #1b85da;
-            }
-            .mod-panel table{
-                width: 100%;
-                margin-bottom: 10px;
-                table-layout: fixed;
-                border-collapse: collapse;
-                border-spacing: 0;
-                color: #666;
-            }
-            .mod-panel th,.mod-panel td{
-                padding: 8px 12px;
-                line-height: 16px;
-                border: 1px solid #e3e8eb;
-            }
-            .mod-panel td.th{
-                background: #f8fcff;
-                white-space: nowrap;
-                text-align: right;
-                color: #333;
-            }
-            .mod-panel td .subtitle{
-                font-size: 13px;
-                color: #999;
-            }
-        </style>
+        <link rel="stylesheet" href="static/style/index.css">
     </head>
     <body>
         <div class="wrapper">
@@ -163,9 +28,6 @@
                 <div class="inner">
                     <div class="mod-panel">
                         <div class="bd">
-                            <div class="loading">
-                                <img src="static/image/loading.gif" width="64" height="64"/>
-                            </div>
                         </div>
                         <div class="ft">
                             <a class="btn" href="https://passer-by.com/browser/dist/browser.min.js" target="_blank">获取脚本</a>
@@ -176,146 +38,178 @@
         </div>
         <script type="text/javascript" src="./dist/browser.min.js"></script>
         <script type="text/javascript">
+            let $module = document.querySelector('.mod-panel .bd');
+            let info = {
+                "architecture": "",
+                "bitness": "",
+                "browser": "",
+                "browserVersion": "",
+                "device": "",
+                "engine": "",
+                "gpu": "",
+                "gpuModel": "",
+                "isWebview": "",
+                "isBot": "",
+                "ip": "",
+                "language": "",
+                "network": "",
+                "platform": "",
+                "screenWidth": "",
+                "screenHeight": "",
+                "clientWidth": "",
+                "clientHeight": "",
+                "system":  "",
+                "systemVersion":  "",
+                "timezone": "",
+                "userAgent": "",
+            };
+            let getTemplate = function(info){
+                let browserList = ['Chrome','Safari','Firefox','Edge','IE','Opera','360SE','360EE','360AI','Sogou','Liebao','Maxthon','TheWorld','Quark','2345Explorer','115Browser','QQ','Wechat'];
+                return `
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="th" width="20%">
+                                <p class="title">用户代理</p>
+                                <p class="subtitle">User-Agent</p>
+                            </td>
+                            <td>${info.userAgent}</td>
+                        </tr>
+                        <tr>
+                            <td class="th">
+                                <p class="title">浏览器</p>
+                                <p class="subtitle">Browser</p>
+                            </td>
+                            <td>
+                                ${browserList.includes(info.browser)?`<img src="static/image/icon/${info.browser}.png" width="24" height="24"/>`:''}
+                                <strong>${info.browser||'<img src="static/image/loading.gif" width="32" height="32"/>'}</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="th">
+                                <p class="title">版本</p>
+                                <p class="subtitle">Version</p>
+                            </td>
+                            <td><span>${info.browserVersion}</span></td>
+                        </tr>
+                        <tr>
+                            <td class="th">
+                                <p class="title">渲染引擎</p>
+                                <p class="subtitle">Engine</p>
+                            </td>
+                            <td>${info.engine}</td>
+                        </tr>
+                        <tr>
+                            <td class="th">
+                                <p class="title">操作系统</p>
+                                <p class="subtitle">System</p>
+                            </td>
+                            <td>${info.system} ${info.systemVersion} (${info.bitness}位)</td>
+                        </tr>
+                        <tr>
+                            <td class="th">
+                                <p class="title">系统平台</p>
+                                <p class="subtitle">Platform</p>
+                            </td>
+                            <td>${info.platform}</td>
+                        </tr>
+                        <tr>
+                            <td class="th">
+                                <p class="title">屏幕尺寸</p>
+                                <p class="subtitle">Screen size</p>
+                            </td>
+                            <td>${info.screenWidth} x ${info.screenHeight}</td>
+                        </tr>
+                        <tr>
+                            <td class="th">
+                                <p class="title">处理器架构</p>
+                                <p class="subtitle">Architecture</p>
+                            </td>
+                            <td>${info.architecture}</td>
+                        </tr>
+                        <tr>
+                            <td class="th">
+                                <p class="title">设备类型</p>
+                                <p class="subtitle">Device type</p>
+                            </td>
+                            <td>${info.device}</td>
+                        </tr>
+                        <tr>
+                            <td class="th">
+                                <p class="title">图形处理器</p>
+                                <p class="subtitle">GPU model</p>
+                            </td>
+                            <td>${info.gpuModel}</td>
+                        </tr>
+                        <tr>
+                            <td class="th">
+                                <p class="title">IP地址</p>
+                                <p class="subtitle">IP address</p>
+                            </td>
+                            <td>${info.ip}</td>
+                        </tr>
+                        <tr>
+                            <td class="th">
+                                <p class="title">语言</p>
+                                <p class="subtitle">Language</p>
+                            </td>
+                            <td>${info.language}</td>
+                        </tr>
+                        <tr>
+                            <td class="th">
+                                <p class="title">时区</p>
+                                <p class="subtitle">Timezone</p>
+                            </td>
+                            <td>${info.timezone}</td>
+                        </tr>
+                        <tr>
+                            <td class="th">
+                                <p class="title">网络类型</p>
+                                <p class="subtitle">Network</p>
+                            </td>
+                            <td>${info.network}</td>
+                        </tr>
+                        <tr>
+                            <td class="th">
+                                <p class="title">是否联网</p>
+                                <p class="subtitle">is online</p>
+                            </td>
+                            <td>${info.isOnline?'是':'否'}</td>
+                        </tr>
+                        <tr>
+                            <td class="th">
+                                <p class="title">剩余电量</p>
+                                <p class="subtitle">Battery</p>
+                            </td>
+                            <td>${info.battery>=0?info.battery*100+'%':''}</td>
+                        </tr>
+                        <tr>
+                            <td class="th">
+                                <p class="title">是否充电</p>
+                                <p class="subtitle">is charging</p>
+                            </td>
+                            <td>${info.isCharging?'是':'否'}</td>
+                        </tr>
+                        <tr>
+                            <td class="th">
+                                <p class="title">是否蜘蛛</p>
+                                <p class="subtitle">is robot</p>
+                            </td>
+                            <td>${info.isRobot?'是':'否'}</td>
+                        </tr>
+                        <tr>
+                            <td class="th">
+                                <p class="title">是否Webview</p>
+                                <p class="subtitle">is webview</p>
+                            </td>
+                            <td>${info.isWebview?'是':'否'}</td>
+                        </tr>
+                    </tbody>
+                </table>`;
+            };
+            $module.innerHTML = getTemplate(info);
             browser.getInfo().then(function(info){
-                var $module = document.querySelector('.mod-panel .bd');
-                $module.innerHTML = `
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td class="th" width="20%">
-                                    <p class="title">用户代理</p>
-                                    <p class="subtitle">User-Agent</p>
-                                </td>
-                                <td>${info.userAgent}</td>
-                            </tr>
-                            <tr>
-                                <td class="th">
-                                    <p class="title">浏览器</p>
-                                    <p class="subtitle">Browser</p>
-                                </td>
-                                <td><strong>${info.browser}</strong></td>
-                            </tr>
-                            <tr>
-                                <td class="th">
-                                    <p class="title">版本</p>
-                                    <p class="subtitle">Version</p>
-                                </td>
-                                <td><span>${info.browserVersion}</span></td>
-                            </tr>
-                            <tr>
-                                <td class="th">
-                                    <p class="title">渲染引擎</p>
-                                    <p class="subtitle">Engine</p>
-                                </td>
-                                <td>${info.engine}</td>
-                            </tr>
-                            <tr>
-                                <td class="th">
-                                    <p class="title">操作系统</p>
-                                    <p class="subtitle">System</p>
-                                </td>
-                                <td>${info.system} ${info.systemVersion} (${info.bitness}位)</td>
-                            </tr>
-                            <tr>
-                                <td class="th">
-                                    <p class="title">系统平台</p>
-                                    <p class="subtitle">Platform</p>
-                                </td>
-                                <td>${info.platform}</td>
-                            </tr>
-                            <tr>
-                                <td class="th">
-                                    <p class="title">屏幕尺寸</p>
-                                    <p class="subtitle">Screen size</p>
-                                </td>
-                                <td>${info.screenWidth} x ${info.screenHeight}</td>
-                            </tr>
-                            <tr>
-                                <td class="th">
-                                    <p class="title">处理器架构</p>
-                                    <p class="subtitle">Architecture</p>
-                                </td>
-                                <td>${info.architecture}</td>
-                            </tr>
-                            <tr>
-                                <td class="th">
-                                    <p class="title">设备类型</p>
-                                    <p class="subtitle">Device type</p>
-                                </td>
-                                <td>${info.device}</td>
-                            </tr>
-                            <tr>
-                                <td class="th">
-                                    <p class="title">图形处理器</p>
-                                    <p class="subtitle">GPU model</p>
-                                </td>
-                                <td>${info.gpuModel}</td>
-                            </tr>
-                            <tr>
-                                <td class="th">
-                                    <p class="title">IP地址</p>
-                                    <p class="subtitle">IP address</p>
-                                </td>
-                                <td>${info.ip}</td>
-                            </tr>
-                            <tr>
-                                <td class="th">
-                                    <p class="title">语言</p>
-                                    <p class="subtitle">Language</p>
-                                </td>
-                                <td>${info.language}</td>
-                            </tr>
-                            <tr>
-                                <td class="th">
-                                    <p class="title">时区</p>
-                                    <p class="subtitle">Timezone</p>
-                                </td>
-                                <td>${info.timezone}</td>
-                            </tr>
-                            <tr>
-                                <td class="th">
-                                    <p class="title">网络类型</p>
-                                    <p class="subtitle">Network</p>
-                                </td>
-                                <td>${info.network}</td>
-                            </tr>
-                            <tr>
-                                <td class="th">
-                                    <p class="title">是否联网</p>
-                                    <p class="subtitle">is online</p>
-                                </td>
-                                <td>${info.isOnline?'是':'否'}</td>
-                            </tr>
-                            <tr>
-                                <td class="th">
-                                    <p class="title">剩余电量</p>
-                                    <p class="subtitle">Battery</p>
-                                </td>
-                                <td>${info.battery>=0?info.battery*100+'%':''}</td>
-                            </tr>
-                            <tr>
-                                <td class="th">
-                                    <p class="title">是否充电</p>
-                                    <p class="subtitle">is charging</p>
-                                </td>
-                                <td>${info.isCharging?'是':'否'}</td>
-                            </tr>
-                            <tr>
-                                <td class="th">
-                                    <p class="title">是否蜘蛛</p>
-                                    <p class="subtitle">is robot</p>
-                                </td>
-                                <td>${info.isRobot?'是':'否'}</td>
-                            </tr>
-                            <tr>
-                                <td class="th">
-                                    <p class="title">是否Webview</p>
-                                    <p class="subtitle">is webview</p>
-                                </td>
-                                <td>${info.isWebview?'是':'否'}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                $module.innerHTML = getTemplate(info) + `
                     <iframe style="display:none;" src="https://passer-by.com/browser/stat.html?browser=${info.browser}&ua=${info.userAgent}" width="" height=""></iframe>
                 `;
             });

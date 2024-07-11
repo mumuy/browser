@@ -1,0 +1,135 @@
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h3,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;*font-size:100%}legend{color:#000}
+body{
+    font-size: 14px;
+}
+a{
+    text-decoration: none;
+    color: #757575;
+}
+a:hover{
+    text-decoration: underline;
+}
+img{
+    vertical-align: middle;
+}
+.wrapper{
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+.inner{
+    padding: 0 10px;
+}
+.container{
+    margin-bottom: 20px;
+}
+
+.mod-head{
+    padding: 10px 0;
+    text-align: right;
+}
+.mod-head .btn{
+    position: relative;
+    display: inline-block;
+    min-width: 56px;
+    height: 34px;
+    background: #fff;
+    padding: 0 12px;
+    border: 1px solid #ececec;
+    border-radius: 6px;
+    line-height: 34px;
+    vertical-align: middle;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    overflow: hidden;
+    transition: color .2s,opacity .2s;
+    font-family: Tahoma,Arial, Helvetica,"Microsoft YaHei";
+    outline: none;
+    -webkit-appearance: none;
+}
+.mod-head .btn:after {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: opacity .2s;
+    border-radius: 6px;
+    overflow: hidden;
+    pointer-events: none;
+}
+.mod-head .btn span,.mod-head .btn svg{
+    vertical-align: middle;
+}
+.mod-head .btn svg,.mod-head .btn svg+span{
+    position: relative;
+    top: -1px;
+}
+.mod-head .btn:hover {
+    color: #000;
+    opacity: 1;
+}
+.mod-head .btn:hover:after {
+    opacity: .02;
+}
+
+.mod-panel .ft{
+    text-align: center;
+}
+.mod-panel strong{
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+.mod-panel .btn {
+    display: inline-block;
+    height: 36px;
+    min-width: 90px;
+    padding: 0 12px;
+    margin: 0 8px;
+    background: #2095f2;
+    border: medium none;
+    line-height: 36px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 15px;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.mod-panel .btn:hover{
+    background: #1b85da;
+}
+.mod-panel table{
+    width: 100%;
+    margin-bottom: 10px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: #666;
+}
+.mod-panel table span,.mod-panel table strong{
+    vertical-align: middle;
+}
+.mod-panel th,.mod-panel td{
+    padding: 8px 12px;
+    line-height: 16px;
+    border: 1px solid #e3e8eb;
+}
+.mod-panel td.th{
+    background: #f8fcff;
+    white-space: nowrap;
+    text-align: right;
+    color: #333;
+}
+.mod-panel td .subtitle{
+    font-size: 13px;
+    color: #999;
+}
