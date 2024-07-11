@@ -2,7 +2,6 @@ export default {
     name:'Huawei',
     match(ua){
         return ua.includes('HuaweiBrowser')
-        ||ua.includes('HUAWEI')
         ||ua.includes('HBPC/');
     },
     version(ua){

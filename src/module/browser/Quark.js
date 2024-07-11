@@ -4,6 +4,8 @@ export default {
         return ua.includes('Quark');
     },
     version(ua){
-        return ua.match(/Quark\/([\d.]+)/)?.[1]||ua.match(/QuarkPC\/([\d.]+)/)?.[1]||'';
+        return ua.match(/Quark\/([\d.]+)/)?.[1]
+        ||ua.match(/QuarkPC\/([\d.]+)/)?.[1]
+        ||'';
     }
 };
