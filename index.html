@@ -212,15 +212,11 @@
             };
             $module.innerHTML = getTemplate(info);
 
-            try {
-                browser.getInfo().then(function(info){
-                    $module.innerHTML = getTemplate(info) + `
-                        <iframe style="display:none;" src="https://passer-by.com/browser/stat.html?browser=${info.browser}&ua=${info.userAgent}" width="" height=""></iframe>
-                    `;
-                });
-            } catch (e) {
-                alert(JSON.stringify(e));
-            }
+            browser.getInfo().then(function(info){
+                $module.innerHTML = getTemplate(info) + `
+                    <iframe style="display:none;" src="https://passer-by.com/browser/stat.html?browser=${info.browser}&ua=${info.userAgent}" width="" height=""></iframe>
+                `;
+            });
         </script>
         <script type="text/javascript" src="https://passer-by.com/public/script/projects.js"></script>
         <script type="text/javascript" src="https://passer-by.com/public/script/stat.js"></script>

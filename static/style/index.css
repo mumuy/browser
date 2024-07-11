@@ -79,6 +79,7 @@ img{
 }
 
 .mod-panel .hd{
+    width: 50%;
     margin-top: -56px;
     padding: 16px 0;
     line-height: 24px;
