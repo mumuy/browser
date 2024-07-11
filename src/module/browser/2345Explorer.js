@@ -17,9 +17,9 @@ export default {
             '55':'9.9'
         };
         let chrome_version = parseInt(_Chrome.version(ua));
-        return hash[chrome_version]
-        ||ua.match(/2345Explorer\/([\d.]+)/)?.[1]
+        return ua.match(/2345Explorer\/([\d.]+)/)?.[1]
         ||ua.match(/Mb2345Browser\/([\d.]+)/)?.[1]
+        ||hash[chrome_version]
         ||'';
     }
 };

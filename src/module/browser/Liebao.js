@@ -9,10 +9,6 @@ export default {
         ||_globalThis?.liebao;
     },
     version(ua){
-        let version = ''
-        if(ua.includes('LieBaoFast')){
-            version = ua.replace(/LieBaoFast\/([\d.]+)/, '$1');
-        }
         let hash = {
             '112':'9.0',
             '79':'8.0',
@@ -26,6 +22,8 @@ export default {
             '21':'4.0'
         };
         let chrome_version = parseInt(_Chrome.version(ua));
-        return version||hash[chrome_version]||'';
+        return ua.match(/LieBaoFast\/([\d.]+)/)?.[1]
+        ||hash[chrome_version]
+        ||'';
     }
 };
