@@ -78,6 +78,29 @@ img{
     opacity: .02;
 }
 
+.mod-panel .hd{
+    margin-top: -56px;
+    padding: 16px 0;
+    line-height: 24px;
+}
+.mod-panel .hd .title{
+    position: relative;
+    padding-left: 18px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;   
+}
+.mod-panel .hd .title::before{
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    width: 5px;
+    height: 20px;
+    content: '';
+    margin-top: -10px;
+    background: #2095f2;
+    border-radius: 3px;
+}
 .mod-panel .ft{
     text-align: center;
 }
@@ -131,5 +154,8 @@ img{
 }
 .mod-panel td .subtitle{
     font-size: 13px;
+    color: #999;
+}
+.mod-panel td .text-gray{
     color: #999;
 }

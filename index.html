@@ -27,6 +27,9 @@
             <div class="container">
                 <div class="inner">
                     <div class="mod-panel">
+                        <div class="hd">
+                            <div class="title">浏览器检测</div>
+                        </div>
                         <div class="bd">
                         </div>
                         <div class="ft">
@@ -174,7 +177,7 @@
                                 <p class="title">是否联网</p>
                                 <p class="subtitle">is online</p>
                             </td>
-                            <td>${info.isOnline?'是(Yes)':'否(No)'}</td>
+                            <td>${info.isOnline?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
                         </tr>
                         <tr>
                             <td class="th">
@@ -188,21 +191,21 @@
                                 <p class="title">是否充电</p>
                                 <p class="subtitle">is charging</p>
                             </td>
-                            <td>${info.isCharging?'是(Yes)':'否(No)'}</td>
+                            <td>${info.isCharging?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
                         </tr>
                         <tr>
                             <td class="th">
                                 <p class="title">是否蜘蛛</p>
                                 <p class="subtitle">is robot</p>
                             </td>
-                            <td>${info.isRobot?'是(Yes)':'否(No)'}</td>
+                            <td>${info.isRobot?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
                         </tr>
                         <tr>
                             <td class="th">
                                 <p class="title">是否Webview</p>
                                 <p class="subtitle">is webview</p>
                             </td>
-                            <td>${info.isWebview?'是(Yes)':'否(No)'}</td>
+                            <td>${info.isWebview?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
                         </tr>
                     </tbody>
                 </table>`;
