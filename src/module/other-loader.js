@@ -10,8 +10,8 @@ export default function(_){
     _.ip = getPublicIP();
     _.timezone = Intl?.DateTimeFormat()?.resolvedOptions()?.timeZone;
     // 屏幕尺寸
-    _.screenWidth = window.screen.width;
-    _.screenHeight = window.screen.height;
-    _.clientWidth = window.document.documentElement.clientWidth;
-    _.clientHeighth = window.document.documentElement.clientHeight;
+    _.screenWidth = _globalThis?.screen?.width||0;
+    _.screenHeight = _globalThis?.screen?.height||0;
+    _.clientWidth = _globalThis?.document?.documentElement?.clientWidth||0;
+    _.clientHeighth = _globalThis?.document?.documentElement?.clientHeight||0;
 };
