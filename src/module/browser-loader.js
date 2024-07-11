@@ -29,10 +29,10 @@ import _Meizu from './browser/Meizu.js';
 import _Samsung from './browser/Samsung.js';
 import _360 from './browser/360.js';
 import _360SE from './browser/360SE.js';
-import _360SEAI from './browser/360SEAI.js';
 import _360EE from './browser/360EE.js';
-import _360EEAI from './browser/360EEAI.js';
-import _360CSE from './browser/360CSE.js';
+import _360AI from './browser/360AI.js';
+import _360AI_macOS from './browser/360AI_macOS.js';
+import _360EE_macOS from './browser/360EE_macOS.js';
 import _360ENT from './browser/360ENT.js';
 import _UC from './browser/UC.js';
 import _QQBrowser from './browser/QQBrowser.js';
@@ -71,7 +71,7 @@ import wrapperPromise from './method/wrapperPromise.js';
 
 export default function(_,isAsync = false){
     let ua = _.userAgent;
-    let browserList = [_Safari, _Chrome, _Edge, _IE, _Firefox, _Firefox_Focus, _Chromium, _Opera, _Opera_GX, _Vivaldi, _Yandex, _Brave, _Arora, _Lunascape, _QupZilla, _Coc_Coc, _Kindle, _Iceweasel, _Konqueror, _Iceape, _SeaMonkey, _Epiphany, _Huawei, _OPPO, _Vivo, _Xiaomi, _Meizu, _Samsung, _360, _360EE, _360SE, _360CSE, _360SEAI, _360EEAI, _360ENT, _UC, _QQBrowser, _QQ, _Baidu, _Maxthon, _Sogou, _Liebao, _2345Explorer, _115Browser, _TheWorld, _Quark, _Qiyu, _Lenovo, _Wechat, _WechatWork, _Taobao, _Alipay, _Weibo, _Douban, _Suning, _iQIYI, _DingTalk, _Douyin, _Googlebot, _Baiduspider, _Sogouspider, _Bingbot, _360Spider, _Bytespider, _YisouSpider, _YodaoBot, _YandexBot];
+    let browserList = [_Safari, _Chrome, _Edge, _IE, _Firefox, _Firefox_Focus, _Chromium, _Opera, _Opera_GX, _Vivaldi, _Yandex, _Brave, _Arora, _Lunascape, _QupZilla, _Coc_Coc, _Kindle, _Iceweasel, _Konqueror, _Iceape, _SeaMonkey, _Epiphany, _Huawei, _OPPO, _Vivo, _Xiaomi, _Meizu, _Samsung, _360, _360EE, _360SE, _360EE_macOS, _360AI, _360AI_macOS, _360ENT, _UC, _QQBrowser, _QQ, _Baidu, _Maxthon, _Sogou, _Liebao, _2345Explorer, _115Browser, _TheWorld, _Quark, _Qiyu, _Lenovo, _Wechat, _WechatWork, _Taobao, _Alipay, _Weibo, _Douban, _Suning, _iQIYI, _DingTalk, _Douyin, _Googlebot, _Baiduspider, _Sogouspider, _Bingbot, _360Spider, _Bytespider, _YisouSpider, _YodaoBot, _YandexBot];
     
 
     _.browser = '';

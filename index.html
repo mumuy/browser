@@ -31,56 +31,6 @@
             .container{
                 margin-bottom: 20px;
             }
-            .mod-panel .ft{
-                text-align: center;
-            }
-            .mod-panel strong{
-                color: #000;
-            }
-            .mod-panel .btn {
-                display: inline-block;
-                height: 36px;
-                min-width: 90px;
-                padding: 0 12px;
-                margin: 0 8px;
-                background: #2095f2;
-                border: medium none;
-                line-height: 36px;
-                text-align: center;
-                vertical-align: middle;
-                font-size: 15px;
-                color: #fff;
-                cursor: pointer;
-                outline: none;
-                border-radius: 4px;
-                text-decoration: none;
-            }
-            .mod-panel .btn:hover{
-                background: #1b85da;
-            }
-            .mod-panel table{
-                width: 100%;
-                margin-bottom: 10px;
-                table-layout: fixed;
-                border-collapse: collapse;
-                border-spacing: 0;
-                color: #666;
-            }
-            .mod-panel th,.mod-panel td{
-                padding: 8px 12px;
-                line-height: 16px;
-                border: 1px solid #e3e8eb;
-            }
-            .mod-panel td.th{
-                background: #f8fcff;
-                white-space: nowrap;
-                text-align: right;
-                color: #333;
-            }
-            .mod-panel td .subtitle{
-                font-size: 13px;
-                color: #999;
-            }
 
             .mod-head{
                 padding: 10px 0;
@@ -135,6 +85,62 @@
             .mod-head .btn:hover:after {
                 opacity: .02;
             }
+
+            .mod-panel .ft{
+                text-align: center;
+            }
+            .mod-panel strong{
+                color: #000;
+            }
+            .mod-panel .loading{
+                height: 64px;
+                padding: 120px 0;
+                text-align: center;
+            }
+            .mod-panel .btn {
+                display: inline-block;
+                height: 36px;
+                min-width: 90px;
+                padding: 0 12px;
+                margin: 0 8px;
+                background: #2095f2;
+                border: medium none;
+                line-height: 36px;
+                text-align: center;
+                vertical-align: middle;
+                font-size: 15px;
+                color: #fff;
+                cursor: pointer;
+                outline: none;
+                border-radius: 4px;
+                text-decoration: none;
+            }
+            .mod-panel .btn:hover{
+                background: #1b85da;
+            }
+            .mod-panel table{
+                width: 100%;
+                margin-bottom: 10px;
+                table-layout: fixed;
+                border-collapse: collapse;
+                border-spacing: 0;
+                color: #666;
+            }
+            .mod-panel th,.mod-panel td{
+                padding: 8px 12px;
+                line-height: 16px;
+                border: 1px solid #e3e8eb;
+            }
+            .mod-panel td.th{
+                background: #f8fcff;
+                white-space: nowrap;
+                text-align: right;
+                color: #333;
+            }
+            .mod-panel td .subtitle{
+                font-size: 13px;
+                color: #999;
+            }
         </style>
     </head>
     <body>
@@ -156,7 +162,11 @@
             <div class="container">
                 <div class="inner">
                     <div class="mod-panel">
-                        <div class="bd"></div>
+                        <div class="bd">
+                            <div class="loading">
+                                <img src="static/image/loading.gif" width="64" height="64"/>
+                            </div>
+                        </div>
                         <div class="ft">
                             <a class="btn" href="https://passer-by.com/browser/dist/browser.min.js" target="_blank">获取脚本</a>
                         </div>

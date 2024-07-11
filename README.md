@@ -183,7 +183,7 @@ browser.getInfo().then(console.log);
         <tr><td>WinCE</td><td>Windows CE</td></tr>
         <tr><td>iPhone</td><td>苹果手机</td></tr>
         <tr><td>iPod</td><td>苹果音乐播放器</td></tr>
-        <tr><td>iPad</td><td>苹果平板 CE</td></tr>
+        <tr><td>iPad</td><td>苹果平板</td></tr>
         <tr><td>Android</td><td>安卓系统</td></tr>
         <tr><td colspan="2">...</td></tr>
     </tbody>

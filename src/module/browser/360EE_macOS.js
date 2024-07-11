@@ -18,7 +18,7 @@ const GetDeviceInfo = () => {
 };
 
 export default {
-    name: '360EE',  // 360CSE，Mac版360浏览器
+    name: '360EE',
     match(ua) {
         return GetDeviceInfo().then(function(response){
             return response?.pid=='360csexm'||false;

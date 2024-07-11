@@ -4,7 +4,7 @@ import _360 from './360.js';
 import _globalThis from '../runtime/globalThis.js';
 
 export default {
-    name:'360AI', // 360SEAI，Mac版360 AI浏览器
+    name:'360AI',
     match(ua){
         let isMatch = false;
         if(_360.match(ua)){
