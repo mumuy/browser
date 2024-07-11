@@ -12,6 +12,9 @@ export default {
             '78':'6.0'
         };
         let chrome_version = parseInt(_Chrome.version(ua));
-        return hash[chrome_version]||ua.match(/Maxthon\/([\d.]+)/)?.[1]||'';
+        return hash[chrome_version]
+        ||ua.match(/Maxthon\/([\d.]+)/)?.[1]
+        ||ua.match(/Version\/([\d.]+)/)?.[1]
+        ||'';
     }
 };

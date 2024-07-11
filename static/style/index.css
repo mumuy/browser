@@ -133,7 +133,7 @@ img{
 .mod-panel table{
     width: 100%;
     margin-bottom: 10px;
-    table-layout: fixed;
+    table-layout: auto;
     border-collapse: collapse;
     border-spacing: 0;
     color: #666;
@@ -147,6 +147,7 @@ img{
     border: 1px solid #e3e8eb;
 }
 .mod-panel td.th{
+    width: 20%;
     background: #f8fcff;
     white-space: nowrap;
     text-align: right;
@@ -164,5 +165,8 @@ img{
     .mod-panel .hd{
         margin-top: 0;
         padding: 5px 0;
+    }
+    .mod-panel td.th{
+        width: 24%;
     }
 }

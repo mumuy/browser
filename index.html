@@ -72,7 +72,7 @@
                 <table>
                     <tbody>
                         <tr>
-                            <td class="th" width="20%">
+                            <td class="th">
                                 <p class="title">用户代理</p>
                                 <p class="subtitle">User-Agent</p>
                             </td>
@@ -211,11 +211,16 @@
                 </table>`;
             };
             $module.innerHTML = getTemplate(info);
-            browser.getInfo().then(function(info){
-                $module.innerHTML = getTemplate(info) + `
-                    <iframe style="display:none;" src="https://passer-by.com/browser/stat.html?browser=${info.browser}&ua=${info.userAgent}" width="" height=""></iframe>
-                `;
-            });
+
+            try {
+                browser.getInfo().then(function(info){
+                    $module.innerHTML = getTemplate(info) + `
+                        <iframe style="display:none;" src="https://passer-by.com/browser/stat.html?browser=${info.browser}&ua=${info.userAgent}" width="" height=""></iframe>
+                    `;
+                });
+            } catch (e) {
+                alert(JSON.stringify(e));
+            }
         </script>
         <script type="text/javascript" src="https://passer-by.com/public/script/projects.js"></script>
         <script type="text/javascript" src="https://passer-by.com/public/script/stat.js"></script>

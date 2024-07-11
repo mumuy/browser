@@ -20,6 +20,7 @@ export default {
         }
         return ua.includes('QihooBrowser')
         ||ua.includes('QHBrowser')
+        ||ua.includes(' 360 ')
         ||isMatch;
     },
     version(ua) {

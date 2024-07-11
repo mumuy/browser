@@ -6,9 +6,9 @@ export default {
         ||ua.includes('HBPC/');
     },
     version(ua){
-        return ua.match(/Version\/([\d.]+)/)?.[1]
-        ||ua.match(/HuaweiBrowser\/([\d.]+)/)?.[1]
+        return ua.match(/HuaweiBrowser\/([\d.]+)/)?.[1]
         ||ua.match(/HBPC\/([\d.]+)/)?.[1]
+        ||ua.match(/Version\/([\d.]+)/)?.[1]
         ||'';
     }
 };
