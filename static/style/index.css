@@ -159,3 +159,10 @@ img{
 .mod-panel td .text-gray{
     color: #999;
 }
+
+@media screen and (max-width: 800px) {
+    .mod-panel .hd{
+        margin-top: 0;
+        padding: 5px 0;
+    }
+}
