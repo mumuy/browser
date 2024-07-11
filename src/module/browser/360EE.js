@@ -31,7 +31,7 @@ export default {
             '30':'7.5'
         };
         let chrome_version = parseInt(_Chrome.version(ua));
-        return ua.match(/Browser\(v([\d.]+)/)?.[1]
+        return ua.match(/Browser \(v([\d.]+)/)?.[1]
         ||hash[chrome_version]
         ||'';
     }

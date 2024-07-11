@@ -24,6 +24,8 @@ export default {
         ||isMatch;
     },
     version(ua) {
-        return ua.match(/QihooBrowser(HD)?\/([\d.]+)/)?.[1] || '';
+        return ua.match(/QihooBrowser(HD)?\/([\d.]+)/)?.[1]
+        ||ua.match(/Browser \(v([\d.]+)/)?.[1]
+        ||'';
     }
 };
