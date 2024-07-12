@@ -78,23 +78,8 @@ export default function(_,isAsync = false){
     _.browser = '';
     _.browserVersion = '';
 
-    browserList.forEach(function(item){
-        if(item.match(ua)){
-            _.browser = item.name;
-            _.browserVersion = item.version(ua,isAsync);
-        }
-    });
-    // 修正
-    if(_.browser == 'Chrome'&&ua.match(/\S+Browser/)){
-        _.browser = ua.match(/\S+Browser/)[0];
-        _.browserVersion = ua.replace(/^.*Browser\/([\d.]+).*$/)?.[1]||'';
-    }
-    if(!_.browserVersion){
-        _.browserVersion = ua.match(/Version\/([\d.]+)/)?.[1]||'';
-    }
-
     if(isAsync){
-        let all_promise = wrapperPromise(browserList.map(item=>item.match(ua)));
+        let all_promise = wrapperPromise(browserList.map(item=>item.match(ua,isAsync)));
         _.browser = Promise.all(all_promise).then(function(list){
             let browser = '';
             list.forEach(function(isMatch,index){
@@ -126,5 +111,20 @@ export default function(_,isAsync = false){
             }
             return version;
         });     
+    }else{
+        browserList.forEach(function(item){
+            if(item.match(ua)){
+                _.browser = item.name;
+                _.browserVersion = item.version(ua,isAsync);
+            }
+        });
+        // 修正
+        if(_.browser == 'Chrome'&&ua.match(/\S+Browser/)){
+            _.browser = ua.match(/\S+Browser/)[0];
+            _.browserVersion = ua.replace(/^.*Browser\/([\d.]+).*$/)?.[1]||'';
+        }
+        if(!_.browserVersion){
+            _.browserVersion = ua.match(/Version\/([\d.]+)/)?.[1]||'';
+        }
     }
 };
