@@ -15,33 +15,23 @@ export default {
             }
             if(!isMatch&&isAsync&&document){
                 if(!document?.querySelector('#ai-assist-root')){
-                    let $ai = document.createElement('div');
-                    $ai.setAttribute('id','ai-assist-root');
-                    document.body.appendChild($ai);
-                    return new Promise(function(resolve,reject){
-                        let isResolve = false;
+                    return new Promise(function(resolve){
+                        let hander = setTimeout(function(){
+                            resolve(false);
+                        },1500);
                         const observer = new MutationObserver(mutations => {
                             mutations.forEach(mutation => {
                                 if (mutation.type === 'childList') {
-                                    mutation.removedNodes.forEach(function($item){
-                                        if($item==$ai){
-                                            if(!isResolve){
-                                                isResolve = true;
-                                                resolve(true);
-                                            }
+                                    mutation.addedNodes.forEach(function($item){
+                                        if($item.id=='ai-assist-root'){
+                                            hander&&clearTimeout(hander);
+                                            resolve(true);
                                         }
                                     });
                                 }
                             });
                         });
-                        const config = { attributes: true, childList: true, subtree: true };
-                        observer.observe(document.body, config);
-                        setTimeout(function(){
-                            if(!isResolve){
-                                isResolve = true;
-                                resolve(false);
-                            }
-                        },1500);
+                        observer.observe(document,{childList: true, subtree: true});
                     });
                 }else{
                     isMatch = true;
