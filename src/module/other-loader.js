@@ -14,4 +14,18 @@ export default function(_){
     _.screenHeight = _globalThis?.screen?.height||0;
     _.clientWidth = _globalThis?.document?.documentElement?.clientWidth||0;
     _.clientHeighth = _globalThis?.document?.documentElement?.clientHeight||0;
+    // 屏幕刷新率
+    _.screenFPS = new Promise(function(resolve){
+        let lastTime = 0;
+        let tick = function(timestamp){
+            if(lastTime>0){
+                const fps = Math.round(1000/(timestamp-lastTime)/30)*30;
+                resolve(fps);
+            }else{
+                lastTime = timestamp;
+                requestAnimationFrame(tick);
+            }
+        };
+        requestAnimationFrame(tick);
+    });
 };

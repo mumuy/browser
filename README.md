@@ -21,32 +21,34 @@ browser.getInfo().then(console.log);
 #### 返回
 ```js
 {
-    "architecture": "x86",
-    "bitness": 64,
-    "browser": "Chrome",
-    "browserVersion": "118.0.0.0",
-    "device": "PC",
-    "engine": "Blink",
-    "gpu": "Google",
-    "gpuModel": "Vulkan 1.3.0",
-    "isWebview": false,
-    "isBot": false,
-    "ip":'8.8.8.8',
-    "language": "zh_CN",
-    "network": "wifi",
-    "platform": "Win32",
-    "screenWidth":1920,
-    "screenHeight":800,
-    "clientWidth":1920,
-    "clientHeight":640,
-    "system": "Windows",
-    "systemVersion": '10',
-    "timezone":'Asia/Shanghai',
+    "browser": "Chrome",                // 浏览器名称
+    "browserVersion": "118.0.0.0",      // 浏览器版本
+    "engine": "Blink",                  // 浏览器渲染引擎
+    "system": "Windows",                // 操作系统名称
+    "systemVersion": '10',              // 操作系统版本
+    "platform": "Win32",                // 系统平台
+    "screenFPS":60,                     // 屏幕刷新率
+    "screenWidth":1920,                 // 屏幕宽度
+    "screenHeight":800,                 // 屏幕高度
+    "clientWidth":1920,                 // 浏览器可视区域宽度
+    "clientHeight":640,                 // 浏览器可视区域高度
+    "device": "PC",                     // 设备类型
+    "architecture": "x86",              // 芯片架构
+    "bitness": 64,                      // CPU架构位数
+    "gpu": "Google",                    // GPU厂商
+    "gpuModel": "Vulkan 1.3.0",         // GPU型号
+    "ip":'8.8.8.8',                     // IP地址
+    "language": "zh_CN",                // 所用语言
+    "network": "wifi",                  // 网络类型
+    "timezone":'Asia/Shanghai',         // 所处时区
+    "isWebview": false,                 // 是否Webview(仅Android有效)
+    "isBot": false,                     // 是否搜索引擎蜘蛛程序
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/119.0.0.0 Safari/537.36"
 }
 ```
+
 <table>
-    <caption><h3>browser - 浏览器</h3></caption>
+    <caption><h3>Browser - 浏览器</h3></caption>
     <thead>
         <tr><th>名称</th><th>值</th><th>描述</th></tr>
     </thead>
@@ -122,7 +124,7 @@ browser.getInfo().then(console.log);
 </table>
 
 <table>
-    <caption><h3>engine - 内核</h3></caption>
+    <caption><h3>Engine - 内核</h3></caption>
     <thead>
         <tr><th>值</th><th>描述</th></tr>
     </thead>
@@ -139,7 +141,7 @@ browser.getInfo().then(console.log);
 </table>
 
 <table>
-    <caption><h3>system - 操作系统</h3></caption>
+    <caption><h3>System - 操作系统</h3></caption>
     <thead>
         <tr><th>值</th><th>描述</th></tr>
     </thead>
@@ -163,7 +165,7 @@ browser.getInfo().then(console.log);
 </table>
 
 <table>
-    <caption><h3>device - 设备类型</h3></caption>
+    <caption><h3>Device - 设备类型</h3></caption>
     <thead>
         <tr><th>值</th><th>描述</th></tr>
     </thead>
@@ -175,7 +177,7 @@ browser.getInfo().then(console.log);
 </table>
 
 <table>
-    <caption><h3>platform - 硬件平台</h3></caption>
+    <caption><h3>Platform - 硬件平台</h3></caption>
     <thead>
         <tr><th>值</th><th>描述</th></tr>
     </thead>
@@ -190,21 +192,3 @@ browser.getInfo().then(console.log);
         <tr><td colspan="2">...</td></tr>
     </tbody>
 </table>
-
-### gpu - 系统GPU厂家
-
-### gpuModel - 系统GPU型号
-
-### architecture - CPU架构
-
-### bitness - CPU架构位数
-
-### network - 网络类型
-
-### ip - IP地址
-
-### timezone - 时区代码
-
-### isWebview - 是否为Webview(仅Android)
-
-### isRobot - 是否为搜索引擎蜘蛛程序
