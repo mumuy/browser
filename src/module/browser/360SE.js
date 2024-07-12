@@ -13,30 +13,37 @@ export default {
             }else if(_globalThis?.navigator?.userAgentData?.brands.filter(item=>item.brand=='Not.A/Brand').length){
                 isMatch = true;
             }
-            if(!isMatch&&isAsync&&document){
-                if(!document?.querySelector('#ai-assist-root')){
-                    return new Promise(function(resolve){
-                        let hander = setTimeout(function(){
-                            resolve(false);
-                        },1500);
-                        const observer = new MutationObserver(mutations => {
-                            mutations.forEach(mutation => {
-                                if (mutation.type === 'childList') {
-                                    mutation.addedNodes.forEach(function($item){
-                                        if($item.id=='ai-assist-root'){
-                                            hander&&clearTimeout(hander);
-                                            resolve(true);
-                                        }
-                                    });
-                                }
-                            });
-                        });
-                        observer.observe(document,{childList: true, subtree: true});
-                    });
-                }else{
-                    isMatch = true;
-                }
-            }
+        }
+        if(!isMatch&&isAsync&&document){
+            return new Promise(function(resolve){
+                fetch('chrome-extension://fjbbmgamncjadhlpmffehlmmkdnkiadk/css/content.css').then(function(){
+                    resolve(true);
+                }).catch(function(){
+                    resolve(false);
+                });
+            });
+            // if(!document?.querySelector('#ai-assist-root')){
+            //     return new Promise(function(resolve){
+            //         let hander = setTimeout(function(){
+            //             resolve(false);
+            //         },1500);
+            //         const observer = new MutationObserver(mutations => {
+            //             mutations.forEach(mutation => {
+            //                 if (mutation.type === 'childList') {
+            //                     mutation.addedNodes.forEach(function($item){
+            //                         if($item.id=='ai-assist-root'){
+            //                             hander&&clearTimeout(hander);
+            //                             resolve(true);
+            //                         }
+            //                     });
+            //                 }
+            //             });
+            //         });
+            //         observer.observe(document,{childList: true, subtree: true});
+            //     });
+            // }else{
+            //     isMatch = true;
+            // }
         }
         return ua.includes('360SE')||isMatch;
     },
