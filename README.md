@@ -48,7 +48,7 @@ browser.getInfo().then(console.log);
 ```
 
 <table>
-    <caption><h3>Browser - 浏览器</h3></caption>
+    <caption><h3>browser - 浏览器</h3></caption>
     <thead>
         <tr><th>名称</th><th>值</th><th>描述</th></tr>
     </thead>
@@ -124,7 +124,7 @@ browser.getInfo().then(console.log);
 </table>
 
 <table>
-    <caption><h3>Engine - 内核</h3></caption>
+    <caption><h3>engine - 内核</h3></caption>
     <thead>
         <tr><th>值</th><th>描述</th></tr>
     </thead>
@@ -141,7 +141,7 @@ browser.getInfo().then(console.log);
 </table>
 
 <table>
-    <caption><h3>System - 操作系统</h3></caption>
+    <caption><h3>system - 操作系统</h3></caption>
     <thead>
         <tr><th>值</th><th>描述</th></tr>
     </thead>
@@ -165,7 +165,7 @@ browser.getInfo().then(console.log);
 </table>
 
 <table>
-    <caption><h3>Device - 设备类型</h3></caption>
+    <caption><h3>device - 设备类型</h3></caption>
     <thead>
         <tr><th>值</th><th>描述</th></tr>
     </thead>
@@ -177,7 +177,7 @@ browser.getInfo().then(console.log);
 </table>
 
 <table>
-    <caption><h3>Platform - 硬件平台</h3></caption>
+    <caption><h3>platform - 硬件平台</h3></caption>
     <thead>
         <tr><th>值</th><th>描述</th></tr>
     </thead>
