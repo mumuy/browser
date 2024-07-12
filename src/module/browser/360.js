@@ -14,7 +14,7 @@ export default {
             } else if (chrome_version > 45) {
                 isMatch = getMime("type", "application/vnd.chromium.remoting-viewer");
                 if (!isMatch && chrome_version >= 69) {
-                    isMatch = getMime("type", "application/hwepass2001.installepass2001") || getMime("type", "application/asx");
+                    isMatch = getMime("type", "application/asx");
                 }
             }
         }
