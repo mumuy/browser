@@ -4,7 +4,7 @@ export default {
     name:'Vivaldi',
     match(ua){
         let isMatch = false;
-        if(_globalThis?.navigator?.userAgentData?.brands.filter(item=>item.brand=='Not:A-Brand').length){
+        if(_globalThis?.navigator?.userAgentData?.brands.find(item=>item.brand=='Not:A-Brand')){
             isMatch = true;
         }
         return ua.includes('Vivaldi')||isMatch;
