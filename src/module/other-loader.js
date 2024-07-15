@@ -17,14 +17,14 @@ export default function(_){
     // 屏幕刷新率
     _.screenFPS = new Promise(function(resolve){
         let lastTime = 0;
-        let count = 0;
+        let count = 1;
         let tick = function(timestamp){
             if(lastTime>0){
                 if(count<10){   // 算10次平均防止偶尔一次差距太大
                     count++;
                     requestAnimationFrame(tick);
                 }else{
-                    const fps = Math.round(10000/(timestamp-lastTime)/30)*30;
+                    const fps = Math.round(10000/(timestamp-lastTime)/10)*10;
                     resolve(fps);
                 }
             }else{
