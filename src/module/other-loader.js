@@ -18,13 +18,19 @@ export default function(_){
     _.screenFPS = new Promise(function(resolve){
         let lastTime = 0;
         let count = 1;
+        let list = [];
         let tick = function(timestamp){
             if(lastTime>0){
-                if(count<10){   // 算10次平均防止偶尔一次差距太大
+                if(count<12){   // 取12个间隙，去除最高最低后算平均值
+                    list.push(timestamp-lastTime);
+                    lastTime = timestamp;
                     count++;
                     requestAnimationFrame(tick);
                 }else{
-                    const fps = Math.round(10000/(timestamp-lastTime)/10)*10;
+                    list.sort();
+                    list = list.slice(1,11);
+                    let sum = list.reduce((a,b)=>a+b);;
+                    const fps = Math.round(10000/sum/10)*10;
                     resolve(fps);
                 }
             }else{
@@ -33,5 +39,5 @@ export default function(_){
             }
         };
         requestAnimationFrame(tick);
-    })
+    });
 };
