@@ -17,10 +17,22 @@ export default function(_){
     // 屏幕刷新率
     _.screenFPS = new Promise(function(resolve){
         let lastTime = 0;
+        let count = 1;
+        let list = [];
         let tick = function(timestamp){
             if(lastTime>0){
-                const fps = Math.round(1000/(timestamp-lastTime)/30)*30;
-                resolve(fps);
+                if(count<12){   // 取12个间隙，去除最高最低后算平均值
+                    list.push(timestamp-lastTime);
+                    lastTime = timestamp;
+                    count++;
+                    requestAnimationFrame(tick);
+                }else{
+                    list.sort();
+                    list = list.slice(1,11);
+                    let sum = list.reduce((a,b)=>a+b);;
+                    const fps = Math.round(10000/sum/10)*10;
+                    resolve(fps);
+                }
             }else{
                 lastTime = timestamp;
                 requestAnimationFrame(tick);
