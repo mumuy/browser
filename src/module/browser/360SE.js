@@ -14,7 +14,7 @@ export default {
                 isMatch = true;
             }
         }
-        if(!isMatch&&isAsync&&document){
+        if(!isMatch&&isAsync){
             return new Promise(function(resolve){
                 fetch('chrome-extension://fjbbmgamncjadhlpmffehlmmkdnkiadk/css/content.css').then(function(){
                     resolve(true);
