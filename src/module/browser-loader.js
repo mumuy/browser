@@ -113,7 +113,7 @@ export default function(_,isAsync = false){
         });     
     }else{
         browserList.forEach(function(item){
-            if(item.match(ua)){
+            if(item.match(ua,isAsync)){
                 _.browser = item.name;
                 _.browserVersion = item.version(ua,isAsync);
             }

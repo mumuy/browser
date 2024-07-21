@@ -19,10 +19,13 @@ const GetDeviceInfo = () => {
 
 export default {
     name: '360EE',
-    match(ua) {
-        return GetDeviceInfo().then(function(response){
-            return response?.pid=='360csexm'||false;
-        });
+    match(ua,isAsync=false) {
+        if(isAsync){
+            return GetDeviceInfo().then(function(response){
+                return response?.pid=='360csexm'||false;
+            });
+        }
+        return false;
     },
     version(ua) {
         return GetDeviceInfo().then(function(response){
