@@ -83,7 +83,7 @@ export default {
             architecture,
             bitness
         } = this.parse();
-        for(let loader of loaderList){
+        for(let loader of systemList){
             if(await loader.is()){
                 system = loader.name;
                 systemVersion = await loader.version();

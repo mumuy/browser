@@ -155,7 +155,7 @@ export default {
             isWebview,
             isRobot
         } = this.parse();
-        for(let loader of loaderList){
+        for(let loader of browserList){
             if(await loader.is()){
                 browser = loader.name;
                 browserVersion = await loader.version();
