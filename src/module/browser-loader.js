@@ -69,10 +69,17 @@ import _YisouSpider from './browser/YisouSpider.js';
 import _YodaoBot from './browser/YodaoBot.js';
 import _YandexBot from './browser/YandexBot.js';
 
+import _WebKit from './engine/WebKit.js';
+import _Trident from './engine/Trident.js';
+import _Gecko from './engine/Gecko.js';
+import _Servo from './engine/Servo.js';
+import _Presto from './engine/Presto.js';
+import _KHTML from './engine/KHTML.js';
+
 import userAgent from './runtime/userAgent.js';
 
-let loaderList = [_Safari, _Chrome, _Edge, _IE, _Firefox, _Firefox_Focus, _Chromium, _Opera, _Opera_GX, _Vivaldi, _Yandex, _Brave, _Arora, _Lunascape, _QupZilla, _Coc_Coc, _Kindle, _Iceweasel, _Konqueror, _Iceape, _SeaMonkey, _Epiphany, _Huawei, _OPPO, _Vivo, _Xiaomi, _Meizu, _OnePlus, _Samsung, _360, _360EE, _360SE, _360EE_macOS, _360AI, _360AI_macOS, _360ENT, _UC, _QQBrowser, _QQ, _Baidu, _Maxthon, _Sogou, _Liebao, _2345Explorer, _115Browser, _TheWorld, _Quark, _Qiyu, _Lenovo, _Wechat, _WechatWork, _Taobao, _Alipay, _Weibo, _Douban, _Suning, _iQIYI, _DingTalk, _Douyin, _Toutiao, _Googlebot, _Baiduspider, _Sogouspider, _Bingbot, _360Spider, _Bytespider, _YisouSpider, _YodaoBot, _YandexBot];
-loaderList.forEach(item=>{
+let browserList = [_Safari, _Chrome, _Edge, _IE, _Firefox, _Firefox_Focus, _Chromium, _Opera, _Opera_GX, _Vivaldi, _Yandex, _Brave, _Arora, _Lunascape, _QupZilla, _Coc_Coc, _Kindle, _Iceweasel, _Konqueror, _Iceape, _SeaMonkey, _Epiphany, _Huawei, _OPPO, _Vivo, _Xiaomi, _Meizu, _OnePlus, _Samsung, _360, _360EE, _360SE, _360EE_macOS, _360AI, _360AI_macOS, _360ENT, _UC, _QQBrowser, _QQ, _Baidu, _Maxthon, _Sogou, _Liebao, _2345Explorer, _115Browser, _TheWorld, _Quark, _Qiyu, _Lenovo, _Wechat, _WechatWork, _Taobao, _Alipay, _Weibo, _Douban, _Suning, _iQIYI, _DingTalk, _Douyin, _Toutiao, _Googlebot, _Baiduspider, _Sogouspider, _Bingbot, _360Spider, _Bytespider, _YisouSpider, _YodaoBot, _YandexBot];
+browserList.forEach(item=>{
     if(!item.is){
         item.is = async function(){
             return item.parse().is;
@@ -85,15 +92,31 @@ loaderList.forEach(item=>{
     }
 });
 
+let engineList = [_WebKit, _Trident, _Gecko, _Servo, _Presto, _KHTML];
+engineList.forEach(item=>{
+    if(!item.is){
+        item.is = async function(){
+            return item.parse().is;
+        };
+    }
+});
+
 export default {
     name:'browser',
     parse(ua = userAgent){
         let browser = '';
         let browserVersion = '';
-        loaderList.forEach(function(item){
+        browserList.forEach(function(item){
             if(item.parse(ua).is){
                 browser = item.name;
                 browserVersion = item.parse(ua).version;
+            }
+        });
+        
+        let engine = '';
+        engineList.forEach(function(item){
+            if(item.parse(ua).is){
+                engine = item.name;
             }
         });
 
@@ -107,6 +130,11 @@ export default {
         if(!browserVersion){
             browserVersion = ua.match(/Version\/([\d.]+)/)?.[1]||'';
         }
+        if (_Edge.parse(ua).is) {
+            engine = parseInt(_Edge.parse(ua).version)>75?'Blink':'EdgeHTML';
+        } else if (_Chrome.parse(ua).is&&parseInt(_Chrome.parse(ua).version) > 27) {
+            engine = 'Blink';
+        }
 
         let isWebview = ua.includes('; wv)');
         let isRobot = ['Googlebot', 'Baiduspider', 'Sogouspider', 'Bingbot', '360Spider', 'Bytespider', 'YandexBot'].includes(browser);
@@ -114,6 +142,7 @@ export default {
         return {
             browser,
             browserVersion,
+            engine,
             isWebview,
             isRobot
         };
@@ -122,6 +151,7 @@ export default {
         let {
             browser,
             browserVersion,
+            engine,
             isWebview,
             isRobot
         } = this.parse();
@@ -147,6 +177,7 @@ export default {
         return {
             browser,
             browserVersion,
+            engine,
             isWebview,
             isRobot,
             userAgent:ua

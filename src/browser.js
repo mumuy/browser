@@ -1,5 +1,4 @@
 import browserLoader from './module/browser-loader.js';
-import engineLoader from './module/engine-loader.js';
 import systemLoader from './module/system-loader.js';
 import deviceLoader from './module/device-loader.js';
 import gpuLoader from './module/gpu-loader.js';
@@ -14,7 +13,6 @@ export default {
         let data = {};
         [
             browserLoader,
-            engineLoader,
             systemLoader,
             deviceLoader,
         ].forEach(loader=>{
@@ -22,11 +20,10 @@ export default {
         });
         return data;
     },
-    async getInfo(list = ['browser','engine','system','device','gpu','network','battery','screen','language','timezone']){
+    async getInfo(list = ['browser','system','device','gpu','network','battery','screen','language','timezone']){
         let data = {};
         let loaderList = [
             browserLoader,
-            engineLoader,
             systemLoader,
             deviceLoader,
             gpuLoader,

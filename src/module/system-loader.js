@@ -17,8 +17,8 @@ import _WebOS from './system/WebOS.js';
 import userAgent from './runtime/userAgent.js';
 import globalThis from './runtime/globalThis.js';
 
-let loaderList = [_Windows, _Linux, _macOS, _Android, _HarmonyOS, _Ubuntu, _FreeBSD, _Debian, _iOS, _Windows_Phone, _BlackBerry, _MeeGo, _Symbian, _Chrome_OS, _WebOS];
-loaderList.forEach(item=>{
+let systemList = [_Windows, _Linux, _macOS, _Android, _HarmonyOS, _Ubuntu, _FreeBSD, _Debian, _iOS, _Windows_Phone, _BlackBerry, _MeeGo, _Symbian, _Chrome_OS, _WebOS];
+systemList.forEach(item=>{
     if(!item.is){
         item.is = async function(){
             return item.parse().is;
@@ -36,7 +36,7 @@ export default {
     parse(ua = userAgent){
         let system = '';
         let systemVersion = '';
-        loaderList.forEach(function(item){
+        systemList.forEach(function(item){
             if(item.parse(ua).is){
                 system = item.name;
                 systemVersion = item.parse(ua).version;
