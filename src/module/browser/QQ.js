@@ -4,7 +4,7 @@ export default {
     name:'QQ',
     parse(ua = userAgent){
         return {
-            is:ua.includes('QQ'),
+            is:ua.includes('QQ/'),
             version:ua.match(/QQ\/([\d.]+)/)?.[1]||'',
         };
     }
