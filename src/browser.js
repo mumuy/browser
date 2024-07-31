@@ -1,56 +1,44 @@
 import browserLoader from './module/browser-loader.js';
-import deviceLoader from './module/device-loader.js';
 import engineLoader from './module/engine-loader.js';
 import systemLoader from './module/system-loader.js';
+import deviceLoader from './module/device-loader.js';
 import gpuLoader from './module/gpu-loader.js';
-import languageLoader from './module/language-loader.js';
 import networkLoader from './module/network-loader.js';
-import batterykLoader from './module/battery-loader.js';
-import otherLoader from './module/other-loader.js';
-import globalObject from './module/runtime/globalThis.js';
+import batteryLoader from './module/battery-loader.js';
+import screenLoader from './module/screen-loader.js';
+import languageLoader from './module/language-loader.js';
+import timezoneLoader from './module/timezone-loader.js';
 
-import wrapperPromise from './module/method/wrapperPromise.js';
-
-let getInfo = function(userAgent,isAsync = false){
-    let info = {};
-    info.userAgent = userAgent || globalObject?.navigator?.userAgent||'';
-    [
-        browserLoader,
-        deviceLoader,
-        engineLoader,
-        systemLoader,
-        gpuLoader,
-        languageLoader,
-        networkLoader,
-        batterykLoader,
-        otherLoader
-    ].forEach(loader=>loader(info,isAsync));
-    return info;
-}
-
-// 旧版同步获取
-function browser(userAgent){
-    let info = getInfo(userAgent);
-    for(let key in info){
-        if(typeof info[key]=='object'){
-            info[key] = '';
-        }
-    }
-    return info;
-}
-
-// 新版异步获取
-browser.getInfo = function(userAgent){
-    let info = getInfo(userAgent,true);
-    let keys = Object.keys(info);
-    let all_promise = wrapperPromise(Object.values(info));
-    return Promise.all(all_promise).then(list=>{
-        let result = {};
-        list.forEach(function(value,index){
-            result[keys[index]] = value;
+export default {
+    parse(ua){
+        let data = {};
+        [
+            browserLoader,
+            engineLoader,
+            systemLoader,
+            deviceLoader,
+        ].forEach(loader=>{
+            data = Object.assign(data,loader.parse(ua));
         });
-        return result;
-    });
+        return data;
+    },
+    async getInfo(list = ['browser','engine','system','device','gpu','network','battery','screen','language','timezone']){
+        let data = {};
+        let loaderList = [
+            browserLoader,
+            engineLoader,
+            systemLoader,
+            deviceLoader,
+            gpuLoader,
+            networkLoader,
+            batteryLoader,
+            screenLoader,
+            languageLoader,
+            timezoneLoader
+        ].filter(loader=>list.includes(loader.name));
+        for(let loader of loaderList){
+            data = Object.assign(data,await loader.getInfo());
+        }
+        return data;
+    }
 };
-
-export default browser;

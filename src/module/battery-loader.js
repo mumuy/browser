@@ -1,15 +1,25 @@
-import _globalThis from './runtime/globalThis.js';
+import globalThis from './runtime/globalThis.js';
 
-export default function(_){
-    if(_globalThis?.navigator?.getBattery){
-        _.isCharging = _globalThis.navigator.getBattery().then((battery) => {
-            return battery?.charging;
-        });
-        _.battery = _globalThis.navigator.getBattery().then((battery) => {
-            return +battery?.level||-1;
-        });
-    }else{
-        _.isCharging = true;
-        _.battery = 1;
+export default {
+    name:'battery',
+    parse(){
+        return {};
+    },
+    async getInfo(){
+        let isCharging = true;
+        let battery = 1;
+        if(globalThis?.navigator?.getBattery){
+            isCharging = await globalThis.navigator.getBattery().then((battery) => {
+                return battery?.charging;
+            });
+            battery = await globalThis.navigator.getBattery().then((battery) => {
+                return +battery?.level||-1;
+            });
+        }
+
+        return {
+            isCharging,
+            battery
+        };
     }
-};
+}

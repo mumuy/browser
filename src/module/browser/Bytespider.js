@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Bytespider',
-    match(ua){
-        return ua.includes('Bytespider');
-    },
-    version(ua){
-        return '';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('Bytespider'),
+            version:''
+        };
     }
-};
+}

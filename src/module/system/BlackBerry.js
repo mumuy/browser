@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'BlackBerry',
-    match(ua){
-        return  ua.includes('BlackBerry')||ua.includes('RIM');
-    },
-    version(ua){
-        return '';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('BlackBerry')||ua.includes('RIM'),
+            version:''
+        };
     }
-};
+}

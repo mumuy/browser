@@ -1,8 +1,12 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Mobile',
-    match(ua){
-        return ua.includes('Mobi')
-        ||ua.includes('iPh')
-        ||ua.includes('480');
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('Mobi')
+                ||ua.includes('iPh')
+                ||ua.includes('480')
+        };
     }
-};
+}

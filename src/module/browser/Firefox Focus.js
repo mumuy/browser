@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Firefox Focus',
-    match(ua){
-        return ua.includes('Focus');
-    },
-    version(ua){
-        return ua.match(/Focus\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('Focus'),
+            version:ua.match(/Focus\/([\d.]+)/)?.[1]||'',
+        };
     }
-};
+}

@@ -1,12 +1,17 @@
-import _globalThis from '../runtime/globalThis.js';
+import userAgent from '../runtime/userAgent.js';
+import globalThis from '../runtime/globalThis.js';
 
 export default {
     name:'Tablet',
-    match(ua){
-        let navigator = _globalThis?.navigator||{};
-        return  ua.includes('Tablet')
-        ||ua.includes('Pad')
-        ||ua.includes('Nexus 7')
-        ||(navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('Tablet')
+                ||ua.includes('Pad')
+                ||ua.includes('Nexus 7')
+        };
+    },
+    async is(){
+        return this.parse().is
+            ||(globalThis?.navigator.platform === 'MacIntel' && globalThis?.navigator.maxTouchPoints > 1);
     }
-};
+}

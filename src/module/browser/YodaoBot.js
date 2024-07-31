@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'YodaoBot',
-    match(ua){
-        return ua.includes('YodaoBot');
-    },
-    version(ua){
-        return ua.match(/YodaoBot\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('YodaoBot'),
+            version:ua.match(/YodaoBot\/([\d.]+)/)?.[1]||''
+        };
     }
-};
+}

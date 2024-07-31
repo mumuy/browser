@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Meizu',
-    match(ua){
-        return ua.includes('MZBrowser');
-    },
-    version(ua){
-        return ua.match(/MZBrowser\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('MZBrowser'),
+            version:ua.match(/MZBrowser\/([\d.]+)/)?.[1]||''
+        };
     }
-};
+}

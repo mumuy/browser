@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Wechat',
-    match(ua){
-        return ua.includes('MicroMessenger');
-    },
-    version(ua){
-        return ua.match(/MicroMessenger\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('MicroMessenger'),
+            version:ua.match(/MicroMessenger\/([\d.]+)/)?.[1]||''
+        };
     }
-};
+}

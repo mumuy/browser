@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Xiaomi',
-    match(ua){
-        return ua.includes('MiuiBrowser');
-    },
-    version(ua){
-        return ua.match(/MiuiBrowser\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('MiuiBrowser'),
+            version:ua.match(/115Browser\/([\d.]+)/)?.[1]||''
+        };
     }
-};
+}

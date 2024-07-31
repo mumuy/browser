@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Bingbot',
-    match(ua){
-        return ua.includes('bingbot');
-    },
-    version(ua){
-        return ua.match(/bingbot\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('bingbot'),
+            version:ua.match(/bingbot\/([\d.]+)/)?.[1]||''
+        };
     }
-};
+}

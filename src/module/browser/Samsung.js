@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Samsung',
-    match(ua){
-        return ua.includes('SamsungBrowser');
-    },
-    version(ua){
-        return ua.match(/SamsungBrowser\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('SamsungBrowser'),
+            version:ua.match(/SamsungBrowser\/([\d.]+)/)?.[1]||''
+        };
     }
-};
+}

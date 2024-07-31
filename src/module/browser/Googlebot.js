@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Googlebot',
-    match(ua){
-        return ua.includes('Googlebot');
-    },
-    version(ua){
-        return ua.match(/Googlebot\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('Googlebot'),
+            version:ua.match(/Googlebot\/([\d.]+)/)?.[1]||'',
+        };
     }
-};
+}

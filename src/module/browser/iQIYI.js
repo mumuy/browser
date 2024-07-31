@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'iQIYI',
-    match(ua){
-        return ua.includes('IqiyiApp');
-    },
-    version(ua){
-        return ua.match(/IqiyiVersion\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('IqiyiApp'),
+            version:ua.match(/IqiyiVersion\/([\d.]+)/)?.[1]||'',
+        };
     }
-};
+}

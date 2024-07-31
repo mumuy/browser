@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Baiduspider',
-    match(ua){
-        return ua.includes('Baiduspider');
-    },
-    version(ua){
-        return ua.match(/Baiduspider(-render)?\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('Baiduspider'),
+            version:ua.match(/Baiduspider(-render)?\/([\d.]+)/)?.[1]||''
+        };
     }
-};
+}

@@ -1,12 +1,14 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'IE',
-    match(ua){
-        return ua.includes('MSIE')
-        ||ua.includes('Trident');
-    },
-    version(ua){
-        return ua.match(/MSIE ([\d.]+)/)?.[1]
-        ||ua.match(/rv:([\d.]+)/)?.[1]
-        ||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('MSIE')
+                ||ua.includes('Trident'),
+            version:ua.match(/MSIE ([\d.]+)/)?.[1]
+                ||ua.match(/rv:([\d.]+)/)?.[1]
+                ||''
+        };
     }
-};
+}

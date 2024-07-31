@@ -1,6 +1,10 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'WebKit',
-    match(ua){
-        return ua.includes('AppleWebKit');
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('AppleWebKit')
+        };
     }
-};
+}

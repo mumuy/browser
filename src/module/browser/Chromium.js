@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Chromium',
-    match(ua){
-        return ua.includes('Chromium');
-    },
-    version(ua){
-        return ua.match(/Chromium\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('Chromium'),
+            version:ua.match(/Chromium\/([\d.]+)/)?.[1]||'',
+        };
     }
-};
+}

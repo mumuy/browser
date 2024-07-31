@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Toutiao',
-    match(ua){
-        return ua.includes('NewsArticle');
-    },
-    version(ua){
-        return ua.match(/NewsArticle\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('NewsArticle'),
+            version:ua.match(/NewsArticle\/([\d.]+)/)?.[1]||''
+        };
     }
-};
+}

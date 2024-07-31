@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'FreeBSD',
-    match(ua){
-        return ua.includes('FreeBSD');
-    },
-    version(ua){
-        return '';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('FreeBSD'),
+            version:''
+        };
     }
-};
+}

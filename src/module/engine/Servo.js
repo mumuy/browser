@@ -1,6 +1,10 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Servo',
-    match(ua){
-        return ua.includes('Servo/');
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('Servo/')
+        };
     }
-};
+}

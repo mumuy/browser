@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Debian',
-    match(ua){
-        return ua.includes('Debian');
-    },
-    version(ua){
-        return ua.match(/Debian\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('Debian'),
+            version:ua.match(/Debian\/([\d.]+)/)?.[1]||''
+        };
     }
-};
+}

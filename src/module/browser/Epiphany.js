@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Epiphany',
-    match(ua){
-        return ua.includes('Epiphany');
-    },
-    version(ua){
-        return ua.match(/Epiphany\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('Epiphany'),
+            version:ua.match(/Epiphany\/([\d.]+)/)?.[1]||'',
+        };
     }
-};
+}

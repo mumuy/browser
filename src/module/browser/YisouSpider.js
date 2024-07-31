@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'YisouSpider',
-    match(ua){
-        return ua.includes('YisouSpider');
-    },
-    version(ua){
-        return ua.match(/YisouSpider\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('YisouSpider'),
+            version:ua.match(/YisouSpider\/([\d.]+)/)?.[1]||''
+        };
     }
-};
+}

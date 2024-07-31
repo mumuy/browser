@@ -1,16 +1,26 @@
-import _globalThis from './runtime/globalThis.js';
+import globalThis from './runtime/globalThis.js';
+import getPublicIP from './method/getPublicIP.js';
 
-export default function(_){
-    _.network = (function () {
+export default {
+    name:'network',
+    parse(){
+        return {};
+    },
+    async getInfo(){
         let network = 'unknown';
-        let connection = _globalThis?.navigator?.connection;
+        let connection = globalThis?.navigator?.connection;
         if(connection){
             network = connection.type || connection.effectiveType;
             if(network == '2' || network == 'unknown'){
                 network = 'wifi';
             }
         }
-        return network;
-    })();
-    _.isOnline = _globalThis?.navigator?.onLine||false;
-};
+        let isOnline = globalThis?.navigator?.onLine||false;
+        let ip = await getPublicIP();
+        return {
+            network,
+            isOnline,
+            ip
+        };
+    }
+}

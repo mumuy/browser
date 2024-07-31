@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Alipay',
-    match(ua){
-        return ua.includes('AliApp(AP');
-    },
-    version(ua){
-        return ua.match(/AliApp\(AP\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('AliApp(AP'),
+            version:ua.match(/AliApp\(AP\/([\d.]+)/)?.[1]||''
+        };
     }
-};
+}

@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Qiyu',
-    match(ua){
-        return ua.includes('Qiyu');
-    },
-    version(ua){
-        return ua.match(/Qiyu\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('Qiyu'),
+            version:ua.match(/Qiyu\/([\d.]+)/)?.[1]||'',
+        };
     }
-};
+}

@@ -1,11 +1,9 @@
 import _Chrome from './Chrome.js';
+import userAgent from '../runtime/userAgent.js';
 
 export default {
     name:'360ENT',
-    match(ua){
-        return ua.includes('360ENT');
-    },
-    version(ua){
+    parse(ua = userAgent){
         let hash = {
             '86':'13.0',
             '78':'12.0',
@@ -15,7 +13,12 @@ export default {
             '50':'8.7',
             '30':'7.5'
         };
-        let chrome_version = parseInt(_Chrome.version(ua));
-        return hash[chrome_version]||'';
+        let chrome_version = parseInt(_Chrome.parse(ua).version);
+        return {
+            is:ua.includes('360ENT'),
+            version:ua.match(/Browser \(v([\d.]+)/)?.[1]
+                ||hash[chrome_version]
+                ||''
+        };
     }
-};
+}

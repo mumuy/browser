@@ -5,24 +5,41 @@ import _Servo from './engine/Servo.js';
 import _Presto from './engine/Presto.js';
 import _KHTML from './engine/KHTML.js';
 
+import _Edge from './browser/Edge.js';
 import _Chrome from './browser/Chrome.js';
 
-export default function(_){
-    _.engine = '';
-    [_WebKit, _Trident, _Gecko, _Servo, _Presto, _KHTML].forEach(function(item){
-        if(item.match(_.userAgent)){
-            _.engine = item.name;
-        }
-    });
+import userAgent from './runtime/userAgent.js';
 
-    //修正
-    if (_.browser == 'Edge') {
-        _.engine = parseInt(_.browserVersion)>75?'Blink':'EdgeHTML';
-    } else if (_Chrome.match(_.userAgent)&& _.engine=='WebKit' && parseInt(_Chrome.version(_.userAgent)) > 27) {
-        _.engine = 'Blink';
-    } else if (_.browser == 'Opera' && parseInt(_.browserVersion) > 12) {
-        _.engine = 'Blink';
-    } else if (_.browser == 'Yandex') {
-        _.engine = 'Blink';
+let loaderList = [_WebKit, _Trident, _Gecko, _Servo, _Presto, _KHTML];
+loaderList.forEach(item=>{
+    if(!item.is){
+        item.is = async function(){
+            return item.parse().is;
+        };
     }
-};
+});
+
+export default {
+    name:'engine',
+    parse(ua = userAgent){
+        let engine = '';
+        loaderList.forEach(function(item){
+            if(item.parse(ua).is){
+                engine = item.name;
+            }
+        });
+
+        //修正
+        if (_Edge.parse(ua).is) {
+            engine = parseInt(_Edge.parse(ua).version)>75?'Blink':'EdgeHTML';
+        } else if (_Chrome.parse(ua).is&&parseInt(_Chrome.parse(ua).version) > 27) {
+            engine = 'Blink';
+        }
+        return {
+            engine
+        };
+    },
+    async getInfo(){
+        return this.parse();
+    }
+}

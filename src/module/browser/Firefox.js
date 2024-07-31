@@ -1,12 +1,14 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Firefox',
-    match(ua){
-        return ua.includes('Firefox')
-        ||ua.includes('FxiOS');
-    },
-    version(ua){
-        return ua.match(/Firefox\/([\d.]+)/)?.[1]
-        ||ua.match(/FxiOS\/([\d.]+)/)?.[1]
-        ||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('Firefox')
+                ||ua.includes('FxiOS'),
+            version:ua.match(/Firefox\/([\d.]+)/)?.[1]
+                ||ua.match(/FxiOS\/([\d.]+)/)?.[1]
+                ||'',
+        };
     }
-};
+}

@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Safari',
-    match(ua){
-        return ua.includes('Safari');
-    },
-    version(ua){
-        return ua.match(/Version\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('Safari'),
+            version:ua.match(/Version\/([\d.]+)/)?.[1]||''
+        };
     }
-};
+}

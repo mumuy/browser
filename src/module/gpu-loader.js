@@ -1,16 +1,27 @@
-import _globalThis from './runtime/globalThis.js';
+import globalThis from './runtime/globalThis.js';
 
-export default function(_){
-    _.gpu = '';
-    _.gpuModel = '';
-    if(_globalThis?.document){
-        let $canvas = _globalThis.document.createElement('canvas');
-        let webgl = $canvas.getContext('experimental-webgl');
-        if(webgl){
-            let debugInfo = webgl.getExtension('WEBGL_debug_renderer_info');
-            let gpu_str = webgl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
-            _.gpu = gpu_str.match(/ANGLE \((.+?),/)?.[1]||'';
-            _.gpuModel = gpu_str.match(/, (.+?) (\(|vs_)/)?.[1]||'';
+export default {
+    name:'gpu',
+    parse(){
+        return {};
+    },
+    async getInfo(){
+        let gpu = '';
+        let gpuModel = '';
+        if(globalThis?.document){
+            let $canvas = globalThis.document.createElement('canvas');
+            let webgl = $canvas.getContext('experimental-webgl');
+            if(webgl){
+                let debugInfo = webgl.getExtension('WEBGL_debug_renderer_info');
+                let gpu_str = webgl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+                gpu = gpu_str.match(/ANGLE \((.+?),/)?.[1]||'';
+                gpuModel = gpu_str.match(/, (.+?) (\(|vs_)/)?.[1]||'';
+            }
         }
+
+        return {
+            gpu,
+            gpuModel
+        };
     }
-};
+}

@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Android',
-    match(ua){
-        return ua.includes('Android')||ua.includes('Adr');
-    },
-    version(ua){
-        return ua.match(/Android ([\d.]+);/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('Android')||ua.includes('Adr'),
+            version:ua.match(/Android ([\d.]+);/)?.[1]||''
+        };
     }
-};
+}

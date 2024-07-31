@@ -1,21 +1,7 @@
-import _globalThis from './runtime/globalThis.js';
+import globalThis from './runtime/globalThis.js';
 
-import getPublicIP from './method/getPublicIP.js';
-
-export default function(_){
-    // 类型判断
-    _.isWebview = _.userAgent.includes('; wv)');
-    _.isRobot = ['Googlebot', 'Baiduspider', 'Sogouspider', 'Bingbot', '360Spider', 'Bytespider', 'YandexBot'].includes(_.browser);
-    // IP地址
-    _.ip = getPublicIP();
-    _.timezone = Intl?.DateTimeFormat()?.resolvedOptions()?.timeZone;
-    // 屏幕尺寸
-    _.screenWidth = _globalThis?.screen?.width||0;
-    _.screenHeight = _globalThis?.screen?.height||0;
-    _.clientWidth = _globalThis?.document?.documentElement?.clientWidth||0;
-    _.clientHeighth = _globalThis?.document?.documentElement?.clientHeight||0;
-    // 屏幕刷新率
-    _.screenFPS = new Promise(function(resolve){
+async function getScreenFPS(){
+    return new Promise(function(resolve){
         let lastTime = 0;
         let count = 1;
         let list = [];
@@ -40,4 +26,28 @@ export default function(_){
         };
         requestAnimationFrame(tick);
     });
-};
+}
+
+export default {
+    name:'screen',
+    parse(){
+        return {};
+    },
+    async getInfo(){
+        // 屏幕尺寸
+        let screenWidth = globalThis?.screen?.width||0;
+        let screenHeight = globalThis?.screen?.height||0;
+        let clientWidth = globalThis?.document?.documentElement?.clientWidth||0;
+        let clientHeight = globalThis?.document?.documentElement?.clientHeight||0;
+        // 屏幕刷新率
+        let screenFPS = await getScreenFPS();
+
+        return {
+            screenWidth,
+            screenHeight,
+            clientWidth,
+            clientHeight,
+            screenFPS
+        };
+    }
+}

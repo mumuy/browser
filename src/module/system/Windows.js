@@ -1,11 +1,9 @@
-import _globalThis from '../runtime/globalThis.js';
+import userAgent from '../runtime/userAgent.js';
+import globalThis from '../runtime/globalThis.js';
 
 export default {
     name:'Windows',
-    match(ua){
-        return ua.includes('Windows');
-    },
-    version(ua,isAsync = false){
+    parse(ua = userAgent){
         let v = ua.match(/^Mozilla\/\d.0 \(Windows NT ([\d.]+)[;)].*$/)?.[1]||'';
         let hash = {
             '10.0':'10',
@@ -21,27 +19,30 @@ export default {
             '4.0':'NT',
             '4.90':'ME'
         };
-        if(isAsync){
-            return new Promise(function(resolve){
-                if(_globalThis?.navigator?.userAgentData){
-                    _globalThis.navigator.userAgentData.getHighEntropyValues(["platformVersion"]).then(function(ua){
-                        let windowsVersion = '';
-                        if (navigator.userAgentData.platform === "Windows") {
-                            const majorPlatformVersion = parseInt(ua.platformVersion.split('.')[0]);
-                            if(majorPlatformVersion>=13){
-                                windowsVersion = '11';
-                            }else{
-                                windowsVersion = '10';
-                            }
+        return {
+            is:ua.includes('Windows'),
+            version:hash[v] || v
+        };
+    },
+    async version(){
+        let version = this.parse().version;
+        return new Promise(function(resolve){
+            if(globalThis?.navigator?.userAgentData){
+                globalThis.navigator.userAgentData.getHighEntropyValues(["platformVersion"]).then(function(ua){
+                    let windowsVersion = '';
+                    if (globalThis.navigator.userAgentData.platform === "Windows") {
+                        const majorPlatformVersion = parseInt(ua.platformVersion.split('.')[0]);
+                        if(majorPlatformVersion>=13){
+                            windowsVersion = '11';
+                        }else{
+                            windowsVersion = '10';
                         }
-                        resolve(windowsVersion);
-                    });
-                }else{
-                    resolve(hash[v] || v);
-                }
-            });
-        }else{
-            return hash[v] || v;
-        }
+                    }
+                    resolve(windowsVersion);
+                });
+            }else{
+                resolve(version);
+            }
+        });
     }
-};
+}

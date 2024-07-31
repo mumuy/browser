@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Douyin',
-    match(ua){
-        return ua.includes('aweme');
-    },
-    version(ua){
-        return ua.match(/app_version\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('aweme'),
+            version:ua.match(/app_version\/([\d.]+)/)?.[1]||'',
+        };
     }
-};
+}

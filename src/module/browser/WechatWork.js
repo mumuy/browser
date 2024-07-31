@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'WechatWork',
-    match(ua){
-        return ua.includes('wxwork/');
-    },
-    version(ua){
-        return ua.match(/wxwork\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('wxwork'),
+            version:ua.match(/wxwork\/([\d.]+)/)?.[1]||''
+        };
     }
-};
+}

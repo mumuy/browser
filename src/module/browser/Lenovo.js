@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Lenovo',
-    match(ua){
-        return ua.includes('SLBrowser');
-    },
-    version(ua){
-        return ua.match(/SLBrowser\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('SLBrowser'),
+            version:ua.match(/SLBrowser\/([\d.]+)/)?.[1]||''
+        };
     }
-};
+}

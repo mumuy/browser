@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Sogouspider',
-    match(ua){
-        return ua.match(/Sogou (\S+) Spider\/([\d.]+)/i);
-    },
-    version(ua){
-        return ua.match(/Sogou (\S+) Spider\/([\d.]+)/i)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.match(/Sogou (\S+) Spider\/([\d.]+)/i),
+            version:ua.match(/Sogou (\S+) Spider\/([\d.]+)/i)?.[1]||''
+        };
     }
-};
+}

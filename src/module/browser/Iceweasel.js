@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Iceweasel',
-    match(ua){
-        return ua.includes('Iceweasel');
-    },
-    version(ua){
-        return ua.match(/Iceweasel\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('Iceweasel'),
+            version:ua.match(/Iceweasel\/([\d.]+)/)?.[1]||'',
+        };
     }
-};
+}

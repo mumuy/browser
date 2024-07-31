@@ -1,6 +1,10 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Gecko',
-    match(ua){
-        return ua.includes('Gecko/');
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('Gecko/')
+        };
     }
-};
+}

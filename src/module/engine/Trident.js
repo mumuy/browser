@@ -1,6 +1,10 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Trident',
-    match(ua){
-        return ua.includes('Trident')||ua.includes('NET CLR');
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('Trident')||ua.includes('NET CLR')
+        };
     }
-};
+}

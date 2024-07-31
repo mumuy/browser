@@ -1,53 +1,12 @@
-import getMime from '../method/getMime.js';
 import _Chrome from './Chrome.js';
 import _360 from './360.js';
-import _globalThis from '../runtime/globalThis.js';
+import getMime from '../method/getMime.js';
+import userAgent from '../runtime/userAgent.js';
+import globalThis from '../runtime/globalThis.js';
 
 export default {
     name:'360SE',
-    match(ua,isAsync=false){
-        let isMatch = false;
-        if(_360.match(ua)){
-            if(getMime("type", "application/gameplugin")){
-                isMatch = true;
-            }else if(_globalThis?.navigator?.userAgentData?.brands.filter(item=>item.brand=='Not.A/Brand').length){
-                isMatch = true;
-            }
-        }
-        if(!isMatch&&isAsync){
-            return new Promise(function(resolve){
-                fetch('chrome-extension://fjbbmgamncjadhlpmffehlmmkdnkiadk/css/content.css').then(function(){
-                    resolve(true);
-                }).catch(function(){
-                    resolve(false);
-                });
-            });
-            // if(!document?.querySelector('#ai-assist-root')){
-            //     return new Promise(function(resolve){
-            //         let hander = setTimeout(function(){
-            //             resolve(false);
-            //         },1500);
-            //         const observer = new MutationObserver(mutations => {
-            //             mutations.forEach(mutation => {
-            //                 if (mutation.type === 'childList') {
-            //                     mutation.addedNodes.forEach(function($item){
-            //                         if($item.id=='ai-assist-root'){
-            //                             hander&&clearTimeout(hander);
-            //                             resolve(true);
-            //                         }
-            //                     });
-            //                 }
-            //             });
-            //         });
-            //         observer.observe(document,{childList: true, subtree: true});
-            //     });
-            // }else{
-            //     isMatch = true;
-            // }
-        }
-        return ua.includes('360SE')||isMatch;
-    },
-    version(ua){
+    parse(ua = userAgent){
         let hash = {
             '122':'15.3',
             '114':'15.0',
@@ -62,7 +21,30 @@ export default {
             '31':'7.0',
             '21':'6.3'
         };
-        let chrome_version = parseInt(_Chrome.version(ua));
-        return hash[chrome_version]||'';
+        let chrome_version = parseInt(_Chrome.parse(ua).version);
+        return {
+            is:ua.includes('360SE'),
+            version:hash[chrome_version]||''
+        };
+    },
+    async is(){
+        let isMatch = false;
+        if(await _360.is()){
+            if(getMime("type", "application/gameplugin")){
+                isMatch = true;
+            }else if(globalThis?.navigator?.userAgentData?.brands.filter(item=>item.brand=='Not.A/Brand').length){
+                isMatch = true;
+            }
+        }
+        if(!isMatch){
+            return new Promise(function(resolve){
+                fetch('chrome-extension://fjbbmgamncjadhlpmffehlmmkdnkiadk/css/content.css').then(function(){
+                    resolve(true);
+                }).catch(function(){
+                    resolve(false);
+                });
+            });
+        }
+        return isMatch;
     }
-};
+}

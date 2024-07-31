@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'TheWorld',
-    match(ua){
-        return ua.includes('TheWorld');
-    },
-    version(ua){
-        return ua.match(/TheWorld ([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('TheWorld'),
+            version:ua.match(/TheWorld ([\d.]+)/)?.[1]||''
+        };
     }
-};
+}

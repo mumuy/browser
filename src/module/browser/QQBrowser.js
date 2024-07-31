@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'QQBrowser',
-    match(ua){
-        return ua.includes('QQBrowser');
-    },
-    version(ua){
-        return ua.match(/QQBrowser\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('QQBrowser'),
+            version:ua.match(/QQBrowser\/([\d.]+)/)?.[1]||'',
+        };
     }
-};
+}

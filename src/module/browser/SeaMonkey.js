@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'SeaMonkey',
-    match(ua){
-        return ua.includes('SeaMonkey');
-    },
-    version(ua){
-        return ua.match(/SeaMonkey\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('SeaMonkey'),
+            version:ua.match(/SeaMonkey\/([\d.]+)/)?.[1]||''
+        };
     }
-};
+}

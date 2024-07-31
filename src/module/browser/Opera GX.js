@@ -1,17 +1,16 @@
 import _Opera from './Opera.js';
+import userAgent from '../runtime/userAgent.js';
 
 export default {
     name:'Opera GX',
-    match(ua){
+    parse(ua = userAgent){
         let isMatch = false;
-        if(_Opera.match(ua)){
+        if(_Opera.parse(ua).is){
             isMatch = ua.includes('Edition GX');
         }
-        return isMatch;
-    },
-    version(ua){
-        return ua.match(/Opera\/([\d.]+)/)?.[1]
-        ||ua.match(/OPR\/([\d.]+)/)?.[1]
-        ||'';
+        return {
+            is:isMatch,
+            version:_Opera.parse(ua).version
+        };
     }
-};
+}

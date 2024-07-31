@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'115Browser',
-    match(ua){
-        return ua.includes('115Browser');
-    },
-    version(ua){
-        return ua.match(/115Browser\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('115Browser'),
+            version:ua.match(/115Browser\/([\d.]+)/)?.[1]||''
+        };
     }
-};
+}

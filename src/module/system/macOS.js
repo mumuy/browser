@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'macOS',
-    match(ua){
-        return ua.includes('Macintosh');
-    },
-    version(ua){
-        return ua.match(/Mac OS X -?([\d_]+)/)?.[1].replace(/_/g, '.')||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('Macintosh'),
+            version:ua.match(/Mac OS X -?([\d_]+)/)?.[1].replace(/_/g, '.')||''
+        };
     }
-};
+}

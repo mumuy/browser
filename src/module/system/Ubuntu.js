@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Ubuntu',
-    match(ua){
-        return ua.includes('Ubuntu');
-    },
-    version(ua){
-        return '';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('Ubuntu'),
+            version:''
+        };
     }
-};
+}

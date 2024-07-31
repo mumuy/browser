@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Lunascape',
-    match(ua){
-        return ua.includes('Lunascape');
-    },
-    version(ua){
-        return ua.match(/Lunascape[\/\s]([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('Lunascape'),
+            version:ua.match(/Lunascape[\/\s]([\d.]+)/)?.[1]||''
+        };
     }
-};
+}

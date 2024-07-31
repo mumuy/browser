@@ -1,14 +1,10 @@
 import _Chrome from './Chrome.js';
-import _globalThis from '../runtime/globalThis.js';
+import userAgent from '../runtime/userAgent.js';
+import globalThis from '../runtime/globalThis.js';
 
 export default {
     name:'Liebao',
-    match(ua){
-        return ua.includes('LBBROWSER')
-        ||ua.includes('LieBaoFast')
-        ||_globalThis?.liebao;
-    },
-    version(ua){
+    parse(ua = userAgent){
         let hash = {
             '112':'9.0',
             '79':'8.0',
@@ -21,9 +17,16 @@ export default {
             '29':'4.5',
             '21':'4.0'
         };
-        let chrome_version = parseInt(_Chrome.version(ua));
-        return ua.match(/LieBaoFast\/([\d.]+)/)?.[1]
-        ||hash[chrome_version]
-        ||'';
+        let chrome_version = parseInt(_Chrome.parse(ua).version);
+        return {
+            is:ua.includes('LBBROWSER')
+                ||ua.includes('LieBaoFast'),
+            version:ua.match(/LieBaoFast\/([\d.]+)/)?.[1]
+                ||hash[chrome_version]
+                ||''
+        };
+    },
+    is(){
+        return this.parse().is||globalThis?.liebao;
     }
-};
+}

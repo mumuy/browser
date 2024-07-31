@@ -1,11 +1,11 @@
-import _Chrome from './Chrome.js';
+import userAgent from '../runtime/userAgent.js';
 
 export default {
     name:'360AI',
-    match(ua){
-        return ua.includes('360EEAI');
-    },
-    version(ua){
-        return ua.match(/360EE\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('360EEAI'),
+            version:ua.match(/360EE\/([\d.]+)/)?.[1]||''
+        };
     }
-};
+}

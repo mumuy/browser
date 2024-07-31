@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Yandex',
-    match(ua){
-        return ua.includes('YaBrowser');
-    },
-    version(ua){
-        return ua.match(/YaBrowser\/([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('YaBrowser'),
+            version:ua.match(/YaBrowser\/([\d.]+)/)?.[1]||''
+        };
     }
-};
+}

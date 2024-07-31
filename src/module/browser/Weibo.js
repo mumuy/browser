@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'Weibo',
-    match(ua){
-        return ua.includes('Weibo');
-    },
-    version(ua){
-        return ua.match(/weibo__([\d.]+)/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('Weibo'),
+            version:ua.match(/weibo__([\d.]+)/)?.[1]||''
+        };
     }
-};
+}

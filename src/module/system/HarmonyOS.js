@@ -1,20 +1,22 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'HarmonyOS',
-    match(ua){
-        return ua.includes('HarmonyOS');
-    },
-    version(ua){
+    parse(ua = userAgent){
         let v = +ua.match(/HMSCore (\d+.\d+)/)?.[1]||0;
+        let version = '';
         if(v>=6.1){
-            return '4.0';
+            version =  '4.0';
         }else if(v>=6.0){
-            return '3.0';
+            version =  '3.0';
         }else if(v>=5.0){
-            return '2.0';
+            version =  '2.0';
         }else if(v>=4.0){
-            return '1.0';
-        }else{
-            return '';
+            version =  '1.0';
         }
+        return {
+            is:ua.includes('HarmonyOS'),
+            version
+        };
     }
-};
+}

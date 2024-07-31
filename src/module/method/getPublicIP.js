@@ -1,11 +1,9 @@
-import _globalThis from '../runtime/globalThis.js';
-
 const reg = {
     'IPv4':/\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/,
     'IPv6':/\b(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}\b/i
 };
-let RTCPeerConnection = _globalThis.RTCPeerConnection || _globalThis.mozRTCPeerConnection || _globalThis.webkitRTCPeerConnection;
-const getPublicIP = () => {
+let RTCPeerConnection = globalThis.RTCPeerConnection || globalThis.mozRTCPeerConnection || globalThis.webkitRTCPeerConnection;
+const getPublicIP = async () => {
     const ipSet = new Set();
     const onicecandidate = (ice) => {
         const candidate = ice?.candidate?.candidate;

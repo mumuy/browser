@@ -1,9 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
+
 export default {
     name:'WebOS',
-    match(ua){
-        return ua.includes('hpwOS');
-    },
-    version(ua){
-        return ua.match(/hpwOS\/([\d.]+);/)?.[1]||'';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('hpwOS'),
+            version:ua.match(/hpwOS\/([\d.]+);/)?.[1]||''
+        };
     }
-};
+}

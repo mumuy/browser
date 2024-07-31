@@ -1,10 +1,11 @@
+import userAgent from '../runtime/userAgent.js';
 
 export default {
     name:'OnePlus',
-    match(ua){
-        return ua.includes('ONEPLUS');
-    },
-    version(ua){
-        return '';
+    parse(ua = userAgent){
+        return {
+            is:ua.includes('ONEPLUS'),
+            version:''
+        };
     }
-};
+}
