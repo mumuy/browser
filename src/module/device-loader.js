@@ -21,12 +21,14 @@ export default {
                 device = item.name;
             }
         });
-
         return {
             device
         };
     },
     async getInfo(){
-        return this.parse();
+        let devicePixelRatio = globalThis?.devicePixelRatio||1;
+        return Object.assign({
+            devicePixelRatio
+        },this.parse());
     }
 }
