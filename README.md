@@ -37,6 +37,7 @@ let info = await browser.getInfo();
     "clientHeight":640,                 // 浏览器可视区域高度
     "device": "PC",                     // 设备类型
     "devicePixelRatio":1,               // 设备分辨率比
+    "deviceMemory":8,                   // 设备大致内存大小
     "architecture": "x86",              // 芯片架构
     "bitness": 64,                      // CPU架构位数
     "gpu": "Google",                    // GPU厂商

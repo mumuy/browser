@@ -27,8 +27,10 @@ export default {
     },
     async getInfo(){
         let devicePixelRatio = globalThis?.devicePixelRatio||1;
+        let deviceMemory = globalThis?.navigator?.deviceMemory||4;
         return Object.assign({
-            devicePixelRatio
+            devicePixelRatio,
+            deviceMemory
         },this.parse());
     }
 }
