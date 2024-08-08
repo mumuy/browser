@@ -1,10 +1,11 @@
 import _Chrome from './Chrome.js';
 import _360 from './360.js';
+import userAgent from '../runtime/userAgent.js';
 import getMime from '../method/getMime.js';
 
 export default {
     name:'360EE',
-    parse(ua = globalThis?.navigator?.userAgent){
+    parse(ua = userAgent){
         let hash = {
             '122':'22.3',       // 360极速X
             '119':'22.0',       // 360极速X

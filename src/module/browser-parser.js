@@ -17,7 +17,6 @@ import _Coc_Coc from './browser/Coc Coc.js';
 import _Kindle from './browser/Kindle.js';
 import _Iceweasel from './browser/Iceweasel.js';
 import _Konqueror from './browser/Konqueror.js';
-import _Iceape from './browser/Iceape.js';
 import _SeaMonkey from './browser/SeaMonkey.js';
 import _Epiphany from './browser/Epiphany.js';
 import _HONOR from './browser/HONOR.js';
@@ -68,6 +67,7 @@ import _Bytespider from './browser/Bytespider.js';
 import _YisouSpider from './browser/YisouSpider.js';
 import _YodaoBot from './browser/YodaoBot.js';
 import _YandexBot from './browser/YandexBot.js';
+import _Headless from './browser/Headless.js';
 
 import _WebKit from './engine/WebKit.js';
 import _Trident from './engine/Trident.js';
@@ -78,7 +78,7 @@ import _KHTML from './engine/KHTML.js';
 
 import userAgent from './runtime/userAgent.js';
 
-let browserList = [_Safari, _Chrome, _Edge, _IE, _Firefox, _Firefox_Focus, _Chromium, _Opera, _Opera_GX, _Vivaldi, _Yandex, _Brave, _Arora, _Lunascape, _QupZilla, _Coc_Coc, _Kindle, _Iceweasel, _Konqueror, _Iceape, _SeaMonkey, _Epiphany, _Huawei, _OPPO, _Vivo, _Xiaomi, _Meizu, _OnePlus, _Samsung, _360, _360EE, _360SE, _360EE_macOS, _360AI, _360AI_macOS, _360ENT, _UC, _QQBrowser, _QQ, _Baidu, _Maxthon, _Sogou, _Liebao, _2345Explorer, _115Browser, _TheWorld, _Quark, _Qiyu, _Lenovo, _Wechat, _WechatWork, _Taobao, _Alipay, _Weibo, _Douban, _Suning, _iQIYI, _DingTalk, _Douyin, _Toutiao, _Googlebot, _Baiduspider, _Sogouspider, _Bingbot, _360Spider, _Bytespider, _YisouSpider, _YodaoBot, _YandexBot];
+let browserList = [_Safari, _Chrome, _Edge, _IE, _Firefox, _Firefox_Focus, _Chromium, _Opera, _Opera_GX, _Vivaldi, _Yandex, _Brave, _Arora, _Lunascape, _QupZilla, _Coc_Coc, _Kindle, _Iceweasel, _Konqueror, _SeaMonkey, _Epiphany, _Huawei, _OPPO, _Vivo, _Xiaomi, _Meizu, _OnePlus, _Samsung, _360, _360EE, _360SE, _360EE_macOS, _360AI, _360AI_macOS, _360ENT, _UC, _QQBrowser, _QQ, _Baidu, _Maxthon, _Sogou, _Liebao, _2345Explorer, _115Browser, _TheWorld, _Quark, _Qiyu, _Lenovo, _Wechat, _WechatWork, _Taobao, _Alipay, _Weibo, _Douban, _Suning, _iQIYI, _DingTalk, _Douyin, _Toutiao, _Googlebot, _Baiduspider, _Sogouspider, _Bingbot, _360Spider, _Bytespider, _YisouSpider, _YodaoBot, _YandexBot, _Headless];
 browserList.forEach(item=>{
     if(!item.is){
         item.is = async function(){

@@ -41,13 +41,15 @@ export default {
         let clientHeight = globalThis?.document?.documentElement?.clientHeight||0;
         // 屏幕刷新率
         let screenFPS = await getScreenFPS();
+        let isTouch = globalThis?.navigator?.maxTouchPoints>0||false;
 
         return {
             screenWidth,
             screenHeight,
             clientWidth,
             clientHeight,
-            screenFPS
+            screenFPS,
+            isTouch
         };
     }
 }

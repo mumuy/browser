@@ -152,6 +152,7 @@ img{
     background: #f8fcff;
     white-space: nowrap;
     text-align: right;
+    vertical-align: top;
     color: #333;
 }
 .mod-panel td .subtitle{

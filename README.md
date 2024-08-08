@@ -48,8 +48,15 @@ let info = await browser.getInfo();
     "timezone":'Asia/Shanghai',         // 所处时区
     "isWebview": false,                 // 是否Webview(仅Android有效)
     "isBot": false,                     // 是否搜索引擎蜘蛛程序
+    "isTouch": false,                   // 是否为触屏
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/119.0.0.0 Safari/537.36"
 }
+```
+
+#### 浏览器支持情况
+```js
+// 判断浏览器是否支持某种字体
+let hasYaHei = browser.isSupport('font-family','Microsoft YaHei');
 ```
 
 <table>
@@ -76,9 +83,9 @@ let info = await browser.getInfo();
         <tr><td>Kindle</td><td>亚马逊电子书</td></tr>
         <tr><td>Iceweasel</td><td>Firefox浏览器的Debian再发布版</td></tr>
         <tr><td>Konqueror</td><td>开源Web浏览器和文件管理器</td></tr>
-        <tr><td>Iceape</td><td>&nbsp;</td></tr>
-        <tr><td>SeaMonkey</td><td>&nbsp;</td></tr>
-        <tr><td>Epiphany</td><td>&nbsp;</td></tr>
+        <tr><td>SeaMonkey</td><td>丰年虾浏览器，Mozilla基金会建构</td></tr>
+        <tr><td>Epiphany</td><td>GNOME 桌面下的主力浏览器</td></tr>
+        <tr><td>Headless</td><td>谷歌无头浏览器</td></tr>
         <tr><td rowspan="16">国内浏览器</td><td>360</td><td>360浏览器(手机版)</td></tr>
         <tr><td>360SE</td><td>360安全浏览器</td></tr>
         <tr><td>360EE</td><td>360极速浏览器</td></tr>
