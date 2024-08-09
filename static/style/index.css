@@ -78,6 +78,9 @@ img{
     opacity: .02;
 }
 
+.mod-panel{
+    margin-bottom: 25px;
+}
 .mod-panel .hd{
     width: 50%;
     margin-top: -56px;
@@ -179,6 +182,28 @@ img{
 }
 .mod-panel td .text-gray{
     color: #999;
+}
+
+.mod-intro{
+    border: 1px solid #e8e8e8;
+    border-radius: 6px;
+}
+.mod-intro .hd{
+    margin: 0 10px;
+    padding: 0 5px;
+    border-bottom: 1px solid #f0f0f0;
+    line-height: 40px;
+}
+.mod-intro .hd h3{
+    font-size: 16px;
+    font-weight: bold;
+}
+.mod-intro .bd{
+    padding: 15px;
+}
+.mod-intro .bd p{
+    line-height: 22px;
+    color: #666;
 }
 
 @media screen and (max-width: 800px) {

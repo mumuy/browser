@@ -89,6 +89,7 @@ let info = {
     "userAgent": "",
 };
 let browserList = ['Chrome','Safari','Firefox','Edge','IE','Opera','360','360SE','360EE','360AI','QQBrowser','Sogou','Liebao','Maxthon','TheWorld','Quark','2345Explorer','115Browser','UC','QQ','Wechat','Yandex','Vivaldi','Vivo','Meizu','Xiaomi','OPPO','OnePlus','Huawei','HONOR','Lenovo','Brave','Alipay','Taobao','Toutiao'];
+let systemList = ['Windows','Windows Phone','Linux','Android','macOS','iOS','HarmonyOS','FreeBSD','Debian','Ubuntu','UOS','BlackBerry','Chrome OS'];
 
 let fontList_html = [];
 fontList.forEach(function(item){
@@ -97,6 +98,13 @@ fontList.forEach(function(item){
     }
 });
 let getTemplate = function(info){
+    let system = info.system+' '+info.systemVersion;
+    let systemMap = {
+        'Windows XP':'Windows 7',
+        'Windows XP 64-bit':'Windows 7',
+        'Windows 7':'Windows 7',
+        'Windows Vista':'Windows 7'
+    };
     return `
     <table>
         <tbody>
@@ -113,7 +121,7 @@ let getTemplate = function(info){
                     <p class="subtitle">Browser</p>
                 </td>
                 <td>
-                    ${browserList.includes(info.browser)?`<img src="static/image/icon/${info.browser}.png" width="24" height="24"/>`:''}
+                    ${browserList.includes(info.browser)?`<img src="static/image/browser/${info.browser}.png" width="24" height="24"/>`:''}
                     <strong>${info.browser||'<img src="static/image/loading.gif" width="32" height="32"/>'}</strong>
                 </td>
             </tr>
@@ -136,7 +144,10 @@ let getTemplate = function(info){
                     <p class="title">操作系统</p>
                     <p class="subtitle">System</p>
                 </td>
-                <td>${info.system} ${info.systemVersion} (${info.bitness}位)</td>
+                <td>
+                    ${systemList.includes(info.system)?`<img src="static/image/system/${systemMap[system]??info.system}.png" width="24" height="24"/>`:''}
+                    <span>${info.system} ${info.systemVersion} (${info.bitness}位)</span>
+                </td>
             </tr>
             <tr>
                 <td class="th">

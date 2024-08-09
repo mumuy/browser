@@ -13,11 +13,12 @@ import _MeeGo from './system/MeeGo.js';
 import _Symbian from './system/Symbian.js';
 import _Chrome_OS from './system/Chrome OS.js';
 import _WebOS from './system/WebOS.js';
+import _UOS from './system/UOS.js';
 
 import userAgent from './runtime/userAgent.js';
 import globalThis from './runtime/globalThis.js';
 
-let systemList = [_Windows, _Linux, _macOS, _Android, _HarmonyOS, _Ubuntu, _FreeBSD, _Debian, _iOS, _Windows_Phone, _BlackBerry, _MeeGo, _Symbian, _Chrome_OS, _WebOS];
+let systemList = [_Windows, _Linux, _macOS, _Android, _HarmonyOS, _Ubuntu, _FreeBSD, _Debian, _iOS, _Windows_Phone, _BlackBerry, _MeeGo, _Symbian, _Chrome_OS, _WebOS, _UOS];
 systemList.forEach(item=>{
     if(!item.is){
         item.is = async function(){
