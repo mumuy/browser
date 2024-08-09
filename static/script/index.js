@@ -150,14 +150,24 @@ let getTemplate = function(info){
                     <p class="title">屏幕尺寸</p>
                     <p class="subtitle">Screen size</p>
                 </td>
-                <td>${info.screenWidth} x ${info.screenHeight}</td>
+                <td><span>${info.screenWidth} x ${info.screenHeight}</span></td>
+            </tr>
+             <tr>
+                <td class="th">
+                    <p class="title">可用屏幕尺寸</p>
+                    <p class="subtitle">Client size</p>
+                </td>
+                <td><span>${info.clientWidth} x ${info.clientHeight}</span></td>
             </tr>
             <tr>
                 <td class="th">
                     <p class="title">屏幕刷新率</p>
                     <p class="subtitle">Screen FPS</p>
                 </td>
-                <td>${info.screenFPS} <span class="text-gray">FPS</span></td>
+                <td>
+                    <span>${info.screenFPS}</span>
+                    <span class="text-gray">FPS</span>
+                </td>
             </tr>
             <tr>
                 <td class="th">
@@ -259,10 +269,19 @@ let getTemplate = function(info){
             </tr>
             <tr>
                 <td class="th">
-                    <p class="title">支持触屏</p>
+                    <p class="title">是否触屏</p>
                     <p class="subtitle">Is Touch Screen</p>
                 </td>
                 <td>${info.isTouch?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
+            </tr>
+            <tr>
+                <td class="th">
+                    <p class="title">是否支持WebGL</p>
+                    <p class="subtitle">Is Support WebGL</p>
+                </td>
+                <td>
+                    <div id="fontlist">${browser.isSupport('webgl')?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</div>
+                </td>
             </tr>
             <tr>
                 <td class="th">

@@ -103,7 +103,25 @@ img{
     border-radius: 3px;
 }
 .mod-panel .ft{
-    text-align: center;
+    position: sticky;
+    bottom: 0;
+    padding: 15px 20px;
+    background: url('../image/bg.png') center center/100% auto no-repeat;
+    line-height: 20px;
+}
+.mod-panel .ft p.title{
+    line-height: 24px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.mod-panel .ft p.subtitle{
+    line-height: 20px;
+    color: #666;
+}
+.mod-panel .ft .btn{
+    position: absolute;
+    top: 20px;
+    right: 25px;
 }
 .mod-panel strong{
     font-size: 16px;
@@ -167,6 +185,16 @@ img{
     .mod-panel .hd{
         margin-top: 0;
         padding: 5px 0;
+    }
+    .mod-panel .ft{
+        position: relative;
+        background-size: auto 100%;
+    }
+    .mod-panel .ft .btn{
+        position: static;
+        display: block;
+        width: 120px;
+        margin: 15px auto 0;
     }
     .mod-panel td.th{
         width: 24%;
