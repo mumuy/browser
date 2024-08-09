@@ -57,6 +57,9 @@ let info = await browser.getInfo();
 ```js
 // 判断浏览器是否支持某种字体
 let hasYaHei = browser.isSupport('font-family','Microsoft YaHei');
+
+// 判断浏览器是否支持WebGL
+let isWebGL = browser.isSupport('webgl');
 ```
 
 <table>

@@ -8,7 +8,8 @@ import screenParser from './module/screen-parser.js';
 import languageParser from './module/language-parser.js';
 import timezoneParser from './module/timezone-parser.js';
 
-import supportFontFamily from './module/support/fontFamily.js';
+import supportFontFamily from './module/support/font-family.js';
+import supportWebGL from './module/support/webgl.js';
 
 export default {
     parse(ua){
@@ -42,7 +43,8 @@ export default {
     },
     isSupport(name,value){
         let support = [
-            supportFontFamily
+            supportFontFamily,
+            supportWebGL
         ].find(support=>name==support.name);
         return support?support.is(value):false;
     }

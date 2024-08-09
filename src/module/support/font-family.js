@@ -4,10 +4,10 @@ export default {
     name:'font-family',
     is(value='Arial'){
         if (typeof value != 'string'||!globalThis?.document) {
-            return false
+            return false;
         }
         let defaultValue = "Arial";
-        let world = "a";
+        let world = "永";
         let fontSize = 100;
         let width = 100,
             height = 100;
@@ -27,6 +27,6 @@ export default {
                 return v != 0;
             })
         };
-        return test(defaultValue).join("") !== test(value).join("")
+        return test(defaultValue).join("") !== test(value).join("");
     }
 };
