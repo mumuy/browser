@@ -37,10 +37,12 @@ export default {
         // 屏幕尺寸
         let screenWidth = globalThis?.screen?.width||0;
         let screenHeight = globalThis?.screen?.height||0;
-        let clientWidth = globalThis?.document?.documentElement?.clientWidth||0;
-        let clientHeight = globalThis?.document?.documentElement?.clientHeight||0;
+        let clientWidth = globalThis?.document?.documentElement?.clientWidth||globalThis?.document?.body?.clientWidth||0;
+        let clientHeight = globalThis?.document?.documentElement?.clientHeight||globalThis?.document?.body?.clientHeight||0;
         // 屏幕刷新率
         let screenFPS = await getScreenFPS();
+        let screenColorDepth = globalThis?.screen.colorDepth;
+        let screenPixelDepth = globalThis?.screen.pixelDepth;
         let isTouch = globalThis?.navigator?.maxTouchPoints>0||false;
 
         return {
@@ -49,6 +51,8 @@ export default {
             clientWidth,
             clientHeight,
             screenFPS,
+            screenColorDepth,
+            screenPixelDepth,
             isTouch
         };
     }

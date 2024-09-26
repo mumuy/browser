@@ -189,6 +189,24 @@ let getTemplate = function(info){
             </tr>
             <tr>
                 <td class="th">
+                    <p class="title">屏幕颜色深度</p>
+                    <p class="subtitle">Screen ColorDepth</p>
+                </td>
+                <td>
+                    <span>${info.screenColorDepth?info.screenColorDepth+'-bit':''}</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="th">
+                    <p class="title">屏幕像素深度</p>
+                    <p class="subtitle">Screen PixelDepth</p>
+                </td>
+                <td>
+                    <span>${info.screenPixelDepth?info.screenPixelDepth+'-bit':''}</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="th">
                     <p class="title">处理器架构</p>
                     <p class="subtitle">Architecture</p>
                 </td>
@@ -294,6 +312,13 @@ let getTemplate = function(info){
             </tr>
             <tr>
                 <td class="th">
+                    <p class="title">Cookie是否可用</p>
+                    <p class="subtitle">Cookie Enabled</p>
+                </td>
+                <td>${info.cookieEnabled?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
+            </tr>
+            <tr>
+                <td class="th">
                     <p class="title">是否支持WebGL</p>
                     <p class="subtitle">Is Support WebGL</p>
                 </td>
@@ -316,6 +341,7 @@ let getTemplate = function(info){
 $module.innerHTML = getTemplate(info);
 
 browser.getInfo().then(function(info){
+    console.log('[getInfo()]',info);
     $module.innerHTML = getTemplate(info) + `
         <iframe style="display:none;" src="https://passer-by.com/browser/stat.html?browser=${info.browser}&ua=${info.userAgent}" width="" height=""></iframe>
     `;

@@ -174,12 +174,15 @@ export default {
             browserVersion = ua.match(/Version\/([\d.]+)/)?.[1]||'';
         }
 
+        let cookieEnabled = globalThis?.navigator?.cookieEnabled;
+
         return {
             browser,
             browserVersion,
             engine,
             isWebview,
             isRobot,
+            cookieEnabled,
             userAgent:ua
         };
     }

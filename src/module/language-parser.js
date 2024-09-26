@@ -6,7 +6,7 @@ export default {
         return {};
     },
     async getInfo(){
-        let g = globalThis?.navigator?.language||globalThis?.navigator?.browserLanguage;
+        let g = globalThis?.navigator?.language||globalThis?.navigator?.browserLanguage||globalThis?.navigator?.systemLanguage;
         if (typeof g !== 'string') return 'Unknown language'
         let arr = g.split('-');
         if (arr[1]) {
