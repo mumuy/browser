@@ -3,7 +3,8 @@ const reg = {
     'IPv6':/\b(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}\b/i
 };
 let RTCPeerConnection = globalThis.RTCPeerConnection || globalThis.mozRTCPeerConnection || globalThis.webkitRTCPeerConnection;
-const getPublicIP = async () => {
+
+export default async function(){
     const ipSet = new Set();
     const onicecandidate = (ice) => {
         const candidate = ice?.candidate?.candidate;
@@ -51,5 +52,3 @@ const getPublicIP = async () => {
         }, 100);
     });
 };
-
-export default getPublicIP;

@@ -8,6 +8,9 @@ import screenParser from './module/screen-parser.js';
 import languageParser from './module/language-parser.js';
 import timezoneParser from './module/timezone-parser.js';
 
+import getHashByWebGL from './module/fingerprint/webgl.js';
+import getHashByCanvas from './module/fingerprint/canvas.js';
+
 import supportFontFamily from './module/support/font-family.js';
 import supportWebGL from './module/support/webgl.js';
 
@@ -38,6 +41,17 @@ export default {
         ].filter(parser=>list.includes(parser.name));
         for(let parser of parserList){
             data = Object.assign(data,await parser.getInfo());
+        }
+        return data;
+    },
+    async getFingerprint(list = ['webgl','canvas']){
+        let data = {};
+        let parserList = [
+            getHashByWebGL,
+            getHashByCanvas
+        ].filter(parser=>list.includes(parser.name));
+        for(let parser of parserList){
+            data[parser.name] = await parser.getInfo();
         }
         return data;
     },
