@@ -8,6 +8,8 @@ import screenParser from './module/screen-parser.js';
 import languageParser from './module/language-parser.js';
 import timezoneParser from './module/timezone-parser.js';
 
+import userAgent from './module/runtime/userAgent.js';
+
 import getHashByWebGL from './module/fingerprint/webgl.js';
 import getHashByCanvas from './module/fingerprint/canvas.js';
 import getHashByFont from './module/fingerprint/font.js';
@@ -56,7 +58,7 @@ export default {
             getHashByFont,
             getHashByAudio
         ].filter(parser=>list.includes(parser.name));
-        let group = [];
+        let group = [userAgent];
         for(let parser of parserList){
             data[parser.name] = await parser.getInfo();
             group.push(data[parser.name]);
