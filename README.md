@@ -65,7 +65,7 @@ let isWebGL = browser.isSupport('webgl');
 #### 获取浏览器指纹
 ```js
 // 浏览器各项综合特征指纹
-let data = browser.getFingerprint();
+let data = await browser.getFingerprint();
 console.log('[浏览器指纹]',data.value);
 ```
 
