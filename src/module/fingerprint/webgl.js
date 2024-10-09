@@ -43,14 +43,11 @@ export default {
         webgl.drawArrays(webgl.TRIANGLE_STRIP, 0, buffer.numItems);
         let unit = new Uint8Array(131072);
         webgl.readPixels(0, 0, 256, 128, webgl.RGBA, webgl.UNSIGNED_BYTE, unit);
-        return new Promise(function(resolve,reject){
-            let hash = JSON.stringify(unit).replace(/,?"[0-9]+":/g, "");
-            if("" == hash.replace(/^{[0]+}$/g, "")){
-                resolve('n/a');
-            }else{
-                hash = getMD5(hash);
-                resolve(hash);
-            };
-        });
+        let hash = JSON.stringify(unit).replace(/,?"[0-9]+":/g, "");
+        if("" == hash.replace(/^{[0]+}$/g, "")){
+            return 'n/a';
+        }else{
+            return getMD5(hash);
+        };
     }
 };

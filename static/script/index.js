@@ -323,7 +323,7 @@ let getTemplate = function(info){
                     <p class="subtitle">Is Support WebGL</p>
                 </td>
                 <td>
-                    <div id="fontlist">${browser.isSupport('webgl')?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</div>
+                    <div>${browser.isSupport('webgl')?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</div>
                 </td>
             </tr>
             <tr>
@@ -332,7 +332,16 @@ let getTemplate = function(info){
                     <p class="subtitle">Font Family</p>
                 </td>
                 <td>
-                    <div id="fontlist">${fontList_html.join('')}</div>
+                    <div>${fontList_html.join('')}</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="th">
+                    <p class="title">浏览器指纹</p>
+                    <p class="subtitle">Browser Fingerprint</p>
+                </td>
+                <td>
+                    <div id="fingerprint">-</div>
                 </td>
             </tr>
         </tbody>
@@ -341,8 +350,10 @@ let getTemplate = function(info){
 $module.innerHTML = getTemplate(info);
 
 browser.getInfo().then(function(info){
-    console.log('[getInfo()]',info);
     $module.innerHTML = getTemplate(info) + `
         <iframe style="display:none;" src="https://passer-by.com/browser/stat.html?browser=${info.browser}&ua=${info.userAgent}" width="" height=""></iframe>
     `;
+    browser.getFingerprint().then(function(fingerprint){
+        document.querySelector('#fingerprint').innerText = fingerprint.value;
+    });
 });

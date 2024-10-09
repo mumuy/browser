@@ -10,6 +10,10 @@ import timezoneParser from './module/timezone-parser.js';
 
 import getHashByWebGL from './module/fingerprint/webgl.js';
 import getHashByCanvas from './module/fingerprint/canvas.js';
+import getHashByFont from './module/fingerprint/font.js';
+import getHashByAudio from './module/fingerprint/audio.js';
+
+import getMD5 from './module/utils/getMD5.js';
 
 import supportFontFamily from './module/support/font-family.js';
 import supportWebGL from './module/support/webgl.js';
@@ -44,15 +48,20 @@ export default {
         }
         return data;
     },
-    async getFingerprint(list = ['webgl','canvas']){
+    async getFingerprint(list = ['webgl','canvas','font','audio']){
         let data = {};
         let parserList = [
             getHashByWebGL,
-            getHashByCanvas
+            getHashByCanvas,
+            getHashByFont,
+            getHashByAudio
         ].filter(parser=>list.includes(parser.name));
+        let group = [];
         for(let parser of parserList){
             data[parser.name] = await parser.getInfo();
+            group.push(data[parser.name]);
         }
+        data['value'] = getMD5(group.join(','));
         return data;
     },
     isSupport(name,value){
