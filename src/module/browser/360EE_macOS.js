@@ -2,11 +2,11 @@ import globalThis from '../runtime/globalThis.js';
 
 const GetDeviceInfo = () => {
     return new Promise((resolve) => {
-        const randomCv = `cv_${new Date().getTime() % 100000}${Math.floor(Math.random()) * 100}`
-        const params = { key: 'GetDeviceInfo', data: {}, callback: randomCv }
-        const Data = JSON.stringify(params)
-        if(globalThis?.webkit?.messageHandlers){
-            globalThis.webkit.messageHandlers['excuteCmd'].postMessage(Data)
+        if(globalThis?.webkit?.messageHandlers?.excuteCmd){
+            const randomCv = `cv_${Date.now() % 100000}${Math.floor(Math.random()) * 100}`;
+            const params = { key: 'GetDeviceInfo', data: {}, callback: randomCv };
+            const Data = JSON.stringify(params);
+            globalThis.webkit.messageHandlers.excuteCmd.postMessage(Data);
             globalThis[randomCv] = function (response) {
                 delete globalThis[randomCv];
                 resolve(JSON.parse(response||'{}'));
