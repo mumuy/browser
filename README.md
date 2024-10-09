@@ -62,6 +62,13 @@ let hasYaHei = browser.isSupport('font-family','Microsoft YaHei');
 let isWebGL = browser.isSupport('webgl');
 ```
 
+#### 获取浏览器指纹
+```js
+// 浏览器各项综合特征指纹
+let data = browser.getFingerprint();
+console.log('[浏览器指纹]',data.value);
+```
+
 <table>
     <caption><h3>browser - 浏览器</h3></caption>
     <thead>

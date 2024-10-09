@@ -3,7 +3,7 @@ import userAgent from '../runtime/userAgent.js';
 export default {
     name:'HarmonyOS',
     parse(ua = userAgent){
-        let version = ua.match(/HarmonyOS (\d+.\d+)/)?.[1]||'';
+        let version = ua.match(/HarmonyOS (\d+.\d+)/)?.[1]||ua.match(/OpenHarmony(\d+.\d+)/)?.[1]||'';
         if(!version){
             let v = +ua.match(/HMSCore (\d+.\d+)/)?.[1]||0;
             if(v>=6.1){
@@ -23,7 +23,7 @@ export default {
             version =  androidMap[av]??version;
         }
         return {
-            is:ua.includes('HarmonyOS')||ua.includes('ArkWeb'),
+            is:ua.includes('HarmonyOS')||ua.includes('OpenHarmony')||ua.includes('ArkWeb'),
             version
         };
     }
