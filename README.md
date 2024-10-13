@@ -2,7 +2,7 @@
 【项目主页】[https://passer-by.com/browser/](https://passer-by.com/browser/)
 
 #### 应用案例(Sample)
-【BroserIs.com】[https://browseris.com/](https://browseris.com/)
+【BrowserIs.com】[https://browseris.com/](https://browseris.com/)
 
 #### 下载 & 安装
 
