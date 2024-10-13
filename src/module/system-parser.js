@@ -53,6 +53,14 @@ export default {
             platform = 'ARM64';
         }else if(ua.match(/arm32/)){
             platform = 'ARM32';
+        }else if(ua.match(/iPhone/)){
+            platform = 'iPhone';
+        }else if(ua.match(/iPad/)){
+            platform = 'iPad';
+        }else if(ua.match(/iPod/)){
+            platform = 'iPod';
+        }else if(ua.match(/Android/)){
+            platform = 'Android';
         }
     
         let architecture = '';
