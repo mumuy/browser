@@ -26,6 +26,11 @@
     "bugs": {
         "url": "https://github.com/mumuy/browser/issues"
     },
+    "engines": {
+        "node": ">=20",
+        "yarn": "please-use-npm",
+        "npm": ">=8"
+    },
     "files":[
         "dist"
     ],
