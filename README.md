@@ -127,7 +127,7 @@ console.log('[浏览器指纹]',data.value);
         <tr><td>OnePlus</td><td>一加浏览器</td></tr>
         <tr><td>Samsung</td><td>三星浏览器</td></tr>
         <tr><td>Lenovo</td><td>联想浏览器</td></tr>
-        <tr><td rowspan="12">客户端</td><td>QQ</td><td>QQ客户端</td></tr>
+        <tr><td rowspan="13">客户端</td><td>QQ</td><td>QQ客户端</td></tr>
         <tr><td>Wechat</td><td>微信手机客户端</td></tr>
         <tr><td>WechatWork</td><td>企业微信客户端</td></tr>
         <tr><td>Taobao</td><td>淘宝手机客户端</td></tr>
@@ -139,6 +139,7 @@ console.log('[浏览器指纹]',data.value);
         <tr><td>DingTalk</td><td>钉钉手机客户端</td></tr>
         <tr><td>Douyin</td><td>抖音客户端</td></tr>
         <tr><td>Toutiao</td><td>头条客户端</td></tr>
+        <tr><td>Facebook</td><td>Facebook客户端</td></tr>
         <tr><td rowspan="9">爬虫</td><td>Googlebot</td><td>谷歌爬虫</td></tr>
         <tr><td>Baiduspider</td><td>百度爬虫</td></tr>
         <tr><td>Sogouspider</td><td>搜狗爬虫</td></tr>
