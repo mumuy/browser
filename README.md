@@ -1,4 +1,10 @@
-## 下载 & 安装
+#### 项目演示(Demo)
+【项目主页】[https://passer-by.com/browser/](https://passer-by.com/browser/)
+
+#### 应用案例(Sample)
+【BrowserIs.com】[https://browseris.com/](https://browseris.com/)
+
+#### 下载 & 安装
 
 该 Javascript 库 / 模块可以用于前端也可以用于后端 Nodejs 中。
 
@@ -65,7 +71,7 @@ let isWebGL = browser.isSupport('webgl');
 #### 获取浏览器指纹
 ```js
 // 浏览器各项综合特征指纹
-let data = browser.getFingerprint();
+let data = await browser.getFingerprint();
 console.log('[浏览器指纹]',data.value);
 ```
 
