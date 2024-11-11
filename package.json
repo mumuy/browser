@@ -35,14 +35,14 @@
         "dist"
     ],
     "devDependencies": {
-        "@babel/core": "^7.24.7",
-        "@babel/plugin-transform-runtime": "^7.24.7",
-        "@babel/preset-env": "^7.24.7",
-        "@babel/runtime": "^7.24.7",
+        "@babel/core": "^7.26.0",
+        "@babel/plugin-transform-runtime": "^7.25.9",
+        "@babel/preset-env": "^7.26.0",
+        "@babel/runtime": "^7.26.0",
         "@rollup/plugin-babel": "^6.0.4",
-        "@rollup/plugin-node-resolve": "^15.2.3",
+        "@rollup/plugin-node-resolve": "^15.3.0",
         "@rollup/plugin-terser": "^0.4.4",
-        "rollup": "^3.29.4"
+        "rollup": "^3.29.5"
     },
     "scripts": {
         "build": "rollup -c",
