@@ -58,7 +58,8 @@ export default {
             getHashByFont,
             getHashByAudio
         ].filter(parser=>list.includes(parser.name));
-        let group = [userAgent];
+        let screen = await screenParser.getInfo();
+        let group = [userAgent,JSON.stringify(screen)];
         for(let parser of parserList){
             data[parser.name] = await parser.getInfo();
             group.push(data[parser.name]);
