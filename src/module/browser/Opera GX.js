@@ -7,7 +7,7 @@ export default {
         let isMatch = false;
         if(_Opera.parse(ua).is){
             isMatch = ua.includes('Edition GX');
-        }else if(ua.is.includes('OPX/')){
+        }else if(ua.includes('OPX/')){
             isMatch = true;
         }
         return {
