@@ -14,6 +14,7 @@ import getHashByWebGL from './module/fingerprint/webgl.js';
 import getHashByCanvas from './module/fingerprint/canvas.js';
 import getHashByFont from './module/fingerprint/font.js';
 import getHashByAudio from './module/fingerprint/audio.js';
+import getHashByMime from './module/fingerprint/mime.js';
 
 import getMD5 from './module/utils/getMD5.js';
 
@@ -50,13 +51,14 @@ export default {
         }
         return data;
     },
-    async getFingerprint(list = ['webgl','canvas','font','audio']){
+    async getFingerprint(list = ['webgl','canvas','font','audio','mime']){
         let data = {};
         let parserList = [
             getHashByWebGL,
             getHashByCanvas,
             getHashByFont,
-            getHashByAudio
+            getHashByAudio,
+            getHashByMime
         ].filter(parser=>list.includes(parser.name));
         let screen = await screenParser.getInfo();
         let group = [userAgent,JSON.stringify(screen)];

@@ -3,7 +3,7 @@ import userAgent from '../runtime/userAgent.js';
 import globalThis from '../runtime/globalThis.js';
 
 export default {
-    name:'2345Explorer',
+    name:'2345Browser',
     parse(ua = userAgent){
         let hash = {
             '109':'13.0',

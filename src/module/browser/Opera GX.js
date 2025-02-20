@@ -7,10 +7,12 @@ export default {
         let isMatch = false;
         if(_Opera.parse(ua).is){
             isMatch = ua.includes('Edition GX');
+        }else if(ua.is.includes('OPX/')){
+            isMatch = true;
         }
         return {
             is:isMatch,
-            version:_Opera.parse(ua).version
+            version:_Opera.parse(ua).version||ua.match(/OPX\/([\d.]+)/)?.[1]||''
         };
     }
 }
