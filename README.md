@@ -141,7 +141,7 @@ console.log('[浏览器指纹]',data.value);
         <tr><td>Toutiao</td><td>头条客户端</td></tr>
         <tr><td>Facebook</td><td>Facebook客户端</td></tr>
         <tr><td>Line</td><td>Line客户端</td></tr>
-        <tr><td rowspan="9">爬虫</td><td>Googlebot</td><td>谷歌爬虫</td></tr>
+        <tr><td rowspan="10">爬虫</td><td>Googlebot</td><td>谷歌爬虫</td></tr>
         <tr><td>Baiduspider</td><td>百度爬虫</td></tr>
         <tr><td>Sogouspider</td><td>搜狗爬虫</td></tr>
         <tr><td>Bingbot</td><td>必应爬虫</td></tr>
@@ -150,6 +150,7 @@ console.log('[浏览器指纹]',data.value);
         <tr><td>YisouSpider</td><td>神马搜索爬虫</td></tr>
         <tr><td>YodaoBot</td><td>有道搜索爬虫</td></tr>
         <tr><td>YandexBot</td><td>Yandex搜索引擎爬虫</td></tr>
+        <tr><td>Yahoo</td><td>Yahoo蜘蛛</td></tr>
     </tbody>
 </table>
 
