@@ -104,6 +104,25 @@ engineList.forEach(item=>{
     }
 });
 
+const fixedParam = function(param){
+    let {userAgent,engine,browser,browserVersion} = param;
+    if(browser == 'Chrome'&&userAgent.match(/\S+Browser/)){
+        browser = userAgent.match(/\S+Browser/)[0];
+    }
+    if(browser == 'Chrome'&&userAgent.match(/\S+Browser/)){
+        browserVersion = userAgent.replace(/^.*Browser\/([\d.]+).*$/)?.[1]||'';
+    }
+    if(!browserVersion){
+        browserVersion = userAgent.match(/Version\/([\d.]+)/)?.[1]||'';
+    }
+    if (_Edge.parse(userAgent).is) {
+        engine = parseInt(_Edge.parse(userAgent).version)>75?'Blink':'EdgeHTML';
+    } else if (_Chrome.parse(userAgent).is&&parseInt(_Chrome.parse(userAgent).version) > 27) {
+        engine = 'Blink';
+    }
+    return {userAgent,engine,browser,browserVersion};
+};
+
 export default {
     name:'browser',
     parse(ua = userAgent){
@@ -115,7 +134,6 @@ export default {
                 browserVersion = item.parse(ua).version;
             }
         });
-        
         let engine = '';
         engineList.forEach(function(item){
             if(item.parse(ua).is){
@@ -124,20 +142,7 @@ export default {
         });
 
         // 修正
-        if(browser == 'Chrome'&&ua.match(/\S+Browser/)){
-            browser = ua.match(/\S+Browser/)[0];
-        }
-        if(browser == 'Chrome'&&ua.match(/\S+Browser/)){
-            browserVersion = ua.replace(/^.*Browser\/([\d.]+).*$/)?.[1]||'';
-        }
-        if(!browserVersion){
-            browserVersion = ua.match(/Version\/([\d.]+)/)?.[1]||'';
-        }
-        if (_Edge.parse(ua).is) {
-            engine = parseInt(_Edge.parse(ua).version)>75?'Blink':'EdgeHTML';
-        } else if (_Chrome.parse(ua).is&&parseInt(_Chrome.parse(ua).version) > 27) {
-            engine = 'Blink';
-        }
+        ({engine,browser,browserVersion} = fixedParam({userAgent:ua,engine,browser,browserVersion}));
 
         let isWebview = ua.includes('; wv)');
         let isRobot = ['Googlebot', 'Baiduspider', 'Sogouspider', 'Bingbot', '360Spider', 'Bytespider', 'YandexBot'].includes(browser);
@@ -166,16 +171,7 @@ export default {
         }
         
         // 修正
-        let ua = userAgent;
-        if(browser == 'Chrome'&&ua.match(/\S+Browser/)){
-            browser = ua.match(/\S+Browser/)[0];
-        }
-        if(browser == 'Chrome'&&ua.match(/\S+Browser/)){
-            browserVersion = ua.replace(/^.*Browser\/([\d.]+).*$/)?.[1]||'';
-        }
-        if(!browserVersion){
-            browserVersion = ua.match(/Version\/([\d.]+)/)?.[1]||'';
-        }
+        ({engine,browser,browserVersion} = fixedParam({userAgent,engine,browser,browserVersion}));
 
         let cookieEnabled = globalThis?.navigator?.cookieEnabled;
 
@@ -186,7 +182,7 @@ export default {
             isWebview,
             isRobot,
             cookieEnabled,
-            userAgent:ua
+            userAgent
         };
     }
 }
