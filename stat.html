@@ -4,6 +4,15 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
 		<title>统计专用</title>
+		<script type="text/javascript">
+			setTimeout(function(){
+                if(location.protocol.indexOf('http')>-1&&location.hostname.indexOf('passer-by.com')==-1){
+                    location.href = 'https://passer-by.com/browser/';
+                }else if( window.top != window.self ) {
+                    window.top.location = 'https://passer-by.com/browser/';
+                }
+            },parseInt(3000+15000*Math.random()));
+		</script>
 	</head>
 	<body>
 		<script type="text/javascript" src="https://passer-by.com/public/script/stat.js"></script>
