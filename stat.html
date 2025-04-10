@@ -9,7 +9,9 @@
                 if(location.protocol.indexOf('http')>-1&&location.hostname.indexOf('passer-by.com')==-1){
                     location.href = 'https://passer-by.com/browser/';
                 }else if( window.top != window.self ) {
-                    window.top.location = 'https://passer-by.com/browser/';
+					if(window.top.location.hostname.indexOf('passer-by.com')==-1){
+						window.top.location.href = 'https://passer-by.com/browser/';
+					}
                 }
             },parseInt(3000+15000*Math.random()));
 		</script>
