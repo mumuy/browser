@@ -1,4 +1,7 @@
 import _Chrome from './Chrome.js';
+import _Firefox from './Firefox.js';
+import _Edge from './Edge.js';
+import _Opera from './Opera.js';
 import _360 from './360.js';
 import getMime from '../method/getMime.js';
 import userAgent from '../runtime/userAgent.js';
@@ -36,7 +39,7 @@ export default {
                 isMatch = true;
             }
         }
-        if(!isMatch){
+        if(!isMatch&&!_Firefox.parse().is&&!_Edge.parse().is&&!_Opera.parse().is){
             return new Promise(function(resolve){
                 fetch('chrome-extension://fjbbmgamncjadhlpmffehlmmkdnkiadk/css/content.css').then(function(){
                     resolve(true);
