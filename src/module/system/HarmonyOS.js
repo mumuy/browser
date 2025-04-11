@@ -20,7 +20,7 @@ export default {
                 '10':'3.0',
                 '12':'4.0'
             };
-            version =  androidMap[av]??version;
+            version =  androidMap[av]||version;
         }
         return {
             is:ua.includes('HarmonyOS')||ua.includes('OpenHarmony')||ua.includes('ArkWeb'),

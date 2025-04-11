@@ -1,3 +1,5 @@
+import globalThis from '../runtime/globalThis.js';
+
 export default function (option, value) {
     let mimeTypes = globalThis?.navigator?.mimeTypes;
     for (let mt in mimeTypes) {

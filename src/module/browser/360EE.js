@@ -1,5 +1,6 @@
 import _Chrome from './Chrome.js';
 import _360 from './360.js';
+import globalThis from '../runtime/globalThis.js';
 import userAgent from '../runtime/userAgent.js';
 import getMime from '../method/getMime.js';
 

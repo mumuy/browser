@@ -10,6 +10,6 @@ export default {
         };
     },
     async is(){
-        return this.parse().is??globalThis?.navigator=='';
+        return this.parse().is||globalThis?.navigator=='';
     }
 }

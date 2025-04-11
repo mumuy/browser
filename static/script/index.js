@@ -152,7 +152,7 @@ let getTemplate = function(info){
                     <p class="subtitle">System</p>
                 </td>
                 <td>
-                    ${systemList.includes(info.system)?`<img src="static/image/system/${systemMap[system]??info.system}.png" width="24" height="24"/>`:''}
+                    ${systemList.includes(info.system)?`<img src="static/image/system/${systemMap[system]||info.system}.png" width="24" height="24"/>`:''}
                     <span>${info.system} ${info.systemVersion} (${info.bitness}位)</span>
                 </td>
             </tr>

@@ -1,6 +1,7 @@
 import _Mobile from './device/Mobile.js';
 import _Tablet from './device/Tablet.js';
 
+import globalThis from './runtime/globalThis.js';
 import userAgent from './runtime/userAgent.js';
 
 let deviceList = [_Mobile,_Tablet];
