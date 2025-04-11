@@ -193,6 +193,12 @@ console.log('[浏览器指纹]',data.value);
         <tr><td>WebOS</td><td>Palm公司操作系统</td></tr>
         <tr><td>HarmonyOS</td><td>华为操作系统</td></tr>
         <tr><td>UOS</td><td>统信UOS操作系统</td></tr>
+        <tr><td>CentOS</td><td>CentOS操作系统</td></tr>
+        <tr><td>Fedora</td><td>Fedora操作系统</td></tr>
+        <tr><td>Gentoo</td><td>Gentoo操作系统</td></tr>
+        <tr><td>Red Hat</td><td>Red Hat操作系统</td></tr>
+        <tr><td>SUSE</td><td>SUSE操作系统</td></tr>
+        <tr><td>Slackware</td><td>Slackware操作系统</td></tr>
     </tbody>
 </table>
 
