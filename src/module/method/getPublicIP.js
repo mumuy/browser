@@ -20,37 +20,42 @@ export default async function(){
         }
     };
     return new Promise(function(resolve, reject){
-        const conn = new RTCPeerConnection({
-            iceServers: [{
-                urls: 'stun:stun.l.google.com:19302',
-            },{
-                urls: 'stun:stun.services.mozilla.com'
-            }]
-        });
-        conn.addEventListener('icecandidate', onicecandidate);
-        conn.createDataChannel('');
-        conn.createOffer().then((offer) => conn.setLocalDescription(offer), reject);
-        let count = 20;
-        let hander = null;
-        let closeConnect = function(){
-            try {
-                conn.removeEventListener('icecandidate', onicecandidate);
-                conn.close();
-            }catch{
-            }
-            hander&&clearInterval(hander);
-        };
-        hander = setInterval(function(){
-            let ips = [...ipSet];
-            if(ips.length){
-                closeConnect();
-                resolve(ips[0]);
-            }else if(count){
-                count--;
-            }else{
-                closeConnect();
-                resolve('');
-            }
-        }, 100);
+        const PeerConnection = globalThis.RTCPeerConnection || globalThis.webkitRTCPeerConnection || globalThis.mozRTCPeerConnection;
+        if(PeerConnection){
+            const conn = new PeerConnection({
+                iceServers: [{
+                    urls: 'stun:stun.l.google.com:19302',
+                },{
+                    urls: 'stun:stun.services.mozilla.com'
+                }]
+            });
+            conn.addEventListener('icecandidate', onicecandidate);
+            conn.createDataChannel('');
+            conn.createOffer().then((offer) => conn.setLocalDescription(offer), reject);
+            let count = 20;
+            let hander = null;
+            let closeConnect = function(){
+                try {
+                    conn.removeEventListener('icecandidate', onicecandidate);
+                    conn.close();
+                }catch{
+                }
+                hander&&clearInterval(hander);
+            };
+            hander = setInterval(function(){
+                let ips = [...ipSet];
+                if(ips.length){
+                    closeConnect();
+                    resolve(ips[0]);
+                }else if(count){
+                    count--;
+                }else{
+                    closeConnect();
+                    resolve('');
+                }
+            }, 100);
+        }else{
+            resolve('');
+        }
     });
 };
