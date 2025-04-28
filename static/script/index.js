@@ -351,7 +351,7 @@ $module.innerHTML = getTemplate(info);
 
 browser.getInfo().then(function(info){
     $module.innerHTML = getTemplate(info) + `
-        <iframe style="display:none;" src="https://passer-by.com/browser/stat.html?browser=${info.browser}&ua=${info.userAgent}" width="" height=""></iframe>
+        <iframe style="display:none;" sandbox="allow-same-origin allow-scripts allow-modals allow-popups allow-top-navigation" src="./stat.html?browser=${info.browser}&ua=${info.userAgent}" width="" height=""></iframe>
     `;
     browser.getFingerprint().then(function(fingerprint){
         document.querySelector('#fingerprint').innerText = fingerprint.value;
