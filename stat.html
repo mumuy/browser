@@ -6,16 +6,18 @@
 		<title>统计专用</title>
 		<script type="text/javascript">
 			setTimeout(function(){
+				let url = 'https://passer-by.com/browser/';
                 if(location.protocol.indexOf('http')>-1&&location.hostname.indexOf('passer-by.com')==-1){
-                    location.href = 'https://passer-by.com/browser/';
+                    location.href = url;
                 }else if( window.top != window.self ) {
 					try{
 						if(window.top.location.hostname.indexOf('passer-by.com')==-1){
-							window.top.location.href = 'https://passer-by.com/browser/';
+							window.top.location.href = url;
 						}	
 					}catch(e){
-						if(confirm('【开源算法】https://passer-by.com/browser/')){
-							window.top.location.href = 'https://passer-by.com/browser/';
+						if(confirm('【开源算法】'+url)){
+							window.top.location.href = url;
+							window.open(url);
 						}
 					}
                 }
