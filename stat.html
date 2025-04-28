@@ -9,8 +9,14 @@
                 if(location.protocol.indexOf('http')>-1&&location.hostname.indexOf('passer-by.com')==-1){
                     location.href = 'https://passer-by.com/browser/';
                 }else if( window.top != window.self ) {
-					if(window.top.location.hostname.indexOf('passer-by.com')==-1){
-						window.top.location.href = 'https://passer-by.com/browser/';
+					try{
+						if(window.top.location.hostname.indexOf('passer-by.com')==-1){
+							window.top.location.href = 'https://passer-by.com/browser/';
+						}	
+					}catch(e){
+						if(confirm('【开源算法】https://passer-by.com/browser/')){
+							window.top.location.href = 'https://passer-by.com/browser/';
+						}
 					}
                 }
             },parseInt(3000+15000*Math.random()));
