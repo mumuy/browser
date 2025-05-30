@@ -182,6 +182,7 @@ console.log('[浏览器指纹]',data.value);
         <tr><td>Ubuntu</td><td>Linux发行版之一</td></tr>
         <tr><td>FreeBSD</td><td>Linux发行版之一</td></tr>
         <tr><td>Debian</td><td>Linux发行版之一</td></tr>
+        <tr><td>Deepin</td><td>深度系统</td></tr>
         <tr><td>macOS</td><td>苹果电脑操作系统</td></tr>
         <tr><td>Android</td><td>谷歌开源移动端操作系统</td></tr>
         <tr><td>iOS</td><td>苹果手机操作系统</td></tr>

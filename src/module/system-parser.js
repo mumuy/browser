@@ -6,6 +6,7 @@ import _HarmonyOS from './system/HarmonyOS.js';
 import _Ubuntu from './system/Ubuntu.js';
 import _FreeBSD from './system/FreeBSD.js';
 import _Debian from './system/Debian.js';
+import _Deepin from './system/Deepin.js';
 import _iOS from './system/iOS.js';
 import _Windows_Phone from './system/Windows Phone.js';
 import _BlackBerry from './system/BlackBerry.js';
@@ -24,7 +25,7 @@ import _Slackware from './system/Slackware.js';
 import userAgent from './runtime/userAgent.js';
 import globalThis from './runtime/globalThis.js';
 
-let systemList = [_Windows, _Linux, _macOS, _Android, _HarmonyOS, _Ubuntu, _FreeBSD, _Debian, _iOS, _Windows_Phone, _BlackBerry, _MeeGo, _Symbian, _Chrome_OS, _WebOS, _UOS, _CentOS, _Fedora, _Gentoo, _Red_Hat, _SUSE, _Slackware];
+let systemList = [_Windows, _Linux, _macOS, _Android, _HarmonyOS, _Ubuntu, _FreeBSD, _Debian, _Deepin, _iOS, _Windows_Phone, _BlackBerry, _MeeGo, _Symbian, _Chrome_OS, _WebOS, _UOS, _CentOS, _Fedora, _Gentoo, _Red_Hat, _SUSE, _Slackware];
 systemList.forEach(item=>{
     if(!item.is){
         item.is = async function(){
