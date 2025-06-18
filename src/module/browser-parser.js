@@ -1,3 +1,4 @@
+// 浏览器
 import _Safari from './browser/Safari.js';
 import _Chrome from './browser/Chrome.js';
 import _Edge from './browser/Edge.js';
@@ -19,14 +20,6 @@ import _Iceweasel from './browser/Iceweasel.js';
 import _Konqueror from './browser/Konqueror.js';
 import _SeaMonkey from './browser/SeaMonkey.js';
 import _Epiphany from './browser/Epiphany.js';
-import _HONOR from './browser/HONOR.js';
-import _Huawei from './browser/Huawei.js';
-import _OPPO from './browser/OPPO.js';
-import _Vivo from './browser/Vivo.js';
-import _Xiaomi from './browser/Xiaomi.js';
-import _Meizu from './browser/Meizu.js';
-import _OnePlus from './browser/OnePlus.js';
-import _Samsung from './browser/Samsung.js';
 import _360 from './browser/360.js';
 import _360SE from './browser/360SE.js';
 import _360EE from './browser/360EE.js';
@@ -36,8 +29,7 @@ import _360EE_macOS from './browser/360EE_macOS.js';
 import _360ENT from './browser/360ENT.js';
 import _UC from './browser/UC.js';
 import _QQBrowser from './browser/QQBrowser.js';
-import _QQ from './browser/QQ.js';
-import _Baidu from './browser/Baidu.js';
+import _BaiduBrowser from './browser/BaiduBrowser.js';
 import _Maxthon from './browser/Maxthon.js';
 import _Sogou from './browser/Sogou.js';
 import _Liebao from './browser/Liebao.js';
@@ -46,32 +38,53 @@ import _115Browser from './browser/115Browser.js';
 import _TheWorld from './browser/TheWorld.js';
 import _Quark from './browser/Quark.js';
 import _Qiyu from './browser/Qiyu.js';
-import _Lenovo from './browser/Lenovo.js';
-import _Wechat from './browser/Wechat.js';
-import _WechatWork from './browser/WechatWork.js';
-import _Taobao from './browser/Taobao.js';
-import _Alipay from './browser/Alipay.js';
-import _Weibo from './browser/Weibo.js';
-import _Douban from './browser/Douban.js';
-import _Toutiao from './browser/Toutiao.js';
-import _Suning from './browser/Suning.js';
-import _iQIYI from './browser/iQIYI.js';
-import _DingTalk from './browser/DingTalk.js';
-import _Douyin from './browser/Douyin.js';
-import _Facebook from './browser/Facebook.js';
-import _Googlebot from './browser/Googlebot.js';
-import _Baiduspider from './browser/Baiduspider.js';
-import _Sogouspider from './browser/Sogouspider.js';
-import _Bingbot from './browser/Bingbot.js';
-import _360Spider from './browser/360Spider.js';
-import _Bytespider from './browser/Bytespider.js';
-import _YisouSpider from './browser/YisouSpider.js';
-import _YodaoBot from './browser/YodaoBot.js';
-import _YandexBot from './browser/YandexBot.js';
-import _Yahoo from './browser/Yahoo.js';
-import _ChatGPT from './browser/ChatGPT.js';
-import _Headless from './browser/Headless.js';
 
+// 厂商品牌
+import _HONOR from './brand/HONOR.js';
+import _Huawei from './brand/Huawei.js';
+import _OPPO from './brand/OPPO.js';
+import _Vivo from './brand/Vivo.js';
+import _Xiaomi from './brand/Xiaomi.js';
+import _Meizu from './brand/Meizu.js';
+import _OnePlus from './brand/OnePlus.js';
+import _Samsung from './brand/Samsung.js';
+import _Lenovo from './brand/Lenovo.js';
+
+// APP
+import _QQ from './app/QQ.js';
+import _Baidu from './app/Baidu.js';
+import _Wechat from './app/Wechat.js';
+import _WechatWork from './app/WechatWork.js';
+import _Taobao from './app/Taobao.js';
+import _Alipay from './app/Alipay.js';
+import _Weibo from './app/Weibo.js';
+import _Douban from './app/Douban.js';
+import _Toutiao from './app/Toutiao.js';
+import _Suning from './app/Suning.js';
+import _iQIYI from './app/iQIYI.js';
+import _DingTalk from './app/DingTalk.js';
+import _Douyin from './app/Douyin.js';
+import _Facebook from './app/Facebook.js';
+import _WhatsApp from './app/WhatsApp.js';
+import _Line from './app/Line.js';
+
+// 蜘蛛
+import _Twitterbot from './robot/Twitterbot.js';
+import _TelegramBot from './robot/TelegramBot.js';
+import _Googlebot from './robot/Googlebot.js';
+import _Baiduspider from './robot/Baiduspider.js';
+import _Sogouspider from './robot/Sogouspider.js';
+import _Bingbot from './robot/Bingbot.js';
+import _360Spider from './robot/360Spider.js';
+import _Bytespider from './robot/Bytespider.js';
+import _YisouSpider from './robot/YisouSpider.js';
+import _YodaoBot from './robot/YodaoBot.js';
+import _YandexBot from './robot/YandexBot.js';
+import _Yahoo from './robot/Yahoo.js';
+import _ChatGPT from './robot/ChatGPT.js';
+import _Headless from './robot/Headless.js';
+
+// 渲染引擎
 import _WebKit from './engine/WebKit.js';
 import _Trident from './engine/Trident.js';
 import _Gecko from './engine/Gecko.js';
@@ -79,10 +92,16 @@ import _Servo from './engine/Servo.js';
 import _Presto from './engine/Presto.js';
 import _KHTML from './engine/KHTML.js';
 
+// 环境
 import globalThis from './runtime/globalThis.js';
 import userAgent from './runtime/userAgent.js';
 
-let browserList = [_Safari, _Chrome, _Edge, _IE, _Firefox, _Firefox_Focus, _Chromium, _Opera, _Opera_GX, _Vivaldi, _Yandex, _Brave, _Arora, _Lunascape, _QupZilla, _Coc_Coc, _Kindle, _Iceweasel, _Konqueror, _SeaMonkey, _Epiphany, _HONOR, _Huawei, _OPPO, _Vivo, _Xiaomi, _Meizu, _OnePlus, _Samsung, _360, _360EE, _360SE, _360EE_macOS, _360AI, _360AI_macOS, _360ENT, _UC, _QQBrowser, _QQ, _Baidu, _Maxthon, _Sogou, _Liebao, _2345Browser, _115Browser, _TheWorld, _Quark, _Qiyu, _Lenovo, _Wechat, _WechatWork, _Taobao, _Alipay, _Weibo, _Douban, _Suning, _iQIYI, _DingTalk, _Douyin, _Toutiao, _Facebook, _Googlebot, _Baiduspider, _Sogouspider, _Bingbot, _360Spider, _Bytespider, _YisouSpider, _YodaoBot, _YandexBot, _Yahoo, _ChatGPT, _Headless];
+let browserList = [].concat(
+    [_Safari, _Chrome, _Edge, _IE, _Firefox, _Firefox_Focus, _Chromium, _Opera, _Opera_GX, _Vivaldi, _Yandex, _Brave, _Arora, _Lunascape, _QupZilla, _Coc_Coc, _Kindle, _Iceweasel, _Konqueror, _SeaMonkey, _Epiphany, _360, _360EE, _360SE, _360EE_macOS, _360AI, _360AI_macOS, _360ENT, _UC, _QQBrowser, _BaiduBrowser, _Maxthon, _Sogou, _Liebao, _2345Browser, _115Browser, _TheWorld, _Quark, _Qiyu],
+    [_HONOR, _Huawei, _OPPO, _Vivo, _Xiaomi, _Meizu, _OnePlus, _Samsung, _Lenovo],
+    [_QQ, _Baidu, _Wechat, _WechatWork, _Taobao, _Alipay, _Weibo, _Douban, _Suning, _iQIYI, _DingTalk, _Douyin, _Toutiao, _Facebook, _WhatsApp, _Line],
+    [_Twitterbot, _TelegramBot, _Googlebot, _Baiduspider, _Sogouspider, _Bingbot, _360Spider, _Bytespider, _YisouSpider, _YodaoBot, _YandexBot, _Yahoo, _ChatGPT, _Headless]
+);
 browserList.forEach(item=>{
     if(!item.is){
         item.is = async function(){
