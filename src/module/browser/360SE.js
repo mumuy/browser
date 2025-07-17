@@ -11,6 +11,7 @@ export default {
     name:'360SE',
     parse(ua = userAgent){
         let hash = {
+            '132':'16.0',
             '122':'15.3',
             '114':'15.0',
             '108':'14.0',
