@@ -127,7 +127,7 @@ console.log('[浏览器指纹]',data.value);
         <tr><td>OnePlus</td><td>一加浏览器</td></tr>
         <tr><td>Samsung</td><td>三星浏览器</td></tr>
         <tr><td>Lenovo</td><td>联想浏览器</td></tr>
-        <tr><td rowspan="14">客户端</td><td>QQ</td><td>QQ客户端</td></tr>
+        <tr><td rowspan="15">客户端</td><td>QQ</td><td>QQ客户端</td></tr>
         <tr><td>Wechat</td><td>微信手机客户端</td></tr>
         <tr><td>WechatWork</td><td>企业微信客户端</td></tr>
         <tr><td>Taobao</td><td>淘宝手机客户端</td></tr>
