@@ -4,7 +4,7 @@ const reg = {
     'IPv4':/\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/,
     'IPv6':/\b(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}\b/i
 };
-let RTCPeerConnection = globalThis.RTCPeerConnection || globalThis.mozRTCPeerConnection || globalThis.webkitRTCPeerConnection;
+const PeerConnection = globalThis.RTCPeerConnection || globalThis.mozRTCPeerConnection || globalThis.webkitRTCPeerConnection;
 
 export default async function(){
     const ipSet = new Set();
@@ -20,7 +20,6 @@ export default async function(){
         }
     };
     return new Promise(function(resolve, reject){
-        const PeerConnection = globalThis.RTCPeerConnection || globalThis.webkitRTCPeerConnection || globalThis.mozRTCPeerConnection;
         if(PeerConnection){
             const conn = new PeerConnection({
                 iceServers: [{
