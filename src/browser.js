@@ -60,8 +60,8 @@ export default {
             getHashByAudio,
             getHashByMime
         ].filter(parser=>list.includes(parser.name));
-        let screen = await screenParser.getInfo();
-        let group = [userAgent,JSON.stringify(screen)];
+        let {screenWidth,screenHeight,screenColorDepth,isTouch} = await screenParser.getInfo();
+        let group = [userAgent,JSON.stringify({screenWidth,screenHeight,screenColorDepth,isTouch})];
         for(let parser of parserList){
             data[parser.name] = await parser.getInfo();
             group.push(data[parser.name]);
