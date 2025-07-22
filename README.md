@@ -39,6 +39,7 @@ let info = await browser.getInfo();
     "screenFPS":60,                     // 屏幕刷新率
     "screenWidth":1920,                 // 屏幕宽度
     "screenHeight":800,                 // 屏幕高度
+    "screenOrientation":'landscape-primary',    // 浏览器屏幕方向
     "clientWidth":1920,                 // 浏览器可视区域宽度
     "clientHeight":640,                 // 浏览器可视区域高度
     "device": "PC",                     // 设备类型

@@ -35,15 +35,17 @@ export default {
     },
     async getInfo(){
         // 屏幕尺寸
-        let screenWidth = globalThis?.screen?.width||0;
-        let screenHeight = globalThis?.screen?.height||0;
-        let clientWidth = globalThis?.document?.documentElement?.clientWidth||globalThis?.document?.body?.clientWidth||0;
-        let clientHeight = globalThis?.document?.documentElement?.clientHeight||globalThis?.document?.body?.clientHeight||0;
+        const screenWidth = globalThis?.screen?.width||0;
+        const screenHeight = globalThis?.screen?.height||0;
+        const clientWidth = globalThis?.document?.documentElement?.clientWidth||globalThis?.document?.body?.clientWidth||0;
+        const clientHeight = globalThis?.document?.documentElement?.clientHeight||globalThis?.document?.body?.clientHeight||0;
         // 屏幕刷新率
-        let screenFPS = await getScreenFPS();
-        let screenColorDepth = globalThis?.screen.colorDepth;
-        let screenPixelDepth = globalThis?.screen.pixelDepth;
-        let isTouch = globalThis?.navigator?.maxTouchPoints>0||false;
+        const screenFPS = await getScreenFPS();
+        const screenColorDepth = globalThis?.screen.colorDepth;
+        const screenPixelDepth = globalThis?.screen.pixelDepth;
+        // 其他信息
+        const screenOrientation = screen.orientation?.type || '未知';
+        const isTouch = globalThis?.navigator?.maxTouchPoints>0||false;
 
         return {
             screenWidth,
@@ -53,7 +55,8 @@ export default {
             screenFPS,
             screenColorDepth,
             screenPixelDepth,
-            isTouch
+            screenOrientation,
+            isTouch,
         };
     }
 }
