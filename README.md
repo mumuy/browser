@@ -102,7 +102,7 @@ console.log('[浏览器指纹]',data.value);
         <tr><td>Konqueror</td><td>开源Web浏览器和文件管理器</td></tr>
         <tr><td>SeaMonkey</td><td>丰年虾浏览器，Mozilla基金会建构</td></tr>
         <tr><td>Epiphany</td><td>GNOME 桌面下的主力浏览器</td></tr>
-        <tr><td>Headless</td><td>谷歌无头浏览器</td></tr>
+        <tr><td>Whate</td><td>韩国互联网公司Naver推出浏览器</td></tr>
         <tr><td rowspan="16">国内浏览器</td><td>360</td><td>360浏览器(手机版)</td></tr>
         <tr><td>360SE</td><td>360安全浏览器</td></tr>
         <tr><td>360EE</td><td>360极速浏览器</td></tr>
@@ -143,7 +143,7 @@ console.log('[浏览器指纹]',data.value);
         <tr><td>Facebook</td><td>Facebook客户端</td></tr>
         <tr><td>Whatsapp</td><td>Whatsapp客户端</td></tr>
         <tr><td>Line</td><td>Line客户端</td></tr>
-        <tr><td rowspan="12">爬虫</td><td>Googlebot</td><td>谷歌爬虫</td></tr>
+        <tr><td rowspan="13">爬虫</td><td>Googlebot</td><td>谷歌爬虫</td></tr>
         <tr><td>Baiduspider</td><td>百度爬虫</td></tr>
         <tr><td>Sogouspider</td><td>搜狗爬虫</td></tr>
         <tr><td>Bingbot</td><td>必应爬虫</td></tr>
@@ -155,6 +155,7 @@ console.log('[浏览器指纹]',data.value);
         <tr><td>Yahoo</td><td>Yahoo蜘蛛</td></tr>
         <tr><td>TelegramBot</td><td>Telegram蜘蛛</td></tr>
         <tr><td>Twitterbot</td><td>Twitter蜘蛛</td></tr>
+        <tr><td>Headless</td><td>谷歌无头浏览器</td></tr>
     </tbody>
 </table>
 

@@ -20,6 +20,7 @@ import _Iceweasel from './browser/Iceweasel.js';
 import _Konqueror from './browser/Konqueror.js';
 import _SeaMonkey from './browser/SeaMonkey.js';
 import _Epiphany from './browser/Epiphany.js';
+import _Whale from './browser/Whale.js';
 import _360 from './browser/360.js';
 import _360SE from './browser/360SE.js';
 import _360EE from './browser/360EE.js';
@@ -97,7 +98,7 @@ import globalThis from './runtime/globalThis.js';
 import userAgent from './runtime/userAgent.js';
 
 let browserList = [].concat(
-    [_Safari, _Chrome, _Edge, _IE, _Firefox, _Firefox_Focus, _Chromium, _Opera, _Opera_GX, _Vivaldi, _Yandex, _Brave, _Arora, _Lunascape, _QupZilla, _Coc_Coc, _Kindle, _Iceweasel, _Konqueror, _SeaMonkey, _Epiphany, _360, _360EE, _360SE, _360EE_macOS, _360AI, _360AI_macOS, _360ENT, _UC, _QQBrowser, _BaiduBrowser, _Maxthon, _Sogou, _Liebao, _2345Browser, _115Browser, _TheWorld, _Quark, _Qiyu],
+    [_Safari, _Chrome, _Edge, _IE, _Firefox, _Firefox_Focus, _Chromium, _Opera, _Opera_GX, _Vivaldi, _Yandex, _Brave, _Arora, _Lunascape, _QupZilla, _Coc_Coc, _Kindle, _Iceweasel, _Konqueror, _SeaMonkey, _Epiphany, _Whale, _360, _360EE, _360SE, _360EE_macOS, _360AI, _360AI_macOS, _360ENT, _UC, _QQBrowser, _BaiduBrowser, _Maxthon, _Sogou, _Liebao, _2345Browser, _115Browser, _TheWorld, _Quark, _Qiyu],
     [_HONOR, _Huawei, _OPPO, _Vivo, _Xiaomi, _Meizu, _OnePlus, _Samsung, _Lenovo],
     [_QQ, _Baidu, _Wechat, _WechatWork, _Taobao, _Alipay, _Weibo, _Douban, _Suning, _iQIYI, _DingTalk, _Douyin, _Toutiao, _Facebook, _WhatsApp, _Line],
     [_Twitterbot, _TelegramBot, _Googlebot, _Baiduspider, _Sogouspider, _Bingbot, _360Spider, _Bytespider, _YisouSpider, _YodaoBot, _YandexBot, _Yahoo, _ChatGPT, _Headless]
