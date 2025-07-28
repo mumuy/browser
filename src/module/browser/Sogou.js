@@ -5,6 +5,7 @@ export default {
     name:'Sogou',
     parse(ua = userAgent){
         var hash = {
+            '116':'13.0',
             '94':'12.0',
             '80':'11.0'
         };
