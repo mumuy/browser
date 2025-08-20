@@ -10,5 +10,14 @@ export default {
                 ||ua.match(/CriOS\/([\d.]+)/)?.[1]
                 ||''
         };
+    },
+    async version() {
+        if (navigator.userAgentData?.getHighEntropyValues) {
+            const item = await navigator.userAgentData.getHighEntropyValues([
+                'uaFullVersion'
+            ]);
+            return item.uaFullVersion || '';
+        }
+        return this.parse().version;
     }
 }
