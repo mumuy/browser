@@ -1,4 +1,6 @@
+import { version } from 'react';
 import userAgent from '../runtime/userAgent.js';
+import _Chrome from './Chrome.js';
 
 export default {
     name:'Edge',
@@ -14,5 +16,8 @@ export default {
                 ||ua.match(/EdgiOS\/([\d.]+)/)?.[1]
                 ||''
         };
+    },
+    async version() {
+        return await _Chrome.version.bind(this)();
     }
 }
