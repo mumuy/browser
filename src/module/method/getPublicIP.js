@@ -23,6 +23,8 @@ export default async function(){
         if(PeerConnection){
             const conn = new PeerConnection({
                 iceServers: [{
+                    urls: 'stun:stun.cloudflare.com:3478'
+                },{
                     urls: 'stun:stun.l.google.com:19302',
                 },{
                     urls: 'stun:stun.services.mozilla.com'
@@ -45,14 +47,14 @@ export default async function(){
                 let ips = [...ipSet];
                 if(ips.length){
                     closeConnect();
-                    resolve(ips[0]);
+                    resolve(ips[ips.length-1]);
                 }else if(count){
                     count--;
                 }else{
                     closeConnect();
                     resolve('');
                 }
-            }, 100);
+            }, 200);
         }else{
             resolve('');
         }
