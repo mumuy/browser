@@ -1,4 +1,3 @@
-import { version } from 'react';
 import userAgent from '../runtime/userAgent.js';
 import _Chrome from './Chrome.js';
 
