@@ -42,7 +42,10 @@ export default {
         }
         if(!isMatch&&!_Firefox.parse().is&&!_Edge.parse().is&&!_Opera.parse().is){
             return new Promise(function(resolve){
-                fetch('chrome-extension://fjbbmgamncjadhlpmffehlmmkdnkiadk/css/content.css').then(function(){
+                Promise.any([
+                    fetch('chrome-extension://fjbbmgamncjadhlpmffehlmmkdnkiadk/css/content.css'),
+                    fetch('chrome-extension://fjbbmgamncjadhlpmffehlmmkdnkiadk/css/bangs.css'),
+                ]).then(function(){
                     resolve(true);
                 }).catch(function(){
                     resolve(false);
