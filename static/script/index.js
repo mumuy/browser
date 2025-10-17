@@ -113,239 +113,242 @@ let getTemplate = function(info){
         'Windows Vista':'Windows 7'
     };
     return `
-    <table>
-        <tbody>
-            <tr>
-                <td class="th">
-                    <p class="title">用户代理</p>
-                    <p class="subtitle">User-Agent</p>
-                </td>
-                <td>${info.userAgent}</td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">浏览器</p>
-                    <p class="subtitle">Browser</p>
-                </td>
-                <td>
-                    ${browserList.includes(info.browser)?`<img src="static/image/browser/${info.browser}.png" width="24" height="24"/>`:''}
-                    <strong>${info.browser||'<img src="static/image/loading.gif" width="32" height="32"/>'}</strong>
-                </td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">版本</p>
-                    <p class="subtitle">Version</p>
-                </td>
-                <td><span>${info.browserVersion}</span></td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">渲染引擎</p>
-                    <p class="subtitle">Engine</p>
-                </td>
-                <td>${info.engine}</td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">操作系统</p>
-                    <p class="subtitle">System</p>
-                </td>
-                <td>
-                    ${systemList.includes(info.system)?`<img src="static/image/system/${systemMap[system]||info.system}.png" width="24" height="24"/>`:''}
-                    <span>${info.system} ${info.systemVersion} (${info.bitness}位)</span>
-                </td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">系统平台</p>
-                    <p class="subtitle">Platform</p>
-                </td>
-                <td>${info.platform}</td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">屏幕尺寸</p>
-                    <p class="subtitle">Screen size</p>
-                </td>
-                <td><span>${info.screenWidth} x ${info.screenHeight}</span></td>
-            </tr>
-             <tr>
-                <td class="th">
-                    <p class="title">可用屏幕尺寸</p>
-                    <p class="subtitle">Client size</p>
-                </td>
-                <td><span>${info.clientWidth} x ${info.clientHeight}</span></td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">屏幕刷新率</p>
-                    <p class="subtitle">Screen FPS</p>
-                </td>
-                <td>
-                    <span>${info.screenFPS}</span>
-                    <span class="text-gray">FPS</span>
-                </td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">屏幕颜色深度</p>
-                    <p class="subtitle">Screen ColorDepth</p>
-                </td>
-                <td>
-                    <span>${info.screenColorDepth?info.screenColorDepth+'-bit':''}</span>
-                </td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">屏幕像素深度</p>
-                    <p class="subtitle">Screen PixelDepth</p>
-                </td>
-                <td>
-                    <span>${info.screenPixelDepth?info.screenPixelDepth+'-bit':''}</span>
-                </td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">处理器架构</p>
-                    <p class="subtitle">Architecture</p>
-                </td>
-                <td>${info.architecture}</td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">设备类型</p>
-                    <p class="subtitle">Device type</p>
-                </td>
-                <td>${info.device}</td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">设备像素比</p>
-                    <p class="subtitle">Device Pixel Ratio</p>
-                </td>
-                <td>${info.devicePixelRatio}</td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">设备内存</p>
-                    <p class="subtitle">Device Memory</p>
-                </td>
-                <td>${info.deviceMemory}</td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">图形处理器</p>
-                    <p class="subtitle">GPU model</p>
-                </td>
-                <td>${info.gpuModel}</td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">IP地址</p>
-                    <p class="subtitle">IP address</p>
-                </td>
-                <td>${info.ip}</td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">语言</p>
-                    <p class="subtitle">Language</p>
-                </td>
-                <td>${info.language}</td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">时区</p>
-                    <p class="subtitle">Timezone</p>
-                </td>
-                <td>${info.timezone}</td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">网络类型</p>
-                    <p class="subtitle">Network</p>
-                </td>
-                <td>${info.network}</td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">是否联网</p>
-                    <p class="subtitle">is online</p>
-                </td>
-                <td>${info.isOnline?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">剩余电量</p>
-                    <p class="subtitle">Battery</p>
-                </td>
-                <td>${info.battery>=0?info.battery*100+'%':''}</td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">是否充电</p>
-                    <p class="subtitle">is charging</p>
-                </td>
-                <td>${info.isCharging?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">是否蜘蛛</p>
-                    <p class="subtitle">is robot</p>
-                </td>
-                <td>${info.isRobot?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">是否Webview</p>
-                    <p class="subtitle">is webview</p>
-                </td>
-                <td>${info.isWebview?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">是否触屏</p>
-                    <p class="subtitle">Is Touch Screen</p>
-                </td>
-                <td>${info.isTouch?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">Cookie是否可用</p>
-                    <p class="subtitle">Cookie Enabled</p>
-                </td>
-                <td>${info.cookieEnabled?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">是否支持WebGL</p>
-                    <p class="subtitle">Is Support WebGL</p>
-                </td>
-                <td>
-                    <div>${browser.isSupport('webgl')?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">支持字体</p>
-                    <p class="subtitle">Font Family</p>
-                </td>
-                <td>
-                    <div>${fontList_html.join('')}</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="th">
-                    <p class="title">浏览器指纹</p>
-                    <p class="subtitle">Browser Fingerprint</p>
-                </td>
-                <td>
-                    <div id="fingerprint">-</div>
-                </td>
-            </tr>
-        </tbody>
-    </table>`;
+    <div class="table-inner">
+        <table>
+            <tbody>
+                <tr>
+                    <td class="th">
+                        <p class="title">用户代理</p>
+                        <p class="subtitle">User-Agent</p>
+                    </td>
+                    <td>${info.userAgent}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">浏览器</p>
+                        <p class="subtitle">Browser</p>
+                    </td>
+                    <td>
+                        ${browserList.includes(info.browser)?`<img src="static/image/browser/${info.browser}.png" width="24" height="24"/>`:''}
+                        <strong>${info.browser||'<img src="static/image/loading.gif" width="32" height="32"/>'}</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">版本</p>
+                        <p class="subtitle">Version</p>
+                    </td>
+                    <td><span>${info.browserVersion}</span></td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">渲染引擎</p>
+                        <p class="subtitle">Engine</p>
+                    </td>
+                    <td>${info.engine}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">操作系统</p>
+                        <p class="subtitle">System</p>
+                    </td>
+                    <td>
+                        ${systemList.includes(info.system)?`<img src="static/image/system/${systemMap[system]||info.system}.png" width="24" height="24"/>`:''}
+                        <span>${info.system} ${info.systemVersion} (${info.bitness}位)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">系统平台</p>
+                        <p class="subtitle">Platform</p>
+                    </td>
+                    <td>${info.platform}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">屏幕尺寸</p>
+                        <p class="subtitle">Screen size</p>
+                    </td>
+                    <td><span>${info.screenWidth} x ${info.screenHeight}</span></td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">可用屏幕尺寸</p>
+                        <p class="subtitle">Client size</p>
+                    </td>
+                    <td><span>${info.clientWidth} x ${info.clientHeight}</span></td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">屏幕刷新率</p>
+                        <p class="subtitle">Screen FPS</p>
+                    </td>
+                    <td>
+                        <span>${info.screenFPS}</span>
+                        <span class="text-gray">FPS</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">屏幕颜色深度</p>
+                        <p class="subtitle">Screen ColorDepth</p>
+                    </td>
+                    <td>
+                        <span>${info.screenColorDepth?info.screenColorDepth+'-bit':''}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">屏幕像素深度</p>
+                        <p class="subtitle">Screen PixelDepth</p>
+                    </td>
+                    <td>
+                        <span>${info.screenPixelDepth?info.screenPixelDepth+'-bit':''}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">处理器架构</p>
+                        <p class="subtitle">Architecture</p>
+                    </td>
+                    <td>${info.architecture}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">设备类型</p>
+                        <p class="subtitle">Device type</p>
+                    </td>
+                    <td>${info.device}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">设备像素比</p>
+                        <p class="subtitle">Device Pixel Ratio</p>
+                    </td>
+                    <td>${info.devicePixelRatio}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">设备内存</p>
+                        <p class="subtitle">Device Memory</p>
+                    </td>
+                    <td>${info.deviceMemory}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">图形处理器</p>
+                        <p class="subtitle">GPU model</p>
+                    </td>
+                    <td>${info.gpuModel}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">IP地址</p>
+                        <p class="subtitle">IP address</p>
+                    </td>
+                    <td>${info.ip}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">语言</p>
+                        <p class="subtitle">Language</p>
+                    </td>
+                    <td>${info.language}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">时区</p>
+                        <p class="subtitle">Timezone</p>
+                    </td>
+                    <td>${info.timezone}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">网络类型</p>
+                        <p class="subtitle">Network</p>
+                    </td>
+                    <td>${info.network}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">是否联网</p>
+                        <p class="subtitle">is online</p>
+                    </td>
+                    <td>${info.isOnline?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">剩余电量</p>
+                        <p class="subtitle">Battery</p>
+                    </td>
+                    <td>${info.battery>=0?info.battery*100+'%':''}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">是否充电</p>
+                        <p class="subtitle">is charging</p>
+                    </td>
+                    <td>${info.isCharging?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">是否蜘蛛</p>
+                        <p class="subtitle">is robot</p>
+                    </td>
+                    <td>${info.isRobot?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">是否Webview</p>
+                        <p class="subtitle">is webview</p>
+                    </td>
+                    <td>${info.isWebview?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">是否触屏</p>
+                        <p class="subtitle">Is Touch Screen</p>
+                    </td>
+                    <td>${info.isTouch?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">Cookie是否可用</p>
+                        <p class="subtitle">Cookie Enabled</p>
+                    </td>
+                    <td>${info.cookieEnabled?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">是否支持WebGL</p>
+                        <p class="subtitle">Is Support WebGL</p>
+                    </td>
+                    <td>
+                        <div>${browser.isSupport('webgl')?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">支持字体</p>
+                        <p class="subtitle">Font Family</p>
+                    </td>
+                    <td>
+                        <div>${fontList_html.join('')}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">浏览器指纹</p>
+                        <p class="subtitle">Browser Fingerprint</p>
+                    </td>
+                    <td>
+                        <div id="fingerprint">-</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    `;
 };
 $module.innerHTML = getTemplate(info);
 
