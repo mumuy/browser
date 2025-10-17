@@ -66,10 +66,24 @@
             </header>
             <div class="container">
                 <div class="inner">
-                    <section class="mod-poster">
+                    <section class="mod-panel">
+                        <div class="hd">
+                            <h3 class="title">当前浏览器检测</h3>
+                        </div>
                         <div class="bd">
-                            <h1>浏览器检测<span class="tag">算法开源</span></h1>
-                            <p>让你更了解你的用户，精准掌握用户的设备详情，便于根据浏览器的能力和特性提供相应的内容和服务</p>
+                        </div>
+                    </section>
+                    <section class="mod-panel">
+                        <div class="hd"><h3 class="title">应用场景</h3></div>
+                        <div class="bd">
+                            <ul>
+                                <li><strong>内容适应与适配：</strong>根据浏览器类型和版本，为用户提供适应其设备的页面布局和样式。</li>
+                                <li><strong>功能限制与增强：</strong>考虑浏览器功能支持情况，决定是否启用某些特定于浏览器的功能或特性。</li>
+                                <li><strong>网站安全性考虑：</strong>针对浏览器兼容性差异，决定是否允许某些特定的安全策略或限制某些不安全的浏览器功能。</li>
+                                <li><strong>数据分析与报告：</strong>通过分析浏览器占有比数据，可以了解用户使用习惯和偏好，用于优化网站性能和用户体验。</li>
+                                <li><strong>个性化广告定位：</strong>在某些情况下，广告服务器可能会使用User-Agent信息来决定向用户展示哪种类型的广告。</li>
+                                <li><strong>自定义日志记录：</strong>在开发过程中，开发者可以使用浏览器包含信息来记录和跟踪特定浏览器的行为和问题。</li>
+                            </ul>
                             <div class="buttons">
                                 <a class="btn btn-green" href="https://www.ip138.com/useragent/" target="_blank">
                                     <span>Useragent分析</span>
@@ -77,24 +91,24 @@
                             </div>
                         </div>
                     </section>
-                    <div class="mod-panel">
-                        <div class="hd">
-                            <h3 class="title">当前浏览器检测结果</h3>
-                        </div>
+                </div>
+                <section class="module mod-copy">
+                    <div class="inner">
+                        <div class="hd"><span>算法开源</span></div>
                         <div class="bd">
+                            <p><span>数据基于「<a href="https://github.com/mumuy/browser/blob/master/LICENSE" rel="nofollow" target="_blank">MIT许可协议</a>」开源，除需在源码中保留版权信息和许可声明外，你有权利使用、复制、修改、合并、出版发行、散布、再授权及贩售软件及软件的副本。</span>数据持续更新中，如发现错漏或有想法建议可在此 <a class="text-red" href="https://github.com/mumuy/browser/issues" rel="nofollow" target="_blank">反馈问题</a>。</p>
+                            <div class="buttons">
+                                <a class="github-button" href="https://github.com/mumuy" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Follow @mumuy on GitHub">Follow @mumuy</a>
+                                <a class="github-button" href="https://github.com/mumuy/browser/fork" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork mumuy/browser on GitHub">Fork</a>
+                                <a class="github-button" href="https://github.com/mumuy/browser" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star mumuy/browser on GitHub">Star</a>
+                                <a class="github-button" href="https://github.com/mumuy/browser/archive/HEAD.zip" data-icon="octicon-download" data-size="large" aria-label="Download mumuy/browser on GitHub">Download</a>
+                            </div>
+                            <p>浏览器检测脚本：</p>
+                            <code><a href="https://passer-by.com/browser/dist/browser.min.js" target="_blank">https://passer-by.com/browser/dist/browser.min.js</a></code>
                         </div>
                     </div>
-                    <div class="mod-intro">
-                        <div class="hd"><h3>应用场景</h3></div>
-                        <div class="bd">
-                            <p><strong>内容适应与适配：</strong>根据浏览器类型和版本，为用户提供适应其设备的页面布局和样式。</p>
-                            <p><strong>功能限制与增强：</strong>考虑浏览器功能支持情况，决定是否启用某些特定于浏览器的功能或特性。</p>
-                            <p><strong>网站安全性考虑：</strong>针对浏览器兼容性差异，决定是否允许某些特定的安全策略或限制某些不安全的浏览器功能。</p>
-                            <p><strong>数据分析与报告：</strong>通过分析浏览器占有比数据，可以了解用户使用习惯和偏好，用于优化网站性能和用户体验。</p>
-                            <p><strong>个性化广告定位：</strong>在某些情况下，广告服务器可能会使用User-Agent信息来决定向用户展示哪种类型的广告。</p>
-                            <p><strong>自定义日志记录：</strong>在开发过程中，开发者可以使用浏览器包含信息来记录和跟踪特定浏览器的行为和问题。</p>
-                        </div>
-                    </div>
+                </section>
+                <div class="inner">
                     <script type="text/javascript" src="https://passer-by.com/static/script/projects.js"></script>
                 </div>
             </div>
@@ -123,6 +137,7 @@
         </div>
         <script type="text/javascript" src="./dist/browser.min.js"></script>
         <script type="text/javascript" src="./static/script/index.js"></script>
+        <script async defer src="https://cdn.bootcdn.net/ajax/libs/github-buttons/2.21.1/buttons.min.js"></script>
         <script type="text/javascript" src="https://passer-by.com/static/script/common.js"></script>
     </body>
 </html>

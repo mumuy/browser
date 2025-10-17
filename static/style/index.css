@@ -1,88 +1,14 @@
-.mod-poster{
-    margin-bottom: 25px;
+.module{
+    margin: 160px 0;
 }
-.mod-poster .bd{
-    padding: 60px 0;
-    line-height: 24px;
-}
-.mod-poster .bd h1{
-    margin-bottom: 10px;
-    line-height: 48px;
-    font-weight: bold;
-    font-size: 36px;
-    color:var(--title-color);
-}
-.mod-poster .bd h1 span.tag{
-    display: inline-block;
-    padding: 0 8px;
-    margin: 0 5px;
-    background: rgba(255, 255, 255,0.8);
-    line-height: 26px;
-    vertical-align: middle;
-    font-size: 13px;
-    color: rgb(110, 119, 129);
-    border-radius: 4px;
-    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.03);
-}
-.mod-poster .bd p{
-    margin-bottom: 10px;
-    line-height: 26px;
-}
-.mod-poster .bd b{
-    margin: 0 3px;
-    color: #fd7474;
-}
-.mod-poster .buttons{
-    margin-bottom: 20px;
-    padding: 10px;
-    border-radius: 6px;
+.module .hd{
+    margin-bottom: 6px;
     line-height: 32px;
 }
-.mod-poster .btn {
-    display: inline-block;
-    height: 44px;
-    min-width: 120px;
-    padding:0 20px;
-    margin: 0 5px;
-    background: #2095f2;
-    border: medium none;
-    box-shadow: 2px 2px 4px rgba(0,0,0,0.05);
-    line-height: 42px;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 16px;
-    color: #fff;
-    cursor: pointer;
-    outline: none;
-    border-radius: 21px;
-    text-decoration: none;
-}
-.mod-poster .btn img,.mod-poster .btn span{
-    vertical-align: middle;
-}
-.mod-poster .btn:hover{
-    background: #1b85da;
-}
-.mod-poster .btn-green{
-    background: #4bae4f;
-    color: #fff;
-}
-.mod-poster .btn-green:hover{
-    background: #47a04b;
-}
-.mod-poster .bd .btn-red{
-    background: #f56954;
-    color: #fff;
-}
-.mod-poster .btn-red:hover{
-    background: #f4543c;;
-}
-.mod-poster .btn-orange{
-    background: #ff9000;
-    color: #fff;
-}
-.mod-poster .btn-orange:hover{
-    background: #e18309;
+.module .hd span{
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--title-color);
 }
 
 
@@ -158,52 +84,79 @@
 .mod-panel td .text-gray{
     color: #999;
 }
-
-.mod-intro{
-    margin-bottom: 25px;
-    background: #fff;
-    border: 1px solid #f0f0f099;
-    border-radius: 8px;
-    box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.02);
+.mod-panel .bd li{
+    padding: 4px 0;
+    line-height: 24px;
 }
-.mod-intro .hd{
-    margin: 0 10px;
-    padding: 0 10px;
-    border-bottom: 1px solid #f0f0f099;
-    line-height: 40px;
-}
-.mod-intro .hd h3{
-    font-size: 16px;
+.mod-panel .bd li strong{
     font-weight: bold;
 }
-.mod-intro .bd{
-    padding: 20px;
+.mod-panel .buttons{
+    margin-bottom: 20px;
+    padding: 15px 0;
+    border-radius: 6px;
+    line-height: 32px;
 }
-.mod-intro .bd p{
-    line-height: 26px;
-    color: #666;
+.mod-panel .btn {
+    display: inline-block;
+    height: 44px;
+    min-width: 120px;
+    padding:0 20px;
+    margin: 0 5px;
+    background: #2095f2;
+    border: medium none;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+    line-height: 42px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    border-radius: 6px;
+    text-decoration: none;
+}
+.mod-panel .btn img,.mod-panel .btn span{
+    vertical-align: middle;
+}
+.mod-panel .btn:hover{
+    background: #1b85da;
+}
+
+
+.mod-copy{
+    margin-bottom: 65px;
+    padding: 35px 0;
+    background: rgb(246, 248, 250);
+}
+.mod-copy .bd{
+    margin:0 5px;
+}
+.mod-copy .bd p{
+    margin-bottom: 12px;
+    line-height: 28px;
+    text-indent: 2em;
+}
+.mod-copy .bd .buttons{
+    margin: 15px 0;
+}
+.mod-copy .bd .text-red{
+    font-weight: bold;
+    color: #fd7474;
+}
+.mod-copy .bd code{
+    display: block;
+    margin-bottom: 15px;
+    padding: 8px 15px;
+    line-height: 20px;
+    background: #fff;
+    border: 1px solid rgba(27,31,36,.15);
+    border-radius: 5px;
+    word-break: break-word;
 }
 
 
 @media screen and (max-width: 1020px) {
-    .mod-poster{
-        margin-bottom: 25px;
-    }
-    .mod-poster .bd{
-        padding: 25px 0;
-        margin-bottom: 15px;
-    }
-    .mod-poster .bd h1{
-        margin-bottom: 5px;
-        line-height: 26px;
-        font-size: 20px;
-    }
-    .mod-poster .bd p{
-        line-height: 22px;
-        font-size: 13px;
-        overflow: hidden;
-    }
-
     .mod-copy{
         padding: 15px 0 25px;
         margin-bottom: 25px;
@@ -215,21 +168,6 @@
 }
 
 @media screen and (max-width: 640px) {
-    .mod-poster .buttons{
-        margin-bottom: 10px;
-        padding: 10px 0;
-    }
-    .mod-poster .btn{
-        min-width: 64px;
-        margin: 2px 1px;
-        padding: 0 15px;
-        height: 36px;
-        line-height: 35px;
-        font-size: 14px;
-    }
-    .mod-poster .btn img{
-        display: none;
-    }
 
     .mod-panel .bd{
         padding: 15px 10px;
@@ -248,4 +186,8 @@
         line-height: 35px;
         font-size: 14px;
     }
+    .mod-poster .btn img{
+        display: none;
+    }
+
 }
