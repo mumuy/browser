@@ -36,7 +36,7 @@
     text-decoration: none;
     color: #999;
 }
-.mod-panel .hd::after{
+.mod-panel .hd::before{
     position: absolute;
     left: 2px;
     top: 50%;
