@@ -26,5 +26,14 @@ export default {
                 resolve(false);
             } 
         });
+    },
+    async version() {
+        if (navigator.userAgentData?.getHighEntropyValues) {
+            const item = await navigator.userAgentData.getHighEntropyValues([
+                'brands'
+            ]);
+            return item.brands.find(temp=>temp.brand=='Vivaldi').version|| '';
+        }
+        return this.parse().version;
     }
 }
