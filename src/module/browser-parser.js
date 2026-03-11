@@ -67,7 +67,9 @@ import _DingTalk from './app/DingTalk.js';
 import _Douyin from './app/Douyin.js';
 import _Facebook from './app/Facebook.js';
 import _WhatsApp from './app/WhatsApp.js';
+import _TikTok from './app/TikTok.js';
 import _Line from './app/Line.js';
+import _Telegram from './app/Telegram.js';
 import _Instagram from './app/Instagram.js';
 import _X from './app/X.js';
 import _Snapchat from './app/Snapchat.js';
@@ -103,7 +105,7 @@ import userAgent from './runtime/userAgent.js';
 let browserList = [].concat(
     [_Safari, _Chrome, _Edge, _IE, _Firefox, _Firefox_Focus, _Chromium, _Opera, _Opera_GX, _Vivaldi, _Yandex, _Brave, _Arora, _Lunascape, _QupZilla, _Coc_Coc, _Kindle, _Iceweasel, _Konqueror, _SeaMonkey, _Epiphany, _Whale, _360, _360EE, _360SE, _360EE_macOS, _360AI, _360AI_macOS, _360ENT, _UC, _QQBrowser, _BaiduBrowser, _Maxthon, _Sogou, _Liebao, _2345Browser, _115Browser, _TheWorld, _Quark, _Qiyu],
     [_HONOR, _Huawei, _OPPO, _Vivo, _Xiaomi, _Meizu, _OnePlus, _Samsung, _Lenovo],
-    [_QQ, _Baidu, _Wechat, _WechatWork, _Taobao, _Alipay, _Weibo, _Douban, _Suning, _iQIYI, _DingTalk, _Douyin, _Toutiao, _Facebook, _WhatsApp, _Line, _Instagram, _X, _Snapchat],
+    [_QQ, _Baidu, _Wechat, _WechatWork, _Taobao, _Alipay, _Weibo, _Douban, _Suning, _iQIYI, _DingTalk, _Douyin, _Toutiao, _Facebook, _WhatsApp, _TikTok, _Line, _Telegram, _Instagram, _X, _Snapchat],
     [_Twitterbot, _TelegramBot, _Googlebot, _Baiduspider, _Sogouspider, _Bingbot, _360Spider, _Bytespider, _YisouSpider, _YodaoBot, _YandexBot, _Yahoo, _ChatGPT, _Headless]
 );
 browserList.forEach(item=>{

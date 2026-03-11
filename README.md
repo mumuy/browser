@@ -128,7 +128,7 @@ console.log('[浏览器指纹]',data.value);
         <tr><td>OnePlus</td><td>一加浏览器</td></tr>
         <tr><td>Samsung</td><td>三星浏览器</td></tr>
         <tr><td>Lenovo</td><td>联想浏览器</td></tr>
-        <tr><td rowspan="18">客户端</td><td>QQ</td><td>QQ客户端</td></tr>
+        <tr><td rowspan="20">客户端</td><td>QQ</td><td>QQ客户端</td></tr>
         <tr><td>Wechat</td><td>微信手机客户端</td></tr>
         <tr><td>WechatWork</td><td>企业微信客户端</td></tr>
         <tr><td>Taobao</td><td>淘宝手机客户端</td></tr>
@@ -142,7 +142,9 @@ console.log('[浏览器指纹]',data.value);
         <tr><td>Toutiao</td><td>头条客户端</td></tr>
         <tr><td>Facebook</td><td>Facebook客户端</td></tr>
         <tr><td>Whatsapp</td><td>Whatsapp客户端</td></tr>
+        <tr><td>TikTok</td><td>TikTok客户端</td></tr>
         <tr><td>Line</td><td>Line客户端</td></tr>
+        <tr><td>Telegram</td><td>Telegram客户端</td></tr>
         <tr><td>Instagram</td><td>Instagram客户端</td></tr>
         <tr><td>X</td><td>X客户端（原Twitter）</td></tr>
         <tr><td>Snapchat</td><td>Snapchat客户端</td></tr>
