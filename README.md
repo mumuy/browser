@@ -67,6 +67,9 @@ let hasYaHei = browser.isSupport('font-family','Microsoft YaHei');
 
 // 判断浏览器是否支持WebGL
 let isWebGL = browser.isSupport('webgl');
+
+// 判断浏览器是否支持WebGL
+let isNFC = browser.isSupport('nfc');
 ```
 
 #### 获取浏览器指纹
