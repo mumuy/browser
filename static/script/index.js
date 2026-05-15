@@ -329,6 +329,15 @@ let getTemplate = function(info){
                 </tr>
                 <tr>
                     <td class="th">
+                        <p class="title">是否支持NFC</p>
+                        <p class="subtitle">Is Support NFC</p>
+                    </td>
+                    <td>
+                        <div>${browser.isSupport('nfc')?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="th">
                         <p class="title">支持字体</p>
                         <p class="subtitle">Font Family</p>
                     </td>

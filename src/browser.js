@@ -20,6 +20,7 @@ import getMD5 from './module/utils/getMD5.js';
 
 import supportFontFamily from './module/support/font-family.js';
 import supportWebGL from './module/support/webgl.js';
+import supportNFC from './module/support/nfc.js';
 
 export default {
     parse(ua){
@@ -72,7 +73,8 @@ export default {
     isSupport(name,value){
         let support = [
             supportFontFamily,
-            supportWebGL
+            supportWebGL,
+            supportNFC
         ].find(support=>name==support.name);
         return support?support.is(value):false;
     }

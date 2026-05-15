@@ -31,18 +31,18 @@
         "yarn": "please-use-npm",
         "npm": ">=8"
     },
-    "files":[
+    "files": [
         "dist"
     ],
     "devDependencies": {
-        "@babel/core": "^7.26.0",
-        "@babel/plugin-transform-runtime": "^7.25.9",
-        "@babel/preset-env": "^7.26.0",
-        "@babel/runtime": "^7.26.0",
-        "@rollup/plugin-babel": "^6.0.4",
-        "@rollup/plugin-node-resolve": "^15.3.0",
-        "@rollup/plugin-terser": "^0.4.4",
-        "rollup": "^3.29.5"
+        "@babel/core": "^7.29.0",
+        "@babel/plugin-transform-runtime": "^7.29.0",
+        "@babel/preset-env": "^7.29.5",
+        "@babel/runtime": "^7.29.2",
+        "@rollup/plugin-babel": "^7.0.0",
+        "@rollup/plugin-node-resolve": "^16.0.3",
+        "@rollup/plugin-terser": "^1.0.0",
+        "rollup": "^4.60.3"
     },
     "scripts": {
         "build": "rollup -c",
