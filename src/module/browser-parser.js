@@ -171,7 +171,7 @@ export default {
         ({engine,browser,browserVersion} = fixedParam({userAgent:ua,engine,browser,browserVersion}));
 
         let isWebview = ua.includes('; wv)');
-        let isRobot = ['Googlebot', 'Baiduspider', 'Sogouspider', 'Bingbot', '360Spider', 'Bytespider', 'YandexBot'].includes(browser);
+        let isRobot = ['Twitterbot', 'TelegramBot', 'Googlebot', 'Baiduspider', 'Sogouspider', 'Bingbot', '360Spider', 'Bytespider', 'YisouSpider', 'YodaoBot', 'YandexBot', 'Yahoo', 'ChatGPT', 'Headless'].includes(browser);
 
         return {
             browser,
