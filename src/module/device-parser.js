@@ -1,10 +1,11 @@
 import _Mobile from './device/Mobile.js';
 import _Tablet from './device/Tablet.js';
+import _Wearable from './device/Wearable.js';
 
 import globalThis from './runtime/globalThis.js';
 import userAgent from './runtime/userAgent.js';
 
-let deviceList = [_Mobile,_Tablet];
+let deviceList = [_Mobile,_Tablet,_Wearable];
 deviceList.forEach(item=>{
     if(!item.is){
         item.is = async function(){

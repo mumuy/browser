@@ -21,11 +21,14 @@ import _Gentoo from './system/Gentoo.js';
 import _Red_Hat from './system/Red Hat.js';
 import _SUSE from './system/SUSE.js';
 import _Slackware from './system/Slackware.js';
+import _Wear_OS from './system/Wear OS.js';
+import _Tizen from './system/Tizen.js';
+import _watchOS from './system/watchOS.js';
 
 import userAgent from './runtime/userAgent.js';
 import globalThis from './runtime/globalThis.js';
 
-let systemList = [_Windows, _Linux, _macOS, _Android, _HarmonyOS, _Ubuntu, _FreeBSD, _Debian, _Deepin, _iOS, _Windows_Phone, _BlackBerry, _MeeGo, _Symbian, _Chrome_OS, _WebOS, _UOS, _CentOS, _Fedora, _Gentoo, _Red_Hat, _SUSE, _Slackware];
+let systemList = [_Windows, _Linux, _macOS, _Android, _HarmonyOS, _Ubuntu, _FreeBSD, _Debian, _Deepin, _iOS, _Windows_Phone, _BlackBerry, _MeeGo, _Symbian, _Chrome_OS, _WebOS, _UOS, _CentOS, _Fedora, _Gentoo, _Red_Hat, _SUSE, _Slackware, _Wear_OS, _Tizen, _watchOS];
 systemList.forEach(item=>{
     if(!item.is){
         item.is = async function(){

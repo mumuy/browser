@@ -213,6 +213,9 @@ console.log('[浏览器指纹]',data.value);
         <tr><td>Red Hat</td><td>Red Hat操作系统</td></tr>
         <tr><td>SUSE</td><td>SUSE操作系统</td></tr>
         <tr><td>Slackware</td><td>Slackware操作系统</td></tr>
+        <tr><td>Tizen</td><td>Tizen操作系统</td></tr>
+        <tr><td>watchOS</td><td>watchOS操作系统</td></tr>
+        <tr><td>Wear OS</td><td>Wear OS操作系统</td></tr>
     </tbody>
 </table>
 
@@ -225,6 +228,7 @@ console.log('[浏览器指纹]',data.value);
         <tr><td>Desktop</td><td>电脑</td></tr>
         <tr><td>Tablet</td><td>平板或PDA</td></tr>
         <tr><td>Mobile</td><td>手机</td></tr>
+        <tr><td>Wearable</td><td>可穿戴设备</td></tr>
     </tbody>
 </table>
 
