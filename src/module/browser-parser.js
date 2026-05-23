@@ -88,6 +88,9 @@ import _YodaoBot from './robot/YodaoBot.js';
 import _YandexBot from './robot/YandexBot.js';
 import _Yahoo from './robot/Yahoo.js';
 import _ChatGPT from './robot/ChatGPT.js';
+import _ClaudeBot from './robot/ClaudeBot.js';
+import _Google_Extended from './robot/Google-Extended.js';
+import _Amazonbot from './robot/Amazonbot.js';
 import _Headless from './robot/Headless.js';
 
 // 渲染引擎
@@ -102,13 +105,14 @@ import _KHTML from './engine/KHTML.js';
 import globalThis from './runtime/globalThis.js';
 import userAgent from './runtime/userAgent.js';
 
-let browserList = [].concat(
-    [_Safari, _Chrome, _Edge, _IE, _Firefox, _Firefox_Focus, _Chromium, _Opera, _Opera_GX, _Vivaldi, _Yandex, _Brave, _Arora, _Lunascape, _QupZilla, _Coc_Coc, _Kindle, _Iceweasel, _Konqueror, _SeaMonkey, _Epiphany, _Whale, _360, _360EE, _360SE, _360EE_macOS, _360AI, _360AI_macOS, _360ENT, _UC, _QQBrowser, _BaiduBrowser, _Maxthon, _Sogou, _Liebao, _2345Browser, _115Browser, _TheWorld, _Quark, _Qiyu],
-    [_HONOR, _Huawei, _OPPO, _Vivo, _Xiaomi, _Meizu, _OnePlus, _Samsung, _Lenovo],
-    [_QQ, _Baidu, _Wechat, _WechatWork, _Taobao, _Alipay, _Weibo, _Douban, _Suning, _iQIYI, _DingTalk, _Douyin, _Toutiao, _Facebook, _WhatsApp, _TikTok, _Line, _Telegram, _Instagram, _X, _Snapchat],
-    [_Twitterbot, _TelegramBot, _Googlebot, _Baiduspider, _Sogouspider, _Bingbot, _360Spider, _Bytespider, _YisouSpider, _YodaoBot, _YandexBot, _Yahoo, _ChatGPT, _Headless]
-);
-browserList.forEach(item=>{
+const browserList = [_Safari, _Chrome, _Edge, _IE, _Firefox, _Firefox_Focus, _Chromium, _Opera, _Opera_GX, _Vivaldi, _Yandex, _Brave, _Arora, _Lunascape, _QupZilla, _Coc_Coc, _Kindle, _Iceweasel, _Konqueror, _SeaMonkey, _Epiphany, _Whale, _360, _360EE, _360SE, _360EE_macOS, _360AI, _360AI_macOS, _360ENT, _UC, _QQBrowser, _BaiduBrowser, _Maxthon, _Sogou, _Liebao, _2345Browser, _115Browser, _TheWorld, _Quark, _Qiyu];
+const brandList = [_HONOR, _Huawei, _OPPO, _Vivo, _Xiaomi, _Meizu, _OnePlus, _Samsung, _Lenovo];
+const appList = [_QQ, _Baidu, _Wechat, _WechatWork, _Taobao, _Alipay, _Weibo, _Douban, _Suning, _iQIYI, _DingTalk, _Douyin, _Toutiao, _Facebook, _WhatsApp, _TikTok, _Line, _Telegram, _Instagram, _X, _Snapchat];
+const robotList = [_Twitterbot, _TelegramBot, _Googlebot, _Baiduspider, _Sogouspider, _Bingbot, _360Spider, _Bytespider, _YisouSpider, _YodaoBot, _YandexBot, _Yahoo, _ChatGPT, _ClaudeBot, _Google_Extended, _Amazonbot, _Headless];
+const engineList = [_WebKit, _Trident, _Gecko, _Servo, _Presto, _KHTML];
+const itemList = [].concat(browserList,brandList,appList,robotList);
+
+itemList.forEach(item=>{
     if(!item.is){
         item.is = async function(){
             return item.parse().is;
@@ -120,8 +124,6 @@ browserList.forEach(item=>{
         };
     }
 });
-
-let engineList = [_WebKit, _Trident, _Gecko, _Servo, _Presto, _KHTML];
 engineList.forEach(item=>{
     if(!item.is){
         item.is = async function(){
@@ -154,7 +156,7 @@ export default {
     parse(ua = userAgent){
         let browser = '';
         let browserVersion = '';
-        browserList.forEach(function(item){
+        itemList.forEach(function(item){
             if(item.parse(ua).is){
                 browser = item.name;
                 browserVersion = item.parse(ua).version;
@@ -171,7 +173,7 @@ export default {
         ({engine,browser,browserVersion} = fixedParam({userAgent:ua,engine,browser,browserVersion}));
 
         let isWebview = ua.includes('; wv)');
-        let isRobot = ['Twitterbot', 'TelegramBot', 'Googlebot', 'Baiduspider', 'Sogouspider', 'Bingbot', '360Spider', 'Bytespider', 'YisouSpider', 'YodaoBot', 'YandexBot', 'Yahoo', 'ChatGPT', 'Headless'].includes(browser);
+        let isRobot = robotList.map(item=>item.name).includes(browser);
 
         return {
             browser,
@@ -189,7 +191,7 @@ export default {
             isWebview,
             isRobot
         } = this.parse();
-        for(let loader of browserList){
+        for(let loader of itemList){
             if(await loader.is()){
                 browser = loader.name;
                 browserVersion = await loader.version();
