@@ -163,6 +163,7 @@ console.log('[浏览器指纹]',data.value);
         <tr><td>YandexBot</td><td>Yandex搜索引擎爬虫</td></tr>
         <tr><td>Yahoo</td><td>Yahoo蜘蛛</td></tr>
         <tr><td>TelegramBot</td><td>Telegram蜘蛛</td></tr>
+        <tr><td>ChatGPT</td><td>ChatGPT蜘蛛</td></tr>
         <tr><td>Twitterbot</td><td>Twitter蜘蛛</td></tr>
         <tr><td>ClaudeBot</td><td>Claude Code蜘蛛</td></tr>
         <tr><td>Amazonbot</td><td>Amazon蜘蛛</td></tr>
