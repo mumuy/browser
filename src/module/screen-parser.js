@@ -1,4 +1,5 @@
 import globalThis from './runtime/globalThis.js';
+import deviceParser from './device-parser.js';
 
 async function getScreenFPS(){
     return new Promise(function(resolve){
@@ -35,7 +36,7 @@ export default {
     },
     async getInfo(){
         // 像素比
-        const devicePixelRatio = globalThis?.devicePixelRatio||1;
+        const {devicePixelRatio} = await deviceParser.getInfo();
         // 屏幕尺寸
         const screenDesignWidth = globalThis?.screen?.width||0;        // 逻辑尺寸
         const screenDesignHeight = globalThis?.screen?.height||0;      // 逻辑尺寸
@@ -52,7 +53,6 @@ export default {
         const isTouch = globalThis?.navigator?.maxTouchPoints>0||false;
 
         return {
-            devicePixelRatio,
             screenDesignWidth,
             screenDesignHeight,
             screenWidth,
