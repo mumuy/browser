@@ -34,9 +34,13 @@ export default {
         return {};
     },
     async getInfo(){
+        // 像素比
+        const devicePixelRatio = globalThis?.devicePixelRatio||1;
         // 屏幕尺寸
-        const screenWidth = globalThis?.screen?.width||0;
-        const screenHeight = globalThis?.screen?.height||0;
+        const screenDesignWidth = globalThis?.screen?.width||0;        // 逻辑尺寸
+        const screenDesignHeight = globalThis?.screen?.height||0;      // 逻辑尺寸
+        const screenWidth = screenDesignWidth * devicePixelRatio;
+        const screenHeight = screenDesignHeight * devicePixelRatio;
         const clientWidth = globalThis?.document?.documentElement?.clientWidth||globalThis?.document?.body?.clientWidth||0;
         const clientHeight = globalThis?.document?.documentElement?.clientHeight||globalThis?.document?.body?.clientHeight||0;
         // 屏幕刷新率
@@ -48,6 +52,9 @@ export default {
         const isTouch = globalThis?.navigator?.maxTouchPoints>0||false;
 
         return {
+            devicePixelRatio,
+            screenDesignWidth,
+            screenDesignHeight,
             screenWidth,
             screenHeight,
             clientWidth,
@@ -56,7 +63,7 @@ export default {
             screenColorDepth,
             screenPixelDepth,
             screenOrientation,
-            isTouch,
+            isTouch
         };
     }
 }
