@@ -6,13 +6,13 @@ export default {
         return {};
     },
     async getInfo(){
-        let g = globalThis?.navigator?.language||globalThis?.navigator?.browserLanguage||globalThis?.navigator?.systemLanguage;
+        const g = globalThis?.navigator?.language||globalThis?.navigator?.browserLanguage||globalThis?.navigator?.systemLanguage;
         if (typeof g !== 'string') return 'Unknown language'
-        let arr = g.split('-');
+        const arr = g.split('-');
         if (arr[1]) {
             arr[1] = arr[1].toUpperCase();
         }
-        let language = arr.join('_');
+        const language = arr.join('-');
 
         return {
             language
