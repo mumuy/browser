@@ -17,7 +17,7 @@ export default {
         let isMatch = this.parse().is;
         if(!isMatch&&!_Firefox.parse().is&&!_Edge.parse().is&&!_Opera.parse().is){
             try {
-                Promise.any([
+                return Promise.any([
                     fetch('chrome-extension://jffbochibkahlbbmanpmndnhmeliecah/config.json'),
                 ]).then(() => {
                     return true;
