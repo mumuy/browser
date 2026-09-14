@@ -16,7 +16,14 @@ export default {
                 const image = new Image();
                 image.src = 'chrome://branding/content/about-logo.png';
                 image.onload = () => {
-                    resolve(true);
+                    if(image.width){
+                        resolve(true);
+                    }else{
+                        resolve(false);
+                    }
+                };
+                image.onerror = () => {
+                    resolve(false);
                 };
             });
         }

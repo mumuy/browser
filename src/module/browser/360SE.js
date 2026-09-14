@@ -41,15 +41,6 @@ export default {
             }
         }
         if(!isMatch&&!_Firefox.parse().is&&!_Edge.parse().is&&!_Opera.parse().is){
-            const imageSuccess = await (new Promise((resolve) => {
-                const image = new Image();
-                image.src = 'chrome://settings/ui/resources/icon_se.png';
-                image.onload = () => resolve(true);
-                image.onerror = () => resolve(false);
-            }))();
-            if(imageSuccess){
-                return true;
-            }
             try {
                 Promise.any([
                     fetch('chrome-extension://fjbbmgamncjadhlpmffehlmmkdnkiadk/css/content.css'),
