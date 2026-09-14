@@ -85,7 +85,7 @@ console.log('[浏览器指纹]',data.value);
         <tr><th>名称</th><th>值</th><th>描述</th></tr>
     </thead>
     <tbody>
-        <tr><td rowspan="21">国外浏览器</td><td>Chrome</td><td>谷歌浏览器</td></tr>
+        <tr><td rowspan="22">国外浏览器</td><td>Chrome</td><td>谷歌浏览器</td></tr>
         <tr><td>Chromium</td><td>谷歌浏览器开源版</td></tr>
         <tr><td>IE</td><td>微软IE浏览器</td></tr>
         <tr><td>Edge</td><td>微软新一代浏览器</td></tr>
@@ -106,6 +106,7 @@ console.log('[浏览器指纹]',data.value);
         <tr><td>SeaMonkey</td><td>丰年虾浏览器，Mozilla基金会建构</td></tr>
         <tr><td>Epiphany</td><td>GNOME 桌面下的主力浏览器</td></tr>
         <tr><td>Whate</td><td>韩国互联网公司Naver推出浏览器</td></tr>
+        <tr><td>WaterFox</td><td>水狐浏览器(基于Firefox源码二次开发)</td></tr>
         <tr><td rowspan="16">国内浏览器</td><td>360</td><td>360浏览器(手机版)</td></tr>
         <tr><td>360SE</td><td>360安全浏览器</td></tr>
         <tr><td>360EE</td><td>360极速浏览器</td></tr>
