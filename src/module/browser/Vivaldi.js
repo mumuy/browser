@@ -15,24 +15,27 @@ export default {
     },
     async is(){
         let isMatch = this.parse().is;
-        return new Promise(function(resolve){
-            if(!isMatch&&!_Firefox.parse().is&&!_Edge.parse().is&&!_Opera.parse().is){
-                fetch('chrome-extension://jffbochibkahlbbmanpmndnhmeliecah/config.json').then(function(){
-                    resolve(true);
-                }).catch(function(){
-                    resolve(false);
+        if(!isMatch&&!_Firefox.parse().is&&!_Edge.parse().is&&!_Opera.parse().is){
+            try {
+                Promise.any([
+                    fetch('chrome-extension://jffbochibkahlbbmanpmndnhmeliecah/config.json'),
+                ]).then(() => {
+                    return true;
+                }).catch(() => {
+                    return false;
                 });
-            }else{
-                resolve(false);
-            } 
-        });
+            } catch (error) {
+                return false;
+            }
+        }
+        return isMatch;
     },
     async version() {
         if (navigator.userAgentData?.getHighEntropyValues) {
             const item = await navigator.userAgentData.getHighEntropyValues([
                 'brands'
             ]);
-            return item.brands.find(temp=>temp.brand=='Vivaldi').version|| '';
+            return item.brands.find(temp=>temp.brand=='Vivaldi')?.version|| '';
         }
         return this.parse().version;
     }
