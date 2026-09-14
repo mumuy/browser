@@ -123,7 +123,7 @@ console.log('[浏览器指纹]',data.value);
         <tr><td>TheWorld</td><td>世界之窗浏览器</td></tr>
         <tr><td>Qiyu</td><td>旗鱼浏览器</td></tr>
         <tr><td>Quark</td><td>夸克浏览器</td></tr>
-        <tr><td rowspan="9">手机厂商</td><td>Huawei</td><td>华为浏览器</td></tr>
+        <tr><td rowspan="10">手机厂商</td><td>Huawei</td><td>华为浏览器</td></tr>
         <tr><td>HONOR</td><td>荣耀浏览器</td></tr>
         <tr><td>OPPO</td><td>OPPO浏览器</td></tr>
         <tr><td>Vivo</td><td>Vivo浏览器</td></tr>
@@ -132,6 +132,7 @@ console.log('[浏览器指纹]',data.value);
         <tr><td>OnePlus</td><td>一加浏览器</td></tr>
         <tr><td>Samsung</td><td>三星浏览器</td></tr>
         <tr><td>Lenovo</td><td>联想浏览器</td></tr>
+        <tr><td>nubia</td><td>努比亚浏览器</td></tr>
         <tr><td rowspan="20">客户端</td><td>QQ</td><td>QQ客户端</td></tr>
         <tr><td>Wechat</td><td>微信手机客户端</td></tr>
         <tr><td>WechatWork</td><td>企业微信客户端</td></tr>
