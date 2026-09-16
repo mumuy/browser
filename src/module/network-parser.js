@@ -8,9 +8,11 @@ export default {
     },
     async getInfo(){
         let network = 'unknown';
+        let bandWidth = 0;
         let connection = globalThis?.navigator?.connection;
         if(connection){
             network = connection.type || connection.effectiveType;
+            bandWidth = connection.downlink || 0;
             if(network == '2' || network == 'unknown'){
                 network = 'wifi';
             }
@@ -19,6 +21,7 @@ export default {
         let ip = await getPublicIP();
         return {
             network,
+            bandWidth,
             isOnline,
             ip
         };

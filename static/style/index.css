@@ -81,6 +81,18 @@
     font-size: 13px;
     color: #999;
 }
+.mod-panel td .text-green{
+    color: #4bae4f;
+}
+.mod-panel td .text-green-light{
+    color: #4bae4f99;
+}
+.mod-panel td .text-red-light{
+    color: #f5695499;
+}
+.mod-panel td .text-red{
+    color: #f56954;
+}
 .mod-panel td .text-gray{
     color: #999;
 }

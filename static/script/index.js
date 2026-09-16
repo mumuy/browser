@@ -97,6 +97,73 @@ let info = {
 };
 let browserList = ['Chrome','Safari','Firefox','Edge','IE','Opera','360','360SE','360EE','360AI','QQBrowser','Sogou','Liebao','Maxthon','TheWorld','Quark','2345Browser','115Browser','UC','QQ','Wechat','Yandex','Vivaldi','Vivo','Meizu','Xiaomi','OPPO','OnePlus','Huawei','HONOR','Lenovo','Brave','Alipay','Taobao','Toutiao','Whale','Samsung','Waterfox'];
 let systemList = ['Windows','Windows Phone','Linux','Android','macOS','iOS','HarmonyOS','FreeBSD','Debian','Ubuntu','UOS','BlackBerry','Chrome OS'];
+const languageMap = {
+    // 中文与大中华地区
+    "zh-CN": "简体中文（中国大陆）",
+    "zh-TW": "繁体中文（中国台湾）",
+    "zh-HK": "繁体中文（中国香港）",
+    "zh-SG": "简体中文（新加坡）",
+
+    // 英语及主要英语国家
+    "en-US": "英语（美国）",
+    "en-GB": "英语（英国）",
+    "en-CA": "英语（加拿大）",
+    "en-AU": "英语（澳大利亚）",
+    "en-NZ": "英语（新西兰）",
+    "en-ZA": "英语（南非）",
+    "en-IN": "英语（印度）",
+
+    // 欧洲主要语言
+    "de-DE": "德语（德国）",
+    "de-AT": "德语（奥地利）",
+    "de-CH": "德语（瑞士）",
+    "fr-FR": "法语（法国）",
+    "fr-CA": "法语（加拿大）",
+    "fr-CH": "法语（瑞士）",
+    "es-ES": "西班牙语（西班牙）",
+    "es-MX": "西班牙语（墨西哥）",
+    "es-AR": "西班牙语（阿根廷）",
+    "pt-BR": "葡萄牙语（巴西）",
+    "pt-PT": "葡萄牙语（葡萄牙）",
+    "it-IT": "意大利语（意大利）",
+    "ru-RU": "俄语（俄罗斯）",
+    "nl-NL": "荷兰语（荷兰）",
+    "nl-BE": "荷兰语（比利时）",
+    "pl-PL": "波兰语（波兰）",
+    "uk-UA": "乌克兰语（乌克兰）",
+    "el-GR": "希腊语（希腊）",
+    "sv-SE": "瑞典语（瑞典）",
+    "fi-FI": "芬兰语（芬兰）",
+    "da-DK": "丹麦语（丹麦）",
+    "no-NO": "挪威语（挪威）",
+    "cs-CZ": "捷克语（捷克）",
+    "hu-HU": "匈牙利语（匈牙利）",
+    "ro-RO": "罗马尼亚语（罗马尼亚）",
+
+    // 亚洲主要语言
+    "ja-JP": "日语（日本）",
+    "ko-KR": "韩语（韩国）",
+    "hi-IN": "印地语（印度）",
+    "bn-BD": "孟加拉语（孟加拉国）",
+    "id-ID": "印度尼西亚语（印尼）",
+    "ms-MY": "马来语（马来西亚）",
+    "vi-VN": "越南语（越南）",
+    "th-TH": "泰语（泰国）",
+    "fil-PH": "菲律宾语（菲律宾）",
+    "kk-KZ": "哈萨克语（哈萨克斯坦）",
+
+    // 中东及非洲主要语言
+    "ar-SA": "阿拉伯语（沙特阿拉伯）",
+    "ar-EG": "阿拉伯语（埃及）",
+    "ar-AE": "阿拉伯语（阿联酋）",
+    "he-IL": "希伯来语（以色列）",
+    "fa-IR": "波斯语（伊朗）",
+    "tr-TR": "土耳其语（土耳其）",
+    "sw-KE": "斯瓦希里语（肯尼亚）",
+    "am-ET": "阿姆哈拉语（埃塞俄比亚）",
+    "zu-ZA": "祖鲁语（南非）"
+};
+
 
 let fontList_html = [];
 fontList.forEach(function(item){
@@ -236,11 +303,26 @@ let getTemplate = function(info){
                 </tr>
                 <tr>
                     <td class="th">
-                        <p class="title">图形处理器</p>
+                        <p class="title">CPU逻辑核心数</p>
+                        <p class="subtitle">CPU logical Cores</p>
+                    </td>
+                    <td>${info.cores}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">图形处理器厂家</p>
+                        <p class="subtitle">GPU vendor</p>
+                    </td>
+                    <td>${info.gpu}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">图形处理器型号</p>
                         <p class="subtitle">GPU model</p>
                     </td>
                     <td>${info.gpuModel}</td>
                 </tr>
+                
                 <tr>
                     <td class="th">
                         <p class="title">IP地址</p>
@@ -253,7 +335,7 @@ let getTemplate = function(info){
                         <p class="title">语言</p>
                         <p class="subtitle">Language</p>
                     </td>
-                    <td>${info.language}</td>
+                    <td>${languageMap[info.language] || info.language}</td>
                 </tr>
                 <tr>
                     <td class="th">
@@ -274,7 +356,14 @@ let getTemplate = function(info){
                         <p class="title">是否联网</p>
                         <p class="subtitle">is online</p>
                     </td>
-                    <td>${info.isOnline?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
+                    <td>${info.isOnline?'<span class="text-green">是</span> <span class="text-green-light">(true)</span>':'<span class="text-red">否</span> <span class="text-red-light">(false)</span>'}</td>
+                </tr>
+                <tr>
+                    <td class="th">
+                        <p class="title">带宽</p>
+                        <p class="subtitle">Bandwidth</p>
+                    </td>
+                    <td>${info.bandWidth} <span class="text-gray">Mbps</span></td>
                 </tr>
                 <tr>
                     <td class="th">
@@ -288,35 +377,35 @@ let getTemplate = function(info){
                         <p class="title">是否充电</p>
                         <p class="subtitle">is charging</p>
                     </td>
-                    <td>${info.isCharging?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
+                    <td>${info.isCharging?'<span class="text-green">是</span> <span class="text-green-light">(true)</span>':'<span class="text-red">否</span> <span class="text-red-light">(false)</span>'}</td>
                 </tr>
                 <tr>
                     <td class="th">
                         <p class="title">是否蜘蛛</p>
                         <p class="subtitle">is robot</p>
                     </td>
-                    <td>${info.isRobot?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
+                    <td>${info.isRobot?'<span class="text-green">是</span> <span class="text-green-light">(true)</span>':'<span class="text-red">否</span> <span class="text-red-light">(false)</span>'}</td>
                 </tr>
                 <tr>
                     <td class="th">
                         <p class="title">是否Webview</p>
                         <p class="subtitle">is webview</p>
                     </td>
-                    <td>${info.isWebview?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
+                    <td>${info.isWebview?'<span class="text-green">是</span> <span class="text-green-light">(true)</span>':'<span class="text-red">否</span> <span class="text-red-light">(false)</span>'}</td>
                 </tr>
                 <tr>
                     <td class="th">
                         <p class="title">是否触屏</p>
                         <p class="subtitle">Is Touch Screen</p>
                     </td>
-                    <td>${info.isTouch?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
+                    <td>${info.isTouch?'<span class="text-green">是</span> <span class="text-green-light">(true)</span>':'<span class="text-red">否</span> <span class="text-red-light">(false)</span>'}</td>
                 </tr>
                 <tr>
                     <td class="th">
                         <p class="title">Cookie是否可用</p>
                         <p class="subtitle">Cookie Enabled</p>
                     </td>
-                    <td>${info.cookieEnabled?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</td>
+                    <td>${info.cookieEnabled?'<span class="text-green">是</span> <span class="text-green-light">(true)</span>':'<span class="text-red">否</span> <span class="text-red-light">(false)</span>'}</td>
                 </tr>
                 <tr>
                     <td class="th">
@@ -324,7 +413,7 @@ let getTemplate = function(info){
                         <p class="subtitle">Is Support WebGL</p>
                     </td>
                     <td>
-                        <div>${browser.isSupport('webgl')?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</div>
+                        <div>${browser.isSupport('webgl')?'<span class="text-green">是</span> <span class="text-green-light">(true)</span>':'<span class="text-red">否</span> <span class="text-red-light">(false)</span>'}</div>
                     </td>
                 </tr>
                 <tr>
@@ -333,7 +422,7 @@ let getTemplate = function(info){
                         <p class="subtitle">Is Support NFC</p>
                     </td>
                     <td>
-                        <div>${browser.isSupport('nfc')?'是 <span class="text-gray">(true)</span>':'否 <span class="text-gray">(false)</span>'}</div>
+                        <div>${browser.isSupport('nfc')?'<span class="text-green">是</span> <span class="text-green-light">(true)</span>':'<span class="text-red">否</span> <span class="text-red-light">(false)</span>'}</div>
                     </td>
                 </tr>
                 <tr>

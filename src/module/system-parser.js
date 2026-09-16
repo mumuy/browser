@@ -119,12 +119,19 @@ export default {
             architecture = await globalThis.navigator.userAgentData?.getHighEntropyValues(['architecture']).then(item => item.architecture||architecture);
             bitness =  await globalThis.navigator.userAgentData?.getHighEntropyValues(['bitness']).then(item => +item.bitness||bitness);
         }
+
+        let cores = 1;
+        if(globalThis?.navigator?.hardwareConcurrency){
+            cores = globalThis.navigator.hardwareConcurrency;
+        }
+
         return {
             system,
             systemVersion,
             platform,
             architecture,
-            bitness
+            bitness,
+            cores
         };
     }
 }
