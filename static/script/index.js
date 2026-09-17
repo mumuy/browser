@@ -1,8 +1,23 @@
 let fontList = [
-    // Windows
+    // 英文字体
     ['Tahoma','Tahoma'],
     ['Times New Roman','Times New Roman'],
     ['Verdana','Verdana'],
+    ['Helvetica','Helvetica'],
+    ['Segoe UI','Segoe UI'],
+    ['Roboto','Roboto'],
+    ['Trebuchet MS','Trebuchet MS'],
+    ['Georgia','Georgia'],
+    ['Garamond','Garamond'],
+    ['Baskerville','Baskerville'],
+    ['Courier New','Courier New'],
+    ['Consolas','Consolas'],
+    ['Monaco','Monaco'],
+    ['Fira Code','Fira Code'],
+    ['Comic Sans MS','Comic Sans MS'],
+    ['Brush Script','Brush Script'],
+    ['Impact','Impact'],
+    // Windows
     ['PMingLiU','新细明体'],
     ['MingLiU','细明体'],
     ['DFKai-SB','标楷体'],
@@ -175,8 +190,6 @@ fontList.forEach(function(item){
         fontList_html.push(`<p style="font-family:${item[0]};">${item[1]}</p>`);
     }
 });
-
-console.log('[普惠体测试]',browser.isSupport('font-family','Alibaba PuHuiTi 2.0'));
 let getTemplate = function(info){
     let system = info.system+' '+info.systemVersion;
     let systemMap = {
