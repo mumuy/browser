@@ -1,5 +1,8 @@
 let fontList = [
     // Windows
+    ['Tahoma','Tahoma'],
+    ['Times New Roman','Times New Roman'],
+    ['Verdana','Verdana'],
     ['PMingLiU','新细明体'],
     ['MingLiU','细明体'],
     ['DFKai-SB','标楷体'],
@@ -62,6 +65,7 @@ let fontList = [
     ['Alimama FangYuanTi VF','阿里妈妈方圆体'],
     ['Alimama DongFangDaKai','阿里妈妈东方大楷'],
     ['Alimama DaoLiTi','阿里妈妈刀隶体'],
+    ['Alimama ShuHeiTi','阿里妈妈数黑体'],
     ['Douyin Sans','抖音美好体'],
     ['OPPO Sans','OPPO Sans'],
 ];
@@ -171,6 +175,8 @@ fontList.forEach(function(item){
         fontList_html.push(`<p style="font-family:${item[0]};">${item[1]}</p>`);
     }
 });
+
+console.log('[普惠体测试]',browser.isSupport('font-family','Alibaba PuHuiTi 2.0'));
 let getTemplate = function(info){
     let system = info.system+' '+info.systemVersion;
     let systemMap = {

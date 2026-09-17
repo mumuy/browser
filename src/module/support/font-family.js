@@ -20,7 +20,7 @@ export default {
         context.textBaseline = "middle";
         let test = function(fontFamily) {
             context.clearRect(0, 0, width, height);
-            context.font = `${fontSize}px ${fontFamily}, ${defaultValue}`;
+            context.font = `${fontSize}px '${fontFamily}', ${defaultValue}`;
             context.fillText(world, width/2, height/2);
             let imageData = context.getImageData(0, 0, width, height).data;
             return [].slice.call(imageData).filter(function(v) {
