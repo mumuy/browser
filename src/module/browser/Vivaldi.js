@@ -18,9 +18,9 @@ export default {
         if(!isMatch&&!_Firefox.parse().is&&!_Edge.parse().is&&!_Opera.parse().is){
             try {
                 return Promise.any([
-                    fetch('chrome-extension://jffbochibkahlbbmanpmndnhmeliecah/config.json', {mode:'same-origin'}),
-                ]).then((res) => {
-                    return !!(res && res.ok);
+                    fetch('chrome-extension://jffbochibkahlbbmanpmndnhmeliecah/config.json'),
+                ]).then(() => {
+                    return true;
                 }).catch(() => {
                     return false;
                 });
